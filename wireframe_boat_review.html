@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ボートレビュー - ボート - KAZI ONLINE ワイヤーフレーム</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #fff; color: #333; font-size: 13px; }
+  .wf-label { text-align: center; padding: 6px; background: #eee; border-bottom: 1px solid #ccc; font-size: 11px; color: #666; }
+  header { border-bottom: 2px solid #333; position: sticky; top: 0; background: #fff; z-index: 200; }
+  .header-top { display: flex; align-items: center; max-width: 1100px; margin: 0 auto; padding: 10px 20px; gap: 14px; }
+  .logo { border: 1px solid #999; padding: 8px 20px; font-size: 15px; font-weight: bold; min-width: 110px; text-align: center; color: #333; background: #f5f5f5; cursor: pointer; text-decoration: none; flex-shrink: 0; }
+  .logo:hover { background: #e8e8e8; }
+  .global-nav { display: flex; flex: 1; border: 1px solid #bbb; position: relative; min-width: 0; }
+  .nav-item { position: relative; flex: 1; min-width: 0; }
+  .nav-item > a { display: block; text-align: center; padding: 10px 2px; border-right: 1px solid #bbb; font-size: 10.5px; color: #333; text-decoration: none; cursor: pointer; white-space: nowrap; transition: background .15s; overflow: hidden; text-overflow: ellipsis; }
+  .nav-item:last-child > a { border-right: none; }
+  .nav-item > a:hover, .nav-item > a.active { background: #333; color: #fff; }
+  .nav-item > a.has-sub::after { content: ' ▾'; font-size: 9px; }
+  .dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #bbb; border-top: none; min-width: 180px; z-index: 300; box-shadow: 0 4px 8px rgba(0,0,0,.12); }
+  .nav-item.open .dropdown { display: block; }
+  .dropdown a { display: block; padding: 8px 14px; font-size: 11px; color: #333; text-decoration: none; border-bottom: 1px solid #eee; white-space: nowrap; }
+  .dropdown a:last-child { border-bottom: none; }
+  .dropdown a:hover { background: #f5f5f5; }
+  .header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .btn-search { border: 1px solid #999; background: #f0f0f0; padding: 8px 12px; font-size: 12px; color: #333; cursor: pointer; }
+  .btn-login { border: 1px solid #555; background: #333; color: #fff; padding: 8px 14px; font-size: 12px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+  .btn-login:hover { background: #555; }
+  .btn-sdclub-fixed { position: fixed; right: 0; top: 50%; transform: translateY(-50%); background: #333; border-left: 3px solid #666; padding: 56px 28px; font-size: 18px; color: #fff; cursor: pointer; z-index: 300; text-align: center; writing-mode: vertical-rl; letter-spacing: 6px; box-shadow: -4px 0 14px rgba(0,0,0,.25); text-decoration: none; line-height: 1; }
+  .btn-sdclub-fixed:hover { background: #555; }
+  .breadcrumb { max-width: 1100px; margin: 0 auto; padding: 12px 20px; font-size: 11px; color: #999; }
+  .breadcrumb a { color: #999; text-decoration: none; }
+  .breadcrumb span { margin: 0 6px; }
+  .cat-hero { background: #f5f5f5; border-bottom: 2px solid #333; padding: 32px 20px; }
+  .cat-hero-inner { max-width: 1100px; margin: 0 auto; }
+  .cat-hero h1 { font-size: 26px; font-weight: bold; color: #222; margin-bottom: 8px; }
+  .cat-hero p { font-size: 13px; color: #666; line-height: 1.7; }
+  .subcat-wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .subcat-tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid #ddd; margin: 20px 0 0; }
+  .subcat-tab { padding: 10px 18px; font-size: 12px; color: #666; cursor: pointer; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; }
+  .subcat-tab:hover { color: #333; }
+  .subcat-tab.active { color: #222; font-weight: bold; border-bottom-color: #333; }
+  main { max-width: 1100px; margin: 0 auto; padding: 20px 20px 48px; }
+  .list-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+  .list-count { font-size: 12px; color: #888; }
+  .list-sort { display: flex; gap: 8px; }
+  .sort-btn { font-size: 11px; color: #888; padding: 4px 10px; border: 1px solid #ddd; cursor: pointer; text-decoration: none; background: #fff; }
+  .sort-btn.active, .sort-btn:hover { background: #333; color: #fff; border-color: #333; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+  .card { border: 1px solid #ccc; background: #fff; cursor: pointer; transition: box-shadow .15s; text-decoration: none; color: inherit; display: block; }
+  .card:hover { box-shadow: 0 3px 10px rgba(0,0,0,.15); }
+  .card-img { background: #e4e4e4; aspect-ratio: 4/3; width: 100%; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 11px; border-bottom: 1px solid #ccc; position: relative; }
+  .card-body { padding: 10px 12px 12px; }
+  .card-cat { font-size: 10px; color: #888; border: 1px solid #ccc; padding: 1px 6px; display: inline-block; margin-bottom: 5px; }
+  .card-title { font-size: 12px; color: #333; line-height: 1.5; }
+  .card-meta { font-size: 10px; color: #aaa; margin-top: 5px; }
+  .badge-new { position: absolute; top: 8px; left: 8px; background: #c00; color: #fff; font-size: 10px; padding: 2px 7px; font-weight: bold; }
+  .pagination { display: flex; justify-content: center; gap: 4px; margin: 8px 0 40px; }
+  .page-btn { border: 1px solid #ddd; padding: 8px 14px; font-size: 12px; color: #555; cursor: pointer; text-decoration: none; background: #fff; }
+  .page-btn:hover { background: #f5f5f5; }
+  .page-btn.active { background: #333; color: #fff; border-color: #333; }
+  .cta-sdclub { border: 2px solid #555; background: #f0f0f0; padding: 40px 48px; margin: 8px 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .cta-sdclub .cta-text h3 { font-size: 20px; font-weight: bold; color: #222; }
+  .cta-sdclub .cta-text p { font-size: 13px; color: #666; margin-top: 8px; }
+  .cta-btn { border: 2px solid #555; background: #fff; padding: 14px 36px; font-size: 13px; color: #333; white-space: nowrap; cursor: pointer; text-decoration: none; flex-shrink: 0; }
+  .cta-btn:hover { background: #e8e8e8; }
+  footer { border-top: 2px solid #333; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-links { padding: 44px 20px 36px; display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid #ddd; }
+  .footer-links a { font-size: 13px; color: #555; text-decoration: none; }
+  .footer-links a:hover { text-decoration: underline; }
+  .footer-links .sep { color: #ccc; font-size: 13px; }
+  .footer-bottom { text-align: center; padding: 24px; font-size: 12px; color: #aaa; }
+  #toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #333; color: #fff; padding: 10px 22px; font-size: 12px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; white-space: nowrap; }
+  #toast.show { opacity: 1; }
+
+  /* ===== 検索ポップアップ ===== */
+  .search-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 500; align-items: center; justify-content: center; padding: 24px; }
+  .search-overlay.open { display: flex; }
+  .search-box { background: #fff; border: 1px solid #bbb; padding: 36px 40px 40px; width: 800px; max-width: 94vw; max-height: 88vh; overflow-y: auto; }
+  .search-box-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .search-box-header h3 { font-size: 17px; font-weight: bold; color: #222; }
+  .search-close { font-size: 22px; color: #aaa; cursor: pointer; line-height: 1; }
+  .search-close:hover { color: #333; }
+  .search-input-row { display: flex; gap: 0; margin-bottom: 28px; }
+  .search-input-row input { flex: 1; border: 2px solid #333; border-right: none; padding: 14px 18px; font-size: 16px; outline: none; }
+  .search-input-row input:focus { border-color: #555; }
+  .search-input-row button { border: 2px solid #333; background: #333; color: #fff; padding: 14px 32px; font-size: 14px; cursor: pointer; white-space: nowrap; }
+  .search-input-row button:hover { background: #555; border-color: #555; }
+  .search-section-title { font-size: 11px; color: #888; font-weight: bold; letter-spacing: 0.5px; border-bottom: 1px solid #eee; padding-bottom: 6px; margin-bottom: 12px; }
+  .search-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 28px; }
+  .search-tag { border: 1px solid #ccc; padding: 6px 14px; font-size: 12px; color: #555; cursor: pointer; text-decoration: none; }
+  .search-tag:hover { background: #f0f0f0; border-color: #999; }
+  .search-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .search-cat-btn { flex: 1; min-width: 88px; max-width: 114px; border: 1px solid #ccc; padding: 14px 8px; text-align: center; cursor: pointer; text-decoration: none; color: #333; font-size: 12px; background: #fafafa; }
+  .search-cat-btn:hover { background: #333; color: #fff; border-color: #333; }
+  .search-cat-symbol { font-size: 20px; margin-bottom: 6px; color: #777; display: block; }
+  .search-cat-btn:hover .search-cat-symbol { color: #fff; }
+  .search-sdc-banner { border: 2px solid #444; background: #2a2a2a; color: #fff; padding: 24px 28px; margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .search-sdc-label { font-size: 10px; color: #aaa; letter-spacing: 2px; margin-bottom: 4px; }
+  .search-sdc-title { font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 6px; }
+  .search-sdc-desc { font-size: 12px; color: #bbb; }
+  .search-sdc-btn { border: 1px solid #888; color: #fff; background: transparent; padding: 10px 22px; font-size: 12px; white-space: nowrap; cursor: pointer; text-decoration: none; flex-shrink: 0; }
+  .search-sdc-btn:hover { background: #444; }
+  .search-featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .search-feat-card { border: 1px solid #ddd; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+  .search-feat-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,.13); }
+  .search-feat-img { background: #e8e8e8; aspect-ratio: 4/3; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #bbb; }
+  .search-feat-body { padding: 8px 10px; }
+  .search-feat-cat { font-size: 10px; color: #888; margin-bottom: 3px; }
+  .search-feat-title { font-size: 11px; color: #333; line-height: 1.45; }
+</style>
+</head>
+<body>
+<!-- 検索ポップアップ -->
+<div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
+  <div class="search-box" onclick="event.stopPropagation()">
+    <div class="search-box-header">
+      <h3>サイト内検索</h3>
+      <span class="search-close" onclick="closeSearchBox()">&#10005;</span>
+    </div>
+    <div class="search-input-row">
+      <input type="text" id="searchInput" placeholder="キーワードを入力してください（例：ルアー釣り、ボート免許、マリーナ）" />
+      <button onclick="toast('検索：「'+document.getElementById('searchInput').value+'」')">検索</button>
+    </div>
+    <div class="search-section-title">よく検索されるキーワード</div>
+    <div class="search-tags">
+      <a class="search-tag" href="#" onclick="fillSearch('ルアー釣り');return false;">ルアー釣り</a>
+      <a class="search-tag" href="#" onclick="fillSearch('マリンウェア');return false;">マリンウェア</a>
+      <a class="search-tag" href="#" onclick="fillSearch('ボート免許');return false;">ボート免許</a>
+      <a class="search-tag" href="#" onclick="fillSearch('マリーナ 関東');return false;">マリーナ 関東</a>
+      <a class="search-tag" href="#" onclick="fillSearch('カヤック 入門');return false;">カヤック 入門</a>
+      <a class="search-tag" href="#" onclick="fillSearch('ヤマハ ボート');return false;">ヤマハ ボート</a>
+      <a class="search-tag" href="#" onclick="fillSearch('ライフジャケット');return false;">ライフジャケット</a>
+      <a class="search-tag" href="#" onclick="fillSearch('ヨット 購入');return false;">ヨット 購入</a>
+      <a class="search-tag" href="#" onclick="fillSearch('釣り 初心者');return false;">釣り 初心者</a>
+      <a class="search-tag" href="#" onclick="fillSearch('Sea Dream Club');return false;">Sea Dream Club</a>
+      <a class="search-tag" href="#" onclick="fillSearch('マリンカレンダー');return false;">マリンカレンダー</a>
+      <a class="search-tag" href="#" onclick="fillSearch('インプレッション');return false;">インプレッション</a>
+    </div>
+    <div class="search-section-title">カテゴリーから探す</div>
+    <div class="search-cats">
+      <a class="search-cat-btn" href="wireframe_news.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ N ]</span>ニュース
+      </a>
+      <a class="search-cat-btn" href="wireframe_fishing.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ F ]</span>フィッシング
+      </a>
+      <a class="search-cat-btn" href="wireframe_gear.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ G ]</span>マリングッズ
+      </a>
+      <a class="search-cat-btn" href="wireframe_yacht.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ Y ]</span>ヨット
+      </a>
+      <a class="search-cat-btn" href="wireframe_boat.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ B ]</span>ボート
+      </a>
+      <a class="search-cat-btn" href="wireframe_marina.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ M ]</span>マリーナ
+      </a>
+      <a class="search-cat-btn" href="wireframe_lifestyle.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ L ]</span>ライフスタイル
+      </a>
+    </div>
+    <div class="search-sdc-banner">
+      <div class="search-sdc-text">
+        <div class="search-sdc-label">MEMBER'S CLUB</div>
+        <div class="search-sdc-title">Sea Dream Club</div>
+        <div class="search-sdc-desc">会員限定コンテンツ・特典・イベント情報をいち早くお届けします</div>
+      </div>
+      <a class="search-sdc-btn" href="wireframe_sdclub.html" onclick="closeSearchBox()">無料登録はこちら</a>
+    </div>
+    <div class="search-section-title">注目の記事</div>
+    <div class="search-featured">
+      <a class="search-feat-card" href="wireframe_article.html">
+        <div class="search-feat-img">画像</div>
+        <div class="search-feat-body">
+          <div class="search-feat-cat">フィッシング</div>
+          <div class="search-feat-title">ルアーフィッシング完全ガイド：タックル選びから釣り方まで</div>
+        </div>
+      </a>
+      <a class="search-feat-card" href="wireframe_article.html">
+        <div class="search-feat-img">画像</div>
+        <div class="search-feat-body">
+          <div class="search-feat-cat">ボート</div>
+          <div class="search-feat-title">2025年最新ボートインプレッション</div>
+        </div>
+      </a>
+      <a class="search-feat-card" href="wireframe_article.html">
+        <div class="search-feat-img">画像</div>
+        <div class="search-feat-body">
+          <div class="search-feat-cat">マリーナ</div>
+          <div class="search-feat-title">マリーナマップで探す全国551カ所</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="wf-label">WIREFRAME — ボート > ボートレビュー</div>
+<header>
+  <div class="header-top">
+    <a href="wireframe_top.html" class="logo">KAZI ONLINE</a>
+    <nav class="global-nav">
+      <div class="nav-item"><a href="wireframe_news.html" class="has-sub">ニュース</a><div class="dropdown"><a href="wireframe_news.html">新着ニュース</a><a href="wireframe_news_products.html">新製品・新着</a><a href="wireframe_news_events.html">イベント情報</a><a href="wireframe_news_ranking.html">人気ランキング</a><a href="wireframe_news_exhibition.html">展示会</a></div></div>
+      <div class="nav-item"><a href="wireframe_fishing.html" class="has-sub">フィッシング</a><div class="dropdown"><a href="wireframe_fishing.html">新着</a><a href="wireframe_fishing_lure.html">ルアーフィッシング</a><a href="wireframe_fishing_tackle.html">タックル・ギア</a><a href="wireframe_fishing_species.html">魚種別ガイド</a><a href="wireframe_fishing_beginner.html">フィッシング入門</a></div></div>
+      <div class="nav-item"><a href="wireframe_gear.html" class="has-sub">マリングッズ・ギア</a><div class="dropdown"><a href="wireframe_gear.html">新着</a><a href="wireframe_gear_wear.html">マリンウェア（機能系）</a><a href="wireframe_gear_lifejacket.html">ライフジャケット・安全器具</a><a href="wireframe_gear_paddle.html">パドルスポーツ用品</a><a href="wireframe_gear_list.html">マリングッズ一覧</a></div></div>
+      <div class="nav-item"><a href="wireframe_yacht.html" class="has-sub">ヨット</a><div class="dropdown"><a href="wireframe_yacht.html">新着</a><a href="wireframe_yacht_review.html">最新ヨットレビュー</a><a href="wireframe_yacht_technique.html">セーリング技術</a><a href="wireframe_yacht_race.html">レース情報</a><a href="wireframe_yacht_guide.html">購入ガイド</a></div></div>
+      <div class="nav-item"><a href="wireframe_boat.html" class="has-sub active">ボート</a><div class="dropdown"><a href="wireframe_boat.html">新着</a><a href="wireframe_boat_review.html">ボートレビュー</a><a href="wireframe_boat_technique.html">操縦テクニック</a><a href="wireframe_boat_2hp.html">2馬力ボート特集</a><a href="wireframe_boat_trailable.html">トレーラブルボート</a><a href="wireframe_boat_guide.html">購入ガイド</a></div></div>
+      <div class="nav-item"><a href="wireframe_marina.html" class="has-sub">マリーナ</a><div class="dropdown"><a href="wireframe_marina.html">新着</a><a href="wireframe_marina_list.html">全国マリーナ一覧</a><a href="wireframe_marina_area.html">エリア別マリーナ検索</a><a href="wireframe_marina_map.html">マリーナマップ（地図）</a></div></div>
+      <div class="nav-item"><a href="wireframe_lifestyle.html" class="has-sub">ライフスタイル</a><div class="dropdown"><a href="wireframe_lifestyle.html">新着</a><a href="wireframe_lifestyle_fashion.html">マリンウェア・ファッション</a><a href="wireframe_lifestyle_gourmet.html">グルメ</a><a href="wireframe_lifestyle_hotel.html">ホテル・リゾート</a><a href="wireframe_lifestyle_travel.html">トラベル</a><a href="wireframe_lifestyle_goods.html">グッズ</a><a href="wireframe_lifestyle_calendar.html">マリンカレンダー</a></div></div>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-search" onclick="openSearch()">検索</button>
+      <a href="#" class="btn-login" onclick="toast('ログインへ');return false;">ログイン</a>
+    </div>
+  </div>
+</header>
+<a href="wireframe_sdclub.html" class="btn-sdclub-fixed">Sea Dream Club</a>
+<div class="breadcrumb"><a href="wireframe_top.html">TOP</a><span>></span><a href="wireframe_boat.html">ボート</a><span>></span>ボートレビュー</div>
+<div class="cat-hero"><div class="cat-hero-inner"><h1>ボートレビュー</h1><p>国内外の最新ボートを実際に試乗したプロのレビュー。フィッシング・クルーザー・ウェイクボートまで幅広く紹介します。</p></div></div>
+<div class="subcat-wrap"><div class="subcat-tabs">
+  <a href="wireframe_boat.html" class="subcat-tab">すべて</a>
+  <a href="wireframe_boat_review.html" class="subcat-tab active">ボートレビュー</a>
+  <a href="wireframe_boat_technique.html" class="subcat-tab">操縦テクニック</a>
+  <a href="wireframe_boat_2hp.html" class="subcat-tab">2馬力ボート特集</a>
+  <a href="wireframe_boat_trailable.html" class="subcat-tab">トレーラブルボート</a>
+  <a href="wireframe_boat_guide.html" class="subcat-tab">購入ガイド</a>
+</div></div>
+<main>
+  <div class="list-toolbar"><div class="list-count">全 92 件</div><div class="list-sort"><a href="#" class="sort-btn active">新着順</a><a href="#" class="sort-btn">人気順</a></div></div>
+  <div class="grid-4">
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=%E3%83%A4%E3%83%9E%E3%83%8F%E5%8F%91%E5%A3%B2+F24+%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%B3%E3%82%B0%E3%83%9C%E3%83%BC%E3%83%88+%E5%AE%8C%E5%85%A8%E8%A9%A6%E4%B9%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC" class="card"><div class="card-img">記事画像<div class="badge-new">NEW</div></div><div class="card-body"><span class="card-cat">ボート</span><div class="card-title">ヤマハ発売 F24 フィッシングボート 完全試乗レビュー</div><div class="card-meta">2026.03.09</div></div></a>
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=%E3%82%B9%E3%82%BA%E3%82%AD%E3%83%9E%E3%83%AA%E3%83%B3+DF250+%E6%90%AD%E8%BC%89%E3%83%A2%E3%83%87%E3%83%AB+%E3%83%91%E3%83%AF%E3%83%BC%E3%83%86%E3%82%B9%E3%83%88" class="card"><div class="card-img">記事画像</div><div class="card-body"><span class="card-cat">ボート</span><div class="card-title">スズキマリン DF250 搭載モデル パワーテスト</div><div class="card-meta">2026.03.06</div></div></a>
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=%E8%BC%B8%E5%85%A5%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%88+30%E3%83%95%E3%82%A3%E3%83%BC%E3%83%88%E3%82%AF%E3%83%A9%E3%82%B9+%E5%9B%BD%E5%86%85%E5%B8%82%E5%A0%B4%E5%88%86%E6%9E%90" class="card"><div class="card-img">記事画像</div><div class="card-body"><span class="card-cat">ボート</span><div class="card-title">輸入クルーザーボート 30フィートクラス 国内市場分析</div><div class="card-meta">2026.03.03</div></div></a>
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=%E3%82%A6%E3%82%A7%E3%82%A4%E3%82%AF%E3%83%9C%E3%83%BC%E3%83%88%E6%AF%94%E8%BC%83+2026%E5%B9%B4%E3%83%A2%E3%83%87%E3%83%AB%E5%85%A8%E6%8E%B2%E8%BC%89" class="card"><div class="card-img">記事画像</div><div class="card-body"><span class="card-cat">ボート</span><div class="card-title">ウェイクボート比較 2026年モデル全掲載</div><div class="card-meta">2026.02.27</div></div></a>
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=%E3%82%A2%E3%83%AB%E3%83%9F%E3%83%9C%E3%83%BC%E3%83%88+vs+%E3%83%95%E3%82%A1%E3%82%A4%E3%83%90%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%88+%E7%B4%A0%E6%9D%90%E5%88%A5%E5%BE%B9%E5%BA%95%E6%AF%94%E8%BC%83" class="card"><div class="card-img">記事画像</div><div class="card-body"><span class="card-cat">ボート</span><div class="card-title">アルミボート vs ファイバーボート 素材別徹底比較</div><div class="card-meta">2026.02.21</div></div></a>
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=%E3%83%9C%E3%83%BC%E3%83%88%E3%82%B7%E3%83%A7%E3%83%BC2026+%E6%B3%A8%E7%9B%AE%E6%96%B0%E3%83%A2%E3%83%87%E3%83%AB10%E9%9B%BB" class="card"><div class="card-img">記事画像</div><div class="card-body"><span class="card-cat">ボート</span><div class="card-title">ボートショー2026 注目新モデル10艇</div><div class="card-meta">2026.02.15</div></div></a>
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%86%E3%82%B9%E3%83%88%EF%BC%9A%E6%97%A5%E6%9C%AC%E6%B5%B7%E3%81%A7%E3%81%AE%E4%B9%97%E3%82%8A%E5%BF%B3%E5%9C%B0%E6%AF%94%E8%BC%83" class="card"><div class="card-img">記事画像</div><div class="card-body"><span class="card-cat">ボート</span><div class="card-title">ハンドリングテスト：日本海での乗り心地比較</div><div class="card-meta">2026.02.09</div></div></a>
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=%E5%B0%8F%E5%9E%8B%E3%83%9C%E3%83%BC%E3%83%88%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC+14%EF%BD%9E19%E3%83%95%E3%82%A3%E3%83%BC%E3%83%88%E3%82%AF%E3%83%A9%E3%82%B9%E7%B7%8F%E3%81%BE%E3%81%A8%E3%82%81" class="card"><div class="card-img">記事画像</div><div class="card-body"><span class="card-cat">ボート</span><div class="card-title">小型ボートレビュー 14〜19フィートクラス総まとめ</div><div class="card-meta">2026.02.03</div></div></a>
+  </div>
+  <div class="pagination"><a href="#" class="page-btn">前へ</a><a href="#" class="page-btn active">1</a><a href="#" class="page-btn">2</a><a href="#" class="page-btn">3</a><a href="#" class="page-btn">...</a><a href="#" class="page-btn">次へ</a></div>
+  <div class="cta-sdclub"><div class="cta-text"><h3>Sea Dream Club 会員募集中</h3><p>限定コンテンツ、イベント優先参加、会員特典など。マリンライフをもっと豊かに。</p></div><a href="wireframe_sdclub.html" class="cta-btn">無料で会員登録する</a></div>
+</main>
+<footer><div class="footer-inner"><div class="footer-links"><a href="wireframe_top.html">TOPへ戻る</a><span class="sep">|</span><a href="wireframe_entry.html">エントリーガイド</a><span class="sep">|</span><a href="wireframe_maker.html">メーカー&amp;ビルダー</a><span class="sep">|</span><a href="#">月刊Kazi</a><span class="sep">|</span><a href="wireframe_sdclub.html">Sea Dream Club</a><span class="sep">|</span><a href="#">KAZIシープラザ</a><span class="sep">|</span><a href="wireframe_contact.html">お問い合わせ</a><span class="sep">|</span><a href="wireframe_privacy.html">プライバシーポリシー</a><span class="sep">|</span><a href="wireframe_company.html">会社概要</a></div><div class="footer-bottom">© KAZI Online　All Rights Reserved.</div></div></footer>
+<div id="toast"></div>
+<script>
+  let toastTimer;
+  function toast(msg) { const el = document.getElementById('toast'); el.textContent = '→ ' + msg; el.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 2000); }
+  document.querySelectorAll('.sort-btn').forEach(btn => { btn.addEventListener('click', e => { e.preventDefault(); document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }); });
+
+  // ドロップダウン クリック開閉
+  document.querySelectorAll('.nav-item > a.has-sub').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var item = this.closest('.nav-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.nav-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-item')) {
+      document.querySelectorAll('.nav-item').forEach(function(i) { i.classList.remove('open'); });
+    }
+  });
+
+  // ===== 検索ポップアップ =====
+  function openSearch() { document.getElementById('searchOverlay').classList.add('open'); }
+  function closeSearchBox() { document.getElementById('searchOverlay').classList.remove('open'); }
+  function closeSearch(e) { if (e.target === document.getElementById('searchOverlay')) closeSearchBox(); }
+  function fillSearch(kw) { var el = document.getElementById('searchInput'); if(el){ el.value = kw; el.focus(); } }
+  </script>
+</body>
+</html>

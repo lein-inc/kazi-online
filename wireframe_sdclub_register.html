@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会員登録 - Sea Dream Club - KAZI ONLINE ワイヤーフレーム</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #fff; color: #333; font-size: 13px; }
+
+  .wf-label {
+    text-align: center; padding: 6px;
+    background: #eee; border-bottom: 1px solid #ccc;
+    font-size: 11px; color: #666;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    border-bottom: 2px solid #333;
+    position: sticky; top: 0; background: #fff; z-index: 200;
+  }
+  .header-top {
+    display: flex; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+    padding: 10px 20px; gap: 14px;
+  }
+  .logo {
+    border: 1px solid #999; padding: 8px 20px;
+    font-size: 15px; font-weight: bold; min-width: 110px;
+    text-align: center; color: #333; background: #f5f5f5;
+    cursor: pointer; text-decoration: none; flex-shrink: 0;
+  }
+  .logo:hover { background: #e8e8e8; }
+  .global-nav { display: flex; flex: 1; border: 1px solid #bbb; position: relative; min-width: 0; }
+  .nav-item { position: relative; flex: 1; min-width: 0; }
+  .nav-item > a {
+    display: block; text-align: center; padding: 10px 2px;
+    border-right: 1px solid #bbb; font-size: 10.5px; color: #333;
+    text-decoration: none; cursor: pointer; white-space: nowrap;
+    transition: background .15s; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-item:last-child > a { border-right: none; }
+  .nav-item > a:hover { background: #333; color: #fff; }
+  .header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .btn-search {
+    border: 1px solid #999; background: #f0f0f0;
+    padding: 8px 12px; font-size: 12px; color: #333; cursor: pointer;
+  }
+  .btn-login {
+    border: 1px solid #555; background: #333; color: #fff;
+    padding: 8px 14px; font-size: 12px; cursor: pointer;
+    text-decoration: none; white-space: nowrap;
+  }
+  .btn-login:hover { background: #555; }
+
+  /* Sea Dream Club 追従ボタン */
+  .btn-sdclub-fixed {
+    position: fixed; right: 0; top: 50%;
+    transform: translateY(-50%);
+    background: #1a3a5c; border-left: 3px solid #2a5a8c;
+    padding: 56px 28px; font-size: 18px; color: #fff;
+    cursor: pointer; z-index: 300; text-align: center;
+    writing-mode: vertical-rl; letter-spacing: 6px;
+    box-shadow: -4px 0 14px rgba(0,0,0,.3);
+    text-decoration: none; line-height: 1;
+  }
+  .btn-sdclub-fixed:hover { background: #2a5a8c; }
+
+  /* ===== BREADCRUMB ===== */
+  .breadcrumb {
+    font-size: 11px; color: #999;
+    padding: 12px 20px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .breadcrumb a { color: #999; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb .sep { margin: 0 6px; }
+
+  /* ===== PAGE HEADER ===== */
+  .page-hero {
+    background: #111; color: #fff;
+    padding: 48px 20px; text-align: center;
+  }
+  .page-hero-eyebrow {
+    font-size: 11px; letter-spacing: 4px; color: #aaa;
+    border: 1px solid #555; display: inline-block;
+    padding: 4px 16px; margin-bottom: 16px;
+  }
+  .page-hero h1 { font-size: 28px; font-weight: bold; margin-bottom: 10px; letter-spacing: 2px; }
+  .page-hero p { font-size: 13px; color: #aaa; }
+
+  /* ===== FORM ===== */
+  .form-wrap {
+    max-width: 640px; margin: 0 auto; padding: 48px 20px 64px;
+  }
+  .form-section-title {
+    font-size: 16px; font-weight: bold; color: #222;
+    border-bottom: 2px solid #333; padding-bottom: 10px;
+    margin-bottom: 28px; margin-top: 48px;
+  }
+  .form-section-title:first-child { margin-top: 0; }
+  .form-group { margin-bottom: 22px; }
+  .form-label {
+    display: block; font-size: 12px; font-weight: bold;
+    color: #333; margin-bottom: 6px;
+  }
+  .form-label .required {
+    font-size: 10px; color: #c00; margin-left: 6px;
+    font-weight: normal;
+  }
+  .form-label .optional {
+    font-size: 10px; color: #999; margin-left: 6px;
+    font-weight: normal;
+  }
+  .form-hint {
+    font-size: 11px; color: #999; margin-top: 4px;
+  }
+  .form-input {
+    width: 100%; border: 1px solid #ccc; padding: 10px;
+    font-size: 13px; color: #333; outline: none;
+    background: #fff;
+  }
+  .form-input:focus { border-color: #555; }
+  .form-select {
+    width: 100%; border: 1px solid #ccc; padding: 10px;
+    font-size: 13px; color: #333; outline: none;
+    background: #fff; appearance: auto;
+  }
+  .form-select:focus { border-color: #555; }
+
+  /* ラジオ・チェックボックス */
+  .form-radio-group, .form-check-group {
+    display: flex; flex-wrap: wrap; gap: 8px 20px;
+    margin-top: 4px;
+  }
+  .form-radio-group label, .form-check-group label {
+    font-size: 13px; color: #333; cursor: pointer;
+    display: flex; align-items: center; gap: 5px;
+  }
+
+  /* チェックボックスグリッド */
+  .form-check-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px 20px; margin-top: 4px;
+  }
+  .form-check-grid label {
+    font-size: 13px; color: #333; cursor: pointer;
+    display: flex; align-items: center; gap: 5px;
+    padding: 8px 12px; border: 1px solid #ddd;
+    transition: border-color .15s, background .15s;
+  }
+  .form-check-grid label:hover {
+    border-color: #999; background: #f9f9f9;
+  }
+
+  /* 同意チェック */
+  .form-agree {
+    margin-top: 36px; padding: 24px;
+    border: 1px solid #ddd; background: #fafafa;
+  }
+  .form-agree label {
+    font-size: 13px; color: #333; cursor: pointer;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .form-agree label input { margin-top: 2px; }
+  .form-agree a { color: #333; }
+
+  /* 送信ボタン */
+  .form-submit {
+    display: block; width: 100%;
+    border: 2px solid #333; background: #333; color: #fff;
+    padding: 16px 20px; font-size: 15px; font-weight: bold;
+    cursor: pointer; transition: background .15s;
+    margin-top: 32px; text-align: center; letter-spacing: 1px;
+  }
+  .form-submit:hover { background: #555; border-color: #555; }
+  .form-back-link {
+    display: block; text-align: center;
+    margin-top: 16px; font-size: 12px; color: #888;
+  }
+  .form-back-link a { color: #888; }
+  .form-back-link a:hover { color: #333; }
+
+  /* ===== FOOTER ===== */
+  footer { border-top: 2px solid #333; margin-top: 0; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-links {
+    padding: 44px 20px 36px;
+    display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid #ddd;
+  }
+  .footer-links a { font-size: 13px; color: #555; text-decoration: none; }
+  .footer-links a:hover { text-decoration: underline; }
+  .footer-links .sep { color: #ccc; font-size: 13px; }
+  .footer-bottom { text-align: center; padding: 24px; font-size: 12px; color: #aaa; }
+
+  /* トースト */
+  #toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: #333; color: #fff; padding: 10px 22px; font-size: 12px;
+    opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999;
+    white-space: nowrap;
+  }
+  #toast.show { opacity: 1; }
+
+  /* ===== 検索ポップアップ ===== */
+  .search-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 500; align-items: center; justify-content: center; padding: 24px; }
+  .search-overlay.open { display: flex; }
+  .search-box { background: #fff; border: 1px solid #bbb; padding: 36px 40px 40px; width: 800px; max-width: 94vw; max-height: 88vh; overflow-y: auto; }
+  .search-box-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .search-box-header h3 { font-size: 17px; font-weight: bold; color: #222; }
+  .search-close { font-size: 22px; color: #aaa; cursor: pointer; line-height: 1; }
+  .search-close:hover { color: #333; }
+  .search-input-row { display: flex; gap: 0; margin-bottom: 28px; }
+  .search-input-row input { flex: 1; border: 2px solid #333; border-right: none; padding: 14px 18px; font-size: 16px; outline: none; }
+  .search-input-row input:focus { border-color: #555; }
+  .search-input-row button { border: 2px solid #333; background: #333; color: #fff; padding: 14px 32px; font-size: 14px; cursor: pointer; white-space: nowrap; }
+  .search-input-row button:hover { background: #555; border-color: #555; }
+</style>
+</head>
+<body>
+<!-- 検索ポップアップ -->
+<div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
+  <div class="search-box" onclick="event.stopPropagation()">
+    <div class="search-box-header">
+      <h3>サイト内検索</h3>
+      <span class="search-close" onclick="closeSearchBox()">&#10005;</span>
+    </div>
+    <div class="search-input-row">
+      <input type="text" id="searchInput" placeholder="キーワードを入力してください" />
+      <button onclick="toast('検索：「'+document.getElementById('searchInput').value+'」')">検索</button>
+    </div>
+  </div>
+</div>
+
+<div class="wf-label">WIREFRAME — Sea Dream Club 会員登録フォーム</div>
+
+<!-- Sea Dream Club 追従ボタン -->
+<a class="btn-sdclub-fixed" href="wireframe_sdclub.html">Sea Dream Club</a>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-top">
+    <a class="logo" href="wireframe_top.html">LOGO</a>
+    <nav class="global-nav">
+      <div class="nav-item"><a href="wireframe_news.html">ニュース</a></div>
+      <div class="nav-item"><a href="wireframe_fishing.html">フィッシング</a></div>
+      <div class="nav-item"><a href="wireframe_gear.html">マリングッズ・ギア</a></div>
+      <div class="nav-item"><a href="wireframe_yacht.html">ヨット</a></div>
+      <div class="nav-item"><a href="wireframe_boat.html">ボート</a></div>
+      <div class="nav-item"><a href="wireframe_marina.html">マリーナ</a></div>
+      <div class="nav-item"><a href="wireframe_lifestyle.html">ライフスタイル</a></div>
+    </nav>
+    <div class="header-actions">
+      <div class="btn-search" onclick="openSearch()">検索</div>
+      <a class="btn-login" href="wireframe_sdclub_mypage.html">ログイン / マイページ</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow">SEA DREAM CLUB</div>
+  <h1>会員登録</h1>
+  <p>メールアドレスだけで簡単に登録できます</p>
+</div>
+
+<!-- ===== BREADCRUMB ===== -->
+<div class="breadcrumb">
+  <a href="wireframe_top.html">TOP</a><span class="sep">&gt;</span>
+  <a href="wireframe_sdclub.html">Sea Dream Club</a><span class="sep">&gt;</span>
+  会員登録
+</div>
+
+<!-- ===== FORM ===== -->
+<div class="form-wrap">
+
+  <div class="form-section-title" style="margin-top:0;">アカウント情報</div>
+
+  <div class="form-group">
+    <label class="form-label">メールアドレス<span class="required">必須</span></label>
+    <input class="form-input" type="email" placeholder="example@email.com">
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">パスワード<span class="required">必須</span></label>
+    <input class="form-input" type="password" placeholder="8文字以上の半角英数字">
+    <div class="form-hint">8文字以上、英字と数字を含めてください</div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">パスワード（確認）<span class="required">必須</span></label>
+    <input class="form-input" type="password" placeholder="パスワードを再入力">
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">ニックネーム<span class="required">必須</span></label>
+    <input class="form-input" type="text" placeholder="他のユーザーに表示される名前">
+    <div class="form-hint">2〜20文字で入力してください</div>
+  </div>
+
+  <div class="form-section-title">プロフィール</div>
+
+  <div class="form-group">
+    <label class="form-label">性別<span class="optional">任意</span></label>
+    <div class="form-radio-group">
+      <label><input type="radio" name="gender"> 男性</label>
+      <label><input type="radio" name="gender"> 女性</label>
+      <label><input type="radio" name="gender"> その他</label>
+      <label><input type="radio" name="gender"> 回答しない</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">年代<span class="optional">任意</span></label>
+    <select class="form-select">
+      <option value="">選択してください</option>
+      <option>10代</option>
+      <option>20代</option>
+      <option>30代</option>
+      <option>40代</option>
+      <option>50代</option>
+      <option>60代以上</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">お住まいの地域<span class="optional">任意</span></label>
+    <select class="form-select">
+      <option value="">選択してください</option>
+      <option>北海道</option>
+      <option>東北</option>
+      <option>関東</option>
+      <option>中部</option>
+      <option>近畿</option>
+      <option>中国</option>
+      <option>四国</option>
+      <option>九州・沖縄</option>
+    </select>
+  </div>
+
+  <div class="form-section-title">アンケート</div>
+
+  <div class="form-group">
+    <label class="form-label">興味のあるカテゴリー<span class="optional">任意・複数選択可</span></label>
+    <div class="form-check-grid">
+      <label><input type="checkbox"> フィッシング</label>
+      <label><input type="checkbox"> ヨット</label>
+      <label><input type="checkbox"> ボート</label>
+      <label><input type="checkbox"> マリーナ</label>
+      <label><input type="checkbox"> ライフスタイル</label>
+      <label><input type="checkbox"> マリングッズ・ギア</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">マリン歴<span class="optional">任意</span></label>
+    <select class="form-select">
+      <option value="">選択してください</option>
+      <option>未経験（これから始めたい）</option>
+      <option>1年未満</option>
+      <option>1〜3年</option>
+      <option>3〜10年</option>
+      <option>10年以上</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">所有艇の有無<span class="optional">任意</span></label>
+    <div class="form-radio-group">
+      <label><input type="radio" name="boat"> 所有している</label>
+      <label><input type="radio" name="boat"> 所有していない</label>
+      <label><input type="radio" name="boat"> 購入を検討中</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">KAZI ONLINEを知ったきっかけ<span class="optional">任意</span></label>
+    <select class="form-select">
+      <option value="">選択してください</option>
+      <option>月刊Kazi（雑誌）</option>
+      <option>検索エンジン（Google等）</option>
+      <option>SNS（X / Instagram / Facebook等）</option>
+      <option>知人・友人からの紹介</option>
+      <option>マリーナ・ショップで知った</option>
+      <option>イベント・展示会</option>
+      <option>その他</option>
+    </select>
+  </div>
+
+  <!-- 同意 -->
+  <div class="form-agree">
+    <label>
+      <input type="checkbox">
+      <span><a href="wireframe_privacy.html" target="_blank">利用規約</a>および<a href="wireframe_privacy.html" target="_blank">プライバシーポリシー</a>に同意します</span>
+    </label>
+  </div>
+
+  <!-- 送信ボタン -->
+  <a class="form-submit" href="wireframe_sdclub_confirm.html" style="text-decoration:none;">確認画面へ</a>
+
+  <div class="form-back-link">
+    <a href="wireframe_sdclub.html">&larr; Sea Dream Club ページに戻る</a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="wireframe_top.html">TOPへ戻る</a><span class="sep">|</span>
+      <a href="wireframe_entry.html">エントリーガイド</a><span class="sep">|</span>
+      <a href="wireframe_maker.html">メーカー&amp;ビルダー</a><span class="sep">|</span>
+      <a href="#" onclick="toast('月刊Kazi（外部）へ');return false;">月刊Kazi</a><span class="sep">|</span>
+      <a href="#" onclick="toast('KAZIシープラザへ');return false;">KAZIシープラザ</a><span class="sep">|</span>
+      <a href="wireframe_contact.html">お問い合わせ</a><span class="sep">|</span>
+      <a href="wireframe_privacy.html">プライバシーポリシー</a><span class="sep">|</span>
+      <a href="wireframe_company.html">会社概要</a>
+    </div>
+    <div class="footer-bottom">&copy; KAZI Online　All Rights Reserved.</div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+  let toastTimer;
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = '\u2192 ' + msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2000);
+  }
+  function openSearch() { document.getElementById('searchOverlay').classList.add('open'); }
+  function closeSearchBox() { document.getElementById('searchOverlay').classList.remove('open'); }
+  function closeSearch(e) { if (e.target === document.getElementById('searchOverlay')) closeSearchBox(); }
+</script>
+</body>
+</html>

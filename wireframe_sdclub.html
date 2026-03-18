@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sea Dream Club - KAZI ONLINE ワイヤーフレーム</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #fff; color: #333; font-size: 13px; }
+
+  .wf-label {
+    text-align: center; padding: 6px;
+    background: #eee; border-bottom: 1px solid #ccc;
+    font-size: 11px; color: #666;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    border-bottom: 2px solid #333;
+    position: sticky; top: 0; background: #fff; z-index: 200;
+  }
+  .header-top {
+    display: flex; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+    padding: 10px 20px; gap: 14px;
+  }
+  .logo {
+    border: 1px solid #999; padding: 8px 20px;
+    font-size: 15px; font-weight: bold; min-width: 110px;
+    text-align: center; color: #333; background: #f5f5f5;
+    cursor: pointer; text-decoration: none; flex-shrink: 0;
+  }
+  .logo:hover { background: #e8e8e8; }
+  .global-nav { display: flex; flex: 1; border: 1px solid #bbb; position: relative; min-width: 0; }
+  .nav-item { position: relative; flex: 1; min-width: 0; }
+  .nav-item > a {
+    display: block; text-align: center; padding: 10px 2px;
+    border-right: 1px solid #bbb; font-size: 10.5px; color: #333;
+    text-decoration: none; cursor: pointer; white-space: nowrap;
+    transition: background .15s; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-item:last-child > a { border-right: none; }
+  .nav-item > a:hover { background: #333; color: #fff; }
+  .header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .btn-search {
+    border: 1px solid #999; background: #f0f0f0;
+    padding: 8px 12px; font-size: 12px; color: #333; cursor: pointer;
+  }
+  .btn-login {
+    border: 1px solid #555; background: #333; color: #fff;
+    padding: 8px 14px; font-size: 12px; cursor: pointer;
+    text-decoration: none; white-space: nowrap;
+  }
+  .btn-login:hover { background: #555; }
+
+  /* Sea Dream Club 追従ボタン */
+  .btn-sdclub-fixed {
+    position: fixed; right: 0; top: 50%;
+    transform: translateY(-50%);
+    background: #1a3a5c; border-left: 3px solid #2a5a8c;
+    padding: 56px 28px; font-size: 18px; color: #fff;
+    cursor: pointer; z-index: 300; text-align: center;
+    writing-mode: vertical-rl; letter-spacing: 6px;
+    box-shadow: -4px 0 14px rgba(0,0,0,.3);
+    text-decoration: none; line-height: 1;
+  }
+  .btn-sdclub-fixed:hover { background: #2a5a8c; }
+
+  /* ===== HERO ===== */
+  .sdc-hero {
+    background: #111; color: #fff;
+    padding: 80px 20px 72px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .sdc-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,.03) 0px, rgba(255,255,255,.03) 1px,
+      transparent 1px, transparent 40px
+    );
+  }
+  .sdc-hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .sdc-hero-eyebrow {
+    font-size: 11px; letter-spacing: 4px; color: #aaa;
+    border: 1px solid #555; display: inline-block;
+    padding: 4px 16px; margin-bottom: 22px;
+  }
+  .sdc-hero h1 { font-size: 42px; font-weight: bold; color: #fff; margin-bottom: 18px; letter-spacing: 2px; }
+  .sdc-hero p { font-size: 15px; color: #ccc; line-height: 1.8; margin-bottom: 36px; }
+  .sdc-hero-cta {
+    display: inline-block; background: #fff; color: #111;
+    padding: 18px 56px; font-size: 15px; font-weight: bold;
+    text-decoration: none; cursor: pointer; border: 2px solid #fff;
+    transition: background .2s, color .2s; letter-spacing: 1px;
+  }
+  .sdc-hero-cta:hover { background: transparent; color: #fff; }
+  .sdc-hero-note { font-size: 11px; color: #888; margin-top: 14px; }
+
+  /* ===== MAIN ===== */
+  main { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+  .section { margin-bottom: 72px; }
+  .section-head {
+    text-align: center; margin-bottom: 40px;
+  }
+  .section-head h2 { font-size: 24px; font-weight: bold; color: #222; margin-bottom: 10px; }
+  .section-head p { font-size: 13px; color: #777; line-height: 1.8; }
+  .section-rule { width: 40px; height: 2px; background: #333; margin: 14px auto 0; }
+
+  /* ===== ABOUT ===== */
+  .about-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  }
+  .about-img {
+    background: #e4e4e4; aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: #aaa; border: 1px solid #ccc;
+  }
+  .about-text h3 { font-size: 18px; font-weight: bold; margin-bottom: 14px; }
+  .about-text p { font-size: 13px; color: #555; line-height: 1.9; margin-bottom: 12px; }
+
+  /* ===== 特典グリッド ===== */
+  .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .benefit-card {
+    border: 1px solid #ddd; padding: 28px 22px 24px;
+    text-align: center;
+  }
+  .benefit-icon {
+    width: 52px; height: 52px; border: 1px solid #bbb;
+    background: #f5f5f5; margin: 0 auto 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: #999;
+  }
+  .benefit-card h4 { font-size: 14px; font-weight: bold; color: #222; margin-bottom: 8px; }
+  .benefit-card p { font-size: 12px; color: #666; line-height: 1.7; }
+  .benefit-badge {
+    display: inline-block; font-size: 10px; color: #fff;
+    background: #333; padding: 2px 8px; margin-bottom: 10px; letter-spacing: 1px;
+  }
+
+  /* ===== プラン ===== */
+  .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 700px; margin: 0 auto; }
+  .plan-card {
+    border: 2px solid #ddd; padding: 32px 28px;
+    text-align: center; position: relative;
+  }
+  .plan-card.recommended { border-color: #333; }
+  .plan-tag {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: #333; color: #fff; font-size: 10px;
+    padding: 3px 16px; letter-spacing: 1px; white-space: nowrap;
+  }
+  .plan-name { font-size: 13px; color: #888; margin-bottom: 8px; letter-spacing: 2px; }
+  .plan-price { font-size: 32px; font-weight: bold; color: #222; margin-bottom: 4px; }
+  .plan-price span { font-size: 14px; font-weight: normal; color: #888; }
+  .plan-desc { font-size: 12px; color: #777; margin-bottom: 20px; line-height: 1.6; }
+  .plan-features { text-align: left; margin-bottom: 24px; }
+  .plan-feature {
+    font-size: 12px; color: #555; padding: 7px 0;
+    border-bottom: 1px solid #eee; display: flex; gap: 8px; align-items: flex-start;
+  }
+  .plan-feature:last-child { border-bottom: none; }
+  .plan-feature .chk { color: #333; font-weight: bold; flex-shrink: 0; }
+  .plan-feature .na { color: #ccc; flex-shrink: 0; }
+  .plan-cta {
+    display: block; border: 2px solid #333; background: #333; color: #fff;
+    padding: 13px 20px; font-size: 13px; font-weight: bold;
+    text-decoration: none; cursor: pointer; transition: background .15s;
+  }
+  .plan-cta:hover { background: #555; border-color: #555; }
+  .plan-card:not(.recommended) .plan-cta {
+    background: #fff; color: #333;
+  }
+  .plan-card:not(.recommended) .plan-cta:hover { background: #f5f5f5; }
+
+  /* ===== 入会ステップ ===== */
+  .step-wrap { display: flex; gap: 0; align-items: flex-start; }
+  .step-item { flex: 1; text-align: center; position: relative; }
+  .step-item::after {
+    content: ''; position: absolute;
+    top: 28px; left: calc(50% + 32px); right: calc(-50% + 32px);
+    height: 1px; background: #ccc;
+  }
+  .step-item:last-child::after { display: none; }
+  .step-num {
+    width: 56px; height: 56px; border: 2px solid #333;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: bold; color: #333;
+    margin: 0 auto 14px; background: #fff; position: relative; z-index: 1;
+  }
+  .step-item h4 { font-size: 13px; font-weight: bold; margin-bottom: 6px; }
+  .step-item p { font-size: 12px; color: #777; line-height: 1.6; }
+
+  /* ===== 大CTA ===== */
+  .big-cta {
+    background: #111; color: #fff;
+    padding: 64px 40px; text-align: center;
+    margin-bottom: 72px;
+  }
+  .big-cta h2 { font-size: 26px; font-weight: bold; margin-bottom: 14px; }
+  .big-cta p { font-size: 14px; color: #aaa; margin-bottom: 32px; line-height: 1.8; }
+  .big-cta-btn {
+    display: inline-block; background: #fff; color: #111;
+    padding: 18px 64px; font-size: 16px; font-weight: bold;
+    text-decoration: none; cursor: pointer;
+    border: 2px solid #fff; transition: background .2s, color .2s;
+    letter-spacing: 1px;
+  }
+  .big-cta-btn:hover { background: transparent; color: #fff; }
+  .big-cta-note { font-size: 11px; color: #666; margin-top: 16px; }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 740px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid #eee; }
+  .faq-q {
+    padding: 18px 16px 18px 0; font-size: 13px; font-weight: bold;
+    color: #222; cursor: pointer; display: flex; gap: 12px; align-items: flex-start;
+    user-select: none;
+  }
+  .faq-q:hover { color: #555; }
+  .faq-q-mark { color: #aaa; font-weight: bold; flex-shrink: 0; font-size: 15px; }
+  .faq-toggle { margin-left: auto; color: #aaa; flex-shrink: 0; font-size: 14px; }
+  .faq-a {
+    padding: 0 16px 18px 28px; font-size: 12px; color: #666; line-height: 1.8;
+    display: none;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-toggle { transform: rotate(180deg); }
+
+  /* ===== FOOTER ===== */
+  footer { border-top: 2px solid #333; margin-top: 0; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-links {
+    padding: 44px 20px 36px;
+    display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid #ddd;
+  }
+  .footer-links a { font-size: 13px; color: #555; text-decoration: none; }
+  .footer-links a:hover { text-decoration: underline; }
+  .footer-links .sep { color: #ccc; font-size: 13px; }
+  .footer-bottom { text-align: center; padding: 24px; font-size: 12px; color: #aaa; }
+
+  /* トースト */
+  #toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: #333; color: #fff; padding: 10px 22px; font-size: 12px;
+    opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999;
+    white-space: nowrap;
+  }
+  #toast.show { opacity: 1; }
+
+  /* ===== 検索ポップアップ ===== */
+  .search-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 500; align-items: center; justify-content: center; padding: 24px; }
+  .search-overlay.open { display: flex; }
+  .search-box { background: #fff; border: 1px solid #bbb; padding: 36px 40px 40px; width: 800px; max-width: 94vw; max-height: 88vh; overflow-y: auto; }
+  .search-box-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .search-box-header h3 { font-size: 17px; font-weight: bold; color: #222; }
+  .search-close { font-size: 22px; color: #aaa; cursor: pointer; line-height: 1; }
+  .search-close:hover { color: #333; }
+  .search-input-row { display: flex; gap: 0; margin-bottom: 28px; }
+  .search-input-row input { flex: 1; border: 2px solid #333; border-right: none; padding: 14px 18px; font-size: 16px; outline: none; }
+  .search-input-row input:focus { border-color: #555; }
+  .search-input-row button { border: 2px solid #333; background: #333; color: #fff; padding: 14px 32px; font-size: 14px; cursor: pointer; white-space: nowrap; }
+  .search-input-row button:hover { background: #555; border-color: #555; }
+  .search-section-title { font-size: 11px; color: #888; font-weight: bold; letter-spacing: 0.5px; border-bottom: 1px solid #eee; padding-bottom: 6px; margin-bottom: 12px; }
+  .search-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 28px; }
+  .search-tag { border: 1px solid #ccc; padding: 6px 14px; font-size: 12px; color: #555; cursor: pointer; text-decoration: none; }
+  .search-tag:hover { background: #f0f0f0; border-color: #999; }
+  .search-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .search-cat-btn { flex: 1; min-width: 88px; max-width: 114px; border: 1px solid #ccc; padding: 14px 8px; text-align: center; cursor: pointer; text-decoration: none; color: #333; font-size: 12px; background: #fafafa; }
+  .search-cat-btn:hover { background: #333; color: #fff; border-color: #333; }
+  .search-cat-symbol { font-size: 20px; margin-bottom: 6px; color: #777; display: block; }
+  .search-cat-btn:hover .search-cat-symbol { color: #fff; }
+  .search-sdc-banner { border: 2px solid #444; background: #2a2a2a; color: #fff; padding: 24px 28px; margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .search-sdc-label { font-size: 10px; color: #aaa; letter-spacing: 2px; margin-bottom: 4px; }
+  .search-sdc-title { font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 6px; }
+  .search-sdc-desc { font-size: 12px; color: #bbb; }
+  .search-sdc-btn { border: 1px solid #888; color: #fff; background: transparent; padding: 10px 22px; font-size: 12px; white-space: nowrap; cursor: pointer; text-decoration: none; flex-shrink: 0; }
+  .search-sdc-btn:hover { background: #444; }
+  .search-featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .search-feat-card { border: 1px solid #ddd; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+  .search-feat-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,.13); }
+  .search-feat-img { background: #e8e8e8; aspect-ratio: 4/3; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #bbb; }
+  .search-feat-body { padding: 8px 10px; }
+  .search-feat-cat { font-size: 10px; color: #888; margin-bottom: 3px; }
+  .search-feat-title { font-size: 11px; color: #333; line-height: 1.45; }
+</style>
+</head>
+<body>
+<!-- 検索ポップアップ -->
+<div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
+  <div class="search-box" onclick="event.stopPropagation()">
+    <div class="search-box-header">
+      <h3>サイト内検索</h3>
+      <span class="search-close" onclick="closeSearchBox()">&#10005;</span>
+    </div>
+    <div class="search-input-row">
+      <input type="text" id="searchInput" placeholder="キーワードを入力してください（例：ルアー釣り、ボート免許、マリーナ）" />
+      <button onclick="toast('検索：「'+document.getElementById('searchInput').value+'」')">検索</button>
+    </div>
+    <div class="search-section-title">よく検索されるキーワード</div>
+    <div class="search-tags">
+      <a class="search-tag" href="#" onclick="fillSearch('ルアー釣り');return false;">ルアー釣り</a>
+      <a class="search-tag" href="#" onclick="fillSearch('マリンウェア');return false;">マリンウェア</a>
+      <a class="search-tag" href="#" onclick="fillSearch('ボート免許');return false;">ボート免許</a>
+      <a class="search-tag" href="#" onclick="fillSearch('マリーナ 関東');return false;">マリーナ 関東</a>
+      <a class="search-tag" href="#" onclick="fillSearch('カヤック 入門');return false;">カヤック 入門</a>
+      <a class="search-tag" href="#" onclick="fillSearch('ヤマハ ボート');return false;">ヤマハ ボート</a>
+      <a class="search-tag" href="#" onclick="fillSearch('ライフジャケット');return false;">ライフジャケット</a>
+      <a class="search-tag" href="#" onclick="fillSearch('ヨット 購入');return false;">ヨット 購入</a>
+      <a class="search-tag" href="#" onclick="fillSearch('釣り 初心者');return false;">釣り 初心者</a>
+      <a class="search-tag" href="#" onclick="fillSearch('Sea Dream Club');return false;">Sea Dream Club</a>
+      <a class="search-tag" href="#" onclick="fillSearch('マリンカレンダー');return false;">マリンカレンダー</a>
+      <a class="search-tag" href="#" onclick="fillSearch('インプレッション');return false;">インプレッション</a>
+    </div>
+    <div class="search-section-title">カテゴリーから探す</div>
+    <div class="search-cats">
+      <a class="search-cat-btn" href="wireframe_news.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ N ]</span>ニュース
+      </a>
+      <a class="search-cat-btn" href="wireframe_fishing.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ F ]</span>フィッシング
+      </a>
+      <a class="search-cat-btn" href="wireframe_gear.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ G ]</span>マリングッズ
+      </a>
+      <a class="search-cat-btn" href="wireframe_yacht.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ Y ]</span>ヨット
+      </a>
+      <a class="search-cat-btn" href="wireframe_boat.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ B ]</span>ボート
+      </a>
+      <a class="search-cat-btn" href="wireframe_marina.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ M ]</span>マリーナ
+      </a>
+      <a class="search-cat-btn" href="wireframe_lifestyle.html" onclick="closeSearchBox()">
+        <span class="search-cat-symbol">[ L ]</span>ライフスタイル
+      </a>
+    </div>
+    <div class="search-sdc-banner">
+      <div class="search-sdc-text">
+        <div class="search-sdc-label">MEMBER'S CLUB</div>
+        <div class="search-sdc-title">Sea Dream Club</div>
+        <div class="search-sdc-desc">会員限定コンテンツ・特典・イベント情報をいち早くお届けします</div>
+      </div>
+      <a class="search-sdc-btn" href="wireframe_sdclub.html" onclick="closeSearchBox()">無料登録はこちら</a>
+    </div>
+    <div class="search-section-title">注目の記事</div>
+    <div class="search-featured">
+      <a class="search-feat-card" href="wireframe_article.html">
+        <div class="search-feat-img">画像</div>
+        <div class="search-feat-body">
+          <div class="search-feat-cat">フィッシング</div>
+          <div class="search-feat-title">ルアーフィッシング完全ガイド：タックル選びから釣り方まで</div>
+        </div>
+      </a>
+      <a class="search-feat-card" href="wireframe_article.html">
+        <div class="search-feat-img">画像</div>
+        <div class="search-feat-body">
+          <div class="search-feat-cat">ボート</div>
+          <div class="search-feat-title">2025年最新ボートインプレッション</div>
+        </div>
+      </a>
+      <a class="search-feat-card" href="wireframe_article.html">
+        <div class="search-feat-img">画像</div>
+        <div class="search-feat-body">
+          <div class="search-feat-cat">マリーナ</div>
+          <div class="search-feat-title">マリーナマップで探す全国551カ所</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="wf-label">WIREFRAME — Sea Dream Club 詳細ページ</div>
+
+<!-- Sea Dream Club 追従ボタン -->
+<a class="btn-sdclub-fixed" href="#join">Sea Dream Club</a>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-top">
+    <a class="logo" href="wireframe_top.html">LOGO</a>
+    <nav class="global-nav">
+      <div class="nav-item"><a href="wireframe_news.html">ニュース</a></div>
+      <div class="nav-item"><a href="wireframe_fishing.html">フィッシング</a></div>
+      <div class="nav-item"><a href="wireframe_gear.html">マリングッズ・ギア</a></div>
+      <div class="nav-item"><a href="wireframe_yacht.html">ヨット</a></div>
+      <div class="nav-item"><a href="wireframe_boat.html">ボート</a></div>
+      <div class="nav-item"><a href="wireframe_marina.html">マリーナ</a></div>
+      <div class="nav-item"><a href="wireframe_lifestyle.html">ライフスタイル</a></div>
+    </nav>
+    <div class="header-actions">
+      <div class="btn-search" onclick="toast('検索ポップアップを表示')">検索</div>
+      <a class="btn-login" href="wireframe_sdclub_mypage.html">ログイン / マイページ</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="sdc-hero">
+  <div class="sdc-hero-inner">
+    <div class="sdc-hero-eyebrow">KAZI ONLINE MEMBERS CLUB</div>
+    <h1>Sea Dream Club</h1>
+    <p>
+      マリンライフをもっと深く、もっと楽しく。<br>
+      Sea Dream Club は、海を愛するすべての人のための<br>
+      会員制コミュニティです。
+    </p>
+    <a class="sdc-hero-cta" href="wireframe_sdclub_register.html">今すぐ無料登録する</a>
+    <div class="sdc-hero-note">登録無料・クレジットカード不要・いつでも退会可能</div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<main>
+
+  <!-- Sea Dream Club とは -->
+  <div class="section" id="about">
+    <div class="section-head">
+      <h2>Sea Dream Club とは</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="about-wrap">
+      <div class="about-img">イメージ画像（海・ヨット・マリン）</div>
+      <div class="about-text">
+        <h3>海を愛する人のための<br>無料会員サービス</h3>
+        <p>KAZI ONLINEが運営する Sea Dream Club は、マリンスポーツ・釣り・ボーティングを楽しむ方に向けた無料の会員制クラブです。</p>
+        <p>会員になると、限定記事・イベント優待・パートナーショップ割引など、海をもっと楽しむための特典をすべて無料でご利用いただけます。</p>
+        <p>メールアドレスだけで今すぐ登録できます。まずは気軽にご参加ください。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 会員特典 -->
+  <div class="section" id="benefits">
+    <div class="section-head">
+      <h2>会員特典</h2>
+      <p>Sea Dream Club 会員だけが受けられる、6つの特典</p>
+      <div class="section-rule"></div>
+    </div>
+    <div class="benefit-grid">
+
+      <div class="benefit-card">
+        <div class="benefit-badge">MEMBERS ONLY</div>
+        <div class="benefit-icon">記事</div>
+        <h4>会員限定記事・コンテンツ</h4>
+        <p>プロアングラーの釣り動画、ヨット操縦テクニック、セーリングレース密着レポートなど、会員だけが読めるプレミアム記事を毎月配信。</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-badge">MEMBERS ONLY</div>
+        <div class="benefit-icon">雑誌</div>
+        <h4>月刊Kaziデジタル版 先行配信</h4>
+        <p>書店発売より1週間早く、月刊Kaziのデジタル版を読めます。最新号をいち早くチェックして、シーズン準備を万全に。</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-badge">MEMBERS ONLY</div>
+        <div class="benefit-icon">イベント</div>
+        <h4>イベント・展示会 優待招待</h4>
+        <p>ジャパンインターナショナルボートショーや各地マリンイベントへの優待チケット・先行予約権。会員限定の試乗会・体験会も開催。</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">割引</div>
+        <h4>KAZIシープラザ 会員割引</h4>
+        <p>マリン用品オンラインショップ「KAZIシープラザ」でのお買い物が会員価格でお得に。消耗品からウェアまで、登録するだけで割引が適用されます。</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">マリーナ</div>
+        <h4>提携マリーナ 特別料金</h4>
+        <p>全国100カ所以上の提携マリーナで、係留料・保管料の特別優待が受けられます。新しいマリーナ開拓のきっかけにも。</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">Q&A</div>
+        <h4>専門家への無料Q&A</h4>
+        <p>船舶免許・ボート購入・タックル選びなど、マリンのプロに直接質問できる会員限定Q&Aサービス。月2回まで無料でご利用いただけます。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 入会ステップ -->
+  <div class="section" id="howto">
+    <div class="section-head">
+      <h2>入会の流れ</h2>
+      <p>3ステップで簡単に登録できます</p>
+      <div class="section-rule"></div>
+    </div>
+    <div class="step-wrap">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <h4>メールアドレスを登録</h4>
+        <p>メールアドレスとパスワードを入力するだけ。SNSアカウントでの登録も可能です。</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <h4>必要情報を入力</h4>
+        <p>ニックネーム・興味のあるカテゴリーを選択。30秒ほどで完了します。</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <h4>すぐに特典を利用</h4>
+        <p>登録完了後すぐに限定コンテンツや各種特典がご利用いただけます。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section" id="faq">
+    <div class="section-head">
+      <h2>よくある質問</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q</span>
+          <span>登録は本当に無料ですか？</span>
+          <span class="faq-toggle">▾</span>
+        </div>
+        <div class="faq-a">はい、完全無料です。クレジットカードの登録は不要で、メールアドレスだけで今すぐご参加いただけます。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q</span>
+          <span>いつでも退会できますか？</span>
+          <span class="faq-toggle">▾</span>
+        </div>
+        <div class="faq-a">はい、いつでも退会可能です。退会手続きはマイページから行えます。退会後は会員限定コンテンツへのアクセスができなくなりますが、通常記事は引き続きご覧いただけます。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q</span>
+          <span>登録後すぐに特典を利用できますか？</span>
+          <span class="faq-toggle">▾</span>
+        </div>
+        <div class="faq-a">はい、登録完了後すぐにすべての会員特典をご利用いただけます。会員限定記事・KAZIシープラザ割引・提携マリーナ特別料金など、登録したその日から使えます。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q</span>
+          <span>提携マリーナの割引はどのように受けられますか？</span>
+          <span class="faq-toggle">▾</span>
+        </div>
+        <div class="faq-a">マイページで発行できる会員証（QRコード）を提携マリーナのスタッフに提示することで割引が適用されます。提携マリーナ一覧はマイページ内でご確認いただけます。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q</span>
+          <span>法人での複数アカウント登録はできますか？</span>
+          <span class="faq-toggle">▾</span>
+        </div>
+        <div class="faq-a">法人向けの複数アカウントプランをご用意しております。詳細はお問い合わせフォームよりご連絡ください。</div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== 大CTA（入会ボタン）===== -->
+<div class="big-cta" id="join">
+  <h2>Sea Dream Club に参加する</h2>
+  <p>
+    今すぐ登録して、マリンライフをもっと楽しもう。<br>
+    完全無料・クレジットカード不要・30秒で完了します。
+  </p>
+  <a class="big-cta-btn" href="wireframe_sdclub_register.html">無料で会員登録する</a>
+  <div class="big-cta-note">すでに会員の方は <a href="wireframe_sdclub_mypage.html" style="color:#aaa;">こちらからログイン</a></div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="wireframe_top.html">TOPへ戻る</a><span class="sep">|</span>
+      <a href="wireframe_entry.html">エントリーガイド</a><span class="sep">|</span>
+      <a href="wireframe_maker.html">メーカー&amp;ビルダー</a><span class="sep">|</span>
+      <a href="#" onclick="toast('月刊Kazi（外部）へ');return false;">月刊Kazi</a><span class="sep">|</span>
+      <a href="#" onclick="toast('KAZIシープラザへ');return false;">KAZIシープラザ</a><span class="sep">|</span>
+      <a href="wireframe_contact.html">お問い合わせ</a><span class="sep">|</span>
+      <a href="wireframe_privacy.html">プライバシーポリシー</a><span class="sep">|</span>
+      <a href="wireframe_company.html">会社概要</a>
+    </div>
+    <div class="footer-bottom">© KAZI Online　All Rights Reserved.</div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+  function smoothTo(e, id) {
+    if (e) e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function toggleFaq(el) {
+    el.closest('.faq-item').classList.toggle('open');
+  }
+
+  let toastTimer;
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = '→ ' + msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2000);
+  }
+
+  // ドロップダウン クリック開閉
+  document.querySelectorAll('.nav-item > a.has-sub').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var item = this.closest('.nav-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.nav-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-item')) {
+      document.querySelectorAll('.nav-item').forEach(function(i) { i.classList.remove('open'); });
+    }
+  });
+
+  // ===== 検索ポップアップ =====
+  function openSearch() { document.getElementById('searchOverlay').classList.add('open'); }
+  function closeSearchBox() { document.getElementById('searchOverlay').classList.remove('open'); }
+  function closeSearch(e) { if (e.target === document.getElementById('searchOverlay')) closeSearchBox(); }
+  function fillSearch(kw) { var el = document.getElementById('searchInput'); if(el){ el.value = kw; el.focus(); } }
+  </script>
+</body>
+</html>

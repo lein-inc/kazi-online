@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登録内容確認 - Sea Dream Club - KAZI ONLINE ワイヤーフレーム</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #fff; color: #333; font-size: 13px; }
+
+  .wf-label {
+    text-align: center; padding: 6px;
+    background: #eee; border-bottom: 1px solid #ccc;
+    font-size: 11px; color: #666;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    border-bottom: 2px solid #333;
+    position: sticky; top: 0; background: #fff; z-index: 200;
+  }
+  .header-top {
+    display: flex; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+    padding: 10px 20px; gap: 14px;
+  }
+  .logo {
+    border: 1px solid #999; padding: 8px 20px;
+    font-size: 15px; font-weight: bold; min-width: 110px;
+    text-align: center; color: #333; background: #f5f5f5;
+    cursor: pointer; text-decoration: none; flex-shrink: 0;
+  }
+  .logo:hover { background: #e8e8e8; }
+  .global-nav { display: flex; flex: 1; border: 1px solid #bbb; position: relative; min-width: 0; }
+  .nav-item { position: relative; flex: 1; min-width: 0; }
+  .nav-item > a {
+    display: block; text-align: center; padding: 10px 2px;
+    border-right: 1px solid #bbb; font-size: 10.5px; color: #333;
+    text-decoration: none; cursor: pointer; white-space: nowrap;
+    transition: background .15s; overflow: hidden; text-overflow: ellipsis;
+  }
+  .nav-item:last-child > a { border-right: none; }
+  .nav-item > a:hover { background: #333; color: #fff; }
+  .header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .btn-search {
+    border: 1px solid #999; background: #f0f0f0;
+    padding: 8px 12px; font-size: 12px; color: #333; cursor: pointer;
+  }
+  .btn-login {
+    border: 1px solid #555; background: #333; color: #fff;
+    padding: 8px 14px; font-size: 12px; cursor: pointer;
+    text-decoration: none; white-space: nowrap;
+  }
+  .btn-login:hover { background: #555; }
+
+  .btn-sdclub-fixed {
+    position: fixed; right: 0; top: 50%;
+    transform: translateY(-50%);
+    background: #1a3a5c; border-left: 3px solid #2a5a8c;
+    padding: 56px 28px; font-size: 18px; color: #fff;
+    cursor: pointer; z-index: 300; text-align: center;
+    writing-mode: vertical-rl; letter-spacing: 6px;
+    box-shadow: -4px 0 14px rgba(0,0,0,.3);
+    text-decoration: none; line-height: 1;
+  }
+  .btn-sdclub-fixed:hover { background: #2a5a8c; }
+
+  /* ===== BREADCRUMB ===== */
+  .breadcrumb {
+    font-size: 11px; color: #999;
+    padding: 12px 20px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .breadcrumb a { color: #999; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb .sep { margin: 0 6px; }
+
+  /* ===== PAGE HEADER ===== */
+  .page-hero {
+    background: #111; color: #fff;
+    padding: 48px 20px; text-align: center;
+  }
+  .page-hero-eyebrow {
+    font-size: 11px; letter-spacing: 4px; color: #aaa;
+    border: 1px solid #555; display: inline-block;
+    padding: 4px 16px; margin-bottom: 16px;
+  }
+  .page-hero h1 { font-size: 28px; font-weight: bold; margin-bottom: 10px; letter-spacing: 2px; }
+  .page-hero p { font-size: 13px; color: #aaa; }
+
+  /* ===== STEP INDICATOR ===== */
+  .step-indicator {
+    display: flex; justify-content: center; gap: 0;
+    max-width: 480px; margin: 36px auto 0;
+  }
+  .step-dot {
+    flex: 1; text-align: center; position: relative;
+    padding-bottom: 8px;
+  }
+  .step-dot::after {
+    content: ''; position: absolute;
+    top: 14px; left: calc(50% + 18px); right: calc(-50% + 18px);
+    height: 1px; background: #555;
+  }
+  .step-dot:last-child::after { display: none; }
+  .step-dot .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border: 2px solid #555;
+    border-radius: 50%; font-size: 12px; font-weight: bold;
+    color: #555; background: #111; position: relative; z-index: 1;
+  }
+  .step-dot.active .num {
+    border-color: #fff; color: #111; background: #fff;
+  }
+  .step-dot .step-label {
+    display: block; font-size: 10px; color: #666; margin-top: 6px;
+  }
+  .step-dot.active .step-label { color: #fff; }
+
+  /* ===== CONFIRM TABLE ===== */
+  .confirm-wrap {
+    max-width: 640px; margin: 0 auto; padding: 48px 20px 64px;
+  }
+  .confirm-section-title {
+    font-size: 16px; font-weight: bold; color: #222;
+    border-bottom: 2px solid #333; padding-bottom: 10px;
+    margin-bottom: 0; margin-top: 48px;
+  }
+  .confirm-section-title:first-child { margin-top: 0; }
+  .confirm-table {
+    width: 100%; border-collapse: collapse;
+  }
+  .confirm-table tr { border-bottom: 1px solid #eee; }
+  .confirm-table th {
+    text-align: left; padding: 14px 16px 14px 0;
+    font-size: 12px; font-weight: bold; color: #666;
+    width: 180px; vertical-align: top;
+  }
+  .confirm-table td {
+    padding: 14px 0; font-size: 13px; color: #333;
+  }
+
+  /* ===== BUTTONS ===== */
+  .confirm-actions {
+    margin-top: 40px; text-align: center;
+  }
+  .btn-register {
+    display: block; width: 100%;
+    border: 2px solid #333; background: #333; color: #fff;
+    padding: 16px 20px; font-size: 15px; font-weight: bold;
+    cursor: pointer; transition: background .15s;
+    text-align: center; letter-spacing: 1px;
+    text-decoration: none;
+  }
+  .btn-register:hover { background: #555; border-color: #555; }
+  .btn-back {
+    display: inline-block; margin-top: 16px;
+    border: 2px solid #ccc; background: #fff; color: #666;
+    padding: 12px 40px; font-size: 13px;
+    cursor: pointer; transition: border-color .15s;
+    text-decoration: none;
+  }
+  .btn-back:hover { border-color: #999; color: #333; }
+
+  /* ===== FOOTER ===== */
+  footer { border-top: 2px solid #333; margin-top: 0; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-links {
+    padding: 44px 20px 36px;
+    display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid #ddd;
+  }
+  .footer-links a { font-size: 13px; color: #555; text-decoration: none; }
+  .footer-links a:hover { text-decoration: underline; }
+  .footer-links .sep { color: #ccc; font-size: 13px; }
+  .footer-bottom { text-align: center; padding: 24px; font-size: 12px; color: #aaa; }
+
+  #toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: #333; color: #fff; padding: 10px 22px; font-size: 12px;
+    opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999;
+    white-space: nowrap;
+  }
+  #toast.show { opacity: 1; }
+
+  .search-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 500; align-items: center; justify-content: center; padding: 24px; }
+  .search-overlay.open { display: flex; }
+  .search-box { background: #fff; border: 1px solid #bbb; padding: 36px 40px 40px; width: 800px; max-width: 94vw; max-height: 88vh; overflow-y: auto; }
+  .search-box-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .search-box-header h3 { font-size: 17px; font-weight: bold; color: #222; }
+  .search-close { font-size: 22px; color: #aaa; cursor: pointer; line-height: 1; }
+  .search-close:hover { color: #333; }
+  .search-input-row { display: flex; gap: 0; margin-bottom: 28px; }
+  .search-input-row input { flex: 1; border: 2px solid #333; border-right: none; padding: 14px 18px; font-size: 16px; outline: none; }
+  .search-input-row button { border: 2px solid #333; background: #333; color: #fff; padding: 14px 32px; font-size: 14px; cursor: pointer; white-space: nowrap; }
+</style>
+</head>
+<body>
+<!-- 検索ポップアップ -->
+<div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
+  <div class="search-box" onclick="event.stopPropagation()">
+    <div class="search-box-header">
+      <h3>サイト内検索</h3>
+      <span class="search-close" onclick="closeSearchBox()">&#10005;</span>
+    </div>
+    <div class="search-input-row">
+      <input type="text" id="searchInput" placeholder="キーワードを入力してください" />
+      <button onclick="toast('検索')">検索</button>
+    </div>
+  </div>
+</div>
+
+<div class="wf-label">WIREFRAME — Sea Dream Club 登録内容確認</div>
+
+<a class="btn-sdclub-fixed" href="wireframe_sdclub.html">Sea Dream Club</a>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-top">
+    <a class="logo" href="wireframe_top.html">LOGO</a>
+    <nav class="global-nav">
+      <div class="nav-item"><a href="wireframe_news.html">ニュース</a></div>
+      <div class="nav-item"><a href="wireframe_fishing.html">フィッシング</a></div>
+      <div class="nav-item"><a href="wireframe_gear.html">マリングッズ・ギア</a></div>
+      <div class="nav-item"><a href="wireframe_yacht.html">ヨット</a></div>
+      <div class="nav-item"><a href="wireframe_boat.html">ボート</a></div>
+      <div class="nav-item"><a href="wireframe_marina.html">マリーナ</a></div>
+      <div class="nav-item"><a href="wireframe_lifestyle.html">ライフスタイル</a></div>
+    </nav>
+    <div class="header-actions">
+      <div class="btn-search" onclick="openSearch()">検索</div>
+      <a class="btn-login" href="wireframe_sdclub_mypage.html">ログイン / マイページ</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow">SEA DREAM CLUB</div>
+  <h1>登録内容の確認</h1>
+  <p>入力内容をご確認のうえ「登録する」ボタンを押してください</p>
+
+  <!-- ステップインジケーター -->
+  <div class="step-indicator">
+    <div class="step-dot">
+      <span class="num">1</span>
+      <span class="step-label">入力</span>
+    </div>
+    <div class="step-dot active">
+      <span class="num">2</span>
+      <span class="step-label">確認</span>
+    </div>
+    <div class="step-dot">
+      <span class="num">3</span>
+      <span class="step-label">完了</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BREADCRUMB ===== -->
+<div class="breadcrumb">
+  <a href="wireframe_top.html">TOP</a><span class="sep">&gt;</span>
+  <a href="wireframe_sdclub.html">Sea Dream Club</a><span class="sep">&gt;</span>
+  <a href="wireframe_sdclub_register.html">会員登録</a><span class="sep">&gt;</span>
+  確認
+</div>
+
+<!-- ===== CONFIRM ===== -->
+<div class="confirm-wrap">
+
+  <div class="confirm-section-title" style="margin-top:0;">アカウント情報</div>
+  <table class="confirm-table">
+    <tr><th>メールアドレス</th><td>example@email.com</td></tr>
+    <tr><th>パスワード</th><td>********</td></tr>
+    <tr><th>ニックネーム</th><td>マリンたろう</td></tr>
+  </table>
+
+  <div class="confirm-section-title">プロフィール</div>
+  <table class="confirm-table">
+    <tr><th>性別</th><td>男性</td></tr>
+    <tr><th>年代</th><td>40代</td></tr>
+    <tr><th>お住まいの地域</th><td>関東</td></tr>
+  </table>
+
+  <div class="confirm-section-title">アンケート</div>
+  <table class="confirm-table">
+    <tr><th>興味のあるカテゴリー</th><td>フィッシング、ボート、マリーナ</td></tr>
+    <tr><th>マリン歴</th><td>3〜10年</td></tr>
+    <tr><th>所有艇の有無</th><td>所有している</td></tr>
+    <tr><th>知ったきっかけ</th><td>月刊Kazi（雑誌）</td></tr>
+  </table>
+
+  <div class="confirm-actions">
+    <a class="btn-register" href="wireframe_sdclub_complete.html">登録する</a>
+    <a class="btn-back" href="wireframe_sdclub_register.html">&larr; 修正する</a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="wireframe_top.html">TOPへ戻る</a><span class="sep">|</span>
+      <a href="wireframe_entry.html">エントリーガイド</a><span class="sep">|</span>
+      <a href="wireframe_maker.html">メーカー&amp;ビルダー</a><span class="sep">|</span>
+      <a href="#" onclick="toast('月刊Kazi（外部）へ');return false;">月刊Kazi</a><span class="sep">|</span>
+      <a href="#" onclick="toast('KAZIシープラザへ');return false;">KAZIシープラザ</a><span class="sep">|</span>
+      <a href="wireframe_contact.html">お問い合わせ</a><span class="sep">|</span>
+      <a href="wireframe_privacy.html">プライバシーポリシー</a><span class="sep">|</span>
+      <a href="wireframe_company.html">会社概要</a>
+    </div>
+    <div class="footer-bottom">&copy; KAZI Online　All Rights Reserved.</div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+  let toastTimer;
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = '\u2192 ' + msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2000);
+  }
+  function openSearch() { document.getElementById('searchOverlay').classList.add('open'); }
+  function closeSearchBox() { document.getElementById('searchOverlay').classList.remove('open'); }
+  function closeSearch(e) { if (e.target === document.getElementById('searchOverlay')) closeSearchBox(); }
+</script>
+</body>
+</html>
