@@ -1,0 +1,246 @@
+/* ============================================================
+   KAZI ONLINE — Responsive CSS
+   3 breakpoints: 1024px / 768px / 480px
+   ============================================================ */
+
+/* ========== 1024px — タブレット ========== */
+@media (max-width: 1024px) {
+
+  /* Header */
+  .global-nav { display: none !important; }
+  .btn-hamburger { display: flex !important; }
+  .header-top { padding: 14px 24px; gap: 20px; }
+
+  /* Hamburger Panel */
+  .hamburger-panel { left: 120px; }
+  .hamburger-nav-grid { grid-template-columns: repeat(3, 1fr); gap: 24px 28px; }
+
+  /* Content Layout */
+  .content-with-sidebar {
+    grid-template-columns: 1fr !important;
+    padding: 0 24px;
+    gap: 32px;
+  }
+  .content-sidebar { order: 2; }
+  .sidebar-sticky { position: static; margin-top: 0; }
+
+  /* Article List */
+  .article-list { grid-template-columns: 1fr !important; }
+
+  /* Article Header */
+  .article-header {
+    grid-template-columns: 1fr !important;
+    padding: 24px !important;
+  }
+
+  /* Hero Slider (TOP) */
+  .hero-slider { height: 600px !important; }
+  .hero-spacer { height: 600px !important; }
+
+  /* Publication Grid */
+  .pub-grid { grid-template-columns: repeat(4, 1fr) !important; }
+
+  /* Footer (TOP — grid) */
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 36px 24px 28px;
+  }
+
+  /* Footer (Sub-pages — flex) */
+  .footer-inner { padding: 0; }
+
+  /* Mega menu */
+  .mega-menu { display: none !important; }
+  .mega-overlay { display: none !important; }
+
+  /* SDC Landing */
+  .sdc-hero { padding: 100px 24px 80px !important; }
+  .sdc-hero h1 { font-size: 36px !important; }
+  .benefit-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Mypage */
+  .mypage-wrap {
+    grid-template-columns: 1fr !important;
+    padding: 24px 20px 48px;
+  }
+  .bookmark-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .magazine-grid { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* ========== 768px — モバイル ========== */
+@media (max-width: 768px) {
+
+  /* Header */
+  .header-top { padding: 12px 16px; gap: 12px; }
+  .logo-full { height: 22px; }
+  .logo-small { height: 18px; }
+  .btn-login { font-size: 11px; padding: 6px 12px; }
+
+  /* Hamburger Panel — full width */
+  .hamburger-panel { left: 0; }
+  .hamburger-nav-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 24px; }
+  .hamburger-panel-body { flex-direction: column; }
+  .hamburger-aside { width: 100%; }
+  .hamburger-nav { width: 100%; }
+
+  /* Content & Grid */
+  .content-with-sidebar { padding: 0 16px; gap: 24px; }
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr) !important; gap: 20px; }
+
+  /* Hero Slider (TOP) */
+  .hero-slider { height: 480px !important; }
+  .hero-spacer { height: 480px !important; }
+  .slide { width: 92% !important; }
+  .slide-caption { padding: 18px 22px; max-width: 100%; }
+  .slide-caption h2 { font-size: 18px !important; }
+
+  /* Publication Grid */
+  .pub-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 12px; }
+
+  /* Page Hero (SDC Auth) */
+  .page-hero { padding: 56px 16px 44px !important; }
+  .page-hero h1 { font-size: 22px !important; letter-spacing: 2px !important; }
+  .page-hero p { font-size: 12px !important; }
+
+  /* Profile Header (Mypage) */
+  .profile-header { padding: 28px 16px !important; }
+  .profile-header-inner { flex-direction: column; text-align: center; gap: 16px; }
+  .profile-meta { justify-content: center; flex-wrap: wrap; }
+
+  /* Mypage Grids */
+  .bookmark-grid { grid-template-columns: 1fr 1fr !important; gap: 12px; }
+  .magazine-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
+  .benefit-list { grid-template-columns: 1fr !important; }
+  .marina-fav-item { flex-direction: column; }
+  .marina-fav-img { width: 100%; height: 160px; }
+
+  /* Form */
+  .form-wrap { padding: 32px 16px 48px; }
+  .form-check-grid { grid-template-columns: 1fr !important; }
+  .step-indicator { max-width: 100%; }
+
+  /* Search Popup */
+  .search-box { padding: 24px 20px 32px !important; }
+  .search-sdc-banner { flex-direction: column; text-align: center; gap: 16px; }
+  .search-cats { gap: 8px; }
+  .search-cat-btn { min-width: 70px !important; padding: 12px 6px !important; }
+
+  /* Card List (articles) */
+  .card-list .card-img-sm { width: 120px; height: 80px; }
+  .card-list .card-title { font-size: 16px; }
+  .card-list .card-excerpt { display: none; }
+
+  /* Footer (TOP grid) */
+  .footer-links {
+    grid-template-columns: 1fr !important;
+    padding: 28px 16px 24px;
+    gap: 8px;
+  }
+  .footer-links .sep { display: none; }
+  .footer-bottom { padding: 16px; font-size: 11px; }
+
+  /* Footer (Sub-pages — flex) */
+  .footer-inner .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 28px 16px 24px;
+  }
+
+  /* SDC Landing Page */
+  .sdc-hero { padding: 72px 16px 56px !important; }
+  .sdc-hero h1 { font-size: 28px !important; }
+  .sdc-hero p { font-size: 13px !important; }
+  .benefit-grid { grid-template-columns: 1fr !important; }
+
+  /* Article Header */
+  .article-header { padding: 16px !important; gap: 16px; }
+
+  /* History list */
+  .history-item { gap: 12px; }
+  .history-item-img { width: 90px; height: 60px; }
+
+  /* Confirm page */
+  .confirm-wrap { padding: 32px 16px 48px; }
+  .confirm-table th { width: 120px; font-size: 11px; padding: 10px 8px 10px 0; }
+  .confirm-table td { font-size: 12px; padding: 10px 0; }
+
+  /* Complete page */
+  .complete-wrap { padding: 48px 16px 64px; }
+}
+
+/* ========== 480px — スマートフォン小 ========== */
+@media (max-width: 480px) {
+
+  /* Header */
+  .header-top { padding: 10px 12px; gap: 8px; }
+
+  /* Hamburger */
+  .hamburger-nav-grid { grid-template-columns: 1fr !important; gap: 16px; }
+  .hamburger-panel-header { padding: 12px 16px; }
+
+  /* Content & Grid */
+  .content-with-sidebar { padding: 0 12px; }
+  .grid-3, .grid-4 { grid-template-columns: 1fr !important; }
+
+  /* Hero Slider (TOP) */
+  .hero-slider { height: 380px !important; }
+  .hero-spacer { height: 380px !important; }
+  .slide { width: 100% !important; }
+  .slide-caption { padding: 14px 16px; }
+  .slide-caption h2 { font-size: 15px !important; }
+  .slide-caption .area-label { font-size: 10px; }
+
+  /* Publication Grid */
+  .pub-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+
+  /* Page Hero (SDC Auth) */
+  .page-hero { padding: 44px 12px 36px !important; }
+  .page-hero h1 { font-size: 20px !important; }
+  .page-hero-eyebrow { font-size: 10px !important; letter-spacing: 4px !important; }
+
+  /* Search */
+  .search-input-row { flex-direction: column; }
+  .search-input-row input { border-right: 1px solid #e8e8e8 !important; }
+  .search-input-row button { width: 100%; }
+  .search-box { padding: 20px 16px 24px !important; }
+  .search-tags { gap: 6px; }
+  .search-tag { font-size: 11px; padding: 5px 12px; }
+
+  /* Form */
+  .form-wrap { padding: 24px 12px 36px; }
+  .social-btn { padding: 12px 16px; font-size: 13px; }
+  .form-submit { padding: 14px 16px; font-size: 14px; }
+  .login-register-btn { padding: 12px 32px; font-size: 13px; }
+
+  /* Card list */
+  .card-list { flex-direction: column; gap: 12px; }
+  .card-list .card-img-sm { width: 100%; height: 180px; }
+  .card-list .card-title { font-size: 15px; }
+
+  /* Mypage */
+  .bookmark-grid { grid-template-columns: 1fr !important; }
+  .magazine-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .sidebar-nav li a { padding: 12px 10px; font-size: 12px; }
+
+  /* Confirm */
+  .confirm-wrap { padding: 24px 12px 36px; }
+  .confirm-table th { width: 100px; }
+
+  /* Complete */
+  .complete-wrap { padding: 36px 12px 48px; }
+  .complete-icon { width: 64px; height: 64px; font-size: 28px; }
+  .btn-mypage { padding: 14px 36px; font-size: 14px; }
+
+  /* SDC Landing */
+  .sdc-hero { padding: 56px 12px 44px !important; }
+  .sdc-hero h1 { font-size: 22px !important; letter-spacing: 2px !important; }
+
+  /* Section headers */
+  .section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  /* Profile */
+  .profile-avatar { width: 56px; height: 56px; font-size: 22px; }
+  .profile-info h1 { font-size: 18px; }
+  .profile-badge { margin-left: 0; margin-top: 8px; display: block; }
+}

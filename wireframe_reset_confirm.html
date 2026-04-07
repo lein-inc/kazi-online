@@ -256,18 +256,35 @@
   .breadcrumb a:hover { text-decoration: underline; }
   .breadcrumb .sep { margin: 0 6px; }
 
-  /* ===== PAGE HEADER ===== */
+  /* ===== PAGE HEADER (SDC) ===== */
+  @keyframes heroFadeIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
   .page-hero {
-    background: #111; color: #fff;
-    padding: 48px 20px; text-align: center;
+    background: #0a0f1a; color: #fff;
+    padding: 80px 20px 64px; text-align: center;
+    position: relative;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,15,26,0) 0%, rgba(10,15,26,0.4) 100%);
+    pointer-events: none;
   }
   .page-hero-eyebrow {
-    font-size: 11px; letter-spacing: 4px; color: #aaa;
-    border: 1px solid #555; display: inline-block;
-    padding: 4px 16px; margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; letter-spacing: 6px; color: #2c5f8a;
+    border: none; display: inline-block;
+    padding: 0; margin-bottom: 20px;
+    opacity: 0; animation: heroFadeIn 0.6s ease 0.1s forwards;
   }
-  .page-hero h1 { font-size: 28px; font-weight: bold; margin-bottom: 10px; letter-spacing: 2px; }
-  .page-hero p { font-size: 13px; color: #aaa; }
+  .page-hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px; font-weight: 400; margin-bottom: 14px; letter-spacing: 3px;
+    opacity: 0; animation: heroFadeIn 0.6s ease 0.2s forwards;
+  }
+  .page-hero p {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    font-family: 'Noto Sans JP', sans-serif;
+    opacity: 0; animation: heroFadeIn 0.6s ease 0.3s forwards;
+  }
 
   /* ===== FORM ===== */
   .form-wrap {
@@ -290,15 +307,16 @@
     font-size: 13px; color: #333; outline: none;
     background: #fff;
   }
-  .form-input:focus { border-color: #555; }
+  .form-input:focus { border-color: #2c5f8a; }
   .form-submit {
     display: block; width: 100%;
-    border: 2px solid #333; background: #333; color: #fff;
+    border: 2px solid #1e3a5f; background: #1e3a5f; color: #fff;
     padding: 16px 20px; font-size: 15px; font-weight: bold;
-    cursor: pointer; transition: background .15s;
+    cursor: pointer; transition: background .2s;
     margin-top: 32px; text-align: center; letter-spacing: 1px;
+    font-family: 'Noto Sans JP', sans-serif;
   }
-  .form-submit:hover { background: #555; border-color: #555; }
+  .form-submit:hover { background: #2c5f8a; border-color: #2c5f8a; }
   .form-back-link {
     display: block; text-align: center;
     margin-top: 16px; font-size: 12px; color: #888;
@@ -313,10 +331,10 @@
   }
   .complete-wrap.show { display: block; }
   .complete-icon {
-    width: 64px; height: 64px; border: 2px solid #333;
+    width: 64px; height: 64px; border: 2px solid #2c5f8a;
     border-radius: 50%; margin: 0 auto 24px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 28px; color: #333;
+    font-size: 28px; color: #2c5f8a;
   }
   .complete-wrap h2 {
     font-size: 22px; font-weight: bold; color: #222;
@@ -327,11 +345,12 @@
     margin-bottom: 32px;
   }
   .complete-btn {
-    display: inline-block; border: 2px solid #333; background: #333;
+    display: inline-block; border: 2px solid #1e3a5f; background: #1e3a5f;
     color: #fff; padding: 14px 48px; font-size: 14px; font-weight: bold;
-    text-decoration: none; transition: all .15s;
+    text-decoration: none; transition: all .2s;
+    font-family: 'Noto Sans JP', sans-serif;
   }
-  .complete-btn:hover { background: #555; border-color: #555; }
+  .complete-btn:hover { background: #2c5f8a; border-color: #2c5f8a; }
 
   /* ===== FOOTER ===== */
   footer { border-top: 2px solid #333; margin-top: 0; }
@@ -484,6 +503,7 @@
     font-size: 15px; color: #1a1a1a; line-height: 1.5; font-weight: 600;
   }
 </style>
+<link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 <canvas id="bgCanvas" width="1920" height="1080"></canvas>
@@ -660,9 +680,9 @@
 
 <!-- ===== PAGE HERO ===== -->
 <div class="page-hero">
-  <div class="page-hero-eyebrow">SEA DREAM CLUB</div>
+  <div class="page-hero-eyebrow">KAZI ONLINE MEMBERS CLUB</div>
   <h1>新しいパスワードの設定</h1>
-  <p>新しいパスワードを入力してください</p>
+  <p>Sea Dream Club アカウントの新しいパスワードを設定してください</p>
 </div>
 
 <!-- ===== BREADCRUMB ===== -->

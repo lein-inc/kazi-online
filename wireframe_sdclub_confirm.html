@@ -256,18 +256,35 @@
   .breadcrumb a:hover { text-decoration: underline; }
   .breadcrumb .sep { margin: 0 6px; }
 
-  /* ===== PAGE HEADER ===== */
+  /* ===== PAGE HEADER (SDC) ===== */
+  @keyframes heroFadeIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
   .page-hero {
-    background: #111; color: #fff;
-    padding: 48px 20px; text-align: center;
+    background: #0a0f1a; color: #fff;
+    padding: 80px 20px 64px; text-align: center;
+    position: relative;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,15,26,0) 0%, rgba(10,15,26,0.4) 100%);
+    pointer-events: none;
   }
   .page-hero-eyebrow {
-    font-size: 11px; letter-spacing: 4px; color: #aaa;
-    border: 1px solid #555; display: inline-block;
-    padding: 4px 16px; margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; letter-spacing: 6px; color: #2c5f8a;
+    border: none; display: inline-block;
+    padding: 0; margin-bottom: 20px;
+    opacity: 0; animation: heroFadeIn 0.6s ease 0.1s forwards;
   }
-  .page-hero h1 { font-size: 28px; font-weight: bold; margin-bottom: 10px; letter-spacing: 2px; }
-  .page-hero p { font-size: 13px; color: #aaa; }
+  .page-hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px; font-weight: 400; margin-bottom: 14px; letter-spacing: 3px;
+    opacity: 0; animation: heroFadeIn 0.6s ease 0.2s forwards;
+  }
+  .page-hero p {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    font-family: 'Noto Sans JP', sans-serif;
+    opacity: 0; animation: heroFadeIn 0.6s ease 0.3s forwards;
+  }
 
   /* ===== STEP INDICATOR ===== */
   .step-indicator {
@@ -281,20 +298,20 @@
   .step-dot::after {
     content: ''; position: absolute;
     top: 14px; left: calc(50% + 18px); right: calc(-50% + 18px);
-    height: 1px; background: #555;
+    height: 1px; background: #2c5f8a;
   }
   .step-dot:last-child::after { display: none; }
   .step-dot .num {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 28px; height: 28px; border: 2px solid #555;
+    width: 28px; height: 28px; border: 2px solid rgba(44,95,138,0.5);
     border-radius: 50%; font-size: 12px; font-weight: bold;
-    color: #555; background: #111; position: relative; z-index: 1;
+    color: rgba(255,255,255,0.5); background: #0a0f1a; position: relative; z-index: 1;
   }
   .step-dot.active .num {
-    border-color: #fff; color: #111; background: #fff;
+    border-color: #3a7ab5; color: #0a0f1a; background: #3a7ab5;
   }
   .step-dot .step-label {
-    display: block; font-size: 10px; color: #666; margin-top: 6px;
+    display: block; font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 6px;
   }
   .step-dot.active .step-label { color: #fff; }
 
@@ -304,7 +321,7 @@
   }
   .confirm-section-title {
     font-size: 16px; font-weight: bold; color: #222;
-    border-bottom: 2px solid #333; padding-bottom: 10px;
+    border-bottom: 2px solid #1e3a5f; padding-bottom: 10px;
     margin-bottom: 0; margin-top: 48px;
   }
   .confirm-section-title:first-child { margin-top: 0; }
@@ -327,13 +344,13 @@
   }
   .btn-register {
     display: block; width: 100%;
-    border: 2px solid #333; background: #333; color: #fff;
+    border: 2px solid #1e3a5f; background: #1e3a5f; color: #fff;
     padding: 16px 20px; font-size: 15px; font-weight: bold;
-    cursor: pointer; transition: background .15s;
+    cursor: pointer; transition: background .2s;
     text-align: center; letter-spacing: 1px;
-    text-decoration: none;
+    text-decoration: none; font-family: 'Noto Sans JP', sans-serif;
   }
-  .btn-register:hover { background: #555; border-color: #555; }
+  .btn-register:hover { background: #2c5f8a; border-color: #2c5f8a; }
   .btn-back {
     display: inline-block; margin-top: 16px;
     border: 2px solid #ccc; background: #fff; color: #666;
@@ -548,6 +565,7 @@
     font-size: 15px; color: #1a1a1a; line-height: 1.5; font-weight: 600;
   }
 </style>
+<link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 <canvas id="bgCanvas" width="1920" height="1080"></canvas>
@@ -724,9 +742,9 @@
 
 <!-- ===== PAGE HERO ===== -->
 <div class="page-hero">
-  <div class="page-hero-eyebrow">SEA DREAM CLUB</div>
-  <h1>登録内容の確認</h1>
-  <p>入力内容をご確認のうえ「登録する」ボタンを押してください</p>
+  <div class="page-hero-eyebrow">KAZI ONLINE MEMBERS CLUB</div>
+  <h1>入会内容の確認</h1>
+  <p>入力内容をご確認のうえ「入会する」ボタンを押してください</p>
 
   <!-- ステップインジケーター -->
   <div class="step-indicator">
@@ -779,7 +797,7 @@
   </table>
 
   <div class="confirm-actions">
-    <a class="btn-register" href="wireframe_sdclub_complete.html">登録する</a>
+    <a class="btn-register" href="wireframe_sdclub_complete.html">Sea Dream Club に入会する</a>
     <a class="btn-back" href="wireframe_sdclub_register.html">&larr; 修正する</a>
   </div>
 
