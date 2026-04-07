@@ -54,6 +54,9 @@
 .content-with-sidebar > .content-main {
   min-width: 0;
   overflow: hidden;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 20px 0 48px !important;
 }
 .content-sidebar { position: relative; }
 .sidebar-sticky { position: sticky; top: 80px; }
