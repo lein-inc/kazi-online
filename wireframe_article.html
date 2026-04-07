@@ -741,6 +741,86 @@
   .back-to-top.show { opacity: 1; pointer-events: auto; }
   .back-to-top:hover { background: #333; }
 
+  /* ===== SDC Scroll Popup ===== */
+  .sdc-popup-overlay {
+    position: fixed; inset: 0; z-index: 900;
+    background: rgba(0,0,0,.55); backdrop-filter: blur(3px);
+    opacity: 0; visibility: hidden;
+    transition: opacity .4s, visibility .4s;
+  }
+  .sdc-popup-overlay.open { opacity: 1; visibility: visible; }
+  .sdc-popup {
+    position: fixed; z-index: 910;
+    bottom: 40px; right: 40px;
+    width: 400px;
+    background: linear-gradient(165deg, #0a0f1a 0%, #0d1525 40%, #1e3a5f 100%);
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    padding: 0; overflow: hidden;
+    opacity: 0; visibility: hidden;
+    transform: translateY(30px);
+    transition: opacity .5s, visibility .5s, transform .5s cubic-bezier(.16,1,.3,1);
+  }
+  .sdc-popup-overlay.open + .sdc-popup,
+  .sdc-popup.open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .sdc-popup::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 1px; background: linear-gradient(to right, transparent, #3a7ab5, transparent);
+  }
+  .sdc-popup-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; color: rgba(255,255,255,.4);
+    font-size: 18px; cursor: pointer; z-index: 2;
+    transition: color .2s; line-height: 1;
+  }
+  .sdc-popup-close:hover { color: rgba(255,255,255,.8); }
+  .sdc-popup-body { padding: 40px 32px 36px; text-align: center; }
+  .sdc-popup-eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500;
+    letter-spacing: 4px; color: rgba(255,255,255,.35);
+    margin-bottom: 14px; text-transform: uppercase;
+  }
+  .sdc-popup-title {
+    font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 400;
+    color: #fff; margin-bottom: 6px; letter-spacing: 1px; line-height: 1.4;
+  }
+  .sdc-popup-sub {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 400;
+    letter-spacing: 3px; color: #3a7ab5; margin-bottom: 20px;
+  }
+  .sdc-popup-divider {
+    width: 40px; height: 1px; margin: 0 auto 20px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,.2), transparent);
+  }
+  .sdc-popup-desc {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 300;
+    color: rgba(255,255,255,.55); line-height: 1.9; margin-bottom: 24px;
+  }
+  .sdc-popup-benefits {
+    display: flex; justify-content: center; gap: 24px; margin-bottom: 28px;
+  }
+  .sdc-popup-benefit {
+    text-align: center; font-family: 'Noto Sans JP', sans-serif;
+    font-size: 10px; color: rgba(255,255,255,.5); font-weight: 300;
+  }
+  .sdc-popup-benefit-icon {
+    display: block; font-size: 18px; margin-bottom: 6px; color: rgba(255,255,255,.3);
+  }
+  .sdc-popup-btn {
+    display: inline-block; padding: 14px 44px;
+    border: 1px solid rgba(255,255,255,.3); background: transparent;
+    color: #fff; font-family: 'Inter', sans-serif; font-size: 11px;
+    font-weight: 400; letter-spacing: 2px; text-decoration: none;
+    cursor: pointer; transition: background .3s, color .3s;
+  }
+  .sdc-popup-btn:hover { background: rgba(255,255,255,.1); }
+  .sdc-popup-login {
+    display: block; margin-top: 14px;
+    font-family: 'Noto Sans JP', sans-serif; font-size: 11px;
+    color: rgba(255,255,255,.35); text-decoration: none;
+    transition: color .2s;
+  }
+  .sdc-popup-login:hover { color: rgba(255,255,255,.6); }
+
   /* トースト */
   #toast {
     position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
@@ -942,9 +1022,30 @@
 
 <div class="wf-label">WIREFRAME — KAZI ONLINE 記事詳細ページ</div>
 
-<!-- Sea Dream Club 追従ボタン -->
 <!-- ページトップへ戻るボタン -->
 <a class="back-to-top" id="backToTop" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#9650;</a>
+
+<!-- SDC Scroll Popup -->
+<div class="sdc-popup-overlay" id="sdcPopupOverlay" onclick="closeSdcPopup()"></div>
+<div class="sdc-popup" id="sdcPopup">
+  <button class="sdc-popup-close" onclick="closeSdcPopup()">&#10005;</button>
+  <div class="sdc-popup-body">
+    <div class="sdc-popup-eyebrow">KAZI ONLINE</div>
+    <div class="sdc-popup-title">Sea Dream Club</div>
+    <div class="sdc-popup-sub">PREMIUM MEMBERSHIP</div>
+    <div class="sdc-popup-divider"></div>
+    <div class="sdc-popup-desc">
+      会員限定記事・デジタルマガジン・<br>マリーナ優待など、海の特別な体験を。
+    </div>
+    <div class="sdc-popup-benefits">
+      <div class="sdc-popup-benefit"><span class="sdc-popup-benefit-icon">&#9776;</span>限定記事</div>
+      <div class="sdc-popup-benefit"><span class="sdc-popup-benefit-icon">&#9830;</span>デジタル誌</div>
+      <div class="sdc-popup-benefit"><span class="sdc-popup-benefit-icon">&#9875;</span>マリーナ優待</div>
+    </div>
+    <a class="sdc-popup-btn" href="wireframe_sdclub.html">JOIN SEA DREAM CLUB</a>
+    <a class="sdc-popup-login" href="wireframe_login.html">すでに会員の方はログイン</a>
+  </div>
+</div>
 
 <!-- 検索ポップアップ（TOP統一版） -->
 <div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
@@ -1481,6 +1582,24 @@
   const backBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     backBtn.classList.toggle('show', window.scrollY > 400);
+  });
+
+  // SDC Scroll Popup（40%スクロールで表示・セッション中1回のみ）
+  let sdcPopupShown = false;
+  function closeSdcPopup() {
+    document.getElementById('sdcPopupOverlay').classList.remove('open');
+    document.getElementById('sdcPopup').classList.remove('open');
+    document.body.style.overflow = '';
+    sessionStorage.setItem('sdcPopupDismissed', '1');
+  }
+  window.addEventListener('scroll', () => {
+    if (sdcPopupShown || sessionStorage.getItem('sdcPopupDismissed')) return;
+    const scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    if (scrollPct > 0.4) {
+      sdcPopupShown = true;
+      document.getElementById('sdcPopupOverlay').classList.add('open');
+      document.getElementById('sdcPopup').classList.add('open');
+    }
   });
 
   // 検索ポップアップ
