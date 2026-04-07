@@ -449,9 +449,9 @@
   .content-sidebar { position: relative; }
   .sidebar-sticky { position: sticky; top: 80px; margin-top: 24px; }
   .sidebar-sdclub {
-    background: #0a0a0a; color: #fff; padding: 64px 28px 72px;
+    background: #0a0a0a; color: #fff; padding: 40px 24px 48px;
     text-align: center; text-decoration: none; display: block;
-    transition: background 0.3s; min-height: 700px;
+    transition: background 0.3s; min-height: 0;
   }
   .sidebar-sdclub:hover { background: #1a1a1a; }
   .sidebar-sdclub .sidebar-label {
@@ -461,7 +461,7 @@
   }
   .sidebar-sdclub .sidebar-title {
     font-family: 'Noto Serif JP', serif;
-    font-size: 26px; font-weight: 600; line-height: 1.5;
+    font-size: 22px; font-weight: 600; line-height: 1.4;
     margin-bottom: 20px;
   }
   .sidebar-sdclub .sidebar-desc {
@@ -1016,6 +1016,9 @@
       <div class="sidebar-title">SeaDream<br>Club</div>
       <div class="sidebar-desc">海を愛する人のための特別なメンバーシップ。選び抜かれたイベント、特別な体験、上質なライフスタイル。</div>
       <span class="sidebar-btn">入会する（無料）</span>
+    </a>
+    <a class="sidebar-ad" href="#" onclick="toast('広告クリック');return false;" style="background-image:url('photos/boat_main.jpg')">
+      <span class="sidebar-ad-label">AD</span>
     </a>
   </div>
 </aside>
