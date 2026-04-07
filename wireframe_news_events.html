@@ -385,42 +385,7 @@
     box-shadow: 0 4px 16px rgba(0,0,0,.15);
   }
   #toast.show { opacity: 1; }
-
-  /* ===== 検索ポップアップ ===== */
-  .search-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 500; align-items: center; justify-content: center; padding: 24px; }
-  .search-overlay.open { display: flex; }
-  .search-box { background: #fff; border: 1px solid #e0e0e0; padding: 36px 40px 40px; width: 800px; max-width: 94vw; max-height: 88vh; overflow-y: auto; }
-  .search-box-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-  .search-box-header h3 { font-size: 17px; font-weight: bold; color: #222; }
-  .search-close { font-size: 22px; color: #aaa; cursor: pointer; line-height: 1; }
-  .search-close:hover { color: #333; }
-  .search-input-row { display: flex; gap: 0; margin-bottom: 28px; }
-  .search-input-row input { flex: 1; border: 2px solid #333; border-right: none; padding: 14px 18px; font-size: 16px; outline: none; }
-  .search-input-row input:focus { border-color: #555; }
-  .search-input-row button { border: 2px solid #333; background: #333; color: #fff; padding: 14px 32px; font-size: 14px; cursor: pointer; white-space: nowrap; }
-  .search-input-row button:hover { background: #555; border-color: #555; }
-  .search-section-title { font-size: 11px; color: #888; font-weight: bold; letter-spacing: 0.5px; border-bottom: 1px solid #eee; padding-bottom: 6px; margin-bottom: 12px; }
-  .search-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 28px; }
-  .search-tag { border: 1px solid #ccc; padding: 6px 14px; font-size: 12px; color: #555; cursor: pointer; text-decoration: none; }
-  .search-tag:hover { background: #f0f0f0; border-color: #999; }
-  .search-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-  .search-cat-btn { flex: 1; min-width: 88px; max-width: 114px; border: 1px solid #ccc; padding: 14px 8px; text-align: center; cursor: pointer; text-decoration: none; color: #333; font-size: 12px; background: #fafafa; }
-  .search-cat-btn:hover { background: #333; color: #fff; border-color: #333; }
-  .search-cat-symbol { font-size: 20px; margin-bottom: 6px; color: #777; display: block; }
-  .search-cat-btn:hover .search-cat-symbol { color: #fff; }
-  .search-sdc-banner { border: 2px solid #444; background: #2a2a2a; color: #fff; padding: 24px 28px; margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-  .search-sdc-label { font-size: 10px; color: #aaa; letter-spacing: 2px; margin-bottom: 4px; }
-  .search-sdc-title { font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 6px; }
-  .search-sdc-desc { font-size: 12px; color: #bbb; }
-  .search-sdc-btn { border: 1px solid #888; color: #fff; background: transparent; padding: 10px 22px; font-size: 12px; white-space: nowrap; cursor: pointer; text-decoration: none; flex-shrink: 0; }
-  .search-sdc-btn:hover { background: #444; }
-  .search-featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .search-feat-card { border: 1px solid #ddd; cursor: pointer; text-decoration: none; color: inherit; display: block; }
-  .search-feat-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,.13); }
-  .search-feat-img { background: #e8e8e8; aspect-ratio: 4/3; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #bbb; }
-  .search-feat-body { padding: 8px 10px; }
-  .search-feat-cat { font-size: 10px; color: #888; margin-bottom: 3px; }
-  .search-feat-title { font-size: 11px; color: #333; line-height: 1.45; }
+  .search-cat-btn:hover
 
   /* ===== Sidebar Layout ===== */
   .content-with-sidebar {
@@ -542,11 +507,132 @@
     font-size: 9px; padding: 2px 7px; font-weight: 600;
     margin-left: 8px; vertical-align: middle;
   }
+  /* ===== Search Overlay (TOP統一版) ===== */
+  .search-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,.5); z-index: 500;
+    align-items: center; justify-content: center;
+    padding: 24px; backdrop-filter: blur(4px);
+  }
+  .search-overlay.open { display: flex; }
+  .search-box {
+    background: #fff;
+    padding: 40px 48px 48px;
+    width: 840px; max-width: 94vw;
+    max-height: 88vh; overflow-y: auto;
+    border: none; box-shadow: 0 16px 48px rgba(0,0,0,.12);
+  }
+  .search-box-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 28px;
+  }
+  .search-box-header h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px; font-weight: 600; color: #1a1a1a;
+  }
+  .search-close {
+    font-size: 20px; color: #ccc; cursor: pointer; line-height: 1;
+    transition: color 0.2s;
+  }
+  .search-close:hover { color: #1a1a1a; }
+  .search-input-row { display: flex; gap: 0; margin-bottom: 32px; }
+  .search-input-row input {
+    flex: 1; border: 1px solid #e8e8e8; border-right: none;
+    padding: 14px 20px; font-size: 15px; outline: none;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
+    transition: border-color 0.3s;
+  }
+  .search-input-row input:focus { border-color: #2c5f8a; }
+  .search-input-row button {
+    border: 1px solid #1a1a1a; background: #1a1a1a; color: #fff;
+    padding: 14px 36px; font-size: 13px; cursor: pointer; white-space: nowrap;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
+    letter-spacing: 0.06em; transition: background 0.3s;
+  }
+  .search-input-row button:hover { background: #333; }
+  .search-section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; color: #999; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; margin-bottom: 14px;
+  }
+  .search-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .search-tag {
+    border: 1px solid #e8e8e8; padding: 6px 16px;
+    font-size: 12px; color: #666; cursor: pointer; text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .search-tag:hover { background: #f7f7f5; border-color: #ccc; color: #1a1a1a; }
+  .search-cats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+  .search-cat-btn {
+    flex: 1; min-width: 90px; max-width: 120px;
+    border: 1px solid #e8e8e8; padding: 16px 8px;
+    text-align: center; cursor: pointer; text-decoration: none;
+    color: #1a1a1a; font-size: 12px; background: #fff;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
+    transition: all 0.25s;
+  }
+  .search-cat-btn:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .search-cat-symbol {
+    font-family: 'Inter', sans-serif; font-size: 16px;
+    margin-bottom: 8px; color: #999; display: block;
+    font-weight: 600; letter-spacing: 0.08em;
+  }
+  .search-cat-btn:hover .search-cat-symbol { color: #fff; }
+  .search-sdc-banner {
+    border: none; background: #1a1a1a; color: #fff;
+    padding: 28px 32px; margin-bottom: 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .search-sdc-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; color: #666; letter-spacing: 0.15em; margin-bottom: 6px;
+  }
+  .search-sdc-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 6px;
+  }
+  .search-sdc-desc { font-size: 12px; color: #999; font-weight: 600; }
+  .search-sdc-btn {
+    border: 1px solid rgba(255,255,255,.3); color: #fff; background: transparent;
+    padding: 10px 24px; font-size: 12px; white-space: nowrap;
+    cursor: pointer; text-decoration: none; flex-shrink: 0;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
+    letter-spacing: 0.06em; transition: all 0.3s;
+  }
+  .search-sdc-btn:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
+  /* Featured Articles — サムネイル小・タイトル大バージョン */
+  .search-featured { }
+  .search-feat-card {
+    display: flex; gap: 16px; align-items: center;
+    padding: 14px 0; border-bottom: 1px solid #f0f0f0;
+    cursor: pointer; text-decoration: none; color: inherit;
+    transition: opacity 0.3s;
+  }
+  .search-feat-card:last-child { border-bottom: none; }
+  .search-feat-card:hover { opacity: 0.7; }
+  .search-feat-img {
+    width: 80px; height: 54px; flex-shrink: 0;
+    background: #e0ddd8; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: #bbb;
+  }
+  .search-feat-body { flex: 1; min-width: 0; }
+  .search-feat-cat {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; color: #2c5f8a; margin-bottom: 4px;
+    letter-spacing: 0.08em;
+  }
+  .search-feat-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px; color: #1a1a1a; line-height: 1.5; font-weight: 600;
+  }
 </style>
 </head>
 <body>
 <canvas id="bgCanvas" width="1920" height="1080"></canvas>
-<!-- 検索ポップアップ -->
+<!-- 検索ポップアップ（TOP統一版） -->
 <div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
   <div class="search-box" onclick="event.stopPropagation()">
     <div class="search-box-header">
@@ -602,6 +688,34 @@
         <div class="search-sdc-title">Sea Dream Club</div>
         <div class="search-sdc-desc">会員限定コンテンツ・特典・イベント情報をいち早くお届けします</div>
       </div>
+      <a class="search-sdc-btn" href="wireframe_sdclub.html" onclick="closeSearchBox()">無料登録はこちら</a>
+    </div>
+    <div class="search-section-title">注目の記事</div>
+    <div class="search-featured">
+      <a class="search-feat-card" href="wireframe_article.html?cat=%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%B3%E3%82%B0&title=%E3%83%AB%E3%82%A2%E3%83%BC%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%B3%E3%82%B0%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89">
+        <div class="search-feat-img">画像</div>
+        <div class="search-feat-body">
+          <div class="search-feat-cat">フィッシング</div>
+          <div class="search-feat-title">ルアーフィッシング完全ガイド：タックル選びから釣り方まで</div>
+        </div>
+      </a>
+      <a class="search-feat-card" href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=2025%E5%B9%B4%E6%9C%80%E6%96%B0%E3%83%9C%E3%83%BC%E3%83%88%E3%82%A4%E3%83%B3%E3%83%97%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3">
+        <div class="search-feat-img">画像</div>
+        <div class="search-feat-body">
+          <div class="search-feat-cat">ボート</div>
+          <div class="search-feat-title">2025年最新ボートインプレッション</div>
+        </div>
+      </a>
+      <a class="search-feat-card" href="wireframe_article.html?cat=%E3%83%9E%E3%83%AA%E3%83%BC%E3%83%8A&title=%E3%83%9E%E3%83%AA%E3%83%BC%E3%83%8A%E3%83%9E%E3%83%83%E3%83%97%E3%81%A7%E6%8E%A2%E3%81%99%E5%85%A8%E5%9B%BD551%E3%82%AB%E6%89%80">
+        <div class="search-feat-img">画像</div>
+        <div class="search-feat-body">
+          <div class="search-feat-cat">マリーナ</div>
+          <div class="search-feat-title">マリーナマップで探す全国551カ所</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
       <a class="search-sdc-btn" href="wireframe_sdclub.html" onclick="closeSearchBox()">無料登録はこちら</a>
     </div>
     <div class="search-section-title">注目の記事</div>

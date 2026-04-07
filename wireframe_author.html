@@ -3,18 +3,13 @@
 <head><script src="auth.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>グッズ - ライフスタイル - KAZI ONLINE ワイヤーフレーム</title>
+<title>この著者の記事一覧 - KAZI ONLINE ワイヤーフレーム</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background: #ffffff; color: #1a1a1a; font-size: 14px;
-    font-weight: 400; -webkit-font-smoothing: antialiased;
-  }
-
+  body { font-family: 'Noto Sans JP', sans-serif; background: #fff; color: #333; font-size: 13px; }
   #bgCanvas {
     position: fixed; top: 0; left: 0;
     width: 100vw; height: 100vh;
@@ -24,14 +19,9 @@
     opacity: 0;
   }
 
-  .wf-label {
-    text-align: center; padding: 6px;
-    background: #eee; border-bottom: 1px solid #ccc;
-    font-size: 11px; color: #666;
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
-  }
+  .wf-label { text-align: center; padding: 6px; background: #eee; border-bottom: 1px solid #ccc; font-size: 11px; color: #666; }
 
-    /* ===== HEADER ===== */
+  /* ===== HEADER ===== */
   header {
     position: sticky; top: 0; background: #fff; z-index: 200;
     box-shadow: 0 1px 0 #e8e8e8;
@@ -82,6 +72,8 @@
     transform: rotate(180deg); border-top-color: #2c5f8a; width: 0; left: auto;
   }
   .nav-item > a.has-sub.active { color: #2c5f8a; }
+
+  /* Mega Menu */
   .mega-menu {
     position: fixed; top: 0; left: 0; right: 0;
     background: #fff; z-index: 500;
@@ -121,6 +113,8 @@
   .mega-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.3); z-index: 499; }
   .mega-overlay.open { display: block; }
   .dropdown { display: none !important; }
+
+  /* Hamburger Menu */
   .hamburger-backdrop {
     display: none; position: fixed; inset: 0;
     background: rgba(0,0,0,.3); z-index: 599; opacity: 0; transition: opacity 0.4s;
@@ -165,7 +159,7 @@
   .hamburger-aside {
     flex: 1; min-width: 0; padding-left: 40px;
     border-left: 1px solid #e8e8e8;
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; gap: 24px;
+    display: flex; flex-direction: column; gap: 24px;
   }
   .hamburger-member-banner {
     background: #0a0a0a; color: #fff; padding: 32px 24px; text-align: center;
@@ -248,263 +242,7 @@
   header.scrolled .btn-hamburger { display: flex; pointer-events: auto; }
   header.scrolled .logo-full { display: none; }
   header.scrolled .logo-small { display: block; height: 20px; width: auto; }
-.breadcrumb { max-width: 1100px; margin: 0 auto; padding: 12px 20px; font-size: 11px; color: #999; }
-  .breadcrumb a { color: #999; text-decoration: none; }
-  .breadcrumb span { margin: 0 6px; }
-  .cat-hero { background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('photos/lifestyle_main.jpg') center/cover no-repeat; padding: 48px 20px; }
-  .cat-hero-inner { max-width: 1100px; margin: 0 auto; }
-  .cat-hero h1 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 32px; font-weight: 600; color: #fff;
-    margin-bottom: 12px; letter-spacing: 0.04em;
-  }
-  .cat-hero p { font-size: 14px; color: rgba(255,255,255,.85); line-height: 1.7; }
-  .subcat-wrap { max-width: 1600px; margin: 0 auto; padding: 0 40px; }
-  .subcat-tabs {
-    display: flex; flex-wrap: wrap; gap: 0;
-    border-bottom: 1px solid #e0e0e0; margin: 24px 0 0;
-  }
-  .subcat-tab {
-    padding: 12px 20px; font-size: 13px; color: #666; cursor: pointer;
-    text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -1px;
-    white-space: nowrap; font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
-    transition: color 0.2s;
-  }
-  .subcat-tab:hover { color: #1a1a1a; }
-  .subcat-tab.active { color: #1a1a1a; border-bottom-color: #2c5f8a; }
-  main { max-width: 1100px; margin: 0 auto; padding: 20px 20px 48px; }
-  .list-toolbar {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #e8e8e8;
-  }
-  .list-count {
-    font-family: 'Noto Sans JP', sans-serif; font-size: 13px; color: #999;
-  }
-  .list-sort { display: flex; gap: 8px; }
-  .sort-btn {
-    font-family: 'Noto Sans JP', sans-serif; font-size: 12px; color: #999;
-    padding: 6px 14px; border: 1px solid #e0e0e0; cursor: pointer;
-    text-decoration: none; background: #fff; transition: all 0.2s;
-  }
-  .sort-btn.active, .sort-btn:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
-  /* GRID */
-  .grid-4 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px; }
-  /* CARD */
-  .card {
-    background: #fff; cursor: pointer;
-    text-decoration: none; color: inherit; display: block;
-    border: none; transition: opacity 0.2s;
-  }
-  .card:hover { opacity: 0.8; }
-  .card-img {
-    background: #e0ddd8; aspect-ratio: 4/3; width: 100%;
-    overflow: hidden; position: relative;
-    background-size: cover; background-position: center;
-  }
-  .card-img img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    transition: transform 0.4s;
-  }
-  .card:hover .card-img img { transform: scale(1.05); }
-  .card-body { padding: 14px 0 0; }
-  .card-cat {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 9px; color: #1a1a1a;
-    display: inline-block; margin-bottom: 6px;
-    letter-spacing: 0.04em; font-weight: 600;
-    background: #b8ecff; border-radius: 0;
-    padding: 2px 8px; border: none;
-  }
-  .card-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 15px; color: #1a1a1a; line-height: 1.5;
-    font-weight: 600;
-  }
-  .card:hover .card-title { color: #2c5f8a; }
-  .card-meta {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px; color: #999; margin-top: 6px;
-    letter-spacing: 0.04em;
-  }
-  .badge-new {
-    position: absolute; top: 0; left: 0;
-    background: #c00; color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 10px; padding: 3px 10px; font-weight: 600;
-  }
-  .badge-rank {
-    position: absolute; top: 0; left: 0;
-    background: #1a1a1a; color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px; padding: 3px 10px; font-weight: 600;
-  }
-  /* PAGINATION */
-  .pagination { display: flex; justify-content: center; gap: 6px; margin: 16px 0 48px; }
-  .page-btn {
-    border: 1px solid #e0e0e0; padding: 10px 16px;
-    font-family: 'Inter', sans-serif; font-size: 12px; color: #666;
-    cursor: pointer; text-decoration: none; background: #fff; transition: all 0.2s;
-  }
-  .page-btn:hover { border-color: #2c5f8a; color: #2c5f8a; }
-  .page-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
-  /* CTA SDC */
-  .cta-sdclub {
-    background: #0a0a0a; padding: 48px 56px; margin: 8px 0 48px;
-    display: flex; align-items: center; justify-content: space-between; gap: 32px;
-    border: none;
-  }
-  .cta-sdclub .cta-text h3 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 20px; font-weight: 600; color: #fff;
-  }
-  .cta-sdclub .cta-text p { font-size: 13px; color: rgba(255,255,255,.7); margin-top: 8px; line-height: 1.7; }
-  .cta-btn {
-    border: 1px solid rgba(255,255,255,.4); background: transparent;
-    padding: 14px 36px; font-size: 12px; color: #fff;
-    white-space: nowrap; cursor: pointer; text-decoration: none; flex-shrink: 0;
-    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
-    letter-spacing: 0.06em; transition: all 0.3s;
-  }
-  .cta-btn:hover { background: #fff; color: #0a0a0a; border-color: #fff; }
-  footer { border-top: 2px solid; border-image: linear-gradient(to right, #1e3a5f, #2c5f8a, #3a7ab5) 1; }
-  .footer-inner { max-width: 1600px; margin: 0 auto; }
-  .footer-links { padding: 44px 20px 36px; display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid #ddd; }
-  .footer-links a { font-size: 13px; color: #555; text-decoration: none; }
-  .footer-links a:hover { text-decoration: underline; }
-  .footer-links .sep { color: #ccc; font-size: 13px; }
-  .footer-bottom { text-align: center; padding: 24px; font-size: 12px; color: #aaa; }
-  #toast {
-    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-    background: #1a1a1a; color: #fff; padding: 12px 24px; font-size: 13px;
-    font-family: 'Noto Sans JP', sans-serif; font-weight: 300;
-    opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999;
-    white-space: nowrap; border-radius: 4px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.15);
-  }
-  #toast.show { opacity: 1; }
-  .search-cat-btn:hover
 
-  /* ===== Sidebar Layout ===== */
-  .content-with-sidebar {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 48px;
-    max-width: 1600px; margin: 0 auto; padding: 0 40px;
-  }
-  .content-main { min-width: 0; }
-  .content-sidebar { position: relative; }
-  .sidebar-sticky { position: sticky; top: 80px; margin-top: 24px; }
-  .sidebar-sdclub {
-    background: #0a0a0a; color: #fff; padding: 64px 28px 72px;
-    text-align: center; text-decoration: none; display: block;
-    transition: background 0.3s; min-height: 700px;
-  }
-  .sidebar-sdclub:hover { background: #1a1a1a; }
-  .sidebar-sdclub .sidebar-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,.5);
-    margin-bottom: 20px; text-transform: uppercase;
-  }
-  .sidebar-sdclub .sidebar-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 26px; font-weight: 600; line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  .sidebar-sdclub .sidebar-desc {
-    font-size: 12px; color: rgba(255,255,255,.6); line-height: 1.8;
-    margin-bottom: 28px; font-weight: 600;
-  }
-  .sidebar-sdclub .sidebar-btn {
-    display: inline-block; border: 1px solid rgba(255,255,255,.35);
-    padding: 12px 28px; font-size: 11px; color: #fff;
-    letter-spacing: 0.1em; transition: all 0.3s;
-  }
-  .sidebar-sdclub:hover .sidebar-btn { border-color: #fff; }
-
-  /* ===== Scroll Reveal Animation ===== */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94),
-                transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal .card {
-    opacity: 0; transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.visible .card {
-    opacity: 1; transform: translateY(0);
-  }
-  .reveal.visible .card:nth-child(1) { transition-delay: 0.05s; }
-  .reveal.visible .card:nth-child(2) { transition-delay: 0.1s; }
-  .reveal.visible .card:nth-child(3) { transition-delay: 0.15s; }
-  .reveal.visible .card:nth-child(4) { transition-delay: 0.2s; }
-  .reveal.visible .card:nth-child(5) { transition-delay: 0.25s; }
-  .reveal.visible .card:nth-child(6) { transition-delay: 0.3s; }
-
-  /* ===== Card List Layout ===== */
-  .article-list {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px;
-    border-top: 1px solid #e8e8e8;
-    margin-bottom: 48px;
-  }
-  .card-list {
-    display: flex; gap: 20px; align-items: flex-start;
-    padding: 24px 0;
-    border-bottom: 1px solid #e8e8e8;
-    text-decoration: none; color: inherit; cursor: pointer;
-  }
-  .card-list:hover { text-decoration: none; }
-  .card-list-body {
-    flex: 1; min-width: 0;
-  }
-  .card-list .card-cat {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 9px; color: #1a1a1a;
-    display: inline-block; margin-bottom: 6px;
-    letter-spacing: 0.04em; font-weight: 600;
-    background: #b8ecff; border-radius: 0;
-    padding: 2px 8px;
-  }
-  .card-list .card-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 19px; color: #1a1a1a; line-height: 1.5;
-    font-weight: 600; margin-bottom: 6px;
-  }
-  .card-list:hover .card-title { color: #2c5f8a; }
-  .card-list .card-excerpt {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 12px; color: #444; line-height: 1.6;
-    font-weight: 600;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-  }
-  .card-list .card-meta {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px; color: #999; margin-top: 8px;
-    letter-spacing: 0.04em;
-  }
-  .card-list .card-img-sm {
-    width: 160px; height: 107px; flex-shrink: 0;
-    background: #e0ddd8; overflow: hidden;
-    background-size: cover; background-position: center;
-  }
-  .card-list .card-img-sm img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    transition: transform 0.3s;
-  }
-  .card-list:hover .card-img-sm img { transform: scale(1.05); }
-  .card-list .badge-new {
-    display: inline-block;
-    background: #c00; color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 9px; padding: 2px 7px; font-weight: 600;
-    margin-left: 8px; vertical-align: middle;
-  }
   /* ===== Search Overlay (TOP統一版) ===== */
   .search-overlay {
     display: none; position: fixed; inset: 0;
@@ -626,10 +364,233 @@
     font-family: 'Noto Serif JP', serif;
     font-size: 15px; color: #1a1a1a; line-height: 1.5; font-weight: 600;
   }
+
+  /* ===== Breadcrumb ===== */
+  .breadcrumb {
+    max-width: 1600px; margin: 0 auto;
+    padding: 14px 40px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px; color: #888;
+  }
+  .breadcrumb a { color: #888; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { margin: 0 6px; color: #ccc; }
+
+  /* ===== Author Profile Hero ===== */
+  .author-hero {
+    max-width: 1600px; margin: 0 auto;
+    padding: 40px 40px 0;
+  }
+  .author-profile-card {
+    background: #f7f7f5;
+    padding: 40px 48px;
+    display: flex; gap: 32px; align-items: flex-start;
+  }
+  .author-avatar {
+    width: 100px; height: 100px; background: #d0cdc8; border-radius: 50%;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: #aaa;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .author-info { flex: 1; }
+  .author-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 600; color: #999;
+    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .author-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 24px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px;
+  }
+  .author-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px; font-weight: 400; color: #888; margin-bottom: 16px;
+  }
+  .author-bio {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px; font-weight: 400; color: #555; line-height: 1.9;
+  }
+  .author-stats {
+    display: flex; gap: 32px; margin-top: 20px;
+    padding-top: 20px; border-top: 1px solid #e0e0e0;
+  }
+  .author-stat {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px; color: #888;
+  }
+  .author-stat strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px; font-weight: 500; color: #1a1a1a;
+    margin-right: 4px;
+  }
+
+  /* ===== List Toolbar ===== */
+  .list-toolbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 0; margin-bottom: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .list-count { font-size: 13px; color: #888; }
+  .list-sort { display: flex; gap: 12px; }
+  .sort-btn {
+    font-size: 12px; color: #888; text-decoration: none;
+    padding: 4px 12px; border: 1px solid transparent;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
+  }
+  .sort-btn.active { color: #1a1a1a; border-color: #1a1a1a; }
+  .sort-btn:hover { color: #1a1a1a; }
+
+  /* ===== Card List Layout ===== */
+  .article-list {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px;
+    border-top: 1px solid #e8e8e8;
+    margin-bottom: 48px;
+  }
+  .card-list {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px solid #e8e8e8;
+    text-decoration: none; color: inherit; cursor: pointer;
+  }
+  .card-list:hover { text-decoration: none; }
+  .card-list-body { flex: 1; min-width: 0; }
+  .card-list .card-cat {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 9px; color: #1a1a1a;
+    display: inline-block; margin-bottom: 6px;
+    letter-spacing: 0.04em; font-weight: 600;
+    background: #b8ecff; border-radius: 0;
+    padding: 2px 8px;
+  }
+  .card-list .card-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 19px; color: #1a1a1a; line-height: 1.5;
+    font-weight: 600; margin-bottom: 6px;
+  }
+  .card-list:hover .card-title { color: #2c5f8a; }
+  .card-list .card-excerpt {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px; color: #444; line-height: 1.6;
+    font-weight: 600;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .card-list .card-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; color: #999; margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+  .card-list .card-img-sm {
+    width: 160px; height: 107px; flex-shrink: 0;
+    background: #e0ddd8; overflow: hidden;
+    background-size: cover; background-position: center;
+  }
+  .card-list .card-img-sm img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.3s;
+  }
+  .card-list:hover .card-img-sm img { transform: scale(1.05); }
+
+  /* ===== Pagination ===== */
+  .pagination {
+    display: flex; justify-content: center; gap: 8px;
+    margin-bottom: 48px;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .page-btn {
+    padding: 8px 14px; font-size: 13px; color: #666;
+    border: 1px solid #ddd; text-decoration: none;
+    transition: all .2s;
+  }
+  .page-btn:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .page-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+  /* ===== CTA ===== */
+  .cta-sdclub {
+    background: #0a0a0a; padding: 48px 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+    margin-bottom: 56px;
+  }
+  .cta-sdclub .cta-text h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px; font-weight: 600; color: #fff;
+  }
+  .cta-sdclub .cta-text p { font-size: 13px; color: rgba(255,255,255,.7); margin-top: 8px; line-height: 1.7; }
+  .cta-btn {
+    border: 1px solid rgba(255,255,255,.4); background: transparent;
+    padding: 14px 36px; font-size: 12px; color: #fff;
+    white-space: nowrap; cursor: pointer; text-decoration: none; flex-shrink: 0;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
+    letter-spacing: 0.06em; transition: all 0.3s;
+  }
+  .cta-btn:hover { background: #fff; color: #0a0a0a; border-color: #fff; }
+
+  /* ===== Sidebar ===== */
+  .content-with-sidebar {
+    display: grid; grid-template-columns: 1fr 280px; gap: 48px;
+    max-width: 1600px; margin: 0 auto; padding: 0 40px;
+  }
+  .content-main { min-width: 0; }
+  .content-sidebar { position: relative; }
+  .sidebar-sticky { position: sticky; top: 80px; margin-top: 24px; }
+  .sidebar-sdclub {
+    background: #0a0a0a; color: #fff; padding: 64px 28px 72px;
+    text-align: center; text-decoration: none; display: block;
+    transition: background 0.3s; min-height: 700px;
+  }
+  .sidebar-sdclub:hover { background: #1a1a1a; }
+  .sidebar-sdclub .sidebar-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,.5);
+    margin-bottom: 20px; text-transform: uppercase;
+  }
+  .sidebar-sdclub .sidebar-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 26px; font-weight: 600; line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .sidebar-sdclub .sidebar-desc {
+    font-size: 12px; color: rgba(255,255,255,.6); line-height: 1.8;
+    margin-bottom: 28px; font-weight: 600;
+  }
+  .sidebar-sdclub .sidebar-btn {
+    display: inline-block; border: 1px solid rgba(255,255,255,.35);
+    padding: 12px 28px; font-size: 11px; color: #fff;
+    letter-spacing: 0.1em; transition: all 0.3s;
+  }
+  .sidebar-sdclub:hover .sidebar-btn { border-color: #fff; }
+
+  /* ===== Footer ===== */
+  footer { border-top: 2px solid; border-image: linear-gradient(to right, #1e3a5f, #2c5f8a, #3a7ab5) 1; }
+  .footer-inner { max-width: 1600px; margin: 0 auto; }
+  .footer-links { padding: 44px 20px 36px; display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid #ddd; }
+  .footer-links a { font-size: 13px; color: #555; text-decoration: none; }
+  .footer-links a:hover { text-decoration: underline; }
+  .footer-links .sep { color: #ccc; font-size: 13px; }
+  .footer-bottom { text-align: center; padding: 24px; font-size: 12px; color: #aaa; }
+
+  /* ===== Toast ===== */
+  #toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: #1a1a1a; color: #fff; padding: 12px 24px; font-size: 13px;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 300;
+    opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999;
+    white-space: nowrap; border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  }
+  #toast.show { opacity: 1; }
+
+  /* ===== Scroll Reveal ===== */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94),
+                transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 <canvas id="bgCanvas" width="1920" height="1080"></canvas>
+
 <!-- 検索ポップアップ（TOP統一版） -->
 <div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
   <div class="search-box" onclick="event.stopPropagation()">
@@ -714,40 +675,13 @@
     </div>
   </div>
 </div>
-      <a class="search-sdc-btn" href="wireframe_sdclub.html" onclick="closeSearchBox()">無料登録はこちら</a>
-    </div>
-    <div class="search-section-title">注目の記事</div>
-    <div class="search-featured">
-      <a class="search-feat-card" href="wireframe_article.html">
-        <div class="search-feat-img">画像</div>
-        <div class="search-feat-body">
-          <div class="search-feat-cat">フィッシング</div>
-          <div class="search-feat-title">ルアーフィッシング完全ガイド：タックル選びから釣り方まで</div>
-        </div>
-      </a>
-      <a class="search-feat-card" href="wireframe_article.html">
-        <div class="search-feat-img">画像</div>
-        <div class="search-feat-body">
-          <div class="search-feat-cat">ボート</div>
-          <div class="search-feat-title">2025年最新ボートインプレッション</div>
-        </div>
-      </a>
-      <a class="search-feat-card" href="wireframe_article.html">
-        <div class="search-feat-img">画像</div>
-        <div class="search-feat-body">
-          <div class="search-feat-cat">マリーナ</div>
-          <div class="search-feat-title">マリーナマップで探す全国551カ所</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
-<div class="wf-label">WIREFRAME — ライフスタイル > グッズ</div>
+
+<div class="wf-label">KAZI ONLINE ワイヤーフレーム - 著者記事一覧ページ</div>
+
 <!-- ===== HEADER ===== -->
 <header>
   <div class="header-top">
     <a class="logo" href="wireframe_top.html"><img class="logo-full" src="kazilogo.svg" alt="KAZI ONLINE"><img class="logo-small" src="kazilogo_s.svg" alt="KAZI"></a>
-
     <nav class="global-nav">
       <div class="nav-item"><a href="wireframe_news.html" class="has-sub">ニュース</a><div class="dropdown"><a href="wireframe_news.html">新着ニュース</a><a href="wireframe_news_products.html">新製品・新着</a><a href="wireframe_news_events.html">イベント情報</a><a href="wireframe_news_ranking.html">人気ランキング</a><a href="wireframe_news_exhibition.html">展示会</a></div></div>
       <div class="nav-item"><a href="wireframe_fishing.html" class="has-sub">フィッシング</a><div class="dropdown"><a href="wireframe_fishing_lure.html">ルアーフィッシング</a><a href="wireframe_fishing_tackle.html">タックル・ギア</a><a href="wireframe_fishing_species.html">魚種別ガイド</a><a href="wireframe_fishing_beginner.html">フィッシング入門</a></div></div>
@@ -757,7 +691,6 @@
       <div class="nav-item"><a href="wireframe_marina.html" class="has-sub">マリーナ</a><div class="dropdown"><a href="wireframe_marina_list.html">全国マリーナ一覧</a><a href="wireframe_marina_area.html">エリア別マリーナ検索</a><a href="wireframe_marina_map.html">マリーナマップ（地図）</a></div></div>
       <div class="nav-item"><a href="wireframe_lifestyle.html" class="has-sub">ライフスタイル</a><div class="dropdown"><a href="wireframe_lifestyle_fashion.html">マリンウェア・ファッション</a><a href="wireframe_lifestyle_gourmet.html">グルメ</a><a href="wireframe_lifestyle_hotel.html">ホテル・リゾート</a><a href="wireframe_lifestyle_travel.html">トラベル</a><a href="wireframe_lifestyle_goods.html">グッズ</a><a href="wireframe_lifestyle_calendar.html">マリンカレンダー</a></div></div>
     </nav>
-
     <div class="header-actions">
       <button class="btn-hamburger" onclick="toggleHamburger()"><span></span><span></span><span></span></button>
       <div class="btn-search" onclick="openSearch()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></div>
@@ -812,109 +745,173 @@
 
 <!-- Mega Menus -->
 <div class="mega-menu" id="mega-news"><div class="mega-menu-header"><a href="wireframe_news.html" class="mega-title" style="text-decoration:none;color:inherit">ニュース トップ</a></div><div class="mega-menu-body"><div class="mega-col"><div class="mega-col-title">新着ニュース</div><a href="wireframe_news.html">新着ニュース一覧</a><a href="wireframe_news_products.html">新製品・新着</a></div><div class="mega-col"><div class="mega-col-title">イベント</div><a href="wireframe_news_events.html">イベント情報</a><a href="wireframe_news_exhibition.html">展示会</a></div><div class="mega-col"><div class="mega-col-title">ランキング</div><a href="wireframe_news_ranking.html">人気ランキング</a></div></div><div class="mega-menu-footer" onclick="closeMega()">閉じる &times;</div></div>
-
 <div class="mega-menu" id="mega-fishing"><div class="mega-menu-header"><a href="wireframe_fishing.html" class="mega-title" style="text-decoration:none;color:inherit">フィッシング トップ</a></div><div class="mega-menu-body"><div class="mega-col"><div class="mega-col-title">カテゴリー</div><a href="wireframe_fishing_lure.html">ルアーフィッシング</a><a href="wireframe_fishing_species.html">魚種別ガイド</a></div><div class="mega-col"><div class="mega-col-title">ギア・入門</div><a href="wireframe_fishing_tackle.html">タックル・ギア</a><a href="wireframe_fishing_beginner.html">フィッシング入門</a></div></div><div class="mega-menu-footer" onclick="closeMega()">閉じる &times;</div></div>
-
 <div class="mega-menu" id="mega-gear"><div class="mega-menu-header"><a href="wireframe_gear.html" class="mega-title" style="text-decoration:none;color:inherit">マリングッズ・ギア トップ</a></div><div class="mega-menu-body"><div class="mega-col"><div class="mega-col-title">ウェア・安全</div><a href="wireframe_gear_wear.html">マリンウェア（機能系）</a><a href="wireframe_gear_lifejacket.html">ライフジャケット・安全器具</a></div><div class="mega-col"><div class="mega-col-title">用品</div><a href="wireframe_gear_paddle.html">パドルスポーツ用品</a><a href="wireframe_gear_list.html">マリングッズ一覧</a></div></div><div class="mega-menu-footer" onclick="closeMega()">閉じる &times;</div></div>
-
 <div class="mega-menu" id="mega-yacht"><div class="mega-menu-header"><a href="wireframe_yacht.html" class="mega-title" style="text-decoration:none;color:inherit">ヨット トップ</a></div><div class="mega-menu-body"><div class="mega-col"><div class="mega-col-title">ヨット</div><a href="wireframe_yacht_review.html">最新ヨットレビュー</a><a href="wireframe_yacht_guide.html">購入ガイド</a></div><div class="mega-col"><div class="mega-col-title">セーリング</div><a href="wireframe_yacht_technique.html">セーリング技術</a><a href="wireframe_yacht_race.html">レース情報</a></div></div><div class="mega-menu-footer" onclick="closeMega()">閉じる &times;</div></div>
-
 <div class="mega-menu" id="mega-boat"><div class="mega-menu-header"><a href="wireframe_boat.html" class="mega-title" style="text-decoration:none;color:inherit">ボート トップ</a></div><div class="mega-menu-body"><div class="mega-col"><div class="mega-col-title">ボートレビュー</div><a href="wireframe_boat_review.html">ボートレビュー</a><a href="wireframe_boat_2hp.html">2馬力ボート特集</a><a href="wireframe_boat_trailable.html">トレーラブルボート</a></div><div class="mega-col"><div class="mega-col-title">テクニック・ガイド</div><a href="wireframe_boat_technique.html">操縦テクニック</a><a href="wireframe_boat_guide.html">購入ガイド</a></div></div><div class="mega-menu-footer" onclick="closeMega()">閉じる &times;</div></div>
-
 <div class="mega-menu" id="mega-marina"><div class="mega-menu-header"><a href="wireframe_marina.html" class="mega-title" style="text-decoration:none;color:inherit">マリーナ トップ</a></div><div class="mega-menu-body"><div class="mega-col"><div class="mega-col-title">マリーナを探す</div><a href="wireframe_marina_list.html">全国マリーナ一覧</a><a href="wireframe_marina_area.html">エリア別マリーナ検索</a></div><div class="mega-col"><div class="mega-col-title">マップ</div><a href="wireframe_marina_map.html">マリーナマップ（地図）</a></div></div><div class="mega-menu-footer" onclick="closeMega()">閉じる &times;</div></div>
-
 <div class="mega-menu" id="mega-lifestyle"><div class="mega-menu-header"><a href="wireframe_lifestyle.html" class="mega-title" style="text-decoration:none;color:inherit">ライフスタイル トップ</a></div><div class="mega-menu-body"><div class="mega-col"><div class="mega-col-title">ファッション・グルメ</div><a href="wireframe_lifestyle_fashion.html">マリンウェア・ファッション</a><a href="wireframe_lifestyle_gourmet.html">グルメ</a></div><div class="mega-col"><div class="mega-col-title">トラベル・リゾート</div><a href="wireframe_lifestyle_hotel.html">ホテル・リゾート</a><a href="wireframe_lifestyle_travel.html">トラベル</a></div><div class="mega-col"><div class="mega-col-title">その他</div><a href="wireframe_lifestyle_goods.html">グッズ</a><a href="wireframe_lifestyle_calendar.html">マリンカレンダー</a></div></div><div class="mega-menu-footer" onclick="closeMega()">閉じる &times;</div></div>
 
-<div class="breadcrumb"><a href="wireframe_top.html">TOP</a><span>></span><a href="wireframe_lifestyle.html">ライフスタイル</a><span>></span>グッズ</div>
-<div class="cat-hero"><div class="cat-hero-inner"><h1>グッズ</h1><p>マリンライフをもっと豊かにするこだわりグッズを紹介。ガジェット・インテリア・ギフトまで厳選アイテムが勢揃い。</p></div></div>
-<div class="subcat-wrap"><div class="subcat-tabs">
-  <a href="wireframe_lifestyle.html" class="subcat-tab">すべて</a>
-  <a href="wireframe_lifestyle_fashion.html" class="subcat-tab">マリンウェア・ファッション</a>
-  <a href="wireframe_lifestyle_gourmet.html" class="subcat-tab">グルメ</a>
-  <a href="wireframe_lifestyle_hotel.html" class="subcat-tab">ホテル・リゾート</a>
-  <a href="wireframe_lifestyle_travel.html" class="subcat-tab">トラベル</a>
-  <a href="wireframe_lifestyle_goods.html" class="subcat-tab active">グッズ</a>
-  <a href="wireframe_lifestyle_calendar.html" class="subcat-tab">マリンカレンダー</a>
-</div></div>
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="wireframe_top.html">TOP</a><span>&gt;</span>著者一覧<span>&gt;</span>KAZI編集部
+</div>
+
+<!-- ===== Author Profile Hero ===== -->
+<div class="author-hero reveal">
+  <div class="author-profile-card">
+    <div class="author-avatar">顔写真</div>
+    <div class="author-info">
+      <div class="author-label">Author</div>
+      <div class="author-name">KAZI編集部</div>
+      <div class="author-title">マリンスポーツ専門誌「月刊Kazi」編集部</div>
+      <div class="author-bio">ボート・ヨット・フィッシングを中心に、マリンスポーツ全般の最新情報をお届けしています。1990年創刊以来、国内最大のマリンメディアとして情報発信を続けています。</div>
+      <div class="author-stats">
+        <div class="author-stat"><strong>248</strong>記事</div>
+        <div class="author-stat"><strong>7</strong>カテゴリー</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Article List ===== -->
 <div class="content-with-sidebar">
 <main>
-  <div class="list-toolbar"><div class="list-count">全 77 件</div><div class="list-sort"><a href="#" class="sort-btn active">新着順</a><a href="#" class="sort-btn">人気順</a></div></div>
+  <div class="list-toolbar">
+    <div class="list-count">全 248 件</div>
+    <div class="list-sort">
+      <a href="#" class="sort-btn active">新着順</a>
+      <a href="#" class="sort-btn">人気順</a>
+    </div>
+  </div>
+
   <div class="article-list reveal">
-    <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E3%83%9E%E3%83%AA%E3%83%B3%E3%83%86%E3%82%A3%E3%82%B9%E3%83%88%E5%BF%85%E9%A0%88%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%8810%E9%81%B8+2026" class="card-list">
+    <a href="wireframe_article.html?cat=%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%B3%E3%82%B0&title=%E3%83%AB%E3%82%A2%E3%83%BC%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%B3%E3%82%B0%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89" class="card-list">
       <div class="card-list-body">
-        <span class="card-cat">グッズ</span>
-        <div class="card-title">マリンティスト必須ガジェット10選 2026<span class="badge-new">NEW</span></div>
-        <div class="card-excerpt">マリンファッションの最新トレンド。海辺でもタウンでも映えるスタイリング術。</div>
-                <div class="card-meta">2026.03.09</div>
+        <span class="card-cat">フィッシング</span>
+        <div class="card-title">ルアーフィッシング完全ガイド：タックル選びから釣り方まで</div>
+        <div class="card-excerpt">初心者から上級者まで幅広く役立つルアーフィッシングの基礎知識から実践テクニックまでを解説。</div>
+        <div class="card-meta">2026.03.10</div>
       </div>
-      <div class="card-img-sm" style="background-image:url('photos/lifestyle_01.jpg')"></div>
+      <div class="card-img-sm" style="background-image:url('photos/fishing_01.jpg')"></div>
     </a>
-    <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E8%88%B9%E5%AE%A4%E3%82%A4%E3%83%B3%E3%83%86%E3%83%AA%E3%82%A2%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2%EF%BC%9A%E6%B5%B7%E3%82%92%E6%84%9F%E3%81%98%E3%82%8B%E7%A9%BA%E9%96%93%E4%BD%9C%E3%82%8A" class="card-list">
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=2025%E5%B9%B4%E6%9C%80%E6%96%B0%E3%83%9C%E3%83%BC%E3%83%88%E3%82%A4%E3%83%B3%E3%83%97%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3" class="card-list">
       <div class="card-list-body">
-        <span class="card-cat">グッズ</span>
-        <div class="card-title">船室インテリアアイデア：海を感じる空間作り</div>
-        <div class="card-excerpt">海が見えるレストラン・カフェ特集。ドライブがてら訪れたい絶景グルメスポット。</div>
-                <div class="card-meta">2026.03.05</div>
+        <span class="card-cat">ボート</span>
+        <div class="card-title">2025年最新ボートインプレッション：注目の5モデルを徹底比較</div>
+        <div class="card-excerpt">今年注目のニューモデルを実際に試乗し、操縦性・居住性・コスパを詳しくレビュー。</div>
+        <div class="card-meta">2026.03.08</div>
       </div>
-      <div class="card-img-sm" style="background-image:url('photos/lifestyle_02.jpg')"></div>
+      <div class="card-img-sm" style="background-image:url('photos/boat_main.jpg')"></div>
     </a>
-    <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%AE%E3%83%95%E3%83%88%E7%89%B9%E9%9B%86%EF%BC%9A%E3%83%A8%E3%83%83%E3%83%88%E3%83%9E%E3%83%B3%E3%81%B8%E3%81%AE%E3%83%97%E3%83%AC%E3%82%BC%E3%83%B3%E3%83%8820%E9%81%B8" class="card-list">
+    <a href="wireframe_article.html?cat=%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&title=%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8A%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%83%9C%E3%83%BC%E3%83%88%E3%82%B7%E3%83%A72026" class="card-list">
       <div class="card-list-body">
-        <span class="card-cat">グッズ</span>
-        <div class="card-title">マリンギフト特集：ヨットマンへのプレゼント20選</div>
-        <div class="card-excerpt">全室オーシャンビューの贅沢な滞在。週末に行きたい海辺のリゾートホテル。</div>
-                <div class="card-meta">2026.03.01</div>
+        <span class="card-cat">ニュース</span>
+        <div class="card-title">ジャパンインターナショナルボートショー2026 開催概要発表</div>
+        <div class="card-excerpt">各メーカーから発表された最新製品を一挙にご紹介。注目のニューモデルを徹底解説。</div>
+        <div class="card-meta">2026.03.06</div>
       </div>
-      <div class="card-img-sm" style="background-image:url('photos/lifestyle_03.jpg')"></div>
+      <div class="card-img-sm" style="background-image:url('photos/news_01.jpg')"></div>
     </a>
-    <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E9%98%B2%E6%B0%B4%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E6%AF%94%E8%BC%83%EF%BC%9A%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E3%82%B1%E3%83%BC%E3%82%B9%E3%83%BB%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%83%E3%82%B0" class="card-list">
+    <a href="wireframe_article.html?cat=%E3%83%A8%E3%83%83%E3%83%88&title=%E3%82%BB%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF%E4%B8%8A%E9%81%94%E3%81%AE%E3%82%B3%E3%83%84" class="card-list">
       <div class="card-list-body">
-        <span class="card-cat">グッズ</span>
-        <div class="card-title">防水ガジェット比較：スマートフォンケース・ドライバッグ</div>
-        <div class="card-excerpt">船旅で巡る日本の島々。フェリー・クルーズ船で楽しむ非日常の旅。</div>
-                <div class="card-meta">2026.02.24</div>
+        <span class="card-cat">ヨット</span>
+        <div class="card-title">セーリングテクニック上達のコツ：風を読む力を磨く5つの方法</div>
+        <div class="card-excerpt">経験豊富なセーラーが教える、風の変化を読み取りパフォーマンスを向上させるテクニック。</div>
+        <div class="card-meta">2026.03.04</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/yacht_main.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%9E%E3%83%AA%E3%83%BC%E3%83%8A&title=%E3%83%9E%E3%83%AA%E3%83%BC%E3%83%8A%E3%83%9E%E3%83%83%E3%83%97%E3%81%A7%E6%8E%A2%E3%81%99%E5%85%A8%E5%9B%BD551%E3%82%AB%E6%89%80" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">マリーナ</span>
+        <div class="card-title">マリーナマップで探す全国551カ所：エリア別おすすめガイド</div>
+        <div class="card-excerpt">全国のマリーナを地域別に紹介。設備・料金・アクセスなど選ぶ際のポイントも解説。</div>
+        <div class="card-meta">2026.03.02</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/marina_main.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%83%E3%82%BA%E3%83%BB%E3%82%AE%E3%82%A2&title=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B8%E3%83%A3%E3%82%B1%E3%83%83%E3%83%88%E9%81%B8%E3%81%B3%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">マリングッズ・ギア</span>
+        <div class="card-title">ライフジャケット選び完全ガイド：安全性と快適性を両立する方法</div>
+        <div class="card-excerpt">タイプ別の特徴や選び方のポイントを詳しく解説。法改正に伴う最新規格情報も。</div>
+        <div class="card-meta">2026.02.28</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/gear_main.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E6%B5%B7%E3%81%AE%E4%B8%8A%E3%81%AE%E3%82%B0%E3%83%AB%E3%83%A1%E4%BD%93%E9%A8%93" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">ライフスタイル</span>
+        <div class="card-title">海の上のグルメ体験：船上料理の楽しみ方とおすすめレシピ</div>
+        <div class="card-excerpt">クルージングをもっと楽しくする船上料理のアイデアと、簡単に作れるレシピを紹介。</div>
+        <div class="card-meta">2026.02.25</div>
       </div>
       <div class="card-img-sm" style="background-image:url('photos/lifestyle_main.jpg')"></div>
     </a>
-    <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%A2%E3%83%BC%E3%83%88%E3%81%AE%E4%B8%96%E7%95%8C%EF%BC%9A%E8%88%B9%E3%81%AE%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%BF%E3%83%BC%E8%A1%A8%E8%A1%A8" class="card-list">
+    <a href="wireframe_article.html?cat=%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%B3%E3%82%B0&title=%E9%AD%9A%E7%A8%AE%E5%88%A5%E9%87%A3%E3%82%8A%E6%96%B9%E3%82%AC%E3%82%A4%E3%83%89" class="card-list">
       <div class="card-list-body">
-        <span class="card-cat">グッズ</span>
-        <div class="card-title">マリンアートの世界：船のイラストレーター表表</div>
-        <div class="card-excerpt">海好きが喜ぶマリングッズ特集。ギフトにも最適なおしゃれアイテムを厳選。</div>
-                <div class="card-meta">2026.02.17</div>
+        <span class="card-cat">フィッシング</span>
+        <div class="card-title">魚種別釣り方ガイド：ターゲットに合わせた戦略を伝授</div>
+        <div class="card-excerpt">シーバス、アジ、タイなど人気魚種別の釣り方とおすすめタックルを徹底解説。</div>
+        <div class="card-meta">2026.02.20</div>
       </div>
-      <div class="card-img-sm" style="background-image:url('photos/lifestyle_01.jpg')"></div>
+      <div class="card-img-sm" style="background-image:url('photos/fishing_02.jpg')"></div>
     </a>
-    <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%83%E3%82%BA%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89+5%E9%81%B8" class="card-list">
+    <a href="wireframe_article.html?cat=%E3%83%9C%E3%83%BC%E3%83%88&title=2%E9%A6%AC%E5%8A%9B%E3%83%9C%E3%83%BC%E3%83%88%E7%89%B9%E9%9B%86" class="card-list">
       <div class="card-list-body">
-        <span class="card-cat">グッズ</span>
-        <div class="card-title">オリジナルマリングッズブランド 5選</div>
-        <div class="card-excerpt">マリンライフを彩るインテリアアイデア。海をテーマにした空間づくりのコツ。</div>
-                <div class="card-meta">2026.02.10</div>
+        <span class="card-cat">ボート</span>
+        <div class="card-title">2馬力ボート特集：免許不要で始める手軽な海遊び</div>
+        <div class="card-excerpt">免許不要で楽しめる2馬力ボートの選び方から、おすすめモデル、安全対策まで。</div>
+        <div class="card-meta">2026.02.18</div>
       </div>
-      <div class="card-img-sm" style="background-image:url('photos/lifestyle_02.jpg')"></div>
+      <div class="card-img-sm" style="background-image:url('photos/boat_main.jpg')"></div>
     </a>
-    <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E8%88%B9%E4%B8%8A%E5%BF%9C%E6%80%A5%E3%82%AD%E3%83%83%E3%83%88%E3%81%AE%E6%A7%8B%E6%88%90%EF%BC%9A%E8%A6%8B%E9%80%83%E3%81%97%E3%81%97%E3%82%84%E3%81%99%E3%81%84%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0" class="card-list">
+    <a href="wireframe_article.html?cat=%E3%83%A8%E3%83%83%E3%83%88&title=%E3%83%A8%E3%83%83%E3%83%88%E8%B3%BC%E5%85%A5%E3%82%AC%E3%82%A4%E3%83%89" class="card-list">
       <div class="card-list-body">
-        <span class="card-cat">グッズ</span>
-        <div class="card-title">船上応急キットの構成：見逃しやすいアイテム</div>
-        <div class="card-excerpt">港町散策ガイド。歴史ある港の魅力と地元グルメを満喫する旅プラン。</div>
-                <div class="card-meta">2026.02.03</div>
+        <span class="card-cat">ヨット</span>
+        <div class="card-title">ヨット購入ガイド：初めての1艇を選ぶためのチェックリスト</div>
+        <div class="card-excerpt">サイズ・用途・予算から最適なヨットを見つける方法。中古艇の注意点も解説。</div>
+        <div class="card-meta">2026.02.15</div>
       </div>
-      <div class="card-img-sm" style="background-image:url('photos/lifestyle_03.jpg')"></div>
+      <div class="card-img-sm" style="background-image:url('photos/yacht_main.jpg')"></div>
     </a>
-    <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E3%82%BD%E3%83%BC%E3%83%A9%E3%83%BC%E5%85%85%E9%9B%BB%E5%99%A8%E3%81%A8%E6%B5%B7%E4%B8%8A%E7%94%A8%E3%83%90%E3%83%83%E3%83%86%E3%83%AA%EF%BC%9A%E7%B4%B9%E4%BB%8B2026" class="card-list">
+    <a href="wireframe_article.html?cat=%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&title=%E3%83%A4%E3%83%9E%E3%83%8F%E6%96%B0%E5%9E%8B%E8%88%B9%E5%A4%96%E6%A9%9FF425A" class="card-list">
       <div class="card-list-body">
-        <span class="card-cat">グッズ</span>
-        <div class="card-title">ソーラー充電器と海上用バッテリー：紹介2026</div>
-        <div class="card-excerpt">海辺のグランピング特集。手ぶらで楽しめる贅沢アウトドア体験。</div>
-                <div class="card-meta">2026.01.27</div>
+        <span class="card-cat">ニュース</span>
+        <div class="card-title">ヤマハ発動機 新型船外機「F425A」国内発売開始</div>
+        <div class="card-excerpt">高出力と低燃費を両立した新世代船外機。電子制御による快適な操船を実現。</div>
+        <div class="card-meta">2026.02.10</div>
       </div>
-      <div class="card-img-sm" style="background-image:url('photos/lifestyle_main.jpg')"></div>
+      <div class="card-img-sm" style="background-image:url('photos/news_02.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%9E%E3%83%AA%E3%83%BC%E3%83%8A&title=%E3%82%A8%E3%83%AA%E3%82%A2%E5%88%A5%E3%83%9E%E3%83%AA%E3%83%BC%E3%83%8A%E6%A4%9C%E7%B4%A2" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">マリーナ</span>
+        <div class="card-title">エリア別マリーナ検索：関東・関西・九州の人気マリーナ比較</div>
+        <div class="card-excerpt">エリアごとのマリーナの特色と、選ぶ際のポイントをまとめて紹介。</div>
+        <div class="card-meta">2026.02.05</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/marina_main.jpg')"></div>
     </a>
   </div>
-  <div class="pagination reveal"><a href="#" class="page-btn">前へ</a><a href="#" class="page-btn active">1</a><a href="#" class="page-btn">2</a><a href="#" class="page-btn">3</a><a href="#" class="page-btn">...</a><a href="#" class="page-btn">次へ</a></div>
-  <div class="cta-sdclub reveal"><div class="cta-text"><h3>Sea Dream Club 会員募集中</h3><p>限定コンテンツ、イベント優先参加、会員特典など。マリンライフをもっと豊かに。</p></div><a href="wireframe_sdclub.html" class="cta-btn">無料で会員登録する</a></div>
+
+  <div class="pagination reveal">
+    <a href="#" class="page-btn" onclick="toast('前のページ');return false;">前へ</a>
+    <a href="#" class="page-btn active">1</a>
+    <a href="#" class="page-btn" onclick="toast('2ページ目');return false;">2</a>
+    <a href="#" class="page-btn" onclick="toast('3ページ目');return false;">3</a>
+    <a href="#" class="page-btn" onclick="toast('次のページ');return false;">...</a>
+    <a href="#" class="page-btn" onclick="toast('次のページ');return false;">次へ</a>
+  </div>
+
+  <div class="cta-sdclub reveal">
+    <div class="cta-text">
+      <h3>Sea Dream Club 会員募集中</h3>
+      <p>限定コンテンツ、イベント優先参加、会員特典など。マリンライフをもっと豊かに。</p>
+    </div>
+    <a href="wireframe_sdclub.html" class="cta-btn">Sea Dream Club へ</a>
+  </div>
 </main>
 <aside class="content-sidebar">
   <div class="sidebar-sticky">
@@ -926,13 +923,44 @@
     </a>
   </div>
 </aside>
-</div><!-- /.content-with-sidebar -->
-<footer><div class="footer-inner"><div class="footer-links"><a href="wireframe_top.html">TOPへ戻る</a><span class="sep">|</span><a href="wireframe_entry.html">エントリーガイド</a><span class="sep">|</span><a href="wireframe_maker.html">メーカー&amp;ビルダー</a><span class="sep">|</span><a href="#">月刊Kazi</a><span class="sep">|</span><a href="wireframe_sdclub.html">Sea Dream Club</a><span class="sep">|</span><a href="#">KAZIシープラザ</a><span class="sep">|</span><a href="wireframe_contact.html">お問い合わせ</a><span class="sep">|</span><a href="wireframe_privacy.html">プライバシーポリシー</a><span class="sep">|</span><a href="wireframe_company.html">会社概要</a></div><div class="footer-bottom">© KAZI Online　All Rights Reserved.</div></div></footer>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="wireframe_top.html">TOPへ戻る</a><span class="sep">|</span>
+      <a href="wireframe_entry.html">エントリーガイド</a><span class="sep">|</span>
+      <a href="wireframe_maker.html">メーカー&amp;ビルダー</a><span class="sep">|</span>
+      <a href="#" onclick="toast('月刊Kazi');return false;">月刊Kazi</a><span class="sep">|</span>
+      <a href="wireframe_sdclub.html">Sea Dream Club</a><span class="sep">|</span>
+      <a href="#" onclick="toast('KAZIシープラザへ');return false;">KAZIシープラザ</a><span class="sep">|</span>
+      <a href="wireframe_contact.html">お問い合わせ</a><span class="sep">|</span>
+      <a href="wireframe_privacy.html">プライバシーポリシー</a><span class="sep">|</span>
+      <a href="wireframe_company.html">会社概要</a>
+    </div>
+    <div class="footer-bottom">&copy; KAZI Online　All Rights Reserved.</div>
+  </div>
+</footer>
+
 <div id="toast"></div>
+
 <script>
   let toastTimer;
-  function toast(msg) { const el = document.getElementById('toast'); el.textContent = '→ ' + msg; el.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 2000); }
-  document.querySelectorAll('.sort-btn').forEach(btn => { btn.addEventListener('click', e => { e.preventDefault(); document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }); });
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = '→ ' + msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2000);
+  }
+
+  document.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
 
   // ドロップダウン クリック開閉
   document.querySelectorAll('.nav-item > a.has-sub').forEach(function(link) {
@@ -955,7 +983,7 @@
   function closeSearchBox() { document.getElementById('searchOverlay').classList.remove('open'); }
   function closeSearch(e) { if (e.target === document.getElementById('searchOverlay')) closeSearchBox(); }
   function fillSearch(kw) { var el = document.getElementById('searchInput'); if(el){ el.value = kw; el.focus(); } }
-  
+
   // ===== Mega Menu =====
   const megaMap = {
     'ニュース': 'mega-news', 'フィッシング': 'mega-fishing',
@@ -1012,7 +1040,6 @@
     document.body.style.overflow = '';
   }
 
-
   // ===== Background Diagonal Stripe Animation =====
   (function() {
     var bgc = document.getElementById('bgCanvas');
@@ -1067,6 +1094,7 @@
     }
     stripeRender();
   })();
+
   // ===== Scroll Reveal =====
   var revEls = document.querySelectorAll('.reveal');
   var revObs = new IntersectionObserver(function(entries) {

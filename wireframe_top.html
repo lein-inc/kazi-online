@@ -709,19 +709,23 @@
   }
   .search-sdc-btn:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
 
-  /* Featured Articles (Search) */
-  .search-featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  /* Featured Articles — サムネイル小・タイトル大バージョン */
+  .search-featured { }
   .search-feat-card {
-    cursor: pointer; text-decoration: none; color: inherit; display: block;
-    transition: opacity 0.3s; border: none;
+    display: flex; gap: 16px; align-items: center;
+    padding: 14px 0; border-bottom: 1px solid #f0f0f0;
+    cursor: pointer; text-decoration: none; color: inherit;
+    transition: opacity 0.3s;
   }
-  .search-feat-card:hover { opacity: 0.8; }
+  .search-feat-card:last-child { border-bottom: none; }
+  .search-feat-card:hover { opacity: 0.7; }
   .search-feat-img {
-    background: #e0ddd8; aspect-ratio: 3/2; width: 100%;
+    width: 80px; height: 54px; flex-shrink: 0;
+    background: #e0ddd8; overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    font-size: 10px; color: #bbb; overflow: hidden;
+    font-size: 10px; color: #bbb;
   }
-  .search-feat-body { padding: 12px 0 0; }
+  .search-feat-body { flex: 1; min-width: 0; }
   .search-feat-cat {
     font-family: 'Inter', sans-serif;
     font-size: 10px; color: #2c5f8a; margin-bottom: 4px;
@@ -729,7 +733,7 @@
   }
   .search-feat-title {
     font-family: 'Noto Serif JP', serif;
-    font-size: 13px; color: #1a1a1a; line-height: 1.5; font-weight: 600;
+    font-size: 15px; color: #1a1a1a; line-height: 1.5; font-weight: 600;
   }
 
   /* ===== HERO SLIDER ===== */
