@@ -79,7 +79,7 @@
     padding: 0 24px;
     gap: 32px;
   }
-  .content-sidebar { }  /* サイドバーは768px以下で非表示 */
+  .content-sidebar { display: none !important; }  /* big-ctaがあるためサイドバー非表示 */
 
   /* Article List */
   .article-list { grid-template-columns: 1fr !important; }
@@ -130,9 +130,6 @@
   .logo-full { height: 22px; }
   .logo-small { height: 18px; }
   .btn-login { font-size: 11px; padding: 6px 12px; }
-
-  /* Sidebar: 768px以下で非表示 */
-  .content-sidebar { display: none !important; }
 
   /* Hamburger Panel — full width */
   .hamburger-panel { left: 0; }
