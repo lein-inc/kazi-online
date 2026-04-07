@@ -64,7 +64,7 @@
 /* Sidebar Native Ad */
 .sidebar-ad {
   display: block; margin-top: 20px;
-  position: relative; aspect-ratio: 1/1;
+  position: relative; width: 100%; aspect-ratio: 2/3;
   background: #e4e4e4; background-size: cover; background-position: center;
   text-decoration: none; overflow: hidden;
 }
