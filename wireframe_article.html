@@ -1599,19 +1599,17 @@
     backBtn.classList.toggle('show', window.scrollY > 400);
   });
 
-  // SDC Scroll Popup（40%スクロールで表示・セッション中1回のみ）
-  let sdcPopupShown = false;
-  function closeSdcPopup() {
+  // SDC Scroll Popup（スクロール800pxで表示・ページ訪問中1回のみ）
+  var sdcPopupDone = false;
+  window.closeSdcPopup = function() {
     document.getElementById('sdcPopupOverlay').classList.remove('open');
     document.getElementById('sdcPopup').classList.remove('open');
-    document.body.style.overflow = '';
-    sessionStorage.setItem('sdcPopupDismissed', '1');
-  }
-  window.addEventListener('scroll', () => {
-    if (sdcPopupShown || sessionStorage.getItem('sdcPopupDismissed')) return;
-    const scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-    if (scrollPct > 0.4) {
-      sdcPopupShown = true;
+    sdcPopupDone = true;
+  };
+  window.addEventListener('scroll', function() {
+    if (sdcPopupDone) return;
+    if (window.scrollY > 800) {
+      sdcPopupDone = true;
       document.getElementById('sdcPopupOverlay').classList.add('open');
       document.getElementById('sdcPopup').classList.add('open');
     }

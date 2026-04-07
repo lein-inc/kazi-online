@@ -69,6 +69,9 @@
   color: #c97a5a; margin-top: 8px;
 }
 
+/* ===== Sidebar SDC バナー高さ調整 ===== */
+.sidebar-sdclub { padding: 96px 28px 108px !important; }
+
 /* ===== Sidebar Layout (全ページ共通・強制適用) ===== */
 .content-with-sidebar {
   display: grid !important;
@@ -92,7 +95,7 @@
 /* Sidebar Native Ad */
 .sidebar-ad {
   display: block; margin-top: 20px;
-  position: relative; width: 100%; aspect-ratio: 2/3;
+  position: relative; width: 100%; aspect-ratio: 1/1;
   background: #e4e4e4; background-size: cover; background-position: center;
   text-decoration: none; overflow: hidden;
 }
@@ -157,6 +160,8 @@
   .sdc-hero { padding: 100px 24px 80px !important; }
   .sdc-hero h1 { font-size: 36px !important; }
   .benefit-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .register-cta { padding: 56px 24px; }
+  .register-cta-form { max-width: 100%; }
 
   /* Mypage */
   .mypage-wrap {
@@ -251,6 +256,11 @@
   .sdc-hero h1 { font-size: 28px !important; }
   .sdc-hero p { font-size: 13px !important; }
   .benefit-grid { grid-template-columns: 1fr !important; }
+  .register-cta { padding: 48px 16px; }
+  .register-cta h2 { font-size: 22px; }
+  .register-cta-form { flex-direction: column; }
+  .register-cta-form input { border-right: 1px solid rgba(255,255,255,.25); }
+  .register-cta-form button { width: 100%; padding: 14px; }
 
   /* Big CTA */
   .big-cta { padding: 64px 16px; }
@@ -367,6 +377,8 @@
   /* SDC Landing */
   .sdc-hero { padding: 56px 12px 44px !important; }
   .sdc-hero h1 { font-size: 22px !important; letter-spacing: 2px !important; }
+  .register-cta { padding: 36px 12px; }
+  .register-cta h2 { font-size: 20px; }
 
   /* Big CTA */
   .big-cta { padding: 48px 12px; }

@@ -446,6 +446,53 @@
   }
   .step-item p { font-size: 13px; color: #777; line-height: 1.7; font-weight: 300; }
 
+  /* ===== Register CTA (FAQ下) ===== */
+  .register-cta {
+    background: linear-gradient(165deg, #0a0f1a 0%, #0d1525 40%, #1e3a5f 100%);
+    padding: 72px 40px; text-align: center; margin-top: 0;
+    position: relative; overflow: hidden;
+  }
+  .register-cta::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 1px; background: linear-gradient(to right, transparent, #3a7ab5, transparent);
+  }
+  .register-cta-eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500;
+    letter-spacing: 4px; color: rgba(255,255,255,.35); margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .register-cta h2 {
+    font-family: 'Noto Serif JP', serif; font-size: 26px; font-weight: 400;
+    color: #fff; margin-bottom: 12px; letter-spacing: 1px;
+  }
+  .register-cta p {
+    font-size: 14px; color: rgba(255,255,255,.55); margin-bottom: 36px;
+    line-height: 1.9; font-weight: 300;
+  }
+  .register-cta-form {
+    display: flex; gap: 0; max-width: 480px; margin: 0 auto 20px;
+  }
+  .register-cta-form input {
+    flex: 1; border: 1px solid rgba(255,255,255,.25); border-right: none;
+    background: rgba(255,255,255,.08); color: #fff;
+    padding: 16px 20px; font-size: 14px; outline: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: border-color .3s;
+  }
+  .register-cta-form input::placeholder { color: rgba(255,255,255,.3); }
+  .register-cta-form input:focus { border-color: #3a7ab5; }
+  .register-cta-form button {
+    border: 1px solid rgba(255,255,255,.3); background: transparent;
+    color: #fff; padding: 16px 32px; font-size: 13px;
+    font-family: 'Inter', sans-serif; font-weight: 400;
+    letter-spacing: 2px; cursor: pointer; white-space: nowrap;
+    transition: background .3s;
+  }
+  .register-cta-form button:hover { background: rgba(255,255,255,.1); }
+  .register-cta-note {
+    font-size: 11px; color: rgba(255,255,255,.3); font-weight: 300;
+  }
+
   /* ===== Big CTA ===== */
   .big-cta {
     background: #0a0f1a; color: #fff;
@@ -1080,6 +1127,18 @@
       </div>
 
     </div>
+  </div>
+
+  <!-- 登録フォーム CTA -->
+  <div class="register-cta reveal">
+    <div class="register-cta-eyebrow">JOIN NOW</div>
+    <h2>Sea Dream Club に入会する</h2>
+    <p>メールアドレスだけで今すぐ無料登録。<br>会員限定記事・デジタルマガジン・マリーナ優待をお届けします。</p>
+    <div class="register-cta-form">
+      <input type="email" placeholder="メールアドレスを入力" onclick="event.stopPropagation()">
+      <button onclick="toast('登録フォーム → wireframe_sdclub_register.html へ遷移')">登録する</button>
+    </div>
+    <div class="register-cta-note">入会金・年会費は無料です。いつでも退会できます。</div>
   </div>
 
 </main>
