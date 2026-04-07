@@ -273,8 +273,9 @@
   }
   .sdc-hero h1 {
     font-family: 'Noto Serif JP', serif;
-    font-size: 48px; font-weight: 400; color: #fff;
+    font-size: clamp(28px, 4vw, 48px); font-weight: 400; color: #fff;
     margin-bottom: 22px; letter-spacing: 3px;
+    white-space: nowrap;
     opacity: 0; animation: heroFadeIn 0.6s ease 0.4s forwards;
   }
   .sdc-hero p {
