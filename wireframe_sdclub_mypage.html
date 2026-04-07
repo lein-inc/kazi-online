@@ -368,22 +368,163 @@
   }
   .bookmark-card:hover .bookmark-remove { opacity: 1; }
 
-  /* ===== BENEFIT LIST ===== */
+  /* ===== HISTORY LIST ===== */
+  .history-list { list-style: none; }
+  .history-item {
+    display: flex; gap: 16px; padding: 16px 0;
+    border-bottom: 1px solid #eee; align-items: flex-start;
+  }
+  .history-item-img {
+    width: 120px; height: 75px; background: #e4e4e4;
+    flex-shrink: 0; display: flex; align-items: center;
+    justify-content: center; font-size: 11px; color: #bbb;
+  }
+  .history-item-body { flex: 1; min-width: 0; }
+  .history-item-cat {
+    font-size: 10px; color: #888; display: inline-block;
+    border: 1px solid #ddd; padding: 1px 6px; margin-bottom: 4px;
+  }
+  .history-item-title {
+    font-size: 13px; color: #333; line-height: 1.5; margin-bottom: 6px;
+  }
+  .history-item-title a { color: #333; text-decoration: none; }
+  .history-item-title a:hover { text-decoration: underline; }
+  .history-item-date { font-size: 10px; color: #aaa; }
+
+  /* ===== MAGAZINE GRID ===== */
+  .magazine-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  .magazine-card {
+    border: 1px solid #ddd; text-align: center;
+    cursor: pointer; display: block; text-decoration: none;
+    color: inherit;
+  }
+  .magazine-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,.12); }
+  .magazine-cover {
+    aspect-ratio: 3/4; background: #e4e4e4; width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: #bbb; position: relative;
+  }
+  .magazine-new-badge {
+    position: absolute; top: 8px; left: 8px;
+    background: #333; color: #fff; font-size: 9px;
+    padding: 2px 8px; letter-spacing: 1px;
+  }
+  .magazine-info { padding: 10px 8px; }
+  .magazine-title {
+    font-size: 12px; font-weight: bold; color: #333;
+    margin-bottom: 4px;
+  }
+  .magazine-issue { font-size: 10px; color: #888; margin-bottom: 8px; }
+  .magazine-read-btn {
+    display: block; border: 1px solid #333; background: #333;
+    color: #fff; padding: 6px 12px; font-size: 11px;
+    cursor: pointer; text-decoration: none; text-align: center;
+    margin: 0 8px 10px;
+  }
+  .magazine-read-btn:hover { background: #555; }
+  .magazine-backnumber {
+    margin-top: 20px; text-align: center;
+    padding: 16px; border: 1px solid #eee; background: #fafafa;
+  }
+  .magazine-backnumber a {
+    font-size: 12px; color: #333; text-decoration: none;
+    border: 1px solid #ccc; padding: 8px 24px;
+    display: inline-block;
+  }
+  .magazine-backnumber a:hover { background: #f0f0f0; }
+
+  /* ===== FAVORITE MARINAS ===== */
+  .marina-fav-list { list-style: none; }
+  .marina-fav-item {
+    border: 1px solid #ddd; padding: 20px;
+    margin-bottom: 12px; display: flex; gap: 20px;
+    align-items: flex-start; position: relative;
+  }
+  .marina-fav-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .marina-fav-img {
+    width: 160px; height: 100px; background: #e4e4e4;
+    flex-shrink: 0; display: flex; align-items: center;
+    justify-content: center; font-size: 11px; color: #bbb;
+  }
+  .marina-fav-body { flex: 1; min-width: 0; }
+  .marina-fav-name {
+    font-size: 14px; font-weight: bold; color: #222;
+    margin-bottom: 6px;
+  }
+  .marina-fav-name a { color: #222; text-decoration: none; }
+  .marina-fav-name a:hover { text-decoration: underline; }
+  .marina-fav-location { font-size: 11px; color: #888; margin-bottom: 8px; }
+  .marina-fav-features {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px;
+  }
+  .marina-fav-tag {
+    font-size: 10px; border: 1px solid #ddd; padding: 2px 8px;
+    color: #666; background: #fafafa;
+  }
+  .marina-fav-actions { display: flex; gap: 8px; }
+  .marina-fav-actions a {
+    font-size: 11px; color: #333; text-decoration: none;
+    border: 1px solid #ccc; padding: 4px 12px;
+  }
+  .marina-fav-actions a:hover { background: #f5f5f5; }
+  .marina-fav-remove {
+    position: absolute; top: 12px; right: 12px;
+    font-size: 11px; color: #aaa; cursor: pointer;
+    background: none; border: none;
+  }
+  .marina-fav-remove:hover { color: #c00; }
+  .marina-compare-bar {
+    margin-top: 16px; padding: 14px 20px;
+    border: 1px solid #333; background: #fafafa;
+    display: flex; justify-content: space-between;
+    align-items: center;
+  }
+  .marina-compare-bar span { font-size: 12px; color: #555; }
+  .marina-compare-btn {
+    border: 1px solid #333; background: #333; color: #fff;
+    padding: 6px 20px; font-size: 12px; cursor: pointer;
+    text-decoration: none;
+  }
+  .marina-compare-btn:hover { background: #555; }
+
+  /* ===== BENEFIT LIST (Enhanced) ===== */
   .benefit-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .benefit-item {
-    border: 1px solid #ddd; padding: 20px;
+    border: 1px solid #ddd; padding: 24px;
+    display: flex; flex-direction: column;
+  }
+  .benefit-item-header {
     display: flex; gap: 16px; align-items: flex-start;
+    margin-bottom: 12px;
   }
   .benefit-item-icon {
-    width: 44px; height: 44px; border: 1px solid #bbb;
+    width: 48px; height: 48px; border: 1px solid #bbb;
     background: #f5f5f5; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
     font-size: 11px; color: #999;
   }
-  .benefit-item-text h4 { font-size: 13px; font-weight: bold; color: #222; margin-bottom: 4px; }
-  .benefit-item-text p { font-size: 11px; color: #666; line-height: 1.6; }
+  .benefit-item-text h4 { font-size: 14px; font-weight: bold; color: #222; margin-bottom: 4px; }
+  .benefit-item-text p { font-size: 12px; color: #666; line-height: 1.7; }
+  .benefit-item-detail {
+    font-size: 11px; color: #555; line-height: 1.8;
+    padding: 12px 16px; background: #fafafa;
+    border: 1px solid #eee; margin: 0 0 12px;
+  }
+  .benefit-item-detail ul { list-style: none; padding: 0; }
+  .benefit-item-detail ul li {
+    padding-left: 14px; position: relative; margin-bottom: 2px;
+  }
+  .benefit-item-detail ul li::before {
+    content: '\2022'; position: absolute; left: 0; color: #999;
+  }
+  .benefit-item-footer {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-top: auto;
+  }
   .benefit-item-status {
-    font-size: 10px; margin-top: 6px; display: inline-block;
+    font-size: 10px; display: inline-block;
     padding: 2px 8px; letter-spacing: 0.5px;
   }
   .benefit-item-status.available {
@@ -392,6 +533,11 @@
   .benefit-item-status.used {
     border: 1px solid #ccc; color: #aaa; background: #f5f5f5;
   }
+  .benefit-item-link {
+    font-size: 11px; color: #333; text-decoration: none;
+    border: 1px solid #ccc; padding: 4px 12px;
+  }
+  .benefit-item-link:hover { background: #f5f5f5; }
 
   /* ===== NOTICE LIST ===== */
   .notice-list { list-style: none; }
@@ -647,7 +793,10 @@
   <aside>
     <ul class="sidebar-nav">
       <li><a href="#bookmarks" class="active" onclick="scrollTo(event,'bookmarks')">ブックマーク</a></li>
-      <li><a href="#benefits" onclick="scrollTo(event,'benefits')">特典一覧</a></li>
+      <li><a href="#history" onclick="scrollTo(event,'history')">閲覧履歴</a></li>
+      <li><a href="#magazine" onclick="scrollTo(event,'magazine')">デジタル雑誌</a></li>
+      <li><a href="#marinas" onclick="scrollTo(event,'marinas')">お気に入りマリーナ</a></li>
+      <li><a href="#benefits" onclick="scrollTo(event,'benefits')">特典案内</a></li>
       <li><a href="#notices" onclick="scrollTo(event,'notices')">お知らせ</a></li>
       <li><a href="#account" onclick="scrollTo(event,'account')">会員情報</a></li>
       <li><a href="#" onclick="toast('ログアウト');return false;">ログアウト</a></li>
@@ -664,14 +813,13 @@
   <!-- MAIN -->
   <div class="mypage-main">
 
-    <!-- ブックマーク記事 -->
+    <!-- ===== ブックマーク記事 ===== -->
     <div class="section" id="bookmarks">
       <div class="section-header">
         <h2>ブックマークした記事</h2>
         <a class="more" href="#" onclick="toast('ブックマーク一覧へ');return false;">すべて見る &rsaquo;</a>
       </div>
       <div class="bookmark-grid">
-
         <a class="bookmark-card" href="wireframe_article.html">
           <div class="bookmark-card-img">画像</div>
           <div class="bookmark-card-body">
@@ -681,7 +829,6 @@
           </div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
-
         <a class="bookmark-card" href="wireframe_article.html">
           <div class="bookmark-card-img">画像</div>
           <div class="bookmark-card-body">
@@ -691,7 +838,6 @@
           </div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
-
         <a class="bookmark-card" href="wireframe_article.html">
           <div class="bookmark-card-img">画像</div>
           <div class="bookmark-card-body">
@@ -701,7 +847,6 @@
           </div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
-
         <a class="bookmark-card" href="wireframe_article.html">
           <div class="bookmark-card-img">画像</div>
           <div class="bookmark-card-body">
@@ -711,7 +856,6 @@
           </div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
-
         <a class="bookmark-card" href="wireframe_article.html">
           <div class="bookmark-card-img">画像</div>
           <div class="bookmark-card-body">
@@ -721,7 +865,6 @@
           </div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
-
         <a class="bookmark-card" href="wireframe_article.html">
           <div class="bookmark-card-img">画像</div>
           <div class="bookmark-card-body">
@@ -731,75 +874,312 @@
           </div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
-
       </div>
     </div>
 
-    <!-- 特典一覧 -->
+    <!-- ===== 閲覧履歴 ===== -->
+    <div class="section" id="history">
+      <div class="section-header">
+        <h2>閲覧履歴</h2>
+        <a class="more" href="#" onclick="toast('閲覧履歴一覧へ');return false;">すべて見る &rsaquo;</a>
+      </div>
+      <ul class="history-list">
+        <li class="history-item">
+          <div class="history-item-img">画像</div>
+          <div class="history-item-body">
+            <div class="history-item-cat">フィッシング</div>
+            <div class="history-item-title"><a href="wireframe_article.html">春のショアジギングポイント完全ガイド：関東近郊の穴場スポット</a></div>
+            <div class="history-item-date">閲覧：2026.04.06 14:32</div>
+          </div>
+        </li>
+        <li class="history-item">
+          <div class="history-item-img">画像</div>
+          <div class="history-item-body">
+            <div class="history-item-cat">ボート</div>
+            <div class="history-item-title"><a href="wireframe_article.html">ヤマハ SR330 オーナーズレビュー：購入1年後の本音</a></div>
+            <div class="history-item-date">閲覧：2026.04.05 20:15</div>
+          </div>
+        </li>
+        <li class="history-item">
+          <div class="history-item-img">画像</div>
+          <div class="history-item-body">
+            <div class="history-item-cat">ヨット</div>
+            <div class="history-item-title"><a href="wireframe_article.html">セーリングクルーザーの基本操作：初心者が押さえるべきポイント</a></div>
+            <div class="history-item-date">閲覧：2026.04.04 11:48</div>
+          </div>
+        </li>
+        <li class="history-item">
+          <div class="history-item-img">画像</div>
+          <div class="history-item-body">
+            <div class="history-item-cat">マリーナ</div>
+            <div class="history-item-title"><a href="wireframe_article.html">湘南エリアのマリーナ徹底比較：料金・設備・アクセス</a></div>
+            <div class="history-item-date">閲覧：2026.04.03 09:22</div>
+          </div>
+        </li>
+        <li class="history-item">
+          <div class="history-item-img">画像</div>
+          <div class="history-item-body">
+            <div class="history-item-cat">ライフスタイル</div>
+            <div class="history-item-title"><a href="wireframe_article.html">マリンファッション春の注目アイテム：デッキでも街でも映えるコーデ</a></div>
+            <div class="history-item-date">閲覧：2026.04.02 16:05</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===== デジタル雑誌 ===== -->
+    <div class="section" id="magazine">
+      <div class="section-header">
+        <h2>デジタル雑誌</h2>
+      </div>
+      <div class="magazine-grid">
+        <div class="magazine-card">
+          <div class="magazine-cover">
+            <span class="magazine-new-badge">NEW</span>
+            画像
+          </div>
+          <div class="magazine-info">
+            <div class="magazine-title">月刊Kazi</div>
+            <div class="magazine-issue">2026年5月号</div>
+          </div>
+          <a class="magazine-read-btn" href="#" onclick="toast('月刊Kazi 5月号を閲覧');return false;">読む</a>
+        </div>
+        <div class="magazine-card">
+          <div class="magazine-cover">画像</div>
+          <div class="magazine-info">
+            <div class="magazine-title">月刊Kazi</div>
+            <div class="magazine-issue">2026年4月号</div>
+          </div>
+          <a class="magazine-read-btn" href="#" onclick="toast('月刊Kazi 4月号を閲覧');return false;">読む</a>
+        </div>
+        <div class="magazine-card">
+          <div class="magazine-cover">
+            <span class="magazine-new-badge">NEW</span>
+            画像
+          </div>
+          <div class="magazine-info">
+            <div class="magazine-title">Boat CLUB</div>
+            <div class="magazine-issue">2026年春号</div>
+          </div>
+          <a class="magazine-read-btn" href="#" onclick="toast('Boat CLUB 春号を閲覧');return false;">読む</a>
+        </div>
+        <div class="magazine-card">
+          <div class="magazine-cover">画像</div>
+          <div class="magazine-info">
+            <div class="magazine-title">Boat CLUB</div>
+            <div class="magazine-issue">2026年冬号</div>
+          </div>
+          <a class="magazine-read-btn" href="#" onclick="toast('Boat CLUB 冬号を閲覧');return false;">読む</a>
+        </div>
+      </div>
+      <div class="magazine-backnumber">
+        <a href="#" onclick="toast('バックナンバー一覧へ');return false;">バックナンバー一覧を見る &rsaquo;</a>
+      </div>
+    </div>
+
+    <!-- ===== お気に入りマリーナ ===== -->
+    <div class="section" id="marinas">
+      <div class="section-header">
+        <h2>お気に入りマリーナ</h2>
+        <a class="more" href="wireframe_marina.html">マリーナ一覧へ &rsaquo;</a>
+      </div>
+      <ul class="marina-fav-list">
+        <li class="marina-fav-item">
+          <div class="marina-fav-img">画像</div>
+          <div class="marina-fav-body">
+            <div class="marina-fav-name"><a href="wireframe_marina_list.html">リビエラシーボニアマリーナ</a></div>
+            <div class="marina-fav-location">神奈川県三浦市</div>
+            <div class="marina-fav-features">
+              <span class="marina-fav-tag">ビジター可</span>
+              <span class="marina-fav-tag">レストラン</span>
+              <span class="marina-fav-tag">給油</span>
+              <span class="marina-fav-tag">クレーン</span>
+            </div>
+            <div class="marina-fav-actions">
+              <a href="wireframe_marina_list.html" onclick="toast('詳細ページへ');return false;">詳細を見る</a>
+              <a href="wireframe_marina_map.html" onclick="toast('地図で表示');return false;">地図で見る</a>
+            </div>
+          </div>
+          <button class="marina-fav-remove" onclick="toast('お気に入り解除')">&#10005;</button>
+        </li>
+        <li class="marina-fav-item">
+          <div class="marina-fav-img">画像</div>
+          <div class="marina-fav-body">
+            <div class="marina-fav-name"><a href="wireframe_marina_list.html">横浜ベイサイドマリーナ</a></div>
+            <div class="marina-fav-location">神奈川県横浜市金沢区</div>
+            <div class="marina-fav-features">
+              <span class="marina-fav-tag">ビジター可</span>
+              <span class="marina-fav-tag">ショップ</span>
+              <span class="marina-fav-tag">大型艇対応</span>
+            </div>
+            <div class="marina-fav-actions">
+              <a href="wireframe_marina_list.html" onclick="toast('詳細ページへ');return false;">詳細を見る</a>
+              <a href="wireframe_marina_map.html" onclick="toast('地図で表示');return false;">地図で見る</a>
+            </div>
+          </div>
+          <button class="marina-fav-remove" onclick="toast('お気に入り解除')">&#10005;</button>
+        </li>
+        <li class="marina-fav-item">
+          <div class="marina-fav-img">画像</div>
+          <div class="marina-fav-body">
+            <div class="marina-fav-name"><a href="wireframe_marina_list.html">葉山マリーナ</a></div>
+            <div class="marina-fav-location">神奈川県三浦郡葉山町</div>
+            <div class="marina-fav-features">
+              <span class="marina-fav-tag">ビジター可</span>
+              <span class="marina-fav-tag">レストラン</span>
+              <span class="marina-fav-tag">ヨットスクール</span>
+            </div>
+            <div class="marina-fav-actions">
+              <a href="wireframe_marina_list.html" onclick="toast('詳細ページへ');return false;">詳細を見る</a>
+              <a href="wireframe_marina_map.html" onclick="toast('地図で表示');return false;">地図で見る</a>
+            </div>
+          </div>
+          <button class="marina-fav-remove" onclick="toast('お気に入り解除')">&#10005;</button>
+        </li>
+      </ul>
+      <div class="marina-compare-bar">
+        <span>お気に入りマリーナを比較できます（3件登録中）</span>
+        <a class="marina-compare-btn" href="#" onclick="toast('マリーナ比較ページへ');return false;">比較する</a>
+      </div>
+    </div>
+
+    <!-- ===== 特典案内 ===== -->
     <div class="section" id="benefits">
       <div class="section-header">
-        <h2>会員特典</h2>
+        <h2>特典案内</h2>
       </div>
       <div class="benefit-list">
 
         <div class="benefit-item">
-          <div class="benefit-item-icon">記事</div>
-          <div class="benefit-item-text">
-            <h4>会員限定記事・コンテンツ</h4>
-            <p>プレミアム記事を毎月配信。会員だけが読めるコンテンツです。</p>
+          <div class="benefit-item-header">
+            <div class="benefit-item-icon">記事</div>
+            <div class="benefit-item-text">
+              <h4>会員限定記事・コンテンツ</h4>
+              <p>プレミアム記事を毎月配信。会員だけが読める独占コンテンツです。</p>
+            </div>
+          </div>
+          <div class="benefit-item-detail">
+            <ul>
+              <li>毎月5本以上の限定記事を配信</li>
+              <li>プロアングラー・ヨットマン独占インタビュー</li>
+              <li>過去のアーカイブも読み放題</li>
+            </ul>
+          </div>
+          <div class="benefit-item-footer">
             <span class="benefit-item-status available">利用可能</span>
+            <a class="benefit-item-link" href="#" onclick="toast('限定記事一覧へ');return false;">記事一覧へ</a>
           </div>
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-item-icon">雑誌</div>
-          <div class="benefit-item-text">
-            <h4>月刊Kaziデジタル版 先行配信</h4>
-            <p>書店発売より1週間早くデジタル版を読めます。</p>
+          <div class="benefit-item-header">
+            <div class="benefit-item-icon">雑誌</div>
+            <div class="benefit-item-text">
+              <h4>月刊Kaziデジタル版 先行配信</h4>
+              <p>書店発売より1週間早くデジタル版を読めます。</p>
+            </div>
+          </div>
+          <div class="benefit-item-detail">
+            <ul>
+              <li>PC・スマホ・タブレット対応</li>
+              <li>バックナンバー12ヶ月分アクセス可</li>
+              <li>オフライン閲覧対応</li>
+            </ul>
+          </div>
+          <div class="benefit-item-footer">
             <span class="benefit-item-status available">利用可能</span>
+            <a class="benefit-item-link" href="#" onclick="toast('最新号を読む');return false;">最新号を読む</a>
           </div>
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-item-icon">イベント</div>
-          <div class="benefit-item-text">
-            <h4>イベント・展示会 優待招待</h4>
-            <p>ボートショー優待チケット・会員限定試乗会。</p>
+          <div class="benefit-item-header">
+            <div class="benefit-item-icon">イベント</div>
+            <div class="benefit-item-text">
+              <h4>イベント・展示会 優待招待</h4>
+              <p>ボートショー優待チケット・会員限定試乗会にご招待。</p>
+            </div>
+          </div>
+          <div class="benefit-item-detail">
+            <ul>
+              <li>ボートショー優待チケット</li>
+              <li>会員限定試乗会・体験会</li>
+              <li>各地マリンイベント先行予約</li>
+            </ul>
+          </div>
+          <div class="benefit-item-footer">
             <span class="benefit-item-status available">利用可能</span>
+            <a class="benefit-item-link" href="#" onclick="toast('イベント一覧へ');return false;">イベント一覧</a>
           </div>
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-item-icon">割引</div>
-          <div class="benefit-item-text">
-            <h4>KAZIシープラザ 会員割引</h4>
-            <p>オンラインショップでのお買い物が会員価格でお得に。</p>
+          <div class="benefit-item-header">
+            <div class="benefit-item-icon">割引</div>
+            <div class="benefit-item-text">
+              <h4>KAZIシープラザ 会員割引</h4>
+              <p>オンラインショップでのお買い物が会員価格でお得に。</p>
+            </div>
+          </div>
+          <div class="benefit-item-detail">
+            <ul>
+              <li>全商品5%OFF</li>
+              <li>季節セール時はさらに割引</li>
+              <li>ポイント2倍キャンペーン</li>
+            </ul>
+          </div>
+          <div class="benefit-item-footer">
             <span class="benefit-item-status available">利用可能</span>
+            <a class="benefit-item-link" href="#" onclick="toast('KAZIシープラザへ');return false;">ショップへ</a>
           </div>
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-item-icon">マリーナ</div>
-          <div class="benefit-item-text">
-            <h4>提携マリーナ 特別料金</h4>
-            <p>全国100カ所以上の提携マリーナで特別優待。QRコードを提示してください。</p>
+          <div class="benefit-item-header">
+            <div class="benefit-item-icon">マリーナ</div>
+            <div class="benefit-item-text">
+              <h4>提携マリーナ 特別料金</h4>
+              <p>全国100カ所以上の提携マリーナで特別優待。</p>
+            </div>
+          </div>
+          <div class="benefit-item-detail">
+            <ul>
+              <li>ビジター料金10-20%OFF</li>
+              <li>QRコード提示で適用</li>
+              <li>全国100カ所以上の提携施設</li>
+            </ul>
+          </div>
+          <div class="benefit-item-footer">
             <span class="benefit-item-status available">利用可能</span>
+            <a class="benefit-item-link" href="wireframe_marina.html">マリーナ一覧</a>
           </div>
         </div>
 
         <div class="benefit-item">
-          <div class="benefit-item-icon">Q&A</div>
-          <div class="benefit-item-text">
-            <h4>専門家への無料Q&A</h4>
-            <p>マリンのプロに直接質問。月2回まで無料。</p>
+          <div class="benefit-item-header">
+            <div class="benefit-item-icon">Q&amp;A</div>
+            <div class="benefit-item-text">
+              <h4>専門家への無料Q&amp;A</h4>
+              <p>マリンのプロに直接質問。月2回まで無料。</p>
+            </div>
+          </div>
+          <div class="benefit-item-detail">
+            <ul>
+              <li>船舶免許・ボート購入・タックル選び</li>
+              <li>プレミアム会員は質問無制限</li>
+              <li>平均回答時間48時間</li>
+            </ul>
+          </div>
+          <div class="benefit-item-footer">
             <span class="benefit-item-status used">今月 残り1回</span>
+            <a class="benefit-item-link" href="#" onclick="toast('Q&Aページへ');return false;">質問する</a>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- お知らせ -->
+    <!-- ===== お知らせ ===== -->
     <div class="section" id="notices">
       <div class="section-header">
         <h2>お知らせ</h2>
@@ -834,7 +1214,7 @@
       </ul>
     </div>
 
-    <!-- 会員情報 -->
+    <!-- ===== 会員情報 ===== -->
     <div class="section" id="account">
       <div class="section-header">
         <h2>会員情報</h2>
@@ -890,7 +1270,6 @@
   function scrollTo(e, id) {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Update active state
     document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
     e.target.classList.add('active');
   }
