@@ -65,8 +65,7 @@
     padding: 0 24px;
     gap: 32px;
   }
-  .content-sidebar { order: 2; }
-  .sidebar-sticky { position: static; margin-top: 0; }
+  .content-sidebar { display: none; }  /* big-ctaがあるためサイドバー非表示 */
 
   /* Article List */
   .article-list { grid-template-columns: 1fr !important; }

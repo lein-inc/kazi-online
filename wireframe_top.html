@@ -573,6 +573,11 @@
   .pub-cover img {
     width: 100%; height: 100%; object-fit: cover; display: block;
   }
+  .pub-placeholder {
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.7); font-family: 'Noto Serif JP', serif;
+    font-size: 14px; font-weight: 400; letter-spacing: 1px;
+  }
   .pub-name {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 11px; color: #1a1a1a; font-weight: 600;
@@ -1022,30 +1027,6 @@
   .cta-btn:hover { background: #fff; color: #1a1a1a; }
 
   /* Sea Dream Club CTA */
-  .cta-sdclub {
-    background: #1a1a1a; border: none;
-    padding: 80px 60px;
-    margin: 0;
-    display: flex; align-items: center; justify-content: space-between; gap: 32px;
-  }
-  .cta-sdclub .cta-text h3 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 26px; font-weight: 600; color: #fff;
-    letter-spacing: 0.06em;
-  }
-  .cta-sdclub .cta-text p {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 14px; color: #999; margin-top: 12px; font-weight: 600;
-  }
-  .cta-sdclub .cta-btn {
-    padding: 16px 48px; font-size: 13px;
-    border: 1px solid rgba(255,255,255,.4);
-  }
-  .cta-sdclub .cta-btn:hover {
-    background: #fff; color: #1a1a1a;
-    border-color: #fff;
-  }
-
   /* KAZI SeaPlaza CTA */
   .cta-seaplaza {
     border: none; background: #f7f7f5;
@@ -2181,27 +2162,27 @@
     </div>
     <div class="pub-grid">
       <a class="pub-item" href="#" onclick="toast('月刊Kazi');return false;">
-        <div class="pub-cover"><img src="book/d76784cb-4883-45c6-80d1-d52c067521d9.jpg" alt="月刊 Kazi"></div>
+        <div class="pub-cover pub-placeholder" style="background:#1a2a3a;"><span>KAZI</span></div>
         <div class="pub-name">月刊 Kazi</div>
       </a>
       <a class="pub-item" href="#" onclick="toast('月刊Boat CLUB');return false;">
-        <div class="pub-cover"><img src="book/792ec6dd-1cb0-48bb-8a56-15037735c635.jpg" alt="月刊 Boat CLUB"></div>
+        <div class="pub-cover pub-placeholder" style="background:#2c5f8a;"><span>Boat CLUB</span></div>
         <div class="pub-name">月刊 Boat CLUB</div>
       </a>
       <a class="pub-item" href="#" onclick="toast('Sea Dream');return false;">
-        <div class="pub-cover"><img src="book/sd41_9960_cov.jpg" alt="Sea Dream"></div>
+        <div class="pub-cover pub-placeholder" style="background:#0a0f1a;"><span>Sea Dream</span></div>
         <div class="pub-name">Sea Dream</div>
       </a>
       <a class="pub-item" href="#" onclick="toast('CANOE WORLD');return false;">
-        <div class="pub-cover"><img src="book/d5b46e2f-670c-471a-a41b-1ea06fc3a151.jpg" alt="CANOE WORLD"></div>
+        <div class="pub-cover pub-placeholder" style="background:#3a6b4a;"><span>CANOE WORLD</span></div>
         <div class="pub-name">CANOE WORLD</div>
       </a>
       <a class="pub-item" href="#" onclick="toast('Premium BOATING');return false;">
-        <div class="pub-cover"><img src="book/0e64edb6-266a-4f0d-bc44-7ded9ba2c6a9.jpg" alt="Premium BOATING"></div>
+        <div class="pub-cover pub-placeholder" style="background:#4a3a2a;"><span>Premium BOATING</span></div>
         <div class="pub-name">Premium BOATING</div>
       </a>
       <a class="pub-item" href="#" onclick="toast('書籍');return false;">
-        <div class="pub-cover"><img src="book/39fc759b-7e9c-4bee-b6ec-8f85e2cfeadd.jpg" alt="書籍"></div>
+        <div class="pub-cover pub-placeholder" style="background:#555;"><span>書籍</span></div>
         <div class="pub-name">書籍</div>
       </a>
     </div>
