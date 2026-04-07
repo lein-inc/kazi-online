@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans JP', Arial, sans-serif; background: #0a0f1a; color: #c8d0da; font-size: 13px; }
+  body { font-family: 'Noto Sans JP', Arial, sans-serif; background: #fff; color: #333; font-size: 14px; }
 
   #bgCanvas {
     position: fixed; top: 0; left: 0;
@@ -24,8 +24,8 @@
 
   .wf-label {
     text-align: center; padding: 6px;
-    background: rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.08);
-    font-size: 11px; color: rgba(255,255,255,.4);
+    background: #eee; border-bottom: 1px solid #ccc;
+    font-size: 11px; color: #666;
   }
 
     /* ===== HEADER ===== */
@@ -248,36 +248,40 @@
 
 
   .breadcrumb {
-    font-size: 11px; color: rgba(255,255,255,.4);
-    padding: 12px 20px;
+    font-size: 11px; color: #999;
+    padding: 16px 20px;
     max-width: 1100px; margin: 0 auto;
   }
-  .breadcrumb a { color: rgba(255,255,255,.4); text-decoration: none; }
-  .breadcrumb a:hover { color: rgba(255,255,255,.7); text-decoration: underline; }
+  .breadcrumb a { color: #999; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
   .breadcrumb .sep { margin: 0 6px; }
 
   /* ===== PROFILE HEADER (SDC) ===== */
   .profile-header {
-    background: linear-gradient(135deg, #0d1525 0%, #1e3a5f 50%, #0d1525 100%);
-    color: #fff; padding: 56px 20px;
-    border-bottom: 1px solid rgba(58,122,181,.2);
+    background: linear-gradient(135deg, #0a0f1a 0%, #1e3a5f 60%, #0d1525 100%);
+    color: #fff; padding: 64px 20px 56px;
+    position: relative;
+  }
+  .profile-header::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1px; background: linear-gradient(to right, transparent, #3a7ab5, transparent);
   }
   .profile-header-inner {
     max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: center; gap: 28px;
+    display: flex; align-items: center; gap: 32px;
   }
   .profile-avatar {
-    width: 72px; height: 72px; border: 2px solid #3a7ab5;
-    border-radius: 50%; background: rgba(44,95,138,0.3);
+    width: 88px; height: 88px; border: 2px solid rgba(58,122,181,.5);
+    border-radius: 50%; background: rgba(44,95,138,0.2);
     display: flex; align-items: center; justify-content: center;
-    font-size: 28px; color: #3a7ab5; flex-shrink: 0;
+    font-size: 32px; color: #3a7ab5; flex-shrink: 0;
   }
   .profile-info h1 {
     font-family: 'Noto Serif JP', serif;
-    font-size: 22px; font-weight: 400; margin-bottom: 6px;
+    font-size: 24px; font-weight: 400; margin-bottom: 8px;
   }
   .profile-meta {
-    display: flex; gap: 20px; font-size: 11px; color: #888;
+    display: flex; gap: 20px; font-size: 11px; color: rgba(255,255,255,.5);
   }
   .profile-meta span { display: flex; align-items: center; gap: 4px; }
   .profile-badge {
@@ -290,86 +294,88 @@
   /* ===== 2-COLUMN LAYOUT ===== */
   .mypage-wrap {
     max-width: 1100px; margin: 0 auto;
-    padding: 32px 20px 64px;
-    display: grid; grid-template-columns: 200px 1fr; gap: 32px;
+    padding: 40px 20px 80px;
+    display: grid; grid-template-columns: 200px 1fr; gap: 48px;
   }
 
   /* ===== SIDEBAR ===== */
   .sidebar-nav { list-style: none; }
-  .sidebar-nav li { border-bottom: 1px solid rgba(255,255,255,.08); }
+  .sidebar-nav li { border-bottom: 1px solid #f0f0f0; }
   .sidebar-nav li a {
     display: block; padding: 14px 12px;
-    font-size: 13px; color: rgba(255,255,255,.65); text-decoration: none;
+    font-size: 13px; color: #555; text-decoration: none;
     transition: all .2s;
   }
-  .sidebar-nav li a:hover { background: rgba(255,255,255,.05); color: #fff; }
+  .sidebar-nav li a:hover { background: #f7f7f5; color: #1a1a1a; }
   .sidebar-nav li a.active {
-    font-weight: bold; background: rgba(44,95,138,.2);
-    border-left: 3px solid #3a7ab5; padding-left: 9px; color: #fff;
+    font-weight: bold; background: #f5f8fb;
+    border-left: 3px solid #2c5f8a; padding-left: 9px; color: #1a1a1a;
   }
-  .sidebar-nav li:first-child { border-top: 1px solid rgba(255,255,255,.08); }
+  .sidebar-nav li:first-child { border-top: 1px solid #f0f0f0; }
 
   .sidebar-qr {
-    margin-top: 24px; padding: 20px;
-    border: 1px solid rgba(44,95,138,.3); text-align: center;
-    background: rgba(30,58,95,.2);
+    margin-top: 28px; padding: 24px;
+    border: 1px solid #e0e8f0; text-align: center;
+    background: #f5f8fb;
   }
   .sidebar-qr-label {
-    font-size: 11px; color: #3a7ab5; margin-bottom: 10px;
-    letter-spacing: 1px; font-family: 'Inter', sans-serif;
+    font-size: 10px; color: #2c5f8a; margin-bottom: 12px;
+    letter-spacing: 2px; font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
   }
   .sidebar-qr-box {
-    width: 120px; height: 120px; border: 1px solid rgba(255,255,255,.15);
-    background: rgba(255,255,255,.05); margin: 0 auto 8px;
+    width: 120px; height: 120px; border: 1px solid #ddd;
+    background: #fff; margin: 0 auto 10px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; color: rgba(255,255,255,.3);
+    font-size: 11px; color: #bbb;
   }
   .sidebar-qr-note {
-    font-size: 10px; color: rgba(255,255,255,.4); line-height: 1.5;
+    font-size: 10px; color: #999; line-height: 1.6;
   }
 
   /* ===== MAIN CONTENT ===== */
   .mypage-main { min-width: 0; }
 
-  .section { margin-bottom: 48px; }
+  .section { margin-bottom: 64px; }
   .section-header {
     display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 1px solid rgba(58,122,181,.3); padding-bottom: 10px;
-    margin-bottom: 20px;
+    border-bottom: 2px solid #1e3a5f; padding-bottom: 12px;
+    margin-bottom: 28px;
   }
   .section-header h2 {
     font-family: 'Noto Serif JP', serif;
-    font-size: 16px; font-weight: 400; color: #fff;
+    font-size: 18px; font-weight: 400; color: #1a1a1a;
   }
-  .section-header .more { font-size: 11px; color: #3a7ab5; text-decoration: none; }
-  .section-header .more:hover { color: #5a9ad5; text-decoration: underline; }
+  .section-header .more { font-size: 11px; color: #2c5f8a; text-decoration: none; }
+  .section-header .more:hover { text-decoration: underline; }
 
   /* ===== BOOKMARK CARDS ===== */
   .bookmark-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
   }
   .bookmark-card {
-    border: 1px solid rgba(255,255,255,.08); cursor: pointer;
+    border: none; cursor: pointer;
     text-decoration: none; color: inherit; display: block;
-    position: relative; background: rgba(255,255,255,.03);
-    transition: all .3s;
+    position: relative; background: #fff;
+    transition: all .3s; overflow: hidden;
   }
-  .bookmark-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.3); border-color: rgba(58,122,181,.3); }
+  .bookmark-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
   .bookmark-card-img {
-    background: rgba(255,255,255,.06); aspect-ratio: 16/10; width: 100%;
+    background: #e4e4e4; aspect-ratio: 16/10; width: 100%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; color: rgba(255,255,255,.2);
+    font-size: 11px; color: #bbb; background-size: cover; background-position: center;
   }
-  .bookmark-card-body { padding: 10px 12px 12px; }
+  .bookmark-card-body { padding: 14px 4px 16px; }
   .bookmark-card-cat {
-    font-size: 10px; color: #3a7ab5; margin-bottom: 4px;
-    display: inline-block; border: 1px solid rgba(58,122,181,.3); padding: 1px 6px;
+    font-size: 10px; color: #2c5f8a; margin-bottom: 6px;
+    display: inline-block; border: none; padding: 0;
+    font-family: 'Inter', sans-serif; letter-spacing: 0.5px; text-transform: uppercase;
   }
   .bookmark-card-title {
-    font-size: 12px; color: rgba(255,255,255,.85); line-height: 1.5;
-    margin-bottom: 6px;
+    font-size: 13px; color: #1a1a1a; line-height: 1.6;
+    margin-bottom: 8px;
   }
-  .bookmark-card-date { font-size: 10px; color: rgba(255,255,255,.35); }
+  .bookmark-card-date { font-size: 10px; color: #aaa; }
   .bookmark-remove {
     position: absolute; top: 8px; right: 8px;
     background: rgba(0,0,0,.5); color: #fff;
@@ -383,158 +389,165 @@
   /* ===== HISTORY LIST ===== */
   .history-list { list-style: none; }
   .history-item {
-    display: flex; gap: 16px; padding: 16px 0;
-    border-bottom: 1px solid rgba(255,255,255,.06); align-items: flex-start;
+    display: flex; gap: 20px; padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0; align-items: flex-start;
   }
   .history-item-img {
-    width: 120px; height: 75px; background: rgba(255,255,255,.06);
+    width: 140px; height: 88px; background: #e4e4e4;
     flex-shrink: 0; display: flex; align-items: center;
-    justify-content: center; font-size: 11px; color: rgba(255,255,255,.2);
+    justify-content: center; font-size: 11px; color: #bbb;
+    background-size: cover; background-position: center;
   }
   .history-item-body { flex: 1; min-width: 0; }
   .history-item-cat {
-    font-size: 10px; color: #3a7ab5; display: inline-block;
-    border: 1px solid rgba(58,122,181,.3); padding: 1px 6px; margin-bottom: 4px;
+    font-size: 10px; color: #2c5f8a; display: inline-block;
+    border: none; padding: 0; margin-bottom: 6px;
+    font-family: 'Inter', sans-serif; letter-spacing: 0.5px; text-transform: uppercase;
   }
   .history-item-title {
-    font-size: 13px; color: rgba(255,255,255,.85); line-height: 1.5; margin-bottom: 6px;
+    font-size: 14px; color: #1a1a1a; line-height: 1.6; margin-bottom: 8px;
   }
-  .history-item-title a { color: rgba(255,255,255,.85); text-decoration: none; }
-  .history-item-title a:hover { color: #3a7ab5; text-decoration: underline; }
-  .history-item-date { font-size: 10px; color: rgba(255,255,255,.3); }
+  .history-item-title a { color: #1a1a1a; text-decoration: none; }
+  .history-item-title a:hover { color: #2c5f8a; }
+  .history-item-date { font-size: 10px; color: #aaa; }
 
   /* ===== MAGAZINE GRID ===== */
   .magazine-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
   }
   .magazine-card {
-    border: 1px solid rgba(255,255,255,.08); text-align: center;
+    border: none; text-align: center;
     cursor: pointer; display: block; text-decoration: none;
-    color: inherit; background: rgba(255,255,255,.03);
+    color: inherit; background: #fff;
     transition: all .3s;
   }
-  .magazine-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.3); border-color: rgba(58,122,181,.3); }
+  .magazine-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
   .magazine-cover {
-    aspect-ratio: 3/4; background: rgba(255,255,255,.06); width: 100%;
+    aspect-ratio: 3/4; background: #e4e4e4; width: 100%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; color: rgba(255,255,255,.2); position: relative;
+    font-size: 11px; color: #bbb; position: relative;
+    background-size: cover; background-position: center;
   }
   .magazine-new-badge {
     position: absolute; top: 8px; left: 8px;
-    background: #3a7ab5; color: #fff; font-size: 9px;
-    padding: 2px 8px; letter-spacing: 1px;
+    background: #1e3a5f; color: #fff; font-size: 9px;
+    padding: 3px 10px; letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
   }
-  .magazine-info { padding: 10px 8px; }
+  .magazine-info { padding: 14px 8px; }
   .magazine-title {
-    font-size: 12px; font-weight: bold; color: #fff;
+    font-size: 13px; font-weight: bold; color: #1a1a1a;
     margin-bottom: 4px;
   }
-  .magazine-issue { font-size: 10px; color: rgba(255,255,255,.4); margin-bottom: 8px; }
+  .magazine-issue { font-size: 11px; color: #888; margin-bottom: 10px; }
   .magazine-read-btn {
-    display: block; border: 1px solid #3a7ab5; background: transparent;
-    color: #3a7ab5; padding: 6px 12px; font-size: 11px;
+    display: block; border: 1px solid #1e3a5f; background: #1e3a5f;
+    color: #fff; padding: 8px 12px; font-size: 11px;
     cursor: pointer; text-decoration: none; text-align: center;
     margin: 0 8px 10px; transition: all .3s;
   }
-  .magazine-read-btn:hover { background: #3a7ab5; color: #fff; }
+  .magazine-read-btn:hover { background: #2c5f8a; border-color: #2c5f8a; }
   .magazine-backnumber {
-    margin-top: 20px; text-align: center;
-    padding: 16px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03);
+    margin-top: 24px; text-align: center;
+    padding: 20px; border: none; background: #f7f7f5;
   }
   .magazine-backnumber a {
-    font-size: 12px; color: rgba(255,255,255,.6); text-decoration: none;
-    border: 1px solid rgba(255,255,255,.2); padding: 8px 24px;
+    font-size: 12px; color: #333; text-decoration: none;
+    border: 1px solid #ccc; padding: 10px 32px;
     display: inline-block; transition: all .3s;
   }
-  .magazine-backnumber a:hover { background: rgba(255,255,255,.05); color: #fff; }
+  .magazine-backnumber a:hover { background: #fff; border-color: #1e3a5f; color: #1e3a5f; }
 
   /* ===== FAVORITE MARINAS ===== */
   .marina-fav-list { list-style: none; }
   .marina-fav-item {
-    border: 1px solid rgba(255,255,255,.08); padding: 20px;
-    margin-bottom: 12px; display: flex; gap: 20px;
+    border: none; padding: 24px 0;
+    margin-bottom: 0; display: flex; gap: 24px;
     align-items: flex-start; position: relative;
-    background: rgba(255,255,255,.03); transition: all .3s;
+    border-bottom: 1px solid #f0f0f0;
   }
-  .marina-fav-item:hover { box-shadow: 0 4px 20px rgba(0,0,0,.3); border-color: rgba(58,122,181,.3); }
+  .marina-fav-item:last-child { border-bottom: none; }
+  .marina-fav-item:hover .marina-fav-img { opacity: 0.85; }
   .marina-fav-img {
-    width: 160px; height: 100px; background: rgba(255,255,255,.06);
+    width: 180px; height: 120px; background: #e4e4e4;
     flex-shrink: 0; display: flex; align-items: center;
-    justify-content: center; font-size: 11px; color: rgba(255,255,255,.2);
+    justify-content: center; font-size: 11px; color: #bbb;
+    background-size: cover; background-position: center;
+    transition: opacity .3s;
   }
   .marina-fav-body { flex: 1; min-width: 0; }
   .marina-fav-name {
-    font-size: 14px; font-weight: bold; color: #fff;
+    font-size: 15px; font-weight: bold; color: #1a1a1a;
     margin-bottom: 6px;
   }
-  .marina-fav-name a { color: #fff; text-decoration: none; }
-  .marina-fav-name a:hover { color: #3a7ab5; text-decoration: underline; }
-  .marina-fav-location { font-size: 11px; color: rgba(255,255,255,.4); margin-bottom: 8px; }
+  .marina-fav-name a { color: #1a1a1a; text-decoration: none; }
+  .marina-fav-name a:hover { color: #2c5f8a; }
+  .marina-fav-location { font-size: 11px; color: #888; margin-bottom: 10px; }
   .marina-fav-features {
-    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px;
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;
   }
   .marina-fav-tag {
-    font-size: 10px; border: 1px solid rgba(255,255,255,.12); padding: 2px 8px;
-    color: rgba(255,255,255,.5); background: rgba(255,255,255,.05);
+    font-size: 10px; border: 1px solid #e0e0e0; padding: 3px 10px;
+    color: #666; background: #fafafa;
   }
-  .marina-fav-actions { display: flex; gap: 8px; }
+  .marina-fav-actions { display: flex; gap: 10px; }
   .marina-fav-actions a {
-    font-size: 11px; color: rgba(255,255,255,.6); text-decoration: none;
-    border: 1px solid rgba(255,255,255,.15); padding: 4px 12px;
+    font-size: 11px; color: #2c5f8a; text-decoration: none;
+    border: 1px solid #2c5f8a; padding: 5px 14px;
     transition: all .3s;
   }
-  .marina-fav-actions a:hover { background: rgba(255,255,255,.05); color: #fff; border-color: rgba(255,255,255,.3); }
+  .marina-fav-actions a:hover { background: #2c5f8a; color: #fff; }
   .marina-fav-remove {
-    position: absolute; top: 12px; right: 12px;
-    font-size: 11px; color: rgba(255,255,255,.3); cursor: pointer;
+    position: absolute; top: 24px; right: 0;
+    font-size: 11px; color: #ccc; cursor: pointer;
     background: none; border: none;
   }
-  .marina-fav-remove:hover { color: #e55; }
+  .marina-fav-remove:hover { color: #c00; }
   .marina-compare-bar {
-    margin-top: 16px; padding: 14px 20px;
-    border: 1px solid rgba(58,122,181,.3); background: rgba(30,58,95,.15);
+    margin-top: 20px; padding: 16px 24px;
+    border: none; background: #f5f8fb;
     display: flex; justify-content: space-between;
     align-items: center;
   }
-  .marina-compare-bar span { font-size: 12px; color: rgba(255,255,255,.5); }
+  .marina-compare-bar span { font-size: 12px; color: #555; }
   .marina-compare-btn {
-    border: 1px solid #3a7ab5; background: transparent; color: #3a7ab5;
-    padding: 6px 20px; font-size: 12px; cursor: pointer;
+    border: 1px solid #1e3a5f; background: #1e3a5f; color: #fff;
+    padding: 8px 24px; font-size: 12px; cursor: pointer;
     text-decoration: none; transition: all .3s;
   }
-  .marina-compare-btn:hover { background: #3a7ab5; color: #fff; }
+  .marina-compare-btn:hover { background: #2c5f8a; border-color: #2c5f8a; }
 
   /* ===== BENEFIT LIST (Enhanced) ===== */
   .benefit-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .benefit-item {
-    border: 1px solid rgba(255,255,255,.08); padding: 24px;
+    border: none; padding: 28px;
     display: flex; flex-direction: column;
-    background: rgba(255,255,255,.03); transition: all .3s;
+    background: #f7f7f5; transition: all .3s;
   }
-  .benefit-item:hover { border-color: rgba(58,122,181,.3); }
+  .benefit-item:hover { background: #f0f2ef; }
   .benefit-item-header {
     display: flex; gap: 16px; align-items: flex-start;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
   .benefit-item-icon {
-    width: 48px; height: 48px; border: 1px solid rgba(58,122,181,.3);
-    background: rgba(30,58,95,.3); flex-shrink: 0;
+    width: 48px; height: 48px; border: none;
+    background: #1e3a5f; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; color: #3a7ab5;
+    font-size: 11px; color: #fff;
   }
-  .benefit-item-text h4 { font-size: 14px; font-weight: bold; color: #fff; margin-bottom: 4px; }
-  .benefit-item-text p { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.7; }
+  .benefit-item-text h4 { font-size: 14px; font-weight: bold; color: #1a1a1a; margin-bottom: 6px; }
+  .benefit-item-text p { font-size: 12px; color: #777; line-height: 1.7; }
   .benefit-item-detail {
-    font-size: 11px; color: rgba(255,255,255,.5); line-height: 1.8;
-    padding: 12px 16px; background: rgba(255,255,255,.03);
-    border: 1px solid rgba(255,255,255,.06); margin: 0 0 12px;
+    font-size: 12px; color: #555; line-height: 1.9;
+    padding: 14px 16px; background: #fff;
+    border: none; margin: 0 0 14px;
   }
   .benefit-item-detail ul { list-style: none; padding: 0; }
   .benefit-item-detail ul li {
-    padding-left: 14px; position: relative; margin-bottom: 2px;
+    padding-left: 14px; position: relative; margin-bottom: 3px;
   }
   .benefit-item-detail ul li::before {
-    content: '\2022'; position: absolute; left: 0; color: #3a7ab5;
+    content: '\2022'; position: absolute; left: 0; color: #2c5f8a;
   }
   .benefit-item-footer {
     display: flex; justify-content: space-between;
@@ -542,49 +555,49 @@
   }
   .benefit-item-status {
     font-size: 10px; display: inline-block;
-    padding: 2px 8px; letter-spacing: 0.5px;
+    padding: 3px 10px; letter-spacing: 0.5px;
   }
   .benefit-item-status.available {
-    border: 1px solid #3a7ab5; color: #3a7ab5; background: transparent;
+    border: 1px solid #2c5f8a; color: #2c5f8a; background: #fff;
   }
   .benefit-item-status.used {
-    border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.3); background: rgba(255,255,255,.03);
+    border: 1px solid #ddd; color: #999; background: #fff;
   }
   .benefit-item-link {
-    font-size: 11px; color: rgba(255,255,255,.6); text-decoration: none;
-    border: 1px solid rgba(255,255,255,.15); padding: 4px 12px;
+    font-size: 11px; color: #2c5f8a; text-decoration: none;
+    border: 1px solid #2c5f8a; padding: 5px 14px;
     transition: all .3s;
   }
-  .benefit-item-link:hover { background: rgba(255,255,255,.05); color: #fff; }
+  .benefit-item-link:hover { background: #2c5f8a; color: #fff; }
 
   /* ===== NOTICE LIST ===== */
   .notice-list { list-style: none; }
   .notice-list li {
-    border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0; padding: 16px 0;
     display: flex; gap: 16px; align-items: flex-start;
   }
-  .notice-date { font-size: 11px; color: rgba(255,255,255,.35); flex-shrink: 0; min-width: 80px; }
+  .notice-date { font-size: 11px; color: #999; flex-shrink: 0; min-width: 80px; }
   .notice-tag {
-    font-size: 10px; padding: 2px 8px; border: 1px solid rgba(255,255,255,.15);
-    color: rgba(255,255,255,.5); flex-shrink: 0;
+    font-size: 10px; padding: 3px 10px; border: 1px solid #ddd;
+    color: #666; flex-shrink: 0;
   }
-  .notice-tag.new { border-color: #3a7ab5; color: #3a7ab5; font-weight: bold; }
+  .notice-tag.new { border-color: #1e3a5f; color: #1e3a5f; font-weight: bold; }
   .notice-title {
-    font-size: 13px; color: rgba(255,255,255,.75);
+    font-size: 13px; color: #333;
   }
-  .notice-title a { color: rgba(255,255,255,.75); text-decoration: none; }
-  .notice-title a:hover { color: #3a7ab5; text-decoration: underline; }
+  .notice-title a { color: #333; text-decoration: none; }
+  .notice-title a:hover { color: #2c5f8a; text-decoration: underline; }
 
   /* ===== ACCOUNT INFO ===== */
   .account-table { width: 100%; border-collapse: collapse; }
-  .account-table tr { border-bottom: 1px solid rgba(255,255,255,.06); }
+  .account-table tr { border-bottom: 1px solid #f0f0f0; }
   .account-table th {
-    text-align: left; padding: 12px 16px 12px 0;
-    font-size: 12px; font-weight: bold; color: rgba(255,255,255,.4);
+    text-align: left; padding: 14px 16px 14px 0;
+    font-size: 12px; font-weight: bold; color: #888;
     width: 160px;
   }
-  .account-table td { padding: 12px 0; font-size: 13px; color: rgba(255,255,255,.75); }
-  .account-table td a { color: #3a7ab5; font-size: 12px; margin-left: 12px; }
+  .account-table td { padding: 14px 0; font-size: 13px; color: #333; }
+  .account-table td a { color: #2c5f8a; font-size: 12px; margin-left: 12px; }
 
 
   /* ===== FOOTER ===== */
@@ -634,11 +647,11 @@
 
   #toast {
     position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-    background: #3a7ab5; color: #fff; padding: 12px 24px; font-size: 13px;
+    background: #1a1a1a; color: #fff; padding: 12px 24px; font-size: 13px;
     font-family: 'Noto Sans JP', sans-serif; font-weight: 300;
     opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999;
     white-space: nowrap; border-radius: 4px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.4);
+    box-shadow: 0 4px 16px rgba(0,0,0,.15);
   }
   #toast.show { opacity: 1; }
 
@@ -1058,7 +1071,7 @@
       </div>
       <div class="bookmark-grid">
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img">画像</div>
+          <div class="bookmark-card-img" style="background-image:url('photos/fishing_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">フィッシング</div>
             <div class="bookmark-card-title">ルアーフィッシング完全ガイド：タックル選びから釣り方まで</div>
@@ -1067,7 +1080,7 @@
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img">画像</div>
+          <div class="bookmark-card-img" style="background-image:url('photos/boat_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">ボート</div>
             <div class="bookmark-card-title">2026年最新ボートインプレッション：注目モデル徹底レビュー</div>
@@ -1076,7 +1089,7 @@
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img">画像</div>
+          <div class="bookmark-card-img" style="background-image:url('photos/jclass_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">ヨット</div>
             <div class="bookmark-card-title">初めてのヨットレース参加ガイド：エントリーから完走まで</div>
@@ -1085,7 +1098,7 @@
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img">画像</div>
+          <div class="bookmark-card-img" style="background-image:url('photos/marina_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">マリーナ</div>
             <div class="bookmark-card-title">関東エリアおすすめマリーナ10選</div>
@@ -1094,7 +1107,7 @@
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img">画像</div>
+          <div class="bookmark-card-img" style="background-image:url('photos/lifestyle_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">ライフスタイル</div>
             <div class="bookmark-card-title">マリンファッション2026春夏コレクション</div>
@@ -1103,7 +1116,7 @@
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img">画像</div>
+          <div class="bookmark-card-img" style="background-image:url('photos/gear_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">マリングッズ</div>
             <div class="bookmark-card-title">2026年版ライフジャケット比較ガイド</div>
@@ -1122,7 +1135,7 @@
       </div>
       <ul class="history-list">
         <li class="history-item">
-          <div class="history-item-img">画像</div>
+          <div class="history-item-img" style="background-image:url('photos/fishing_02.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">フィッシング</div>
             <div class="history-item-title"><a href="wireframe_article.html">春のショアジギングポイント完全ガイド：関東近郊の穴場スポット</a></div>
@@ -1130,7 +1143,7 @@
           </div>
         </li>
         <li class="history-item">
-          <div class="history-item-img">画像</div>
+          <div class="history-item-img" style="background-image:url('photos/ponam_01.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">ボート</div>
             <div class="history-item-title"><a href="wireframe_article.html">ヤマハ SR330 オーナーズレビュー：購入1年後の本音</a></div>
@@ -1138,7 +1151,7 @@
           </div>
         </li>
         <li class="history-item">
-          <div class="history-item-img">画像</div>
+          <div class="history-item-img" style="background-image:url('photos/eilean_01.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">ヨット</div>
             <div class="history-item-title"><a href="wireframe_article.html">セーリングクルーザーの基本操作：初心者が押さえるべきポイント</a></div>
@@ -1146,7 +1159,7 @@
           </div>
         </li>
         <li class="history-item">
-          <div class="history-item-img">画像</div>
+          <div class="history-item-img" style="background-image:url('photos/marina_02.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">マリーナ</div>
             <div class="history-item-title"><a href="wireframe_article.html">湘南エリアのマリーナ徹底比較：料金・設備・アクセス</a></div>
@@ -1154,7 +1167,7 @@
           </div>
         </li>
         <li class="history-item">
-          <div class="history-item-img">画像</div>
+          <div class="history-item-img" style="background-image:url('photos/lifestyle_02.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">ライフスタイル</div>
             <div class="history-item-title"><a href="wireframe_article.html">マリンファッション春の注目アイテム：デッキでも街でも映えるコーデ</a></div>
@@ -1171,9 +1184,8 @@
       </div>
       <div class="magazine-grid">
         <div class="magazine-card">
-          <div class="magazine-cover">
+          <div class="magazine-cover" style="background-image:url('photos/hero_01.jpg')">
             <span class="magazine-new-badge">NEW</span>
-            画像
           </div>
           <div class="magazine-info">
             <div class="magazine-title">月刊Kazi</div>
@@ -1182,7 +1194,7 @@
           <a class="magazine-read-btn" href="#" onclick="toast('月刊Kazi 5月号を閲覧');return false;">読む</a>
         </div>
         <div class="magazine-card">
-          <div class="magazine-cover">画像</div>
+          <div class="magazine-cover" style="background-image:url('photos/hero_03.jpg')"></div>
           <div class="magazine-info">
             <div class="magazine-title">月刊Kazi</div>
             <div class="magazine-issue">2026年4月号</div>
@@ -1190,9 +1202,8 @@
           <a class="magazine-read-btn" href="#" onclick="toast('月刊Kazi 4月号を閲覧');return false;">読む</a>
         </div>
         <div class="magazine-card">
-          <div class="magazine-cover">
+          <div class="magazine-cover" style="background-image:url('photos/boat_02.jpg')">
             <span class="magazine-new-badge">NEW</span>
-            画像
           </div>
           <div class="magazine-info">
             <div class="magazine-title">Boat CLUB</div>
@@ -1201,7 +1212,7 @@
           <a class="magazine-read-btn" href="#" onclick="toast('Boat CLUB 春号を閲覧');return false;">読む</a>
         </div>
         <div class="magazine-card">
-          <div class="magazine-cover">画像</div>
+          <div class="magazine-cover" style="background-image:url('photos/transpac_01.jpg')"></div>
           <div class="magazine-info">
             <div class="magazine-title">Boat CLUB</div>
             <div class="magazine-issue">2026年冬号</div>
@@ -1222,7 +1233,7 @@
       </div>
       <ul class="marina-fav-list">
         <li class="marina-fav-item">
-          <div class="marina-fav-img">画像</div>
+          <div class="marina-fav-img" style="background-image:url('photos/marina_01.jpg')"></div>
           <div class="marina-fav-body">
             <div class="marina-fav-name"><a href="wireframe_marina_list.html">リビエラシーボニアマリーナ</a></div>
             <div class="marina-fav-location">神奈川県三浦市</div>
@@ -1240,7 +1251,7 @@
           <button class="marina-fav-remove" onclick="toast('お気に入り解除')">&#10005;</button>
         </li>
         <li class="marina-fav-item">
-          <div class="marina-fav-img">画像</div>
+          <div class="marina-fav-img" style="background-image:url('photos/marina_02.jpg')"></div>
           <div class="marina-fav-body">
             <div class="marina-fav-name"><a href="wireframe_marina_list.html">横浜ベイサイドマリーナ</a></div>
             <div class="marina-fav-location">神奈川県横浜市金沢区</div>
@@ -1257,7 +1268,7 @@
           <button class="marina-fav-remove" onclick="toast('お気に入り解除')">&#10005;</button>
         </li>
         <li class="marina-fav-item">
-          <div class="marina-fav-img">画像</div>
+          <div class="marina-fav-img" style="background-image:url('photos/marina_03.jpg')"></div>
           <div class="marina-fav-body">
             <div class="marina-fav-name"><a href="wireframe_marina_list.html">葉山マリーナ</a></div>
             <div class="marina-fav-location">神奈川県三浦郡葉山町</div>
