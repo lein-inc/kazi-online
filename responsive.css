@@ -30,6 +30,13 @@
 .big-cta-note a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color .2s; }
 .big-cta-note a:hover { color: rgba(255,255,255,0.8); }
 
+/* ===== Grid overflow fix (サイドバー表示修正) ===== */
+.content-with-sidebar > main,
+.content-with-sidebar > .content-main {
+  min-width: 0;
+  overflow: hidden;
+}
+
 /* ========== 1024px — タブレット ========== */
 @media (max-width: 1024px) {
 
