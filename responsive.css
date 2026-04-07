@@ -131,6 +131,9 @@
   .logo-small { height: 18px; }
   .btn-login { font-size: 11px; padding: 6px 12px; }
 
+  /* Sidebar: 768px以下で非表示 */
+  .content-sidebar { display: none !important; }
+
   /* Hamburger Panel — full width */
   .hamburger-panel { left: 0; }
   .hamburger-nav-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 24px; }
