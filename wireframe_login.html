@@ -323,76 +323,59 @@
 
   /* ===== SDC PROMOTION SECTION ===== */
   .sdc-promo {
-    margin-top: 56px; padding-top: 48px;
+    margin-top: 56px; padding: 56px 0 0;
     border-top: 1px solid #e8e8e8;
   }
   .sdc-promo-header {
-    text-align: center; margin-bottom: 36px;
+    text-align: center; margin-bottom: 40px;
   }
   .sdc-promo-eyebrow {
     font-family: 'Inter', sans-serif;
-    font-size: 10px; letter-spacing: 0.2em; color: #2c5f8a;
-    text-transform: uppercase; margin-bottom: 12px;
+    font-size: 10px; letter-spacing: 0.25em; color: #2c5f8a;
+    text-transform: uppercase; margin-bottom: 16px;
   }
   .sdc-promo-header h2 {
     font-family: 'Noto Serif JP', serif;
-    font-size: 22px; font-weight: 400; color: #1a1a1a;
-    margin-bottom: 10px; letter-spacing: 1px;
+    font-size: 24px; font-weight: 400; color: #1a1a1a;
+    margin-bottom: 16px; letter-spacing: 1px; line-height: 1.6;
   }
   .sdc-promo-header p {
-    font-size: 13px; color: #888; line-height: 1.8;
+    font-size: 13px; color: #888; line-height: 2.0;
   }
 
-  /* Benefit list */
-  .sdc-benefit-list {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-    border: 1px solid #e8e8e8; margin-bottom: 32px;
+  /* 3 Pillars */
+  .sdc-pillars { margin-bottom: 40px; }
+  .sdc-pillar {
+    padding: 32px 0; border-bottom: 1px solid #f0f0f0;
   }
-  .sdc-benefit-item {
-    padding: 24px 28px; display: flex; gap: 16px; align-items: flex-start;
-    border-bottom: 1px solid #e8e8e8;
-    border-right: 1px solid #e8e8e8;
+  .sdc-pillar:last-child { border-bottom: none; }
+  .sdc-pillar h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px; font-weight: 400; color: #1a1a1a;
+    margin-bottom: 10px; line-height: 1.6;
   }
-  .sdc-benefit-item:nth-child(2n) { border-right: none; }
-  .sdc-benefit-item:nth-last-child(-n+2) { border-bottom: none; }
-  .sdc-benefit-icon {
-    width: 40px; height: 40px; flex-shrink: 0;
-    background: #f5f8fb; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; color: #2c5f8a;
-  }
-  .sdc-benefit-text h4 {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 13px; font-weight: 700; color: #1a1a1a;
-    margin-bottom: 4px;
-  }
-  .sdc-benefit-text p {
-    font-size: 11px; color: #888; line-height: 1.7;
+  .sdc-pillar p {
+    font-size: 13px; color: #777; line-height: 2.0;
   }
 
-  /* Numbers */
-  .sdc-numbers {
-    display: flex; justify-content: center; gap: 48px;
-    margin-bottom: 36px; padding: 24px 0;
+  /* Magazine brands */
+  .sdc-brands {
+    display: flex; justify-content: center; gap: 24px;
+    margin: 32px 0 40px; padding: 24px 0;
+    border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
   }
-  .sdc-number-item { text-align: center; }
-  .sdc-number-value {
-    font-family: 'Inter', sans-serif;
-    font-size: 28px; font-weight: 400; color: #1e3a5f;
-    letter-spacing: -0.02em;
-  }
-  .sdc-number-value span { font-size: 13px; color: #888; margin-left: 2px; }
-  .sdc-number-label {
-    font-size: 10px; color: #999; margin-top: 4px;
+  .sdc-brand {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px; color: #555; font-weight: 400;
     letter-spacing: 0.05em;
   }
 
   /* Register button */
-  .sdc-promo-action { text-align: center; margin-bottom: 20px; }
+  .sdc-promo-action { text-align: center; margin-bottom: 16px; }
   .login-register-btn {
     display: inline-block; border: 2px solid #1e3a5f;
     background: #1e3a5f; color: #fff;
-    padding: 18px 64px; font-size: 15px; font-weight: bold;
+    padding: 20px 72px; font-size: 15px; font-weight: bold;
     text-decoration: none; transition: all .2s;
     font-family: 'Noto Sans JP', sans-serif;
     letter-spacing: 1px;
@@ -400,15 +383,16 @@
   .login-register-btn:hover { background: #2c5f8a; border-color: #2c5f8a; }
   .sdc-promo-note {
     text-align: center; font-size: 11px; color: #bbb;
+    margin-bottom: 40px;
   }
 
   /* Testimonial */
   .sdc-testimonial {
-    margin-top: 36px; padding: 28px 32px;
+    padding: 28px 32px;
     background: #f9fafb; border-left: 3px solid #2c5f8a;
   }
   .sdc-testimonial blockquote {
-    font-size: 13px; color: #555; line-height: 1.9;
+    font-size: 13px; color: #555; line-height: 2.0;
     font-style: italic; margin-bottom: 10px;
   }
   .sdc-testimonial cite {
@@ -777,9 +761,9 @@
 
 <!-- ===== PAGE HERO ===== -->
 <div class="page-hero">
-  <div class="page-hero-eyebrow">KAZI ONLINE MEMBERS CLUB</div>
-  <h1>Sea Dream Club にログイン</h1>
-  <p>会員限定コンテンツや特別イベントへアクセスできます</p>
+  <div class="page-hero-eyebrow">KAZI SEADREAM CLUB</div>
+  <h1>KAZI SeaDream Club にログイン</h1>
+  <p>選び抜かれたイベント、特別な体験、上質なライフスタイルへ</p>
 </div>
 
 <!-- ===== BREADCRUMB ===== -->
@@ -812,85 +796,44 @@
   <!-- ログインボタン -->
   <a class="form-submit" href="wireframe_sdclub_mypage.html" style="text-decoration:none;">ログイン</a>
 
-  <!-- ===== SDC 入会訴求セクション ===== -->
+  <!-- ===== KAZI SeaDream Club 入会訴求セクション ===== -->
   <div class="sdc-promo">
     <div class="sdc-promo-header">
-      <div class="sdc-promo-eyebrow">Sea Dream Club</div>
-      <h2>まだ会員でない方へ</h2>
-      <p>海を愛するすべての人のための無料メンバーズクラブ。<br>登録するだけで、限定コンテンツや特典がすべて無料で利用できます。</p>
+      <div class="sdc-promo-eyebrow">KAZI SeaDream Club</div>
+      <h2>海を愛する人のための、<br>特別なメンバーシップ。</h2>
+      <p>KAZIonlineのリニューアルを機に発足した「KAZI SeaDream Club」。<br>
+      会員だけが手にできる、選び抜かれたイベントや特別な体験、<br>上質なライフスタイルをお届けします。</p>
     </div>
 
-    <div class="sdc-benefit-list">
-      <div class="sdc-benefit-item">
-        <div class="sdc-benefit-icon">&#9998;</div>
-        <div class="sdc-benefit-text">
-          <h4>会員限定記事・コンテンツ</h4>
-          <p>プロアングラーの釣り動画、ヨット操縦テクニック、レース密着レポートなど限定配信</p>
-        </div>
+    <div class="sdc-pillars">
+      <div class="sdc-pillar">
+        <h3>非日常を味わう、至高の限定イベントと体験。</h3>
+        <p>専門家の解説で楽しむ迫力のヨットレース観戦や、会員限定のクルージング。知的好奇心を満たす体験型ワークショップまで、プロが贈る唯一無二のマリン体験をお届けします。</p>
       </div>
-      <div class="sdc-benefit-item">
-        <div class="sdc-benefit-icon">&#9776;</div>
-        <div class="sdc-benefit-text">
-          <h4>月刊Kazi デジタル版 先行配信</h4>
-          <p>書店発売より1週間早く最新号をチェック</p>
-        </div>
+      <div class="sdc-pillar">
+        <h3>日常に彩りを添える、ワンランク上の特別進呈。</h3>
+        <p>世界的なマリンフォト作品や限定グッズの進呈、新商品の先行案内のほか、会員限定のギフト企画など、特別なキャンペーンにご応募いただけます。</p>
       </div>
-      <div class="sdc-benefit-item">
-        <div class="sdc-benefit-icon">&#9734;</div>
-        <div class="sdc-benefit-text">
-          <h4>イベント・展示会 優待招待</h4>
-          <p>ボートショー優待チケット、会員限定の試乗会・体験会も開催</p>
-        </div>
-      </div>
-      <div class="sdc-benefit-item">
-        <div class="sdc-benefit-icon">&#9832;</div>
-        <div class="sdc-benefit-text">
-          <h4>提携マリーナ 特別料金</h4>
-          <p>全国100カ所以上の提携マリーナで係留料・保管料の特別優待</p>
-        </div>
-      </div>
-      <div class="sdc-benefit-item">
-        <div class="sdc-benefit-icon">&#37;</div>
-        <div class="sdc-benefit-text">
-          <h4>KAZIシープラザ 会員割引</h4>
-          <p>マリン用品オンラインショップでのお買い物が会員価格でお得に</p>
-        </div>
-      </div>
-      <div class="sdc-benefit-item">
-        <div class="sdc-benefit-icon">&#63;</div>
-        <div class="sdc-benefit-text">
-          <h4>専門家への無料Q&amp;A</h4>
-          <p>船舶免許・ボート購入・タックル選びなどプロに直接質問可能</p>
-        </div>
+      <div class="sdc-pillar">
+        <h3>他では決して得られない、あなただけの独占情報。</h3>
+        <p>『Kazi』『BoatCLUB』『SeaDream』『Premium BOATING』といった専門誌を刊行する舵社ならではの、ここでしか得られない上質な情報をお届けします。</p>
       </div>
     </div>
 
-    <div class="sdc-numbers">
-      <div class="sdc-number-item">
-        <div class="sdc-number-value">15,000<span>+</span></div>
-        <div class="sdc-number-label">会員数</div>
-      </div>
-      <div class="sdc-number-item">
-        <div class="sdc-number-value">100<span>カ所</span></div>
-        <div class="sdc-number-label">提携マリーナ</div>
-      </div>
-      <div class="sdc-number-item">
-        <div class="sdc-number-value">500<span>+</span></div>
-        <div class="sdc-number-label">限定記事</div>
-      </div>
-      <div class="sdc-number-item">
-        <div class="sdc-number-value">0<span>円</span></div>
-        <div class="sdc-number-label">入会費・年会費</div>
-      </div>
+    <div class="sdc-brands">
+      <span class="sdc-brand">Kazi</span>
+      <span class="sdc-brand">BoatCLUB</span>
+      <span class="sdc-brand">SeaDream</span>
+      <span class="sdc-brand">Premium BOATING</span>
     </div>
 
     <div class="sdc-promo-action">
-      <a class="login-register-btn" href="wireframe_sdclub_register.html">Sea Dream Club に入会する（無料）</a>
+      <a class="login-register-btn" href="wireframe_sdclub_register.html">KAZI SeaDream Club に入会する（無料）</a>
     </div>
-    <div class="sdc-promo-note">完全無料・クレジットカード不要・30秒で完了</div>
+    <div class="sdc-promo-note">入会金・年会費は無料です</div>
 
     <div class="sdc-testimonial">
-      <blockquote>「ボートショーの優待チケットがきっかけで登録しましたが、限定記事の質が高くて毎号楽しみにしています。無料とは思えないサービスです。」</blockquote>
+      <blockquote>「会員限定のクルージングイベントに参加したのがきっかけで登録しました。舵社の専門誌ならではの上質な情報と体験に、毎回感動しています。」</blockquote>
       <cite>— 神奈川県・ヨットオーナー K.M. さん</cite>
     </div>
   </div>
@@ -900,12 +843,13 @@
 <!-- ===== FOOTER ===== -->
 
 <div class="big-cta">
-  <h2>Sea Dream Club に参加する</h2>
+  <h2>KAZI SeaDream Club 発足。</h2>
   <p>
-    今すぐ登録して、マリンライフをもっと楽しもう。<br>
-    完全無料・クレジットカード不要・30秒で完了します。
+    海を愛する人のための特別なメンバーシップ。<br>
+    選び抜かれたイベントや特別な体験、上質なライフスタイルをお届けします。<br>
+    入会金・年会費は無料です。
   </p>
-  <a class="big-cta-btn" href="wireframe_sdclub_register.html">無料で会員登録する</a>
+  <a class="big-cta-btn" href="wireframe_sdclub_register.html">KAZI SeaDream Club に入会する</a>
   <div class="big-cta-note">すでに会員の方は <a href="wireframe_login.html">こちらからログイン</a></div>
 </div>
 
