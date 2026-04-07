@@ -367,13 +367,40 @@
     letter-spacing: 0.06em; transition: all 0.3s;
   }
   .cta-btn:hover { background: #fff; color: #0a0a0a; border-color: #fff; }
-  footer { border-top: 2px solid; border-image: linear-gradient(to right, #1e3a5f, #2c5f8a, #3a7ab5) 1; }
+
+  /* ===== FOOTER ===== */
+  footer { background: #1a1a1a; margin-top: 0; border-top: none; }
   .footer-inner { max-width: 1600px; margin: 0 auto; }
-  .footer-links { padding: 44px 20px 36px; display: flex; flex-wrap: wrap; gap: 12px 28px; border-bottom: 1px solid #ddd; }
-  .footer-links a { font-size: 13px; color: #555; text-decoration: none; }
-  .footer-links a:hover { text-decoration: underline; }
-  .footer-links .sep { color: #ccc; font-size: 13px; }
-  .footer-bottom { text-align: center; padding: 24px; font-size: 12px; color: #aaa; }
+  .footer-sitemap {
+    padding: 56px 40px 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 24px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .footer-col {}
+  .footer-col-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px; color: #fff; font-weight: 600;
+    margin-bottom: 12px; letter-spacing: 0.04em;
+  }
+  .footer-col-title a { color: #fff; text-decoration: none; }
+  .footer-col-title a:hover { opacity: 0.8; }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; }
+  .footer-col li { margin-bottom: 6px; }
+  .footer-col li a {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px; color: rgba(255,255,255,.5); text-decoration: none;
+    font-weight: 600; transition: color 0.2s;
+  }
+  .footer-col li a:hover { color: #fff; }
+  .footer-bottom {
+    text-align: center; padding: 28px 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; color: rgba(255,255,255,.3);
+    letter-spacing: 0.08em;
+  }
+
   #toast {
     position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
     background: #1a1a1a; color: #fff; padding: 12px 24px; font-size: 13px;
@@ -715,34 +742,6 @@
     </div>
   </div>
 </div>
-      <a class="search-sdc-btn" href="wireframe_sdclub.html" onclick="closeSearchBox()">無料登録はこちら</a>
-    </div>
-    <div class="search-section-title">注目の記事</div>
-    <div class="search-featured">
-      <a class="search-feat-card" href="wireframe_article.html">
-        <div class="search-feat-img">画像</div>
-        <div class="search-feat-body">
-          <div class="search-feat-cat">フィッシング</div>
-          <div class="search-feat-title">ルアーフィッシング完全ガイド：タックル選びから釣り方まで</div>
-        </div>
-      </a>
-      <a class="search-feat-card" href="wireframe_article.html">
-        <div class="search-feat-img">画像</div>
-        <div class="search-feat-body">
-          <div class="search-feat-cat">ボート</div>
-          <div class="search-feat-title">2025年最新ボートインプレッション</div>
-        </div>
-      </a>
-      <a class="search-feat-card" href="wireframe_article.html">
-        <div class="search-feat-img">画像</div>
-        <div class="search-feat-body">
-          <div class="search-feat-cat">マリーナ</div>
-          <div class="search-feat-title">マリーナマップで探す全国551カ所</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
 <div class="wf-label">WIREFRAME — ボート > トレーラブルボート</div>
 <!-- ===== HEADER ===== -->
 <header>
@@ -927,7 +926,90 @@
   </div>
 </aside>
 </div><!-- /.content-with-sidebar -->
-<footer><div class="footer-inner"><div class="footer-links"><a href="wireframe_top.html">TOPへ戻る</a><span class="sep">|</span><a href="wireframe_entry.html">エントリーガイド</a><span class="sep">|</span><a href="wireframe_maker.html">メーカー&amp;ビルダー</a><span class="sep">|</span><a href="#">月刊Kazi</a><span class="sep">|</span><a href="wireframe_sdclub.html">Sea Dream Club</a><span class="sep">|</span><a href="#">KAZIシープラザ</a><span class="sep">|</span><a href="wireframe_contact.html">お問い合わせ</a><span class="sep">|</span><a href="wireframe_privacy.html">プライバシーポリシー</a><span class="sep">|</span><a href="wireframe_company.html">会社概要</a></div><div class="footer-bottom">© KAZI Online　All Rights Reserved.</div></div></footer>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-sitemap">
+      <div class="footer-col">
+        <div class="footer-col-title"><a href="wireframe_news.html">ニュース</a></div>
+        <ul>
+          <li><a href="wireframe_news.html">新着ニュース</a></li>
+          <li><a href="wireframe_news_products.html">新製品・新着</a></li>
+          <li><a href="wireframe_news_events.html">イベント情報</a></li>
+          <li><a href="wireframe_news_ranking.html">人気ランキング</a></li>
+          <li><a href="wireframe_news_exhibition.html">展示会</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title"><a href="wireframe_fishing.html">フィッシング</a></div>
+        <ul>
+          <li><a href="wireframe_fishing_lure.html">ルアーフィッシング</a></li>
+          <li><a href="wireframe_fishing_tackle.html">タックル・ギア</a></li>
+          <li><a href="wireframe_fishing_species.html">魚種別ガイド</a></li>
+          <li><a href="wireframe_fishing_beginner.html">フィッシング入門</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title"><a href="wireframe_gear.html">マリングッズ・ギア</a></div>
+        <ul>
+          <li><a href="wireframe_gear_wear.html">マリンウェア（機能系）</a></li>
+          <li><a href="wireframe_gear_lifejacket.html">ライフジャケット・安全器具</a></li>
+          <li><a href="wireframe_gear_paddle.html">パドルスポーツ用品</a></li>
+          <li><a href="wireframe_gear_list.html">マリングッズ一覧</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title"><a href="wireframe_yacht.html">ヨット</a></div>
+        <ul>
+          <li><a href="wireframe_yacht_review.html">最新ヨットレビュー</a></li>
+          <li><a href="wireframe_yacht_technique.html">セーリング技術</a></li>
+          <li><a href="wireframe_yacht_race.html">レース情報</a></li>
+          <li><a href="wireframe_yacht_guide.html">購入ガイド</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title"><a href="wireframe_boat.html">ボート</a></div>
+        <ul>
+          <li><a href="wireframe_boat_review.html">ボートレビュー</a></li>
+          <li><a href="wireframe_boat_technique.html">操縦テクニック</a></li>
+          <li><a href="wireframe_boat_2hp.html">2馬力ボート特集</a></li>
+          <li><a href="wireframe_boat_trailable.html">トレーラブルボート</a></li>
+          <li><a href="wireframe_boat_guide.html">購入ガイド</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title"><a href="wireframe_marina.html">マリーナ</a></div>
+        <ul>
+          <li><a href="wireframe_marina_list.html">全国マリーナ一覧</a></li>
+          <li><a href="wireframe_marina_area.html">エリア別マリーナ検索</a></li>
+          <li><a href="wireframe_marina_map.html">マリーナマップ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title"><a href="wireframe_lifestyle.html">ライフスタイル</a></div>
+        <ul>
+          <li><a href="wireframe_lifestyle_fashion.html">マリンウェア・ファッション</a></li>
+          <li><a href="wireframe_lifestyle_gourmet.html">グルメ</a></li>
+          <li><a href="wireframe_lifestyle_hotel.html">ホテル・リゾート</a></li>
+          <li><a href="wireframe_lifestyle_travel.html">トラベル</a></li>
+          <li><a href="wireframe_lifestyle_goods.html">グッズ</a></li>
+          <li><a href="wireframe_lifestyle_calendar.html">マリンカレンダー</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">サービス</div>
+        <ul>
+          <li><a href="wireframe_sdclub.html">Sea Dream Club</a></li>
+          <li><a href="wireframe_entry.html">エントリーガイド</a></li>
+          <li><a href="wireframe_maker.html">メーカー&amp;ビルダー</a></li>
+          <li><a href="wireframe_company.html">会社概要</a></li>
+          <li><a href="wireframe_contact.html">お問い合わせ</a></li>
+          <li><a href="wireframe_privacy.html">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; KAZI Online All Rights Reserved.</div>
+  </div>
+</footer>
 <div id="toast"></div>
 <script>
   let toastTimer;

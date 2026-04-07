@@ -40,14 +40,12 @@
   /* Publication Grid */
   .pub-grid { grid-template-columns: repeat(4, 1fr) !important; }
 
-  /* Footer (TOP — grid) */
-  .footer-links {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 36px 24px 28px;
+  /* Footer Sitemap */
+  .footer-sitemap {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 40px 24px 24px;
+    gap: 24px 20px;
   }
-
-  /* Footer (Sub-pages — flex) */
-  .footer-inner { padding: 0; }
 
   /* Mega menu */
   .mega-menu { display: none !important; }
@@ -130,22 +128,13 @@
   .card-list .card-title { font-size: 16px; }
   .card-list .card-excerpt { display: none; }
 
-  /* Footer (TOP grid) */
-  .footer-links {
-    grid-template-columns: 1fr !important;
-    padding: 28px 16px 24px;
-    gap: 8px;
+  /* Footer Sitemap */
+  .footer-sitemap {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 32px 16px 24px;
+    gap: 20px 16px;
   }
-  .footer-links .sep { display: none; }
   .footer-bottom { padding: 16px; font-size: 11px; }
-
-  /* Footer (Sub-pages — flex) */
-  .footer-inner .footer-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 28px 16px 24px;
-  }
 
   /* SDC Landing Page */
   .sdc-hero { padding: 72px 16px 56px !important; }
@@ -235,6 +224,10 @@
   /* SDC Landing */
   .sdc-hero { padding: 56px 12px 44px !important; }
   .sdc-hero h1 { font-size: 22px !important; letter-spacing: 2px !important; }
+
+  /* Footer Sitemap */
+  .footer-sitemap { grid-template-columns: 1fr !important; gap: 16px; padding: 24px 12px 20px; }
+  .footer-col-title { font-size: 12px; margin-bottom: 8px; }
 
   /* Section headers */
   .section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
