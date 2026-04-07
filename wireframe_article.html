@@ -1409,9 +1409,24 @@
     <div class="article-related reveal">
       <div class="section-title">関連記事</div>
       <div class="grid-3 reveal">
-        <a class="card" href="wireframe_article.html"><div class="card-img" style="background-image:url('photos/hero_01.jpg')"></div><div class="card-body"><span class="card-cat" id="relCat1">関連</span><div class="card-title">関連記事タイトル 1</div><div class="card-meta">2025.09.20</div></div></a>
-        <a class="card" href="wireframe_article.html"><div class="card-img" style="background-image:url('photos/hero_02.jpg')"></div><div class="card-body"><span class="card-cat" id="relCat2">関連</span><div class="card-title">関連記事タイトル 2</div><div class="card-meta">2025.09.10</div></div></a>
-        <a class="card" href="wireframe_article.html"><div class="card-img" style="background-image:url('photos/hero_03.jpg')"></div><div class="card-body"><span class="card-cat" id="relCat3">関連</span><div class="card-title">関連記事タイトル 3</div><div class="card-meta">2025.08.28</div></div></a>
+        <a class="card" href="wireframe_article.html">
+          <div class="card-img" style="background-image:url('photos/hero_01.jpg')"></div>
+          <div class="card-body">
+            <span class="card-cat" id="relCat1">ニュース</span>
+            <div class="card-title">国際帆走競技規則 2025-2028年版 ポイント解説</div>
+            <div class="card-excerpt">人気モデルの値下げ情報やキャンペーンをまとめてご紹介。お得に手に入れるチャンス。</div>
+            <div class="card-meta">2026.02.10</div>
+          </div>
+        </a>
+        <a class="card" href="wireframe_article.html">
+          <div class="card-img" style="background-image:url('photos/hero_03.jpg')"></div>
+          <div class="card-body">
+            <span class="card-cat" id="relCat2">ニュース</span>
+            <div class="card-title">KAZIシープラザ 春の新入荷アイテム特集</div>
+            <div class="card-excerpt">今週のマリン業界ニュースまとめ。見逃せないトピックスをピックアップ。</div>
+            <div class="card-meta">2026.02.05</div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -1545,7 +1560,7 @@
   document.getElementById('breadTitle').textContent  = title.length > 30 ? title.slice(0,30)+'…' : title;
   document.getElementById('bodySubject').textContent  = cat;
   document.getElementById('bodySubject2').textContent = cat;
-  ['relCat1','relCat2','relCat3'].forEach(id => document.getElementById(id).textContent = cat);
+  ['relCat1','relCat2'].forEach(id => { var el = document.getElementById(id); if (el) el.textContent = cat; });
   document.title = title + ' - KAZI ONLINE';
 
   // タグをカテゴリーに合わせて更新

@@ -41,6 +41,34 @@
 }
 .btn-sitemap:hover { background: #333; color: #fff; border-color: #333; }
 
+/* ===== 関連記事カード（横型レイアウト） ===== */
+.article-related .grid-3 {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 32px;
+}
+.article-related .card {
+  display: flex; flex-direction: row; align-items: stretch;
+}
+.article-related .card-img {
+  width: 240px; flex-shrink: 0; order: 2;
+  aspect-ratio: auto; min-height: 180px;
+}
+.article-related .card-body {
+  flex: 1; min-width: 0; order: 1;
+  padding: 4px 24px 4px 0; display: flex; flex-direction: column;
+}
+.article-related .card-title {
+  font-size: 17px; line-height: 1.6; margin-bottom: 8px;
+}
+.article-related .card-excerpt {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px; color: #888; line-height: 1.8; font-weight: 300;
+  flex: 1;
+}
+.article-related .card-meta {
+  color: #c97a5a; margin-top: 8px;
+}
+
 /* ===== Sidebar Layout (全ページ共通・強制適用) ===== */
 .content-with-sidebar {
   display: grid !important;
@@ -94,6 +122,9 @@
     gap: 32px;
   }
   .content-sidebar { display: none !important; }  /* big-ctaがあるためサイドバー非表示 */
+
+  /* Related Articles */
+  .article-related .card-img { width: 200px; min-height: 160px; }
 
   /* Article List */
   .article-list { grid-template-columns: 1fr !important; }
@@ -230,6 +261,13 @@
   /* Article Header */
   .article-header { padding: 16px !important; gap: 16px; }
 
+  /* Related Articles — stack to 1 column */
+  .article-related .grid-3 { grid-template-columns: 1fr !important; gap: 24px; }
+  .article-related .card-img { width: 180px; min-height: 140px; }
+  .article-related .card-body { padding: 4px 16px 4px 0; }
+  .article-related .card-title { font-size: 15px; }
+  .article-related .card-excerpt { font-size: 12px; }
+
   /* History list */
   .history-item { gap: 12px; }
   .history-item-img { width: 90px; height: 60px; }
@@ -320,6 +358,11 @@
   .complete-wrap { padding: 36px 12px 48px; }
   .complete-icon { width: 64px; height: 64px; font-size: 28px; }
   .btn-mypage { padding: 14px 36px; font-size: 14px; }
+
+  /* Related Articles — vertical stack on small screens */
+  .article-related .card { flex-direction: column; }
+  .article-related .card-img { width: 100%; min-height: 180px; order: 0; }
+  .article-related .card-body { padding: 12px 0 0; order: 0; }
 
   /* SDC Landing */
   .sdc-hero { padding: 56px 12px 44px !important; }
