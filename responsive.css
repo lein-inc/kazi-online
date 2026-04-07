@@ -30,6 +30,17 @@
 .big-cta-note a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color .2s; }
 .big-cta-note a:hover { color: rgba(255,255,255,0.8); }
 
+/* ===== Sitemap Button (管理用) ===== */
+.btn-sitemap {
+  display: inline-block; padding: 4px 10px;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  color: #999; text-decoration: none;
+  border: 1px solid #ccc; border-radius: 3px;
+  transition: background .2s, color .2s;
+  font-family: 'Inter', sans-serif;
+}
+.btn-sitemap:hover { background: #333; color: #fff; border-color: #333; }
+
 /* ===== Sidebar Layout (全ページ共通・強制適用) ===== */
 .content-with-sidebar {
   display: grid !important;
@@ -215,6 +226,7 @@
 
   /* Header */
   .header-top { padding: 10px 12px; gap: 8px; }
+  .btn-sitemap { display: none; }
 
   /* Hamburger */
   .hamburger-nav-grid { grid-template-columns: 1fr !important; gap: 16px; }
