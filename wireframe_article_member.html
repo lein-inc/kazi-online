@@ -414,76 +414,96 @@
 
   /* ===== 会員限定バッジ ===== */
   .member-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: linear-gradient(135deg, #1e3a5f, #2c5f8a);
-    color: #fff; font-size: 11px; font-weight: 700;
-    padding: 4px 14px; border-radius: 3px;
-    font-family: 'Inter', sans-serif; letter-spacing: 0.5px;
-    margin-bottom: 12px;
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #2c5f8a; font-size: 10px; font-weight: 600;
+    padding: 0; border-radius: 0;
+    font-family: 'Inter', sans-serif; letter-spacing: 2px;
+    margin-bottom: 16px; text-transform: uppercase;
   }
-  .member-badge svg { width: 12px; height: 12px; fill: currentColor; }
-
-  /* ===== ペイウォール ===== */
-  .paywall-fade {
-    position: relative; max-height: 200px; overflow: hidden;
-    margin-bottom: 0;
-  }
-  .paywall-fade::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-    height: 160px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-    pointer-events: none;
+  .member-badge svg { width: 14px; height: 14px; fill: currentColor; }
+  .member-badge::after {
+    content: ''; flex: 1; height: 1px; background: linear-gradient(to right, #2c5f8a, transparent);
+    min-width: 40px;
   }
 
+  /* ===== ペイウォール（SDCプレミアム） ===== */
   .paywall {
-    background: #f8f9fa; border: 2px solid #e0e0e0;
-    border-radius: 12px; padding: 56px 40px; text-align: center;
-    margin: -20px 0 40px; position: relative; z-index: 2;
+    background: linear-gradient(165deg, #0a0f1a 0%, #0d1525 40%, #1e3a5f 100%);
+    border: none; border-radius: 0; text-align: center;
+    margin: 0 -40px 40px; padding: 72px 48px 64px;
+    position: relative; overflow: hidden;
   }
-  .paywall-icon {
-    width: 56px; height: 56px; border-radius: 50%;
-    background: linear-gradient(135deg, #1e3a5f, #2c5f8a);
-    color: #fff; display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 20px; font-size: 24px;
+  .paywall::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 1px; background: linear-gradient(to right, transparent, #3a7ab5, transparent);
+  }
+  .paywall::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1px; background: linear-gradient(to right, transparent, rgba(58,122,181,.3), transparent);
+  }
+  .paywall-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: rgba(255,255,255,.4); margin-bottom: 16px;
   }
   .paywall h3 {
     font-family: 'Noto Serif JP', serif;
-    font-size: 22px; font-weight: 600; color: #1a1a1a;
-    margin-bottom: 12px;
+    font-size: 26px; font-weight: 400; color: #fff;
+    margin-bottom: 8px; letter-spacing: 1px;
+  }
+  .paywall-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: #3a7ab5; margin-bottom: 28px;
   }
   .paywall p {
-    font-size: 14px; color: #888; line-height: 1.8; margin-bottom: 24px;
-    max-width: 480px; margin-left: auto; margin-right: auto;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px; color: rgba(255,255,255,.5); line-height: 2; margin-bottom: 32px;
+    max-width: 440px; margin-left: auto; margin-right: auto;
+  }
+  .paywall-divider {
+    width: 40px; height: 1px; background: #3a7ab5;
+    margin: 0 auto 32px;
   }
   .paywall-benefits {
-    display: flex; justify-content: center; gap: 32px;
-    margin-bottom: 28px; flex-wrap: wrap;
+    display: flex; justify-content: center; gap: 40px;
+    margin-bottom: 36px; flex-wrap: wrap;
   }
   .paywall-benefit {
-    font-size: 12px; color: #666; display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: rgba(255,255,255,.6);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    min-width: 100px;
   }
-  .paywall-benefit-check {
-    width: 18px; height: 18px; border-radius: 50%;
-    background: #2c5f8a; color: #fff;
+  .paywall-benefit-icon {
+    width: 40px; height: 40px; border: 1px solid rgba(58,122,181,.3);
     display: flex; align-items: center; justify-content: center;
-    font-size: 10px; flex-shrink: 0;
+    font-size: 16px; color: #3a7ab5;
+  }
+  .paywall-benefit-label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px; color: rgba(255,255,255,.5); letter-spacing: 0.5px;
   }
   .paywall-register {
-    display: inline-block; background: #1e3a5f; color: #fff;
-    padding: 16px 48px; font-size: 15px; font-weight: 700;
-    text-decoration: none; border-radius: 4px;
-    transition: background 0.2s; letter-spacing: 1px;
+    display: inline-block; background: transparent; color: #fff;
+    padding: 16px 56px; font-size: 13px; font-weight: 600;
+    text-decoration: none; border-radius: 0;
+    border: 1px solid rgba(255,255,255,.3);
+    transition: all 0.4s; letter-spacing: 2px;
     font-family: 'Noto Sans JP', sans-serif;
   }
-  .paywall-register:hover { background: #2c5f8a; }
-  .paywall-login {
-    display: block; margin-top: 16px;
-    font-size: 13px; color: #999;
+  .paywall-register:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.6);
   }
-  .paywall-login a { color: #2c5f8a; text-decoration: none; }
-  .paywall-login a:hover { text-decoration: underline; }
+  .paywall-login {
+    display: block; margin-top: 20px;
+    font-size: 12px; color: rgba(255,255,255,.3);
+  }
+  .paywall-login a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .3s; }
+  .paywall-login a:hover { color: #fff; }
   .paywall-note {
-    margin-top: 20px; font-size: 11px; color: #bbb;
+    margin-top: 16px; font-size: 10px; color: rgba(255,255,255,.2);
+    letter-spacing: 1px;
   }
 
   /* ===== 記事本文 ===== */
@@ -1233,10 +1253,10 @@
       <a class="share-btn" href="#" onclick="toast('URLをコピー');return false;"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>URLコピー</a>
     </div>
 
-    <!-- 会員限定バッジ -->
+    <!-- SDC限定バッジ -->
     <div class="member-badge">
-      <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z"/></svg>
-      MEMBER ONLY
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+      KAZI SeaDream Club Exclusive
     </div>
 
     <!-- タグ -->
@@ -1269,55 +1289,28 @@
       </div>
     </div>
 
-    <!-- 本文 -->
-    <div class="article-body reveal">
-      <p>この記事では、<span id="bodySubject">フィッシング</span>に関する基礎知識から実践的なノウハウまでを詳しく解説します。初心者から上級者まで幅広く役立つ情報を提供します。</p>
-
-      <h2 id="sec1">ポイント① 基本を押さえる</h2>
-      <p>まず基礎となる知識を身につけることが重要です。適切な装備を揃え、安全への配慮を忘れずに。必要な準備を整えることで、より快適なマリンライフが実現します。</p>
-      <p>装備の選び方は用途や経験レベルによって異なります。入門者には扱いやすいモデルが、経験者にはより専門性の高いアイテムが向いています。</p>
-
-      <div class="article-img-inline" style="background:url('photos/fishing_01.jpg') center/cover no-repeat"></div>
-      <p class="article-img-caption">キャプションテキストが入ります</p>
-
-      <!-- 広告バナー① (横長) -->
-      <div class="ad-banner ad-banner-leaderboard">
-        <div class="ad-banner-inner" style="background-image:url('photos/boat_main.jpg'); background-size:cover; background-position:center;">
-          <span class="ad-banner-label">AD</span>
-        </div>
-      </div>
-
-      <h2 id="sec2">ポイント② 選び方のコツ</h2>
-      <h3 id="sec2-1">予算別おすすめアイテム</h3>
-      <p>予算に合わせたアイテム選びが重要です。入門者には3〜5万円程度のエントリーモデルがおすすめ。性能と価格のバランスが取れており、長く使い続けられます。</p>
-    </div>
-
-    <!-- ===== ペイウォール（フェードアウト + 登録ウォール）===== -->
-    <div class="article-body paywall-fade">
-      <p>中級者以上を目指す方には、10万円前後のミドルクラスも視野に入れましょう。操作性と機能性が大幅に向上します。国内外の主要ブランドを比較すると、日本製品は品質が安定しており、アフターサポートも充実しています。海外ブランドはデザイン性が高く、価格帯も幅広いのが特徴です。</p>
-    </div>
-
+    <!-- ===== SDCペイウォール（目次直下） ===== -->
     <div class="paywall">
-      <div class="paywall-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
-      </div>
-      <h3>この先は会員限定コンテンツです</h3>
-      <p>KAZI SeaDream Club に無料登録すると、<br>すべての会員限定記事をお読みいただけます。</p>
+      <div class="paywall-eyebrow">KAZI SeaDream Club</div>
+      <h3>Sea Dream Club</h3>
+      <div class="paywall-sub">Exclusive Content</div>
+      <div class="paywall-divider"></div>
+      <p>海を愛する人のための特別なメンバーシップ。<br>この記事の続きは、Sea Dream Club 会員限定でお届けしています。</p>
       <div class="paywall-benefits">
         <div class="paywall-benefit">
-          <div class="paywall-benefit-check">✓</div>
-          会員限定記事が読み放題
+          <div class="paywall-benefit-icon">&#9733;</div>
+          <div class="paywall-benefit-label">限定記事が読み放題</div>
         </div>
         <div class="paywall-benefit">
-          <div class="paywall-benefit-check">✓</div>
-          限定イベントへの招待
+          <div class="paywall-benefit-icon">&#9872;</div>
+          <div class="paywall-benefit-label">限定イベントへの招待</div>
         </div>
         <div class="paywall-benefit">
-          <div class="paywall-benefit-check">✓</div>
-          デジタル雑誌の閲覧
+          <div class="paywall-benefit-icon">&#9776;</div>
+          <div class="paywall-benefit-label">デジタル雑誌の閲覧</div>
         </div>
       </div>
-      <a class="paywall-register" href="wireframe_sdclub_register.html">KAZI SeaDream Club に入会する（無料）</a>
+      <a class="paywall-register" href="wireframe_sdclub_register.html">入会する（無料）</a>
       <div class="paywall-login">すでに会員の方は <a href="wireframe_login.html">ログイン</a></div>
       <div class="paywall-note">入会金・年会費は無料です</div>
     </div>
@@ -1457,7 +1450,6 @@
   document.getElementById('articleTitle').textContent = title;
   document.getElementById('breadCat').textContent    = cat;
   document.getElementById('breadTitle').textContent  = title.length > 30 ? title.slice(0,30)+'…' : title;
-  document.getElementById('bodySubject').textContent  = cat;
   ['relCat1','relCat2','relCat3'].forEach(id => document.getElementById(id).textContent = cat);
   document.title = title + ' - KAZI ONLINE';
 
