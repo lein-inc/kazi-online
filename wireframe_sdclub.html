@@ -469,26 +469,15 @@
     font-size: 14px; color: rgba(255,255,255,.55); margin-bottom: 36px;
     line-height: 1.9; font-weight: 300;
   }
-  .register-cta-form {
-    display: flex; gap: 0; max-width: 480px; margin: 0 auto 20px;
-  }
-  .register-cta-form input {
-    flex: 1; border: 1px solid rgba(255,255,255,.25); border-right: none;
-    background: rgba(255,255,255,.08); color: #fff;
-    padding: 16px 20px; font-size: 14px; outline: none;
-    font-family: 'Noto Sans JP', sans-serif;
-    transition: border-color .3s;
-  }
-  .register-cta-form input::placeholder { color: rgba(255,255,255,.3); }
-  .register-cta-form input:focus { border-color: #3a7ab5; }
-  .register-cta-form button {
+  .register-cta-btn {
+    display: inline-block; padding: 20px 72px;
     border: 1px solid rgba(255,255,255,.3); background: transparent;
-    color: #fff; padding: 16px 32px; font-size: 13px;
-    font-family: 'Inter', sans-serif; font-weight: 400;
-    letter-spacing: 2px; cursor: pointer; white-space: nowrap;
-    transition: background .3s;
+    color: #fff; font-family: 'Noto Sans JP', sans-serif; font-size: 15px;
+    font-weight: 400; letter-spacing: 2px; text-decoration: none;
+    cursor: pointer; transition: background .3s, color .3s;
+    margin-bottom: 20px;
   }
-  .register-cta-form button:hover { background: rgba(255,255,255,.1); }
+  .register-cta-btn:hover { background: rgba(255,255,255,.1); }
   .register-cta-note {
     font-size: 11px; color: rgba(255,255,255,.3); font-weight: 300;
   }
@@ -1134,10 +1123,7 @@
     <div class="register-cta-eyebrow">JOIN NOW</div>
     <h2>Sea Dream Club に入会する</h2>
     <p>メールアドレスだけで今すぐ無料登録。<br>会員限定記事・デジタルマガジン・マリーナ優待をお届けします。</p>
-    <div class="register-cta-form">
-      <input type="email" placeholder="メールアドレスを入力" onclick="event.stopPropagation()">
-      <button onclick="toast('登録フォーム → wireframe_sdclub_register.html へ遷移')">登録する</button>
-    </div>
+    <a class="register-cta-btn" href="wireframe_sdclub_register.html">入会する（無料）</a>
     <div class="register-cta-note">入会金・年会費は無料です。いつでも退会できます。</div>
   </div>
 

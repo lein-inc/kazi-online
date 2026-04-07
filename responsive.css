@@ -161,7 +161,6 @@
   .sdc-hero h1 { font-size: 36px !important; }
   .benefit-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .register-cta { padding: 56px 24px; }
-  .register-cta-form { max-width: 100%; }
 
   /* Mypage */
   .mypage-wrap {
@@ -257,9 +256,7 @@
   .benefit-grid { grid-template-columns: 1fr !important; }
   .register-cta { padding: 48px 16px; }
   .register-cta h2 { font-size: 22px; }
-  .register-cta-form { flex-direction: column; }
-  .register-cta-form input { border-right: 1px solid rgba(255,255,255,.25); }
-  .register-cta-form button { width: 100%; padding: 14px; }
+  .register-cta-btn { padding: 16px 48px; font-size: 14px; }
 
   /* Big CTA */
   .big-cta { padding: 64px 16px; }
