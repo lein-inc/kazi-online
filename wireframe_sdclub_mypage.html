@@ -293,9 +293,9 @@
 
   /* ===== 2-COLUMN LAYOUT ===== */
   .mypage-wrap {
-    max-width: 1100px; margin: 0 auto;
-    padding: 40px 20px 80px;
-    display: grid; grid-template-columns: 200px 1fr; gap: 48px;
+    max-width: 1600px; margin: 0 auto;
+    padding: 40px 40px 80px;
+    display: grid; grid-template-columns: 1fr 220px; gap: 48px;
   }
 
   /* ===== SIDEBAR ===== */
@@ -1039,27 +1039,6 @@
 <!-- ===== 2-COLUMN ===== -->
 <div class="mypage-wrap">
 
-  <!-- SIDEBAR -->
-  <aside>
-    <ul class="sidebar-nav">
-      <li><a href="#bookmarks" class="active" onclick="scrollTo(event,'bookmarks')">ブックマーク</a></li>
-      <li><a href="#history" onclick="scrollTo(event,'history')">閲覧履歴</a></li>
-      <li><a href="#magazine" onclick="scrollTo(event,'magazine')">デジタル雑誌</a></li>
-      <li><a href="#marinas" onclick="scrollTo(event,'marinas')">お気に入りマリーナ</a></li>
-      <li><a href="#benefits" onclick="scrollTo(event,'benefits')">特典案内</a></li>
-      <li><a href="#notices" onclick="scrollTo(event,'notices')">お知らせ</a></li>
-      <li><a href="#account" onclick="scrollTo(event,'account')">会員情報</a></li>
-      <li><a href="#" onclick="toast('ログアウト');return false;">ログアウト</a></li>
-      <li><a href="#" onclick="toast('退会手続きページへ');return false;" style="color:#c00;">退会する</a></li>
-    </ul>
-
-    <div class="sidebar-qr">
-      <div class="sidebar-qr-label">MEMBER'S QR</div>
-      <div class="sidebar-qr-box">QRコード</div>
-      <div class="sidebar-qr-note">提携マリーナ・ショップで<br>この画面を提示してください</div>
-    </div>
-  </aside>
-
   <!-- MAIN -->
   <div class="mypage-main">
 
@@ -1481,6 +1460,30 @@
     </div>
 
   </div>
+
+  <!-- SIDEBAR (右) -->
+  <aside>
+    <div style="position:sticky;top:80px;">
+      <ul class="sidebar-nav">
+        <li><a href="#bookmarks" class="active" onclick="scrollTo(event,'bookmarks')">ブックマーク</a></li>
+        <li><a href="#history" onclick="scrollTo(event,'history')">閲覧履歴</a></li>
+        <li><a href="#magazine" onclick="scrollTo(event,'magazine')">デジタル雑誌</a></li>
+        <li><a href="#marinas" onclick="scrollTo(event,'marinas')">お気に入りマリーナ</a></li>
+        <li><a href="#benefits" onclick="scrollTo(event,'benefits')">特典案内</a></li>
+        <li><a href="#notices" onclick="scrollTo(event,'notices')">お知らせ</a></li>
+        <li><a href="#account" onclick="scrollTo(event,'account')">会員情報</a></li>
+        <li><a href="#" onclick="toast('ログアウト');return false;">ログアウト</a></li>
+        <li><a href="#" onclick="toast('退会手続きページへ');return false;" style="color:#c00;">退会する</a></li>
+      </ul>
+
+      <div class="sidebar-qr">
+        <div class="sidebar-qr-label">MEMBER'S QR</div>
+        <div class="sidebar-qr-box">QRコード</div>
+        <div class="sidebar-qr-note">提携マリーナ・ショップで<br>この画面を提示してください</div>
+      </div>
+    </div>
+  </aside>
+
 </div>
 
 <!-- ===== FOOTER ===== -->
