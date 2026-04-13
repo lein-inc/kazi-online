@@ -168,7 +168,8 @@
     padding: 24px 20px 48px;
   }
   .mypage-wrap > aside { display: none; }
-  .bookmark-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .bookmark-grid { grid-template-columns: 1fr !important; }
+  .history-list { grid-template-columns: 1fr !important; }
   .magazine-grid { grid-template-columns: repeat(3, 1fr) !important; }
 }
 
@@ -226,7 +227,8 @@
   .profile-meta { justify-content: center; flex-wrap: wrap; }
 
   /* Mypage Grids */
-  .bookmark-grid { grid-template-columns: 1fr 1fr !important; gap: 12px; }
+  .bookmark-grid { grid-template-columns: 1fr !important; }
+  .history-list { grid-template-columns: 1fr !important; }
   .magazine-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
   .benefit-list { grid-template-columns: 1fr !important; }
   .marina-fav-item { flex-direction: column; }
@@ -359,6 +361,9 @@
 
   /* Mypage */
   .bookmark-grid { grid-template-columns: 1fr !important; }
+  .bookmark-card-img, .history-item-img { width: 90px; height: 60px; }
+  .bookmark-card-title, .history-item-title { font-size: 14px; }
+  .bookmark-card-excerpt, .history-item-excerpt { display: none; }
   .magazine-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .sidebar-nav li a { padding: 12px 10px; font-size: 12px; }
 

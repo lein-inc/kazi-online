@@ -349,35 +349,46 @@
   .section-header .more { font-size: 11px; color: #2c5f8a; text-decoration: none; }
   .section-header .more:hover { text-decoration: underline; }
 
-  /* ===== BOOKMARK CARDS ===== */
+  /* ===== BOOKMARK CARDS (横型2カラム) ===== */
   .bookmark-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
   }
   .bookmark-card {
-    border: none; cursor: pointer;
-    text-decoration: none; color: inherit; display: block;
+    cursor: pointer; text-decoration: none; color: inherit;
+    display: flex; flex-direction: row; align-items: flex-start;
     position: relative; background: #fff;
-    transition: all .3s; overflow: hidden;
+    padding: 24px 20px; gap: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background .2s;
   }
-  .bookmark-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+  .bookmark-card:hover { background: #fafafa; }
+  .bookmark-card-body { flex: 1; min-width: 0; order: 1; }
   .bookmark-card-img {
-    background: #e4e4e4; aspect-ratio: 16/10; width: 100%;
+    background: #e4e4e4; width: 120px; height: 80px;
+    flex-shrink: 0; order: 2;
     display: flex; align-items: center; justify-content: center;
     font-size: 11px; color: #bbb; background-size: cover; background-position: center;
+    border-radius: 2px;
   }
-  .bookmark-card-body { padding: 14px 4px 16px; }
   .bookmark-card-cat {
-    font-size: 10px; color: #2c5f8a; margin-bottom: 6px;
-    display: inline-block; border: none; padding: 0;
-    font-family: 'Inter', sans-serif; letter-spacing: 0.5px; text-transform: uppercase;
+    font-size: 11px; color: #2c5f8a; margin-bottom: 8px;
+    display: inline-block; border: none; padding: 2px 8px;
+    background: #e8f0f8; border-radius: 2px;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
+    letter-spacing: 0.02em;
   }
   .bookmark-card-title {
-    font-size: 13px; color: #1a1a1a; line-height: 1.6;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px; font-weight: 400; color: #1a1a1a; line-height: 1.7;
     margin-bottom: 8px;
   }
-  .bookmark-card-date { font-size: 10px; color: #aaa; }
+  .bookmark-card-excerpt {
+    font-size: 13px; color: #777; line-height: 1.7; font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .bookmark-card-date { font-size: 12px; color: #aaa; }
   .bookmark-remove {
-    position: absolute; top: 8px; right: 8px;
+    position: absolute; top: 12px; right: 12px;
     background: rgba(0,0,0,.5); color: #fff;
     width: 24px; height: 24px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
@@ -386,30 +397,45 @@
   }
   .bookmark-card:hover .bookmark-remove { opacity: 1; }
 
-  /* ===== HISTORY LIST ===== */
-  .history-list { list-style: none; }
-  .history-item {
-    display: flex; gap: 20px; padding: 20px 0;
-    border-bottom: 1px solid #f0f0f0; align-items: flex-start;
+  /* ===== HISTORY LIST (横型2カラム) ===== */
+  .history-list {
+    list-style: none;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
   }
+  .history-item {
+    display: flex; flex-direction: row; gap: 20px;
+    padding: 24px 20px; align-items: flex-start;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background .2s;
+  }
+  .history-item:hover { background: #fafafa; }
+  .history-item-body { flex: 1; min-width: 0; order: 1; }
   .history-item-img {
-    width: 140px; height: 88px; background: #e4e4e4;
-    flex-shrink: 0; display: flex; align-items: center;
+    width: 120px; height: 80px; background: #e4e4e4;
+    flex-shrink: 0; order: 2;
+    display: flex; align-items: center;
     justify-content: center; font-size: 11px; color: #bbb;
     background-size: cover; background-position: center;
+    border-radius: 2px;
   }
-  .history-item-body { flex: 1; min-width: 0; }
   .history-item-cat {
-    font-size: 10px; color: #2c5f8a; display: inline-block;
-    border: none; padding: 0; margin-bottom: 6px;
-    font-family: 'Inter', sans-serif; letter-spacing: 0.5px; text-transform: uppercase;
+    font-size: 11px; color: #2c5f8a; display: inline-block;
+    border: none; padding: 2px 8px; margin-bottom: 8px;
+    background: #e8f0f8; border-radius: 2px;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 600;
+    letter-spacing: 0.02em;
   }
   .history-item-title {
-    font-size: 14px; color: #1a1a1a; line-height: 1.6; margin-bottom: 8px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px; color: #1a1a1a; line-height: 1.7; margin-bottom: 8px;
+    font-weight: 400;
   }
   .history-item-title a { color: #1a1a1a; text-decoration: none; }
   .history-item-title a:hover { color: #2c5f8a; }
-  .history-item-date { font-size: 10px; color: #aaa; }
+  .history-item-excerpt {
+    font-size: 13px; color: #777; line-height: 1.7; font-weight: 300; margin-bottom: 8px;
+  }
+  .history-item-date { font-size: 12px; color: #aaa; }
 
   /* ===== MAGAZINE GRID ===== */
   .magazine-grid {
@@ -1079,57 +1105,63 @@
       </div>
       <div class="bookmark-grid">
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img" style="background-image:url('photos/fishing_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">フィッシング</div>
             <div class="bookmark-card-title">ルアーフィッシング完全ガイド：タックル選びから釣り方まで</div>
+            <div class="bookmark-card-excerpt">初心者からステップアップを目指すアングラーまで。ロッド・リール・ラインの選び方を徹底解説。</div>
             <div class="bookmark-card-date">2026.03.10</div>
           </div>
+          <div class="bookmark-card-img" style="background-image:url('photos/fishing_01.jpg')"></div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img" style="background-image:url('photos/boat_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">ボート</div>
             <div class="bookmark-card-title">2026年最新ボートインプレッション：注目モデル徹底レビュー</div>
+            <div class="bookmark-card-excerpt">今年注目の最新モデルを編集部が徹底試乗。操作性・居住性・走行性能をレポート。</div>
             <div class="bookmark-card-date">2026.03.05</div>
           </div>
+          <div class="bookmark-card-img" style="background-image:url('photos/boat_01.jpg')"></div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img" style="background-image:url('photos/jclass_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">ヨット</div>
             <div class="bookmark-card-title">初めてのヨットレース参加ガイド：エントリーから完走まで</div>
+            <div class="bookmark-card-excerpt">レースに出てみたい人へ。エントリー方法から当日の準備、基本的な戦術まで。</div>
             <div class="bookmark-card-date">2026.02.28</div>
           </div>
+          <div class="bookmark-card-img" style="background-image:url('photos/jclass_01.jpg')"></div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img" style="background-image:url('photos/marina_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">マリーナ</div>
-            <div class="bookmark-card-title">関東エリアおすすめマリーナ10選</div>
+            <div class="bookmark-card-title">関東エリアおすすめマリーナ10選：設備・料金・アクセスを比較</div>
+            <div class="bookmark-card-excerpt">ビジター利用から長期係留まで。関東近郊のマリーナを徹底比較しました。</div>
             <div class="bookmark-card-date">2026.02.20</div>
           </div>
+          <div class="bookmark-card-img" style="background-image:url('photos/marina_01.jpg')"></div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img" style="background-image:url('photos/lifestyle_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">ライフスタイル</div>
             <div class="bookmark-card-title">マリンファッション2026春夏コレクション</div>
+            <div class="bookmark-card-excerpt">デッキでも街でも映える、この春夏の注目マリンウェアをピックアップ。</div>
             <div class="bookmark-card-date">2026.02.15</div>
           </div>
+          <div class="bookmark-card-img" style="background-image:url('photos/lifestyle_01.jpg')"></div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
         <a class="bookmark-card" href="wireframe_article.html">
-          <div class="bookmark-card-img" style="background-image:url('photos/gear_01.jpg')"></div>
           <div class="bookmark-card-body">
             <div class="bookmark-card-cat">マリングッズ</div>
             <div class="bookmark-card-title">2026年版ライフジャケット比較ガイド</div>
+            <div class="bookmark-card-excerpt">安全性と快適性を両立する最新モデルを比較。タイプ別の選び方も紹介。</div>
             <div class="bookmark-card-date">2026.02.10</div>
           </div>
+          <div class="bookmark-card-img" style="background-image:url('photos/gear_01.jpg')"></div>
           <div class="bookmark-remove" onclick="event.preventDefault();toast('ブックマーク解除')">&#10005;</div>
         </a>
       </div>
@@ -1143,44 +1175,49 @@
       </div>
       <ul class="history-list">
         <li class="history-item">
-          <div class="history-item-img" style="background-image:url('photos/fishing_02.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">フィッシング</div>
             <div class="history-item-title"><a href="wireframe_article.html">春のショアジギングポイント完全ガイド：関東近郊の穴場スポット</a></div>
+            <div class="history-item-excerpt">シーバス・青物狙いのベストシーズン到来。実績ポイントと攻略法を紹介。</div>
             <div class="history-item-date">閲覧：2026.04.06 14:32</div>
           </div>
+          <div class="history-item-img" style="background-image:url('photos/fishing_02.jpg')"></div>
         </li>
         <li class="history-item">
-          <div class="history-item-img" style="background-image:url('photos/ponam_01.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">ボート</div>
             <div class="history-item-title"><a href="wireframe_article.html">ヤマハ SR330 オーナーズレビュー：購入1年後の本音</a></div>
+            <div class="history-item-excerpt">燃費・居住性・メンテナンスコストをオーナーが正直にレビュー。</div>
             <div class="history-item-date">閲覧：2026.04.05 20:15</div>
           </div>
+          <div class="history-item-img" style="background-image:url('photos/ponam_01.jpg')"></div>
         </li>
         <li class="history-item">
-          <div class="history-item-img" style="background-image:url('photos/eilean_01.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">ヨット</div>
             <div class="history-item-title"><a href="wireframe_article.html">セーリングクルーザーの基本操作：初心者が押さえるべきポイント</a></div>
+            <div class="history-item-excerpt">出港から帰港まで、初心者が安全に楽しむための基本操作をステップ解説。</div>
             <div class="history-item-date">閲覧：2026.04.04 11:48</div>
           </div>
+          <div class="history-item-img" style="background-image:url('photos/eilean_01.jpg')"></div>
         </li>
         <li class="history-item">
-          <div class="history-item-img" style="background-image:url('photos/marina_02.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">マリーナ</div>
             <div class="history-item-title"><a href="wireframe_article.html">湘南エリアのマリーナ徹底比較：料金・設備・アクセス</a></div>
+            <div class="history-item-excerpt">大規模改修を経てリニューアルオープン。新設備と新サービスの詳細をお届けします。</div>
             <div class="history-item-date">閲覧：2026.04.03 09:22</div>
           </div>
+          <div class="history-item-img" style="background-image:url('photos/marina_02.jpg')"></div>
         </li>
         <li class="history-item">
-          <div class="history-item-img" style="background-image:url('photos/lifestyle_02.jpg')"></div>
           <div class="history-item-body">
             <div class="history-item-cat">ライフスタイル</div>
             <div class="history-item-title"><a href="wireframe_article.html">マリンファッション春の注目アイテム：デッキでも街でも映えるコーデ</a></div>
+            <div class="history-item-excerpt">マリンブランドの春夏新作から、デッキでも街でも映えるコーデを提案。</div>
             <div class="history-item-date">閲覧：2026.04.02 16:05</div>
           </div>
+          <div class="history-item-img" style="background-image:url('photos/lifestyle_02.jpg')"></div>
         </li>
       </ul>
     </div>
