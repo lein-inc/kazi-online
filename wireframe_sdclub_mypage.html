@@ -457,6 +457,8 @@
     display: inline-block; transition: all .3s;
   }
   .magazine-backnumber a:hover { background: #fff; border-color: #1e3a5f; color: #1e3a5f; }
+  .archive-intro { margin-bottom: 20px; }
+  .archive-intro p { font-size: 13px; color: #555; line-height: 1.8; font-weight: 300; }
 
   /* ===== FAVORITE MARINAS ===== */
   .marina-fav-list { list-style: none; }
@@ -1183,10 +1185,13 @@
       </ul>
     </div>
 
-    <!-- ===== デジタル雑誌 ===== -->
+    <!-- ===== プレミアム・アーカイブ配信 ===== -->
     <div class="section" id="magazine">
       <div class="section-header">
-        <h2>デジタル雑誌</h2>
+        <h2>プレミアム・アーカイブ配信</h2>
+      </div>
+      <div class="archive-intro">
+        <p>Sea Dream・Kazi・BOATCLUBの編集部が厳選した名記事をデジタルで配信。会員だけが読める特別なアーカイブです。</p>
       </div>
       <div class="magazine-grid">
         <div class="magazine-card">
@@ -1194,40 +1199,42 @@
             <span class="magazine-new-badge">NEW</span>
           </div>
           <div class="magazine-info">
-            <div class="magazine-title">月刊Kazi</div>
-            <div class="magazine-issue">2026年5月号</div>
+            <div class="magazine-title">Sea Dream</div>
+            <div class="magazine-issue">推し記事ベスト — 40号記念</div>
           </div>
-          <a class="magazine-read-btn" href="#" onclick="toast('月刊Kazi 5月号を閲覧');return false;">読む</a>
+          <a class="magazine-read-btn" href="#" onclick="toast('Sea Dream アーカイブを閲覧');return false;">読む</a>
         </div>
         <div class="magazine-card">
-          <div class="magazine-cover" style="background-image:url('photos/hero_03.jpg')"></div>
-          <div class="magazine-info">
-            <div class="magazine-title">月刊Kazi</div>
-            <div class="magazine-issue">2026年4月号</div>
+          <div class="magazine-cover" style="background-image:url('photos/hero_03.jpg')">
+            <span class="magazine-new-badge">NEW</span>
           </div>
-          <a class="magazine-read-btn" href="#" onclick="toast('月刊Kazi 4月号を閲覧');return false;">読む</a>
+          <div class="magazine-info">
+            <div class="magazine-title">Kazi</div>
+            <div class="magazine-issue">実践HOW TO記事 厳選5本</div>
+          </div>
+          <a class="magazine-read-btn" href="#" onclick="toast('Kazi アーカイブを閲覧');return false;">読む</a>
         </div>
         <div class="magazine-card">
           <div class="magazine-cover" style="background-image:url('photos/boat_02.jpg')">
             <span class="magazine-new-badge">NEW</span>
           </div>
           <div class="magazine-info">
-            <div class="magazine-title">Boat CLUB</div>
-            <div class="magazine-issue">2026年春号</div>
+            <div class="magazine-title">BOATCLUB</div>
+            <div class="magazine-issue">魚探HOW TO記事 厳選5本</div>
           </div>
-          <a class="magazine-read-btn" href="#" onclick="toast('Boat CLUB 春号を閲覧');return false;">読む</a>
+          <a class="magazine-read-btn" href="#" onclick="toast('BOATCLUB アーカイブを閲覧');return false;">読む</a>
         </div>
         <div class="magazine-card">
           <div class="magazine-cover" style="background-image:url('photos/transpac_01.jpg')"></div>
           <div class="magazine-info">
-            <div class="magazine-title">Boat CLUB</div>
-            <div class="magazine-issue">2026年冬号</div>
+            <div class="magazine-title">矢部洋一 海の写真館</div>
+            <div class="magazine-issue">デジタルギャラリー＆壁紙DL</div>
           </div>
-          <a class="magazine-read-btn" href="#" onclick="toast('Boat CLUB 冬号を閲覧');return false;">読む</a>
+          <a class="magazine-read-btn" href="#" onclick="toast('写真館を閲覧');return false;">見る</a>
         </div>
       </div>
       <div class="magazine-backnumber">
-        <a href="#" onclick="toast('バックナンバー一覧へ');return false;">バックナンバー一覧を見る &rsaquo;</a>
+        <a href="#" onclick="toast('アーカイブ一覧へ');return false;">アーカイブ一覧を見る &rsaquo;</a>
       </div>
     </div>
 
@@ -1519,7 +1526,7 @@
       <ul class="sidebar-nav">
         <li><a href="#bookmarks" class="active" onclick="scrollTo(event,'bookmarks')">ブックマーク</a></li>
         <li><a href="#history" onclick="scrollTo(event,'history')">閲覧履歴</a></li>
-        <li><a href="#magazine" onclick="scrollTo(event,'magazine')">デジタル雑誌</a></li>
+        <li><a href="#magazine" onclick="scrollTo(event,'magazine')">プレミアム・アーカイブ</a></li>
         <li><a href="#marinas" onclick="scrollTo(event,'marinas')">お気に入りマリーナ</a></li>
         <li><a href="#benefits" onclick="scrollTo(event,'benefits')">特典案内</a></li>
         <li><a href="#notices" onclick="scrollTo(event,'notices')">お知らせ</a></li>
