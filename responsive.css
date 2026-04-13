@@ -231,8 +231,8 @@
   .history-list { grid-template-columns: 1fr !important; }
   .magazine-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
   .benefit-list { grid-template-columns: 1fr !important; }
-  .marina-fav-item { flex-direction: column; }
-  .marina-fav-img { width: 100%; height: 160px; }
+  .marina-fav-list { grid-template-columns: 1fr !important; }
+  .marina-fav-img { width: 90px; height: 60px; }
 
   /* SDC Promo (Login) */
   .sdc-brands { gap: 16px; flex-wrap: wrap; }
