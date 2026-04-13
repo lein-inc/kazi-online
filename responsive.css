@@ -196,6 +196,12 @@
   .content-with-sidebar { padding: 0 16px; gap: 24px; }
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr) !important; gap: 20px; }
 
+  /* Benefit Detail */
+  .benefit-detail-item { gap: 16px; padding: 20px 0; }
+  .benefit-detail-num { font-size: 22px; width: 36px; }
+  .benefit-detail-body h4 { font-size: 15px; }
+  .benefit-detail-body p { font-size: 13px; }
+
   /* Hero Slider (TOP) */
   .hero-slider { height: 480px !important; }
   .hero-spacer { height: 480px !important; }
@@ -372,6 +378,12 @@
   .sdc-hero h1 { font-size: 22px !important; letter-spacing: 2px !important; }
   .register-cta { padding: 36px 12px; }
   .register-cta h2 { font-size: 20px; }
+
+  /* Benefit Detail (small) */
+  .benefit-detail-item { flex-direction: column; gap: 8px; }
+  .benefit-detail-num { width: auto; font-size: 20px; }
+  .benefit-detail-body h4 { font-size: 14px; }
+  .benefit-detail-body p { font-size: 12px; line-height: 1.8; }
 
   /* Big CTA */
   .big-cta { padding: 48px 12px; }
