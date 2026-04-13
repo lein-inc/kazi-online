@@ -599,6 +599,33 @@
   .account-table td { padding: 14px 0; font-size: 13px; color: #333; }
   .account-table td a { color: #2c5f8a; font-size: 12px; margin-left: 12px; }
 
+  /* ===== Mailmag ===== */
+  .mailmag-wrap { max-width: 600px; }
+  .mailmag-status {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0;
+  }
+  .mailmag-status-badge {
+    font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .mailmag-status-badge.on { background: #e8f4f0; color: #2c8a6a; }
+  .mailmag-status-badge.off { background: #f5f0f0; color: #c00; }
+  .mailmag-status-text { font-size: 12px; color: #888; }
+  .mailmag-desc { font-size: 13px; color: #555; line-height: 1.7; margin-bottom: 16px; font-weight: 300; }
+  .mailmag-categories { margin-bottom: 24px; }
+  .mailmag-check {
+    display: flex; align-items: center; gap: 10px; padding: 10px 0;
+    border-bottom: 1px solid #f5f5f5; font-size: 13px; color: #333; cursor: pointer;
+  }
+  .mailmag-check input[type="checkbox"] { width: 16px; height: 16px; accent-color: #2c5f8a; }
+  .mailmag-save {
+    border: 1px solid #1a1a1a; background: #1a1a1a; color: #fff;
+    padding: 12px 36px; font-size: 13px; font-weight: 600; cursor: pointer;
+    font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.06em;
+    transition: background 0.3s;
+  }
+  .mailmag-save:hover { background: #333; }
 
   /* ===== FOOTER ===== */
   footer { background: #1a1a1a; margin-top: 0; border-top: none; }
@@ -1279,127 +1306,127 @@
 
         <div class="benefit-item">
           <div class="benefit-item-header">
-            <div class="benefit-item-icon">記事</div>
+            <div class="benefit-item-icon">&#9733;</div>
             <div class="benefit-item-text">
-              <h4>会員限定記事・コンテンツ</h4>
-              <p>プレミアム記事を毎月配信。会員だけが読める独占コンテンツです。</p>
+              <h4>プレミアム・アーカイブ配信</h4>
+              <p>Sea Dream・Kazi・BOATCLUBの厳選記事をデジタルで配信。</p>
             </div>
           </div>
           <div class="benefit-item-detail">
             <ul>
-              <li>毎月5本以上の限定記事を配信</li>
-              <li>プロアングラー・ヨットマン独占インタビュー</li>
-              <li>過去のアーカイブも読み放題</li>
+              <li>Sea Dream誌「推し記事」ベスト6〜10本</li>
+              <li>Kazi誌 実践「HOW TO記事」5本</li>
+              <li>BOATCLUB誌 魚探テーマHOW TO記事5本</li>
             </ul>
           </div>
           <div class="benefit-item-footer">
             <span class="benefit-item-status available">利用可能</span>
-            <a class="benefit-item-link" href="#" onclick="toast('限定記事一覧へ');return false;">記事一覧へ</a>
+            <a class="benefit-item-link" href="#" onclick="toast('アーカイブ一覧へ');return false;">アーカイブを読む</a>
           </div>
         </div>
 
         <div class="benefit-item">
           <div class="benefit-item-header">
-            <div class="benefit-item-icon">雑誌</div>
+            <div class="benefit-item-icon">&#127912;</div>
             <div class="benefit-item-text">
-              <h4>月刊Kaziデジタル版 先行配信</h4>
-              <p>書店発売より1週間早くデジタル版を読めます。</p>
+              <h4>矢部洋一 海の写真館 / Tadami イラスト展</h4>
+              <p>デジタルギャラリー閲覧＆オリジナル壁紙ダウンロード。</p>
             </div>
           </div>
           <div class="benefit-item-detail">
             <ul>
-              <li>PC・スマホ・タブレット対応</li>
-              <li>バックナンバー12ヶ月分アクセス可</li>
-              <li>オフライン閲覧対応</li>
+              <li>矢部洋一氏：レースシーンと凪の対比写真</li>
+              <li>Tadami氏：マリンイラストレーション</li>
+              <li>会員限定オリジナル壁紙DL</li>
             </ul>
           </div>
           <div class="benefit-item-footer">
             <span class="benefit-item-status available">利用可能</span>
-            <a class="benefit-item-link" href="#" onclick="toast('最新号を読む');return false;">最新号を読む</a>
+            <a class="benefit-item-link" href="#" onclick="toast('ギャラリーへ');return false;">ギャラリーを見る</a>
           </div>
         </div>
 
         <div class="benefit-item">
           <div class="benefit-item-header">
-            <div class="benefit-item-icon">イベント</div>
+            <div class="benefit-item-icon">&#127873;</div>
             <div class="benefit-item-text">
-              <h4>イベント・展示会 優待招待</h4>
-              <p>ボートショー優待チケット・会員限定試乗会にご招待。</p>
+              <h4>限定プレゼント企画</h4>
+              <p>海のクリエイター・ブランドとのコラボアイテムを進呈。</p>
             </div>
           </div>
           <div class="benefit-item-detail">
             <ul>
-              <li>ボートショー優待チケット</li>
-              <li>会員限定試乗会・体験会</li>
-              <li>各地マリンイベント先行予約</li>
+              <li>矢部洋一氏 額装＆サイン入り写真（限定3名）</li>
+              <li>SINACOVA マリングッズ（キャップ・ポロシャツ等）</li>
+              <li>山岸重彦・落合明人氏 サイン入り写真（各2名）</li>
             </ul>
           </div>
           <div class="benefit-item-footer">
-            <span class="benefit-item-status available">利用可能</span>
-            <a class="benefit-item-link" href="#" onclick="toast('イベント一覧へ');return false;">イベント一覧</a>
+            <span class="benefit-item-status available">応募受付中</span>
+            <a class="benefit-item-link" href="#" onclick="toast('プレゼント応募へ');return false;">応募する</a>
           </div>
         </div>
 
         <div class="benefit-item">
           <div class="benefit-item-header">
-            <div class="benefit-item-icon">割引</div>
+            <div class="benefit-item-icon">&#127891;</div>
             <div class="benefit-item-text">
-              <h4>KAZIシープラザ 会員割引</h4>
-              <p>オンラインショップでのお買い物が会員価格でお得に。</p>
+              <h4>限定オンラインセミナー＆ワークショップ</h4>
+              <p>第一線のプロから学ぶ、会員限定の特別講座。</p>
             </div>
           </div>
           <div class="benefit-item-detail">
             <ul>
-              <li>全商品5%OFF</li>
-              <li>季節セール時はさらに割引</li>
-              <li>ポイント2倍キャンペーン</li>
+              <li>著名作家・冒険家によるライブ配信</li>
+              <li>「海ゼミ」フィールド版ワークショップ</li>
+              <li>メーカータイアップセミナー</li>
             </ul>
           </div>
           <div class="benefit-item-footer">
             <span class="benefit-item-status available">利用可能</span>
-            <a class="benefit-item-link" href="#" onclick="toast('KAZIシープラザへ');return false;">ショップへ</a>
+            <a class="benefit-item-link" href="#" onclick="toast('セミナー一覧へ');return false;">セミナー一覧</a>
           </div>
         </div>
 
         <div class="benefit-item">
           <div class="benefit-item-header">
-            <div class="benefit-item-icon">マリーナ</div>
+            <div class="benefit-item-icon">&#128214;</div>
             <div class="benefit-item-text">
-              <h4>提携マリーナ 特別料金</h4>
-              <p>全国100カ所以上の提携マリーナで特別優待。</p>
+              <h4>定期購読インセンティブ</h4>
+              <p>Kazi誌・BOATCLUB誌の定期購読を会員価格で。</p>
             </div>
           </div>
           <div class="benefit-item-detail">
             <ul>
-              <li>ビジター料金10-20%OFF</li>
-              <li>QRコード提示で適用</li>
-              <li>全国100カ所以上の提携施設</li>
+              <li>会員限定の定期購読割引</li>
+              <li>デジタル版先行配信</li>
+              <li>バックナンバーアクセス</li>
             </ul>
           </div>
           <div class="benefit-item-footer">
             <span class="benefit-item-status available">利用可能</span>
-            <a class="benefit-item-link" href="wireframe_marina.html">マリーナ一覧</a>
+            <a class="benefit-item-link" href="#" onclick="toast('定期購読申込へ');return false;">申し込む</a>
           </div>
         </div>
 
         <div class="benefit-item">
           <div class="benefit-item-header">
-            <div class="benefit-item-icon">Q&amp;A</div>
+            <div class="benefit-item-icon">&#127942;</div>
             <div class="benefit-item-text">
-              <h4>専門家への無料Q&amp;A</h4>
-              <p>マリンのプロに直接質問。月2回まで無料。</p>
+              <h4>システムKAZI会員限定 プレミアム抽選会</h4>
+              <p>長年の愛読者・定期購読者限定のプレミアム抽選イベント。</p>
             </div>
           </div>
           <div class="benefit-item-detail">
             <ul>
-              <li>船舶免許・ボート購入・タックル選び</li>
-              <li>プレミアム会員は質問無制限</li>
-              <li>平均回答時間48時間</li>
+              <li>一般会員と差別化したプレミアム賞品</li>
+              <li>定期購読者は当選確率UP</li>
+              <li>季節ごとに開催</li>
             </ul>
           </div>
           <div class="benefit-item-footer">
-            <span class="benefit-item-status used">今月 残り1回</span>
-            <a class="benefit-item-link" href="#" onclick="toast('Q&Aページへ');return false;">質問する</a>
+            <span class="benefit-item-status available">利用可能</span>
+            <a class="benefit-item-link" href="#" onclick="toast('抽選会へ');return false;">詳細を見る</a>
           </div>
         </div>
 
@@ -1414,31 +1441,56 @@
       </div>
       <ul class="notice-list">
         <li>
-          <span class="notice-date">2026.03.15</span>
+          <span class="notice-date">2026.04.12</span>
           <span class="notice-tag new">NEW</span>
-          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">【会員限定】ジャパンインターナショナルボートショー2026 優待チケットの申込受付を開始しました</a></span>
+          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">【オープニング企画】矢部洋一氏 額装＆サイン入り写真プレゼント（限定3名）応募受付開始</a></span>
         </li>
         <li>
-          <span class="notice-date">2026.03.10</span>
+          <span class="notice-date">2026.04.10</span>
           <span class="notice-tag new">NEW</span>
-          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">月刊Kazi 4月号デジタル版を先行配信しました</a></span>
+          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">プレミアム・アーカイブ：Sea Dream誌「推し記事」ベスト10をデジタル配信開始しました</a></span>
         </li>
         <li>
-          <span class="notice-date">2026.03.01</span>
-          <span class="notice-tag">通知</span>
-          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">提携マリーナに新たに5カ所が追加されました</a></span>
+          <span class="notice-date">2026.04.05</span>
+          <span class="notice-tag new">NEW</span>
+          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">「矢部洋一 海の写真館」デジタルギャラリー＆会員限定壁紙ダウンロード公開</a></span>
         </li>
         <li>
-          <span class="notice-date">2026.02.20</span>
+          <span class="notice-date">2026.04.01</span>
           <span class="notice-tag">通知</span>
-          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">KAZIシープラザ 春の会員限定セールのお知らせ</a></span>
+          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">限定オンラインセミナー 8〜9月開催予定 — 講師・プログラム詳細は近日公開</a></span>
         </li>
         <li>
-          <span class="notice-date">2026.02.15</span>
+          <span class="notice-date">2026.03.28</span>
           <span class="notice-tag">通知</span>
-          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">【Q&A】人気の質問ランキング 2月版を公開しました</a></span>
+          <span class="notice-title"><a href="#" onclick="toast('お知らせ詳細へ');return false;">SINACOVA マリングッズプレゼントキャンペーンのお知らせ</a></span>
         </li>
       </ul>
+    </div>
+
+    <!-- ===== メールマガジン設定 ===== -->
+    <div class="section" id="mailmag">
+      <div class="section-header">
+        <h2>メールマガジン設定</h2>
+      </div>
+      <div class="mailmag-wrap">
+        <div class="mailmag-status">
+          <span class="mailmag-status-badge on">配信中</span>
+          <span class="mailmag-status-text">次回配信予定：2026年4月18日（金）</span>
+        </div>
+        <div class="mailmag-categories">
+          <p class="mailmag-desc">受信するカテゴリーを選択してください。チェックを外すとそのカテゴリーの配信を停止できます。</p>
+          <label class="mailmag-check"><input type="checkbox" checked> ニュース・新製品情報</label>
+          <label class="mailmag-check"><input type="checkbox" checked> フィッシング</label>
+          <label class="mailmag-check"><input type="checkbox" checked> ヨット・セーリング</label>
+          <label class="mailmag-check"><input type="checkbox" checked> ボート</label>
+          <label class="mailmag-check"><input type="checkbox"> マリーナ・お出かけ情報</label>
+          <label class="mailmag-check"><input type="checkbox" checked> ライフスタイル・グルメ</label>
+          <label class="mailmag-check"><input type="checkbox" checked> 会員限定イベント・プレゼント</label>
+          <label class="mailmag-check"><input type="checkbox" checked> プレミアム・アーカイブ新着</label>
+        </div>
+        <button class="mailmag-save" onclick="toast('メールマガジン設定を保存しました')">設定を保存</button>
+      </div>
     </div>
 
     <!-- ===== 会員情報 ===== -->
@@ -1471,6 +1523,7 @@
         <li><a href="#marinas" onclick="scrollTo(event,'marinas')">お気に入りマリーナ</a></li>
         <li><a href="#benefits" onclick="scrollTo(event,'benefits')">特典案内</a></li>
         <li><a href="#notices" onclick="scrollTo(event,'notices')">お知らせ</a></li>
+        <li><a href="#mailmag" onclick="scrollTo(event,'mailmag')">メールマガジン設定</a></li>
         <li><a href="#account" onclick="scrollTo(event,'account')">会員情報</a></li>
         <li><a href="#" onclick="toast('ログアウト');return false;">ログアウト</a></li>
         <li><a href="#" onclick="toast('退会手続きページへ');return false;" style="color:#c00;">退会する</a></li>
