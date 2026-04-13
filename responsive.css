@@ -202,6 +202,9 @@
   .benefit-detail-body h4 { font-size: 15px; }
   .benefit-detail-body p { font-size: 13px; }
 
+  /* Feature Grid */
+  .feature-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
   /* Hero Slider (TOP) */
   .hero-slider { height: 480px !important; }
   .hero-spacer { height: 480px !important; }
@@ -384,6 +387,9 @@
   .benefit-detail-num { width: auto; font-size: 20px; }
   .benefit-detail-body h4 { font-size: 14px; }
   .benefit-detail-body p { font-size: 12px; line-height: 1.8; }
+
+  /* Feature Grid (small) */
+  .feature-grid { grid-template-columns: 1fr !important; }
 
   /* Big CTA */
   .big-cta { padding: 48px 12px; }
