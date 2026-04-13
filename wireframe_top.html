@@ -449,19 +449,20 @@
 
   /* ===== Native Ad Banner ===== */
   .ad-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    display: flex; flex-direction: column; gap: 0;
     margin: 0;
   }
   .ad-banner {
-    background: #f7f7f5; padding: 24px 28px;
-    display: flex; align-items: center; gap: 20px;
-    margin: 0; border: none;
+    background: #f7f7f5; padding: 20px 28px;
+    display: flex; align-items: center; gap: 24px;
+    margin: 0; border: none; border-bottom: 1px solid #eee;
     text-decoration: none; color: inherit;
     transition: background 0.2s;
   }
+  .ad-banner:last-child { border-bottom: none; }
   .ad-banner:hover { background: #f0eeeb; }
   .ad-banner-img {
-    width: 200px; height: 80px; flex-shrink: 0;
+    width: 240px; height: 150px; flex-shrink: 0;
     background: #e0ddd8;
     display: flex; align-items: center; justify-content: center;
     font-size: 10px; color: #bbb;
@@ -689,7 +690,7 @@
   }
   .search-cat-btn:hover .search-cat-symbol { color: #fff; }
 
-  /* Sea Dream Club Banner (Search) */
+  /* KAZI SeaDream Club Banner (Search) */
   .search-sdc-banner {
     border: none; background: #1a1a1a; color: #fff;
     padding: 28px 32px; margin-bottom: 32px;
@@ -1026,7 +1027,7 @@
   }
   .cta-btn:hover { background: #fff; color: #1a1a1a; }
 
-  /* Sea Dream Club CTA */
+  /* KAZI SeaDream Club CTA */
   /* KAZI SeaPlaza CTA */
   .cta-seaplaza {
     border: none; background: #f7f7f5;
@@ -1077,6 +1078,57 @@
 
   /* Card link reset */
   .card { text-decoration: none; color: inherit; }
+
+  /* ===== SDC 画面下部追従バナー ===== */
+  .sdc-float-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+    background: linear-gradient(135deg, #0a0f1a 0%, #1e3a5f 100%);
+    box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+    padding: 14px 40px;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center; gap: 32px;
+    opacity: 0; transform: translateY(100%);
+    pointer-events: none;
+    transition: opacity .5s, transform .5s cubic-bezier(.16,1,.3,1);
+  }
+  .sdc-float-banner.show {
+    opacity: 1; transform: translateY(0);
+    pointer-events: auto;
+  }
+  .sdc-float-banner::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 1px; background: linear-gradient(to right, transparent, #3a7ab5, transparent);
+  }
+  .sdc-float-banner-close {
+    position: absolute; top: 50%; right: 20px; transform: translateY(-50%);
+    background: none; border: none; color: rgba(255,255,255,.35);
+    font-size: 16px; cursor: pointer; line-height: 1;
+    transition: color .2s; padding: 4px;
+  }
+  .sdc-float-banner-close:hover { color: rgba(255,255,255,.7); }
+  .sdc-float-banner-eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500;
+    letter-spacing: 3px; color: rgba(255,255,255,.35); text-transform: uppercase;
+  }
+  .sdc-float-banner-title {
+    font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 400;
+    letter-spacing: 1px; line-height: 1.3;
+  }
+  .sdc-float-banner-left {
+    display: flex; align-items: center; gap: 20px;
+  }
+  .sdc-float-banner-desc {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 300;
+    color: rgba(255,255,255,.5); line-height: 1.6;
+  }
+  .sdc-float-banner-btn {
+    display: inline-block; padding: 10px 32px;
+    font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400;
+    letter-spacing: 2px; color: #fff; text-decoration: none; text-align: center;
+    border: 1px solid rgba(255,255,255,.25); white-space: nowrap;
+    transition: background .3s; flex-shrink: 0;
+  }
+  .sdc-float-banner-btn:hover { background: rgba(255,255,255,.08); }
 
   /* ===== Toast ===== */
   #toast {
@@ -1202,6 +1254,17 @@
 
 <div class="wf-label">WIREFRAME — KAZI ONLINE TOPページ リニューアル案（サイトマップ3 準拠）</div>
 
+<!-- SDC 画面下部追従バナー -->
+<div class="sdc-float-banner" id="sdcFloatBanner">
+  <button class="sdc-float-banner-close" onclick="closeFloatBanner()">&#10005;</button>
+  <div class="sdc-float-banner-left">
+    <div class="sdc-float-banner-eyebrow">KAZI ONLINE</div>
+    <div class="sdc-float-banner-title">KAZI SeaDream Club</div>
+  </div>
+  <div class="sdc-float-banner-desc">限定記事・デジタル誌・マリーナ優待など、海の特別な体験を。</div>
+  <a class="sdc-float-banner-btn" href="wireframe_sdclub.html">JOIN FREE</a>
+</div>
+
 <!-- Search Overlay -->
 <div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
   <div class="search-box" onclick="event.stopPropagation()">
@@ -1230,7 +1293,7 @@
       <a class="search-tag" href="#" onclick="fillSearch('ライフジャケット');return false;">ライフジャケット</a>
       <a class="search-tag" href="#" onclick="fillSearch('ヨット 購入');return false;">ヨット 購入</a>
       <a class="search-tag" href="#" onclick="fillSearch('釣り 初心者');return false;">釣り 初心者</a>
-      <a class="search-tag" href="#" onclick="fillSearch('Sea Dream Club');return false;">Sea Dream Club</a>
+      <a class="search-tag" href="#" onclick="fillSearch('KAZI SeaDream Club');return false;">KAZI SeaDream Club</a>
       <a class="search-tag" href="#" onclick="fillSearch('マリンカレンダー');return false;">マリンカレンダー</a>
       <a class="search-tag" href="#" onclick="fillSearch('インプレッション');return false;">インプレッション</a>
     </div>
@@ -1261,7 +1324,7 @@
       </a>
     </div>
 
-    <!-- Sea Dream Club Banner -->
+    <!-- KAZI SeaDream Club Banner -->
     <div class="search-sdc-banner">
       <div class="search-sdc-text">
         <div class="search-sdc-label">MEMBER'S CLUB</div>
@@ -1385,7 +1448,7 @@
     <div class="header-actions">
       <button class="btn-hamburger" onclick="toggleHamburger()"><span></span><span></span><span></span></button>
       <div class="btn-search" onclick="openSearch()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></div>
-      <a class="btn-login" href="wireframe_login.html">SeaDream Club ログイン</a>
+      <a class="btn-login" href="wireframe_login.html">KAZI SeaDream Club ログイン</a>
       <a class="btn-sitemap" href="index.html" title="サイトマップ（管理用）">MAP</a>
     </div>
   </div>
@@ -1482,7 +1545,7 @@
     <div class="hamburger-aside">
       <a class="hamburger-member-banner" href="wireframe_sdclub.html">
         <div class="ham-member-label">KAZI SeaDream Club</div>
-        <div class="ham-member-title">SeaDream Club</div>
+        <div class="ham-member-title">KAZI SeaDream Club</div>
         <div class="ham-member-desc">海を愛する人のための<br>特別なメンバーシップ。<br>入会金・年会費は無料です。</div>
         <span class="ham-member-btn">入会する（無料）</span>
       </a>
@@ -1685,7 +1748,7 @@
       <div class="slide-caption-wrap">
         <div class="slide-caption-bar"></div>
         <div class="slide-caption">
-          <div class="area-label">Sea Dream Club</div>
+          <div class="area-label">KAZI SeaDream Club</div>
           <div class="area-title">星空の下、灯りが海面を照らす<br>夜のアンカリングの魅力 — 静寂に包まれた海上の特別な時間</div>
         </div>
       </div>
@@ -1830,7 +1893,7 @@
     <a class="more-bottom" href="wireframe_fishing.html">もっと見る</a>
   </div>
 
-  <!-- Ad Grid 1 -->
+  <!-- Ad Banner 1 -->
   <div class="ad-grid reveal">
     <a class="ad-banner" href="https://www.diners.co.jp/ja/entry_form/lp/ptnr_rd/index.html" target="_blank">
       <span class="ad-icon">AD</span>
@@ -1839,15 +1902,6 @@
         <div class="ad-banner-sponsor">Sponsored</div>
         <div class="ad-banner-title">ダイナースクラブカード ― 海を愛する人のためのプレミアムカード</div>
         <div class="ad-banner-desc">マリーナ優待・ボートショー招待など、マリンライフを豊かにする特典が充実。</div>
-      </div>
-    </a>
-    <a class="ad-banner" href="#" onclick="toast('広告');return false;">
-      <span class="ad-icon">AD</span>
-      <div class="ad-banner-img">広告画像</div>
-      <div class="ad-banner-body">
-        <div class="ad-banner-sponsor">Sponsored</div>
-        <div class="ad-banner-title">ヤマハ発動機 ― マリンの歓びを、もっと身近に。</div>
-        <div class="ad-banner-desc">ボート・船外機からマリンジェットまで、多彩なラインナップ。</div>
       </div>
     </a>
   </div>
@@ -1909,6 +1963,19 @@
       </div>
     </div>
     <a class="more-bottom" href="wireframe_lifestyle.html">もっと見る</a>
+  </div>
+
+  <!-- Ad Banner 2 -->
+  <div class="ad-grid reveal">
+    <a class="ad-banner" href="#" onclick="toast('広告');return false;">
+      <span class="ad-icon">AD</span>
+      <div class="ad-banner-img">広告画像</div>
+      <div class="ad-banner-body">
+        <div class="ad-banner-sponsor">Sponsored</div>
+        <div class="ad-banner-title">ヤマハ発動機 ― 海の冒険を、もっと自由に。</div>
+        <div class="ad-banner-desc">フィッシングからクルージングまで、あらゆるマリンシーンに応える信頼のラインナップ。</div>
+      </div>
+    </a>
   </div>
 
   <!-- Parallax Banner -->
@@ -1975,7 +2042,7 @@
     <a class="more-bottom" href="wireframe_boat.html">もっと見る</a>
   </div>
 
-  <!-- Ad Grid 2 -->
+  <!-- Ad Banner 3 -->
   <div class="ad-grid reveal">
     <a class="ad-banner" href="https://www.j-marina-a.com" target="_blank">
       <span class="ad-icon">AD</span>
@@ -1984,15 +2051,6 @@
         <div class="ad-banner-sponsor">Sponsored</div>
         <div class="ad-banner-title">ジャパンマリーナアライアンス ― 全国マリーナネットワーク</div>
         <div class="ad-banner-desc">日本全国の提携マリーナで、快適なマリンライフをサポートします。</div>
-      </div>
-    </a>
-    <a class="ad-banner" href="#" onclick="toast('広告');return false;">
-      <span class="ad-icon">AD</span>
-      <div class="ad-banner-img">広告画像</div>
-      <div class="ad-banner-body">
-        <div class="ad-banner-sponsor">Sponsored</div>
-        <div class="ad-banner-title">トーハツ ― 信頼の船外機メーカー</div>
-        <div class="ad-banner-desc">高性能・低燃費の船外機で、安全で快適なマリンレジャーを。</div>
       </div>
     </a>
   </div>
@@ -2054,6 +2112,19 @@
       </div>
     </div>
     <a class="more-bottom" href="wireframe_gear.html">もっと見る</a>
+  </div>
+
+  <!-- Ad Banner 4 -->
+  <div class="ad-grid reveal">
+    <a class="ad-banner" href="#" onclick="toast('広告');return false;">
+      <span class="ad-icon">AD</span>
+      <div class="ad-banner-img">広告画像</div>
+      <div class="ad-banner-body">
+        <div class="ad-banner-sponsor">Sponsored</div>
+        <div class="ad-banner-title">トーハツ ― 信頼の船外機メーカー</div>
+        <div class="ad-banner-desc">高性能・低燃費の船外機で、安全で快適なマリンレジャーを。</div>
+      </div>
+    </a>
   </div>
 
   <!-- Marina -->
@@ -2195,8 +2266,8 @@
 <aside class="content-sidebar">
   <div class="sidebar-sticky">
     <a class="sidebar-sdclub" href="wireframe_sdclub.html">
-      <div class="sidebar-label">KAZI SeaDream Club</div>
-      <div class="sidebar-title">SeaDream<br>Club</div>
+      <div class="sidebar-label">MEMBERSHIP</div>
+      <div class="sidebar-title">KAZI SeaDream<br>Club</div>
       <div class="sidebar-desc">海を愛する人のための特別なメンバーシップ。選び抜かれたイベント、特別な体験、上質なライフスタイル。</div>
       <span class="sidebar-btn">入会する（無料）</span>
     </a>
@@ -2292,7 +2363,7 @@
       <div class="footer-col">
         <div class="footer-col-title">サービス</div>
         <ul>
-          <li><a href="wireframe_sdclub.html">Sea Dream Club</a></li>
+          <li><a href="wireframe_sdclub.html">KAZI SeaDream Club</a></li>
           <li><a href="wireframe_entry.html">エントリーガイド</a></li>
           <li><a href="wireframe_maker.html">メーカー&amp;ビルダー</a></li>
           <li><a href="wireframe_company.html">会社概要</a></li>
@@ -2600,6 +2671,18 @@
     backdrop.classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  // ===== SDC 右下追従バナー（スクロール600pxで表示） =====
+  var floatBannerClosed = false;
+  var floatBanner = document.getElementById('sdcFloatBanner');
+  window.closeFloatBanner = function() {
+    floatBanner.classList.remove('show');
+    floatBannerClosed = true;
+  };
+  window.addEventListener('scroll', function() {
+    if (floatBannerClosed) return;
+    floatBanner.classList.toggle('show', window.scrollY > 600);
+  });
 
   // ===== Scroll Reveal with IntersectionObserver =====
   (function() {

@@ -248,17 +248,17 @@
   header.scrolled .btn-hamburger { display: flex; pointer-events: auto; }
   header.scrolled .logo-full { display: none; }
   header.scrolled .logo-small { display: block; height: 20px; width: auto; }
-.breadcrumb { max-width: 1100px; margin: 0 auto; padding: 12px 20px; font-size: 11px; color: #999; }
+.breadcrumb { max-width: 1600px; margin: 0 auto; padding: 12px 40px; font-size: 11px; color: #999; }
   .breadcrumb a { color: #999; text-decoration: none; }
   .breadcrumb span { margin: 0 6px; }
-  .cat-hero { background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('photos/lifestyle_main.jpg') center/cover no-repeat; padding: 48px 20px; }
-  .cat-hero-inner { max-width: 1100px; margin: 0 auto; }
+  .cat-hero { background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url('photos/lifestyle_main.jpg') center/cover no-repeat; padding: 28px 0; }
+  .cat-hero-inner { max-width: 1600px; margin: 0 auto; padding: 0 40px; display: flex; align-items: baseline; justify-content: space-between; gap: 40px; }
   .cat-hero h1 {
     font-family: 'Noto Serif JP', serif;
-    font-size: 32px; font-weight: 600; color: #fff;
-    margin-bottom: 12px; letter-spacing: 0.04em;
+    font-size: 24px; font-weight: 600; color: #fff; white-space: nowrap;
+    margin-bottom: 0; letter-spacing: 0.04em;
   }
-  .cat-hero p { font-size: 14px; color: rgba(255,255,255,.85); line-height: 1.7; }
+  .cat-hero p { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.7; text-align: right; }
   .subcat-wrap { max-width: 1600px; margin: 0 auto; padding: 0 40px; }
   .subcat-tabs {
     display: flex; flex-wrap: wrap; gap: 0;
@@ -363,7 +363,7 @@
   .footer-col-title {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 13px; color: #fff; font-weight: 600;
-    margin-bottom: 12px; letter-spacing: 0.04em;
+    margin-bottom: 0; letter-spacing: 0.04em;
   }
   .footer-col-title a { color: #fff; text-decoration: none; }
   .footer-col-title a:hover { opacity: 0.8; }
@@ -391,7 +391,6 @@
     box-shadow: 0 4px 16px rgba(0,0,0,.15);
   }
   #toast.show { opacity: 1; }
-  .search-cat-btn:hover
 
   /* ===== Sidebar Layout ===== */
   .content-with-sidebar {
@@ -634,6 +633,51 @@
     font-family: 'Noto Serif JP', serif;
     font-size: 15px; color: #1a1a1a; line-height: 1.5; font-weight: 600;
   }
+
+  /* ===== Native Ad Banner (TOP統一) ===== */
+  .ad-grid {
+    display: flex; flex-direction: column; gap: 0;
+    margin: 8px 0;
+  }
+  .ad-banner {
+    background: #f7f7f5; padding: 20px 28px;
+    display: flex; align-items: center; gap: 24px;
+    margin: 0; border: none; border-bottom: 1px solid #eee;
+    text-decoration: none; color: inherit;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .ad-banner:last-child { border-bottom: none; }
+  .ad-banner:hover { background: #f0eeeb; }
+  .ad-banner-img {
+    width: 240px; height: 150px; flex-shrink: 0;
+    background: #e0ddd8; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: #bbb;
+  }
+  .ad-banner-body { flex: 1; }
+  .ad-banner-sponsor {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px; color: #999; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .ad-banner-title {
+    font-size: 14px; color: #1a1a1a; font-weight: 600; line-height: 1.5;
+  }
+  .ad-banner-desc {
+    font-size: 12px; color: #666; margin-top: 4px; font-weight: 600;
+  }
+  .ad-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
+    color: #fff; background: #999;
+    padding: 2px 6px; border-radius: 3px;
+    line-height: 1; vertical-align: middle;
+  }
+  .ad-banner .ad-icon {
+    position: absolute; top: 8px; right: 8px;
+  }
 </style>
 <link rel="stylesheet" href="responsive.css">
 </head>
@@ -661,7 +705,7 @@
       <a class="search-tag" href="#" onclick="fillSearch('ライフジャケット');return false;">ライフジャケット</a>
       <a class="search-tag" href="#" onclick="fillSearch('ヨット 購入');return false;">ヨット 購入</a>
       <a class="search-tag" href="#" onclick="fillSearch('釣り 初心者');return false;">釣り 初心者</a>
-      <a class="search-tag" href="#" onclick="fillSearch('Sea Dream Club');return false;">Sea Dream Club</a>
+      <a class="search-tag" href="#" onclick="fillSearch('KAZI SeaDream Club');return false;">KAZI SeaDream Club</a>
       <a class="search-tag" href="#" onclick="fillSearch('マリンカレンダー');return false;">マリンカレンダー</a>
       <a class="search-tag" href="#" onclick="fillSearch('インプレッション');return false;">インプレッション</a>
     </div>
@@ -742,7 +786,7 @@
     <div class="header-actions">
       <button class="btn-hamburger" onclick="toggleHamburger()"><span></span><span></span><span></span></button>
       <div class="btn-search" onclick="openSearch()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></div>
-      <a class="btn-login" href="wireframe_login.html">SeaDream Club ログイン</a>
+      <a class="btn-login" href="wireframe_login.html">KAZI SeaDream Club ログイン</a>
       <a class="btn-sitemap" href="index.html" title="サイトマップ（管理用）">MAP</a>
     </div>
   </div>
@@ -771,7 +815,7 @@
     <div class="hamburger-aside">
       <a class="hamburger-member-banner" href="wireframe_sdclub.html">
         <div class="ham-member-label">KAZI SeaDream Club</div>
-        <div class="ham-member-title">SeaDream Club</div>
+        <div class="ham-member-title">KAZI SeaDream Club</div>
         <div class="ham-member-desc">海を愛する人のための<br>特別なメンバーシップ。<br>入会金・年会費は無料です。</div>
         <span class="ham-member-btn">入会する（無料）</span>
       </a>
@@ -821,7 +865,7 @@
 <div class="content-with-sidebar">
 <main>
   <div class="list-toolbar"><div class="list-count">全 71 件</div><div class="list-sort"><a href="#" class="sort-btn active">新着順</a><a href="#" class="sort-btn">人気順</a></div></div>
-  <div class="article-list reveal">
+        <div class="article-list reveal">
     <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E5%9C%B0%E4%B8%AD%E6%B5%B7%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%BA%E3%83%97%E3%83%A9%E3%83%B3%EF%BC%9A%E3%82%AE%E3%83%AA%E3%82%B7%E3%83%A3%E5%B3%B6%E3%83%81%E3%83%A3%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%AC%E3%82%A4%E3%83%89" class="card-list">
       <div class="card-list-body">
         <span class="card-cat">トラベル</span>
@@ -876,6 +920,21 @@
       </div>
       <div class="card-img-sm" style="background-image:url('photos/lifestyle_02.jpg')"></div>
     </a>
+  </div>
+
+  <div class="ad-grid">
+    <a class="ad-banner" href="#" onclick="toast('広告');return false;">
+      <span class="ad-icon">AD</span>
+      <div class="ad-banner-img">広告画像</div>
+      <div class="ad-banner-body">
+        <div class="ad-banner-sponsor">Sponsored</div>
+        <div class="ad-banner-title">ヤマハ発動機 ― 海の冒険を、もっと自由に。</div>
+        <div class="ad-banner-desc">フィッシングからクルージングまで、あらゆるマリンシーンに応える信頼のラインナップ。</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="article-list reveal">
     <a href="wireframe_article.html?cat=%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB&title=%E7%9E%AC%E6%88%B8%E5%86%85%E6%B5%B7%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%B8%E3%83%B3%E3%82%B0%EF%BC%9A%E5%B7%9D%E5%B3%B6%E3%83%BB%E6%9D%B1%E4%BA%AC%E6%B9%BE%E3%83%9E%E3%83%AA%E3%83%B3%E6%97%85" class="card-list">
       <div class="card-list-body">
         <span class="card-cat">トラベル</span>
@@ -894,14 +953,102 @@
       </div>
       <div class="card-img-sm" style="background-image:url('photos/lifestyle_main.jpg')"></div>
     </a>
+    <a href="wireframe_article.html?cat=%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB&title=%E6%B5%B7%E8%BE%BA%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%94%E3%83%B3%E3%82%B0%E6%96%BD%E8%A8%AD%E3%81%8A%E3%81%99%E3%81%99%E3%82%8110%E9%81%B8%202026" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">トラベル</span>
+        <div class="card-title">海辺のグランピング施設おすすめ10選 2026</div>
+        <div class="card-excerpt">オーシャンビューのグランピング施設を厳選。手ぶらで楽しめる贅沢な海時間。</div>
+                <div class="card-meta">2026.01.28</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/lifestyle_01.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB&title=%E3%83%9E%E3%83%AA%E3%83%BC%E3%83%8A%E4%BD%B5%E8%A8%AD%E3%83%AC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3%E3%82%AC%E3%82%A4%E3%83%89%20%E2%80%95%20%E6%B5%B7%E3%82%92%E7%9C%BA%E3%82%81%E3%82%8B%E8%87%B3%E7%A6%8F%E3%81%AE%E9%A3%9F%E4%BA%8B" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">トラベル</span>
+        <div class="card-title">マリーナ併設レストランガイド ― 海を眺める至福の食事</div>
+        <div class="card-excerpt">全国のマリーナ併設レストランを紹介。絶景とともに味わう海の幸。</div>
+                <div class="card-meta">2026.01.25</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/lifestyle_02.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB&title=%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%81%A8%E7%9B%B8%E6%80%A7%E6%8A%9C%E7%BE%A4%E3%81%AESUV%E7%89%B9%E9%9B%86%202026" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">トラベル</span>
+        <div class="card-title">マリンスポーツと相性抜群のSUV特集 2026</div>
+        <div class="card-excerpt">ボートやカヤックの積載に最適なSUV。牽引能力やラゲッジスペースを比較。</div>
+                <div class="card-meta">2026.01.22</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/lifestyle_03.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB&title=%E6%B5%B7%E5%A5%BD%E3%81%8D%E3%81%AB%E8%B4%88%E3%82%8B%E3%82%AE%E3%83%95%E3%83%88%E3%82%AC%E3%82%A4%E3%83%89%20%E2%80%95%20%E4%BA%88%E7%AE%97%E5%88%A5%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">トラベル</span>
+        <div class="card-title">海好きに贈るギフトガイド ― 予算別おすすめアイテム</div>
+        <div class="card-excerpt">マリンライフを楽しむ人に喜ばれるプレゼントを予算別にセレクト。</div>
+                <div class="card-meta">2026.01.19</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/lifestyle_main.jpg')"></div>
+    </a>
   </div>
-  <div class="pagination reveal"><a href="#" class="page-btn">前へ</a><a href="#" class="page-btn active">1</a><a href="#" class="page-btn">2</a><a href="#" class="page-btn">3</a><a href="#" class="page-btn">...</a><a href="#" class="page-btn">次へ</a></div>
+
+  <div class="ad-grid">
+    <a class="ad-banner" href="https://www.j-marina-a.com" target="_blank">
+      <span class="ad-icon">AD</span>
+      <div class="ad-banner-img">広告画像</div>
+      <div class="ad-banner-body">
+        <div class="ad-banner-sponsor">Sponsored</div>
+        <div class="ad-banner-title">ジャパンマリーナアライアンス ― 全国マリーナネットワーク</div>
+        <div class="ad-banner-desc">日本全国の提携マリーナで、快適なマリンライフをサポートします。</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="article-list reveal">
+    <a href="wireframe_article.html?cat=%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB&title=%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%81%82%E3%82%8B%E6%9A%AE%E3%82%89%E3%81%97%20%E2%80%95%20%E6%B5%B7%E3%81%AE%E5%86%99%E7%9C%9F%E3%83%BB%E7%B5%B5%E7%94%BB%E3%81%AE%E9%A3%BE%E3%82%8A%E6%96%B9" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">トラベル</span>
+        <div class="card-title">マリンアートのある暮らし ― 海の写真・絵画の飾り方</div>
+        <div class="card-excerpt">自宅に海の雰囲気を。マリンアートの選び方とインテリアコーディネート。</div>
+                <div class="card-meta">2025.12.16</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/lifestyle_01.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB&title=%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E3%82%BA%E3%83%8F%E3%82%A6%E3%82%B9%E3%81%AE%E5%BB%BA%E7%AF%89%E3%82%AC%E3%82%A4%E3%83%89%20%E2%80%95%20%E6%B5%B7%E6%B2%BF%E3%81%84%E3%81%AE%E7%90%86%E6%83%B3%E3%81%AE%E4%BD%8F%E3%81%BE%E3%81%84" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">トラベル</span>
+        <div class="card-title">サーファーズハウスの建築ガイド ― 海沿いの理想の住まい</div>
+        <div class="card-excerpt">海の近くに住む夢を実現。サーファーズハウスの設計ポイントと実例集。</div>
+                <div class="card-meta">2025.12.13</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/lifestyle_02.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB&title=%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%C3%97%E3%83%AF%E3%83%BC%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%20%E2%80%95%20%E6%B5%B7%E8%BE%BA%E3%81%AE%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">トラベル</span>
+        <div class="card-title">マリンスポーツ×ワーケーション ― 海辺のリモートワーク</div>
+        <div class="card-excerpt">海辺でのワーケーションスポット。仕事と海遊びを両立する新しい働き方。</div>
+                <div class="card-meta">2025.12.10</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/lifestyle_03.jpg')"></div>
+    </a>
+    <a href="wireframe_article.html?cat=%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB&title=%E3%83%A8%E3%83%83%E3%83%88%E3%82%AF%E3%83%A9%E3%83%96%E3%81%AE%E6%A5%BD%E3%81%97%E3%81%BF%E6%96%B9%20%E2%80%95%20%E5%88%9D%E5%BF%83%E8%80%85%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E5%85%A5%E4%BC%9A%E3%82%AC%E3%82%A4%E3%83%89" class="card-list">
+      <div class="card-list-body">
+        <span class="card-cat">トラベル</span>
+        <div class="card-title">ヨットクラブの楽しみ方 ― 初心者のための入会ガイド</div>
+        <div class="card-excerpt">ヨットクラブの雰囲気・費用・イベント。初心者でも安心の入会ガイド。</div>
+                <div class="card-meta">2025.12.07</div>
+      </div>
+      <div class="card-img-sm" style="background-image:url('photos/lifestyle_main.jpg')"></div>
+    </a>
+  </div>
+
+<div class="pagination reveal"><a href="#" class="page-btn">前へ</a><a href="#" class="page-btn active">1</a><a href="#" class="page-btn">2</a><a href="#" class="page-btn">3</a><a href="#" class="page-btn">...</a><a href="#" class="page-btn">次へ</a></div>
 </main>
 <aside class="content-sidebar">
   <div class="sidebar-sticky">
     <a class="sidebar-sdclub" href="wireframe_sdclub.html">
-      <div class="sidebar-label">KAZI SeaDream Club</div>
-      <div class="sidebar-title">SeaDream<br>Club</div>
+      <div class="sidebar-label">MEMBERSHIP</div>
+      <div class="sidebar-title">KAZI SeaDream<br>Club</div>
       <div class="sidebar-desc">海を愛する人のための特別なメンバーシップ。選び抜かれたイベント、特別な体験、上質なライフスタイル。</div>
       <span class="sidebar-btn">入会する（無料）</span>
     </a>
@@ -995,7 +1142,7 @@
       <div class="footer-col">
         <div class="footer-col-title">サービス</div>
         <ul>
-          <li><a href="wireframe_sdclub.html">Sea Dream Club</a></li>
+          <li><a href="wireframe_sdclub.html">KAZI SeaDream Club</a></li>
           <li><a href="wireframe_entry.html">エントリーガイド</a></li>
           <li><a href="wireframe_maker.html">メーカー&amp;ビルダー</a></li>
           <li><a href="wireframe_company.html">会社概要</a></li>

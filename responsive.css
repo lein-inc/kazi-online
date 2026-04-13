@@ -41,32 +41,40 @@
 }
 .btn-sitemap:hover { background: #333; color: #fff; border-color: #333; }
 
-/* ===== 関連記事カード（横型レイアウト） ===== */
-.article-related .grid-3 {
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 32px;
+/* ===== 関連記事カード（横型レイアウト・統一UI） ===== */
+.related-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
 }
-.article-related .card {
-  display: flex; flex-direction: row; align-items: stretch;
+.related-card {
+  display: flex; flex-direction: row; padding: 24px 20px; gap: 20px;
+  border-bottom: 1px solid #f0f0f0; text-decoration: none; color: inherit;
+  transition: background .2s;
 }
-.article-related .card-img {
-  width: 240px; flex-shrink: 0; order: 2;
-  aspect-ratio: auto; min-height: 180px;
+.related-card:hover { background: #fafafa; }
+.related-card-body { flex: 1; min-width: 0; order: 1; display: flex; flex-direction: column; gap: 6px; }
+.related-card-img {
+  width: 120px; height: 80px; flex-shrink: 0; order: 2;
+  background-size: cover; background-position: center; border-radius: 2px;
+  align-self: center;
 }
-.article-related .card-body {
-  flex: 1; min-width: 0; order: 1;
-  padding: 4px 24px 4px 0; display: flex; flex-direction: column;
-}
-.article-related .card-title {
-  font-size: 17px; line-height: 1.6; margin-bottom: 8px;
-}
-.article-related .card-excerpt {
+.related-card-cat {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 13px; color: #888; line-height: 1.8; font-weight: 300;
-  flex: 1;
+  font-size: 11px; color: #2c5f8a; display: inline-block;
+  padding: 2px 8px; background: #e8f0f8; border-radius: 2px;
+  letter-spacing: 0.04em; font-weight: 500; align-self: flex-start;
 }
-.article-related .card-meta {
-  color: #c97a5a; margin-top: 8px;
+.related-card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px; font-weight: 400; color: #1a1a1a; line-height: 1.7;
+}
+.related-card:hover .related-card-title { color: #2c5f8a; }
+.related-card-excerpt {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px; color: #777; line-height: 1.7; font-weight: 300;
+}
+.related-card-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; color: #aaa; letter-spacing: 0.04em;
 }
 
 /* ===== Sidebar SDC バナー高さ調整 ===== */
@@ -127,7 +135,7 @@
   .content-sidebar { display: none !important; }  /* big-ctaがあるためサイドバー非表示 */
 
   /* Related Articles */
-  .article-related .card-img { width: 200px; min-height: 160px; }
+  .related-card-img { width: 100px; height: 68px; }
 
   /* Article List */
   .article-list { grid-template-columns: 1fr !important; }
@@ -141,6 +149,16 @@
   /* Hero Slider (TOP) */
   .hero-slider { height: 600px !important; }
   .hero-spacer { height: 600px !important; }
+
+  /* Pickup Layout (TOP) — stack to 1 column */
+  .pickup-layout {
+    grid-template-columns: 1fr !important;
+    gap: 32px 0;
+  }
+  .card-featured .card-title { font-size: 22px; }
+
+  /* YouTube / Kazi Movie — stack to 1 column */
+  .youtube-inner { grid-template-columns: 1fr !important; gap: 24px; }
 
   /* Publication Grid */
   .pub-grid { grid-template-columns: repeat(4, 1fr) !important; }
@@ -171,10 +189,41 @@
   .bookmark-grid { grid-template-columns: 1fr !important; }
   .history-list { grid-template-columns: 1fr !important; }
   .magazine-grid { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* Article Pager (前後記事ナビ) */
+  .article-pager { grid-template-columns: 1fr !important; }
+
+  /* Ad Banner Page */
+  .layout-mockup { grid-template-columns: 1fr !important; }
+  .price-table-wrap { grid-template-columns: 1fr !important; gap: 24px; }
+
+  /* SDC Landing — about / plan */
+  .about-wrap { grid-template-columns: 1fr !important; gap: 32px; }
+  .plan-grid { grid-template-columns: 1fr !important; }
+
+  /* Ad Banner (TOP) */
+  .ad-banner { padding: 16px; gap: 16px; }
+  .ad-banner-img { width: 120px; height: 68px; }
+
+  /* Inline Ad in Article List */
+  .ad-native-link { gap: 16px; }
+  .ad-native-img { width: 160px; height: 100px; }
+
+  /* Company Page */
+  .stats-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .b2b-form-grid { grid-template-columns: 1fr !important; }
 }
 
 /* ========== 768px — モバイル ========== */
 @media (max-width: 768px) {
+
+  /* SDC Float Banner */
+  .sdc-float-banner { padding: 12px 16px; gap: 16px; flex-wrap: wrap; }
+  .sdc-float-banner-left { gap: 12px; }
+  .sdc-float-banner-title { font-size: 15px; }
+  .sdc-float-banner-desc { font-size: 11px; }
+  .sdc-float-banner-btn { padding: 8px 24px; font-size: 10px; }
+  .sdc-float-banner-close { right: 12px; font-size: 14px; }
 
   /* SDC Popup */
   .sdc-popup-body { padding: 40px 28px 36px; }
@@ -197,6 +246,9 @@
   .content-with-sidebar { padding: 0 16px; gap: 24px; }
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr) !important; gap: 20px; }
 
+  /* Maker Grid */
+  .maker-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
   /* Benefit Detail */
   .benefit-detail-item { gap: 16px; padding: 20px 0; }
   .benefit-detail-num { font-size: 22px; width: 36px; }
@@ -206,12 +258,43 @@
   /* Feature Grid */
   .feature-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
+  /* Category Hero — stack vertically */
+  .cat-hero-inner { flex-direction: column; gap: 8px; }
+  .cat-hero-inner p { text-align: left; }
+  .cat-hero h1 { font-size: 20px; }
+  .breadcrumb { padding: 10px 16px; }
+  .cat-hero-inner { padding: 0 16px !important; }
+
+  /* Inline Ad in Article List */
+  .ad-native-link { flex-direction: column; gap: 12px; }
+  .ad-native-img { width: 100%; height: 140px; }
+  .ad-native-title { font-size: 13px; }
+  .ad-native-desc { font-size: 11px; }
+
   /* Hero Slider (TOP) */
   .hero-slider { height: 480px !important; }
   .hero-spacer { height: 480px !important; }
   .slide { width: 92% !important; }
   .slide-caption { padding: 18px 22px; max-width: 100%; }
   .slide-caption h2 { font-size: 18px !important; }
+
+  /* Pickup Layout (TOP) */
+  .pickup-layout { grid-template-columns: 1fr !important; gap: 24px 0; }
+  .card-featured .card-title { font-size: 20px; }
+  .card-featured .card-excerpt { font-size: 12px; }
+  .card-list .card-img-sm { width: 120px; height: 80px; }
+  .card-list .card-title { font-size: 16px; }
+  .card-list .card-excerpt { display: none; }
+
+  /* Section headers (TOP) */
+  .section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  /* YouTube / Kazi Movie */
+  .youtube-inner { grid-template-columns: 1fr !important; gap: 20px; }
+  .youtube-text h3 { font-size: 18px; }
+  .youtube-text p { font-size: 12px; }
+  .youtube-stats { gap: 24px; }
+  .youtube-stat-value { font-size: 20px; }
 
   /* Publication Grid */
   .pub-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 12px; }
@@ -280,11 +363,10 @@
   .article-header { padding: 16px !important; gap: 16px; }
 
   /* Related Articles — stack to 1 column */
-  .article-related .grid-3 { grid-template-columns: 1fr !important; gap: 24px; }
-  .article-related .card-img { width: 180px; min-height: 140px; }
-  .article-related .card-body { padding: 4px 16px 4px 0; }
-  .article-related .card-title { font-size: 15px; }
-  .article-related .card-excerpt { font-size: 12px; }
+  .related-grid { grid-template-columns: 1fr !important; }
+  .related-card-img { width: 90px; height: 60px; }
+  .related-card-title { font-size: 14px; }
+  .related-card-excerpt { display: none; }
 
   /* History list */
   .history-item { gap: 12px; }
@@ -297,6 +379,31 @@
 
   /* Complete page */
   .complete-wrap { padding: 48px 16px 64px; }
+
+  /* Article Pager */
+  .article-pager { grid-template-columns: 1fr !important; gap: 16px; }
+
+  /* Ad Banner Page */
+  .layout-mockup { grid-template-columns: 1fr !important; }
+  .sp-mockup-wrap { flex-direction: column; gap: 24px; }
+  .price-table-wrap { grid-template-columns: 1fr !important; gap: 20px; }
+  .price-row { grid-template-columns: 16px 1fr auto !important; gap: 8px; }
+
+  /* SDC Landing — about / plan */
+  .about-wrap { grid-template-columns: 1fr !important; gap: 24px; }
+  .plan-grid { grid-template-columns: 1fr !important; }
+
+  /* Ad Banner (TOP) */
+  .ad-banner { padding: 16px; gap: 16px; }
+  .ad-banner-img { width: 120px; height: 68px; }
+
+  /* Company Page */
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .b2b-form-grid { grid-template-columns: 1fr !important; }
+
+  /* Author Page */
+  .author-profile-card { flex-direction: column; text-align: center; gap: 20px; }
+  .author-stats { flex-wrap: wrap; gap: 16px; justify-content: center; }
 }
 
 /* ========== 480px — スマートフォン小 ========== */
@@ -305,6 +412,14 @@
   /* Header */
   .header-top { padding: 10px 12px; gap: 8px; }
   .btn-sitemap { display: none; }
+
+  /* SDC Float Banner */
+  .sdc-float-banner { padding: 10px 12px; gap: 8px; flex-direction: column; text-align: center; }
+  .sdc-float-banner-left { justify-content: center; }
+  .sdc-float-banner-title { font-size: 14px; }
+  .sdc-float-banner-desc { display: none; }
+  .sdc-float-banner-btn { padding: 8px 20px; }
+  .sdc-float-banner-close { top: 6px; right: 8px; transform: none; font-size: 12px; }
 
   /* SDC Popup */
   .sdc-popup-body { padding: 36px 20px 32px; }
@@ -321,6 +436,9 @@
   .content-with-sidebar { padding: 0 12px; }
   .grid-3, .grid-4 { grid-template-columns: 1fr !important; }
 
+  /* Maker Grid */
+  .maker-grid { grid-template-columns: 1fr !important; }
+
   /* Hero Slider (TOP) */
   .hero-slider { height: 380px !important; }
   .hero-spacer { height: 380px !important; }
@@ -328,6 +446,18 @@
   .slide-caption { padding: 14px 16px; }
   .slide-caption h2 { font-size: 15px !important; }
   .slide-caption .area-label { font-size: 10px; }
+
+  /* Pickup Layout (TOP) — vertical stacking */
+  .card-list { flex-direction: column; gap: 12px; }
+  .card-list .card-img-sm { width: 100%; height: 180px; }
+  .card-list .card-title { font-size: 15px; }
+  .card-featured .card-title { font-size: 18px; }
+  .card-featured .card-img { aspect-ratio: 16/9; }
+
+  /* YouTube / Kazi Movie */
+  .youtube-text h3 { font-size: 16px; }
+  .youtube-stats { gap: 16px; flex-wrap: wrap; }
+  .youtube-stat-value { font-size: 18px; }
 
   /* Publication Grid */
   .pub-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
@@ -376,10 +506,8 @@
   .complete-icon { width: 64px; height: 64px; font-size: 28px; }
   .btn-mypage { padding: 14px 36px; font-size: 14px; }
 
-  /* Related Articles — vertical stack on small screens */
-  .article-related .card { flex-direction: column; }
-  .article-related .card-img { width: 100%; min-height: 180px; order: 0; }
-  .article-related .card-body { padding: 12px 0 0; order: 0; }
+  /* Related Articles — smaller thumbnails on small screens */
+  .related-card-img { width: 80px; height: 54px; }
 
   /* SDC Landing */
   .sdc-hero { padding: 56px 12px 44px !important; }
@@ -407,6 +535,21 @@
 
   /* Section headers */
   .section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  /* Article Pager */
+  .article-pager { gap: 12px; }
+
+  /* Ad Banner Page */
+  .sp-mockup-wrap { gap: 16px; }
+  .price-row { grid-template-columns: 1fr !important; gap: 4px; }
+
+  /* Company Page */
+  .stats-grid { grid-template-columns: 1fr !important; }
+  .stats-grid .stat-item { padding: 16px; }
+
+  /* Author Page */
+  .author-profile-card { gap: 16px; }
+  .author-stats { gap: 12px; }
 
   /* Profile */
   .profile-avatar { width: 56px; height: 56px; font-size: 22px; }

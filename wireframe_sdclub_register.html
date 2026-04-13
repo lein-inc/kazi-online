@@ -5,7 +5,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>会員登録 - Sea Dream Club - KAZI ONLINE ワイヤーフレーム</title>
+<title>会員登録 - KAZI SeaDream Club - KAZI ONLINE ワイヤーフレーム</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -247,7 +247,7 @@
   header.scrolled .logo-small { display: block; height: 20px; width: auto; }
 
 
-  /* Sea Dream Club 追従ボタン */
+  /* KAZI SeaDream Club 追従ボタン */
 /* ===== BREADCRUMB ===== */
   .breadcrumb {
     font-size: 11px; color: #999;
@@ -288,98 +288,207 @@
     opacity: 0; animation: heroFadeIn 0.6s ease 0.3s forwards;
   }
 
+  /* ===== STEP INDICATOR ===== */
+  .step-indicator {
+    display: flex; justify-content: center; align-items: center;
+    gap: 0; max-width: 480px; margin: 0 auto;
+    padding: 40px 20px 0;
+  }
+  .step-item {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px; color: #bbb; font-weight: 400;
+  }
+  .step-item.active { color: #1a1a1a; font-weight: 600; }
+  .step-item.active .step-num { background: #2c5f8a; color: #fff; border-color: #2c5f8a; }
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1.5px solid #ddd; display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+    color: #bbb; flex-shrink: 0;
+  }
+  .step-line {
+    width: 48px; height: 1px; background: #ddd; margin: 0 16px; flex-shrink: 0;
+  }
+
+  /* ===== BENEFITS SUMMARY ===== */
+  .benefits-summary {
+    max-width: 640px; margin: 0 auto; padding: 36px 20px 0;
+  }
+  .benefits-summary-inner {
+    background: #f8f9fb; border-left: 3px solid #2c5f8a;
+    padding: 24px 28px;
+  }
+  .benefits-summary-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px; font-weight: 600; color: #1a1a1a;
+    margin-bottom: 14px; letter-spacing: 0.04em;
+  }
+  .benefits-summary-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .benefits-summary-list li {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px; color: #555; line-height: 1.6; font-weight: 400;
+    padding-left: 18px; position: relative;
+  }
+  .benefits-summary-list li::before {
+    content: ''; position: absolute; left: 0; top: 8px;
+    width: 6px; height: 6px; border-radius: 50%; background: #2c5f8a;
+  }
+
   /* ===== FORM ===== */
   .form-wrap {
-    max-width: 640px; margin: 0 auto; padding: 48px 20px 64px;
+    max-width: 640px; margin: 0 auto; padding: 40px 20px 64px;
   }
   .form-section-title {
-    font-size: 16px; font-weight: bold; color: #222;
-    border-bottom: 2px solid #1e3a5f; padding-bottom: 10px;
-    margin-bottom: 28px; margin-top: 48px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px; font-weight: 600; color: #1a1a1a;
+    border-bottom: 2px solid #2c5f8a; padding-bottom: 12px;
+    margin-bottom: 32px; margin-top: 48px;
+    letter-spacing: 0.06em;
   }
   .form-section-title:first-child { margin-top: 0; }
-  .form-group { margin-bottom: 22px; }
+  .form-section-desc {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px; color: #888; line-height: 1.7; font-weight: 300;
+    margin-top: -20px; margin-bottom: 28px;
+  }
+  .form-group { margin-bottom: 28px; }
   .form-label {
-    display: block; font-size: 12px; font-weight: bold;
-    color: #333; margin-bottom: 6px;
+    display: block; font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px; font-weight: 600; color: #1a1a1a;
+    margin-bottom: 8px; letter-spacing: 0.02em;
   }
   .form-label .required {
-    font-size: 10px; color: #c00; margin-left: 6px;
-    font-weight: normal;
+    font-size: 10px; color: #fff; background: #c55043;
+    margin-left: 8px; font-weight: 600;
+    padding: 2px 6px; border-radius: 2px;
+    letter-spacing: 0.04em;
   }
   .form-label .optional {
-    font-size: 10px; color: #999; margin-left: 6px;
-    font-weight: normal;
+    font-size: 10px; color: #999; background: #f0f0f0;
+    margin-left: 8px; font-weight: 500;
+    padding: 2px 6px; border-radius: 2px;
   }
   .form-hint {
-    font-size: 11px; color: #999; margin-top: 4px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px; color: #999; margin-top: 6px; font-weight: 300;
   }
   .form-input {
-    width: 100%; border: 1px solid #ccc; padding: 10px;
-    font-size: 13px; color: #333; outline: none;
-    background: #fff;
+    width: 100%; border: 1px solid #ddd; padding: 14px 16px;
+    font-size: 14px; color: #1a1a1a; outline: none;
+    background: #fff; border-radius: 0;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 400;
+    transition: border-color .2s, box-shadow .2s;
   }
-  .form-input:focus { border-color: #2c5f8a; }
+  .form-input:focus {
+    border-color: #2c5f8a;
+    box-shadow: 0 0 0 3px rgba(44,95,138,0.08);
+  }
+  .form-input::placeholder { color: #ccc; font-weight: 300; }
   .form-select {
-    width: 100%; border: 1px solid #ccc; padding: 10px;
-    font-size: 13px; color: #333; outline: none;
-    background: #fff; appearance: auto;
+    width: 100%; border: 1px solid #ddd; padding: 14px 16px;
+    font-size: 14px; color: #1a1a1a; outline: none;
+    background: #fff; border-radius: 0;
+    font-family: 'Noto Sans JP', sans-serif; font-weight: 400;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    transition: border-color .2s, box-shadow .2s;
   }
-  .form-select:focus { border-color: #2c5f8a; }
+  .form-select:focus {
+    border-color: #2c5f8a;
+    box-shadow: 0 0 0 3px rgba(44,95,138,0.08);
+  }
 
   /* ラジオ・チェックボックス */
   .form-radio-group, .form-check-group {
-    display: flex; flex-wrap: wrap; gap: 8px 20px;
-    margin-top: 4px;
+    display: flex; flex-wrap: wrap; gap: 10px 24px;
+    margin-top: 6px;
   }
   .form-radio-group label, .form-check-group label {
-    font-size: 13px; color: #333; cursor: pointer;
-    display: flex; align-items: center; gap: 5px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px; color: #444; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    transition: color .2s;
   }
+  .form-radio-group label:hover, .form-check-group label:hover { color: #1a1a1a; }
 
   /* チェックボックスグリッド */
   .form-check-grid {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 8px 20px; margin-top: 4px;
+    gap: 10px; margin-top: 6px;
   }
   .form-check-grid label {
-    font-size: 13px; color: #333; cursor: pointer;
-    display: flex; align-items: center; gap: 5px;
-    padding: 8px 12px; border: 1px solid #ddd;
-    transition: border-color .15s, background .15s;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px; color: #444; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 16px; border: 1px solid #e8e8e8;
+    transition: border-color .2s, background .2s, color .2s;
   }
   .form-check-grid label:hover {
-    border-color: #999; background: #f9f9f9;
+    border-color: #2c5f8a; background: #f8f9fb; color: #1a1a1a;
+  }
+
+  /* メルマガ設定 */
+  .form-mailmag {
+    margin-top: 8px; padding: 20px 24px;
+    background: #f8f9fb; border: 1px solid #e8f0f8;
+  }
+  .form-mailmag-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px; font-weight: 600; color: #2c5f8a;
+    margin-bottom: 12px;
+  }
+  .form-mailmag-checks {
+    display: flex; flex-wrap: wrap; gap: 8px 16px;
+  }
+  .form-mailmag-checks label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px; color: #555; cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
   }
 
   /* 同意チェック */
   .form-agree {
-    margin-top: 36px; padding: 24px;
-    border: 1px solid #ddd; background: #fafafa;
+    margin-top: 40px; padding: 28px;
+    border: 1px solid #e8e8e8; background: #fafafa;
+  }
+  .form-agree-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px; font-weight: 600; color: #999;
+    letter-spacing: 0.06em; margin-bottom: 12px;
   }
   .form-agree label {
-    font-size: 13px; color: #333; cursor: pointer;
-    display: flex; align-items: flex-start; gap: 8px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px; color: #333; cursor: pointer;
+    display: flex; align-items: flex-start; gap: 10px;
+    line-height: 1.7;
   }
-  .form-agree label input { margin-top: 2px; }
-  .form-agree a { color: #333; }
+  .form-agree label input { margin-top: 4px; flex-shrink: 0; }
+  .form-agree a { color: #2c5f8a; text-decoration: underline; }
+  .form-agree a:hover { color: #1e3a5f; }
 
   /* 送信ボタン */
   .form-submit {
     display: block; width: 100%;
-    border: 2px solid #1e3a5f; background: #1e3a5f; color: #fff;
-    padding: 16px 20px; font-size: 15px; font-weight: bold;
-    cursor: pointer; transition: background .2s;
-    margin-top: 32px; text-align: center; letter-spacing: 1px;
+    border: none; background: #0a0f1a; color: #fff;
+    padding: 18px 20px; font-size: 15px; font-weight: 600;
+    cursor: pointer; transition: background .3s;
+    margin-top: 36px; text-align: center; letter-spacing: 0.1em;
     font-family: 'Noto Sans JP', sans-serif;
   }
-  .form-submit:hover { background: #2c5f8a; border-color: #2c5f8a; }
+  .form-submit:hover { background: #2c5f8a; }
   .form-back-link {
     display: block; text-align: center;
-    margin-top: 16px; font-size: 12px; color: #888;
+    margin-top: 20px; font-size: 13px; color: #aaa;
+    font-family: 'Noto Sans JP', sans-serif;
   }
-  .form-back-link a { color: #888; }
-  .form-back-link a:hover { color: #333; }
+  .form-back-link a { color: #aaa; text-decoration: none; transition: color .2s; }
+  .form-back-link a:hover { color: #2c5f8a; }
 
 
   /* ===== FOOTER ===== */
@@ -647,7 +756,7 @@
       <a class="search-tag" href="#" onclick="fillSearch('ライフジャケット');return false;">ライフジャケット</a>
       <a class="search-tag" href="#" onclick="fillSearch('ヨット 購入');return false;">ヨット 購入</a>
       <a class="search-tag" href="#" onclick="fillSearch('釣り 初心者');return false;">釣り 初心者</a>
-      <a class="search-tag" href="#" onclick="fillSearch('Sea Dream Club');return false;">Sea Dream Club</a>
+      <a class="search-tag" href="#" onclick="fillSearch('KAZI SeaDream Club');return false;">KAZI SeaDream Club</a>
       <a class="search-tag" href="#" onclick="fillSearch('マリンカレンダー');return false;">マリンカレンダー</a>
       <a class="search-tag" href="#" onclick="fillSearch('インプレッション');return false;">インプレッション</a>
     </div>
@@ -711,9 +820,9 @@
 </div>
 </div>
 
-<div class="wf-label">WIREFRAME — Sea Dream Club 会員登録フォーム</div>
+<div class="wf-label">WIREFRAME — KAZI SeaDream Club 会員登録フォーム</div>
 
-<!-- Sea Dream Club 追従ボタン -->
+<!-- KAZI SeaDream Club 追従ボタン -->
 <!-- ===== HEADER ===== -->
 <header>
   <div class="header-top">
@@ -732,7 +841,7 @@
     <div class="header-actions">
       <button class="btn-hamburger" onclick="toggleHamburger()"><span></span><span></span><span></span></button>
       <div class="btn-search" onclick="openSearch()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></div>
-      <a class="btn-login" href="wireframe_login.html">SeaDream Club ログイン</a>
+      <a class="btn-login" href="wireframe_login.html">KAZI SeaDream Club ログイン</a>
       <a class="btn-sitemap" href="index.html" title="サイトマップ（管理用）">MAP</a>
     </div>
   </div>
@@ -761,7 +870,7 @@
     <div class="hamburger-aside">
       <a class="hamburger-member-banner" href="wireframe_sdclub.html">
         <div class="ham-member-label">KAZI SeaDream Club</div>
-        <div class="ham-member-title">SeaDream Club</div>
+        <div class="ham-member-title">KAZI SeaDream Club</div>
         <div class="ham-member-desc">海を愛する人のための<br>特別なメンバーシップ。<br>入会金・年会費は無料です。</div>
         <span class="ham-member-btn">入会する（無料）</span>
       </a>
@@ -801,15 +910,38 @@
 <!-- ===== PAGE HERO ===== -->
 <div class="page-hero">
   <div class="page-hero-eyebrow">KAZI ONLINE MEMBERS CLUB</div>
-  <h1>Sea Dream Club 入会</h1>
-  <p>海を愛するすべての人へ — 限定コンテンツ・特典・イベントをお届けします</p>
+  <h1>KAZI SeaDream Club 入会</h1>
+  <p>入会金・年会費は無料。プレミアム・アーカイブ、限定プレゼント、特別セミナーをお届けします</p>
 </div>
 
 <!-- ===== BREADCRUMB ===== -->
 <div class="breadcrumb">
   <a href="wireframe_top.html">TOP</a><span class="sep">&gt;</span>
-  <a href="wireframe_sdclub.html">Sea Dream Club</a><span class="sep">&gt;</span>
+  <a href="wireframe_sdclub.html">KAZI SeaDream Club</a><span class="sep">&gt;</span>
   会員登録
+</div>
+
+<!-- ===== STEP INDICATOR ===== -->
+<div class="step-indicator">
+  <div class="step-item active"><span class="step-num">1</span>入力</div>
+  <div class="step-line"></div>
+  <div class="step-item"><span class="step-num">2</span>確認</div>
+  <div class="step-line"></div>
+  <div class="step-item"><span class="step-num">3</span>完了</div>
+</div>
+
+<!-- ===== BENEFITS SUMMARY ===== -->
+<div class="benefits-summary">
+  <div class="benefits-summary-inner">
+    <div class="benefits-summary-title">KAZI SeaDream Club 会員特典</div>
+    <ul class="benefits-summary-list">
+      <li>Sea Dream / Kazi / BOATCLUB の厳選記事をデジタル配信</li>
+      <li>矢部洋一氏サイン入り写真、SINACOVAグッズなど限定プレゼント</li>
+      <li>著名作家・冒険家による限定オンラインセミナー＆ワークショップ</li>
+      <li>ブックマーク・閲覧履歴・お気に入りマリーナ登録</li>
+      <li>会員限定の優先お知らせ＆メールマガジン</li>
+    </ul>
+  </div>
 </div>
 
 <!-- ===== FORM ===== -->
@@ -820,6 +952,7 @@
   <div class="form-group">
     <label class="form-label">メールアドレス<span class="required">必須</span></label>
     <input class="form-input" type="email" placeholder="example@email.com">
+    <div class="form-hint">メールマガジンの配信先になります</div>
   </div>
 
   <div class="form-group">
@@ -840,6 +973,7 @@
   </div>
 
   <div class="form-section-title">プロフィール</div>
+  <p class="form-section-desc">会員特典やコンテンツのパーソナライズに活用させていただきます</p>
 
   <div class="form-group">
     <label class="form-label">性別<span class="optional">任意</span></label>
@@ -879,7 +1013,8 @@
     </select>
   </div>
 
-  <div class="form-section-title">アンケート</div>
+  <div class="form-section-title">興味・関心</div>
+  <p class="form-section-desc">配信コンテンツやおすすめ記事の選定に活用させていただきます</p>
 
   <div class="form-group">
     <label class="form-label">興味のあるカテゴリー<span class="optional">任意・複数選択可</span></label>
@@ -919,6 +1054,8 @@
     <select class="form-select">
       <option value="">選択してください</option>
       <option>月刊Kazi（雑誌）</option>
+      <option>Boat CLUB（雑誌）</option>
+      <option>Sea Dream（雑誌）</option>
       <option>検索エンジン（Google等）</option>
       <option>SNS（X / Instagram / Facebook等）</option>
       <option>知人・友人からの紹介</option>
@@ -928,8 +1065,30 @@
     </select>
   </div>
 
+  <div class="form-section-title">メールマガジン設定</div>
+  <p class="form-section-desc">入会後にマイページから変更できます</p>
+
+  <div class="form-group">
+    <label class="form-label">メールマガジンを受け取る<span class="optional">任意</span></label>
+    <div class="form-radio-group">
+      <label><input type="radio" name="mailmag" checked> 受け取る（おすすめ）</label>
+      <label><input type="radio" name="mailmag"> 受け取らない</label>
+    </div>
+    <div class="form-mailmag">
+      <div class="form-mailmag-title">配信カテゴリーの選択</div>
+      <div class="form-mailmag-checks">
+        <label><input type="checkbox" checked> 新着記事</label>
+        <label><input type="checkbox" checked> 会員限定特典</label>
+        <label><input type="checkbox" checked> セミナー・イベント</label>
+        <label><input type="checkbox"> 定期購読キャンペーン</label>
+        <label><input type="checkbox"> 新製品・ギア情報</label>
+      </div>
+    </div>
+  </div>
+
   <!-- 同意 -->
   <div class="form-agree">
+    <div class="form-agree-title">利用規約への同意</div>
     <label>
       <input type="checkbox">
       <span><a href="wireframe_privacy.html" target="_blank">利用規約</a>および<a href="wireframe_privacy.html" target="_blank">プライバシーポリシー</a>に同意します</span>
@@ -937,10 +1096,10 @@
   </div>
 
   <!-- 送信ボタン -->
-  <a class="form-submit" href="wireframe_sdclub_confirm.html" style="text-decoration:none;">確認画面へ</a>
+  <a class="form-submit" href="wireframe_sdclub_confirm.html" style="text-decoration:none;">確認画面へ進む</a>
 
   <div class="form-back-link">
-    <a href="wireframe_sdclub.html">&larr; Sea Dream Club ページに戻る</a>
+    <a href="wireframe_sdclub.html">&larr; KAZI SeaDream Club ページに戻る</a>
   </div>
 
 </div>
@@ -1020,7 +1179,7 @@
       <div class="footer-col">
         <div class="footer-col-title">サービス</div>
         <ul>
-          <li><a href="wireframe_sdclub.html">Sea Dream Club</a></li>
+          <li><a href="wireframe_sdclub.html">KAZI SeaDream Club</a></li>
           <li><a href="wireframe_entry.html">エントリーガイド</a></li>
           <li><a href="wireframe_maker.html">メーカー&amp;ビルダー</a></li>
           <li><a href="wireframe_company.html">会社概要</a></li>

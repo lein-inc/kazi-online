@@ -251,7 +251,7 @@
   header.scrolled .logo-small { display: block; height: 20px; width: auto; }
 
 
-  /* Sea Dream Club 追従ボタン */
+  /* KAZI SeaDream Club 追従ボタン */
 
   /* ===== 記事ヘッダー（2カラム：左画像 + 右タイトル） ===== */
   .article-header {
@@ -447,40 +447,45 @@
     font-weight: 300;
   }
 
-  /* ===== 記事内広告バナー ===== */
-  .ad-banner {
-    margin: 40px 0;
-    text-align: center;
+  /* ===== 記事内ネイティブ広告バナー ===== */
+  .ad-native {
+    background: #f7f7f5; padding: 20px 24px; margin: 40px 0;
+    display: flex; align-items: center; gap: 20px;
+    text-decoration: none; color: inherit;
+    position: relative; transition: background 0.2s;
   }
-  .ad-banner-inner {
-    display: inline-block;
-    background: #f7f7f5;
-    border: 1px solid #e8e8e8;
-    position: relative;
-    overflow: hidden;
+  .ad-native:hover { background: #f0eeeb; }
+  .ad-native-img {
+    width: 160px; height: 90px; flex-shrink: 0;
+    background: #e0ddd8; background-size: cover; background-position: center;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: #bbb;
   }
-  .ad-banner-inner img {
-    display: block; width: 100%; height: 100%; object-fit: cover;
-  }
-  .ad-banner-label {
-    position: absolute; top: 0; right: 0;
+  .ad-native-body { flex: 1; }
+  .ad-native-sponsor {
     font-family: 'Inter', sans-serif;
-    font-size: 9px; color: #bbb; letter-spacing: 0.08em;
-    padding: 3px 8px;
-    background: #f5d623; color: #1a1a1a;
+    font-size: 9px; color: #999; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 4px;
   }
-  /* 横長バナー (728×90) */
-  .ad-banner-leaderboard .ad-banner-inner {
-    width: 728px; max-width: 100%; aspect-ratio: 728/90;
+  .ad-native-title {
+    font-size: 14px; color: #1a1a1a; font-weight: 600; line-height: 1.5;
   }
-  /* レクタングル (300×250) */
-  .ad-banner-rectangle .ad-banner-inner {
-    width: 300px; aspect-ratio: 300/250;
+  .ad-native-desc {
+    font-size: 12px; color: #666; margin-top: 4px; font-weight: 300;
   }
-  /* ワイドバナー (全幅) */
-  .ad-banner-wide .ad-banner-inner {
-    width: 100%; aspect-ratio: 8/1;
+  .ad-native .ad-icon {
+    position: absolute; top: 8px; right: 8px;
   }
+  .ad-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
+    color: #fff; background: #999;
+    padding: 2px 6px; border-radius: 3px; line-height: 1;
+  }
+  /* 関連記事内ステルスAD */
+  .related-card-ad { position: relative; }
+  .related-card-ad .related-card-cat { background: transparent; color: #999; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0; }
 
   /* ===== 記事内CTAバナー ===== */
   .in-article-cta {
@@ -626,44 +631,42 @@
     padding-bottom: 14px; border-bottom: 2px solid #2c5f8a;
     letter-spacing: 0.06em;
   }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-
-  /* ===== カード ===== */
-  .card {
-    background: #fff; cursor: pointer;
-    text-decoration: none; color: inherit; display: block;
-    border: none; transition: opacity 0.2s;
+  .related-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
   }
-  .card:hover { opacity: 0.8; }
-  .card-img {
-    background: #e0ddd8; aspect-ratio: 4/3; width: 100%;
-    overflow: hidden; position: relative;
-    background-size: cover; background-position: center;
+  .related-card {
+    display: flex; flex-direction: row; padding: 24px 20px; gap: 20px;
+    border-bottom: 1px solid #f0f0f0; text-decoration: none; color: inherit;
+    transition: background .2s; cursor: pointer;
   }
-  .card-img img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    transition: transform 0.4s;
+  .related-card:hover { background: #fafafa; }
+  .related-card-body {
+    flex: 1; min-width: 0; order: 1;
+    display: flex; flex-direction: column; gap: 6px;
   }
-  .card:hover .card-img img { transform: scale(1.05); }
-  .card-body { padding: 14px 0 0; }
-  .card-cat {
+  .related-card-img {
+    width: 120px; height: 80px; flex-shrink: 0; order: 2;
+    background-size: cover; background-position: center; border-radius: 2px;
+    align-self: center;
+  }
+  .related-card-cat {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 9px; color: #1a1a1a;
-    display: inline-block; margin-bottom: 6px;
-    letter-spacing: 0.04em; font-weight: 600;
-    background: #b8ecff; border-radius: 0;
-    padding: 2px 8px; border: none;
+    font-size: 11px; color: #2c5f8a; display: inline-block;
+    padding: 2px 8px; background: #e8f0f8; border-radius: 2px;
+    letter-spacing: 0.04em; font-weight: 500; align-self: flex-start;
   }
-  .card-title {
+  .related-card-title {
     font-family: 'Noto Serif JP', serif;
-    font-size: 15px; color: #1a1a1a; line-height: 1.5;
-    font-weight: 600;
+    font-size: 16px; font-weight: 400; color: #1a1a1a; line-height: 1.7;
   }
-  .card:hover .card-title { color: #2c5f8a; }
-  .card-meta {
+  .related-card:hover .related-card-title { color: #2c5f8a; }
+  .related-card-excerpt {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px; color: #777; line-height: 1.7; font-weight: 300;
+  }
+  .related-card-date {
     font-family: 'Inter', sans-serif;
-    font-size: 11px; color: #999; margin-top: 6px;
-    letter-spacing: 0.04em;
+    font-size: 12px; color: #aaa; letter-spacing: 0.04em;
   }
 
   /* ===== タグ一覧ブロック ===== */
@@ -1031,7 +1034,7 @@
   <button class="sdc-popup-close" onclick="closeSdcPopup()">&#10005;</button>
   <div class="sdc-popup-body">
     <div class="sdc-popup-eyebrow">KAZI ONLINE</div>
-    <div class="sdc-popup-title">Sea Dream Club</div>
+    <div class="sdc-popup-title">KAZI SeaDream Club</div>
     <div class="sdc-popup-sub">PREMIUM MEMBERSHIP</div>
     <div class="sdc-popup-divider"></div>
     <div class="sdc-popup-desc">
@@ -1042,7 +1045,7 @@
       <div class="sdc-popup-benefit"><span class="sdc-popup-benefit-icon">&#9830;</span>デジタル誌</div>
       <div class="sdc-popup-benefit"><span class="sdc-popup-benefit-icon">&#9875;</span>マリーナ優待</div>
     </div>
-    <a class="sdc-popup-btn" href="wireframe_sdclub.html">JOIN SEA DREAM CLUB</a>
+    <a class="sdc-popup-btn" href="wireframe_sdclub.html">JOIN KAZI SEADREAM CLUB</a>
     <a class="sdc-popup-login" href="wireframe_login.html">すでに会員の方はログイン</a>
   </div>
 </div>
@@ -1069,7 +1072,7 @@
       <a class="search-tag" href="#" onclick="fillSearch('ライフジャケット');return false;">ライフジャケット</a>
       <a class="search-tag" href="#" onclick="fillSearch('ヨット 購入');return false;">ヨット 購入</a>
       <a class="search-tag" href="#" onclick="fillSearch('釣り 初心者');return false;">釣り 初心者</a>
-      <a class="search-tag" href="#" onclick="fillSearch('Sea Dream Club');return false;">Sea Dream Club</a>
+      <a class="search-tag" href="#" onclick="fillSearch('KAZI SeaDream Club');return false;">KAZI SeaDream Club</a>
       <a class="search-tag" href="#" onclick="fillSearch('マリンカレンダー');return false;">マリンカレンダー</a>
       <a class="search-tag" href="#" onclick="fillSearch('インプレッション');return false;">インプレッション</a>
     </div>
@@ -1153,7 +1156,7 @@
     <div class="header-actions">
       <button class="btn-hamburger" onclick="toggleHamburger()"><span></span><span></span><span></span></button>
       <div class="btn-search" onclick="openSearch()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></div>
-      <a class="btn-login" href="wireframe_login.html">SeaDream Club ログイン</a>
+      <a class="btn-login" href="wireframe_login.html">KAZI SeaDream Club ログイン</a>
       <a class="btn-sitemap" href="index.html" title="サイトマップ（管理用）">MAP</a>
     </div>
   </div>
@@ -1182,7 +1185,7 @@
     <div class="hamburger-aside">
       <a class="hamburger-member-banner" href="wireframe_sdclub.html">
         <div class="ham-member-label">KAZI SeaDream Club</div>
-        <div class="ham-member-title">SeaDream Club</div>
+        <div class="ham-member-title">KAZI SeaDream Club</div>
         <div class="ham-member-desc">海を愛する人のための<br>特別なメンバーシップ。<br>入会金・年会費は無料です。</div>
         <span class="ham-member-btn">入会する（無料）</span>
       </a>
@@ -1301,12 +1304,16 @@
       <div class="article-img-inline" style="background:url('photos/fishing_01.jpg') center/cover no-repeat"></div>
       <p class="article-img-caption">キャプションテキストが入ります</p>
 
-      <!-- 広告バナー① (横長) -->
-      <div class="ad-banner ad-banner-leaderboard">
-        <div class="ad-banner-inner" style="background-image:url('photos/boat_main.jpg'); background-size:cover; background-position:center;">
-          <span class="ad-banner-label">AD</span>
+      <!-- 広告バナー① (ネイティブ) -->
+      <a class="ad-native" href="#" onclick="toast('広告');return false;">
+        <span class="ad-icon">AD</span>
+        <div class="ad-native-img" style="background-image:url('photos/boat_main.jpg')"></div>
+        <div class="ad-native-body">
+          <div class="ad-native-sponsor">Sponsored</div>
+          <div class="ad-native-title">ダイナースクラブカード ― 海を愛する人のためのプレミアムカード</div>
+          <div class="ad-native-desc">マリーナ優待・ボートショー招待など、マリンライフを豊かにする特典が充実。</div>
         </div>
-      </div>
+      </a>
 
       <h2 id="sec2">ポイント② 選び方のコツ</h2>
       <h3 id="sec2-1">予算別おすすめアイテム</h3>
@@ -1320,18 +1327,22 @@
     <!-- 記事内CTAバナー（本文途中）-->
     <div class="in-article-cta reveal">
       <div class="cta-text">
-        <h4>Sea Dream Club に参加しませんか？</h4>
+        <h4>KAZI SeaDream Club に参加しませんか？</h4>
         <p>会員限定コンテンツ・イベント招待・特別特典をいち早くお届け</p>
       </div>
-      <a class="cta-btn" href="#" onclick="toast('Sea Dream Club 登録ページへ移動');return false;">無料登録はこちら</a>
+      <a class="cta-btn" href="#" onclick="toast('KAZI SeaDream Club 登録ページへ移動');return false;">無料登録はこちら</a>
     </div>
 
-    <!-- 広告バナー② (レクタングル) -->
-    <div class="ad-banner ad-banner-rectangle reveal">
-      <div class="ad-banner-inner" style="background-image:url('photos/gear_main.jpg'); background-size:cover; background-position:center;">
-        <span class="ad-banner-label">AD</span>
+    <!-- 広告バナー② (ネイティブ) -->
+    <a class="ad-native reveal" href="#" onclick="toast('広告');return false;">
+      <span class="ad-icon">AD</span>
+      <div class="ad-native-img" style="background-image:url('photos/gear_main.jpg')"></div>
+      <div class="ad-native-body">
+        <div class="ad-native-sponsor">Sponsored</div>
+        <div class="ad-native-title">ヤマハ発動機 ― マリンの歓びを、もっと身近に。</div>
+        <div class="ad-native-desc">ボート・船外機からマリンジェットまで、多彩なラインナップ。</div>
       </div>
-    </div>
+    </a>
 
     <div class="article-body reveal">
       <h2 id="sec3">ポイント③ 実践的なテクニック</h2>
@@ -1345,12 +1356,16 @@
       <p>今回は<span id="bodySubject2">フィッシング</span>に関する基本から実践まで幅広くご紹介しました。装備選びから現場でのテクニックまで、順を追って習得することが上達への近道です。KAZIオンラインでは、引き続き最新情報をお届けします。</p>
     </div>
 
-    <!-- 広告バナー③ (ワイド) -->
-    <div class="ad-banner ad-banner-wide reveal">
-      <div class="ad-banner-inner" style="background-image:url('photos/marina_main.jpg'); background-size:cover; background-position:center;">
-        <span class="ad-banner-label">AD</span>
+    <!-- 広告バナー③ (ネイティブ) -->
+    <a class="ad-native reveal" href="#" onclick="toast('広告');return false;">
+      <span class="ad-icon">AD</span>
+      <div class="ad-native-img" style="background-image:url('photos/marina_main.jpg')"></div>
+      <div class="ad-native-body">
+        <div class="ad-native-sponsor">Sponsored</div>
+        <div class="ad-native-title">ジャパンマリーナアライアンス ― 全国マリーナネットワーク</div>
+        <div class="ad-native-desc">日本全国の提携マリーナで、快適なマリンライフをサポート。</div>
       </div>
-    </div>
+    </a>
 
     <!-- 監修者情報 -->
     <div class="supervisor-box reveal">
@@ -1408,24 +1423,60 @@
     <!-- 関連記事 -->
     <div class="article-related reveal">
       <div class="section-title">関連記事</div>
-      <div class="grid-3 reveal">
-        <a class="card" href="wireframe_article.html">
-          <div class="card-img" style="background-image:url('photos/hero_01.jpg')"></div>
-          <div class="card-body">
-            <span class="card-cat" id="relCat1">ニュース</span>
-            <div class="card-title">国際帆走競技規則 2025-2028年版 ポイント解説</div>
-            <div class="card-excerpt">人気モデルの値下げ情報やキャンペーンをまとめてご紹介。お得に手に入れるチャンス。</div>
-            <div class="card-meta">2026.02.10</div>
+      <div class="related-grid reveal">
+        <a class="related-card" href="wireframe_article.html">
+          <div class="related-card-body">
+            <span class="related-card-cat" id="relCat1">ニュース</span>
+            <div class="related-card-title">国際帆走競技規則 2025-2028年版 ポイント解説</div>
+            <div class="related-card-excerpt">4年に一度改訂される国際帆走競技規則。主要な変更点と実践的なポイントを詳しく解説します。</div>
+            <div class="related-card-date">2026.02.10</div>
           </div>
+          <div class="related-card-img" style="background-image:url('photos/hero_01.jpg')"></div>
         </a>
-        <a class="card" href="wireframe_article.html">
-          <div class="card-img" style="background-image:url('photos/hero_03.jpg')"></div>
-          <div class="card-body">
-            <span class="card-cat" id="relCat2">ニュース</span>
-            <div class="card-title">KAZIシープラザ 春の新入荷アイテム特集</div>
-            <div class="card-excerpt">今週のマリン業界ニュースまとめ。見逃せないトピックスをピックアップ。</div>
-            <div class="card-meta">2026.02.05</div>
+        <a class="related-card" href="wireframe_article.html">
+          <div class="related-card-body">
+            <span class="related-card-cat" id="relCat2">ギア</span>
+            <div class="related-card-title">KAZIシープラザ 春の新入荷アイテム特集</div>
+            <div class="related-card-excerpt">人気モデルの値下げ情報やキャンペーンをまとめてご紹介。お得に手に入れるチャンス。</div>
+            <div class="related-card-date">2026.02.05</div>
           </div>
+          <div class="related-card-img" style="background-image:url('photos/hero_03.jpg')"></div>
+        </a>
+        <a class="related-card related-card-ad" href="#" onclick="toast('広告');return false;">
+          <div class="related-card-body">
+            <span class="related-card-cat">Sponsored</span>
+            <div class="related-card-title">SINACOVA ― マリンスタイルを、日常に。春夏コレクション</div>
+            <div class="related-card-excerpt">洗練されたマリンウェアで、海辺でも街でも映えるスタイルを提案します。</div>
+            <div class="related-card-date"><span class="ad-icon">AD</span></div>
+          </div>
+          <div class="related-card-img" style="background-image:url('photos/lifestyle_01.jpg')"></div>
+        </a>
+        <a class="related-card" href="wireframe_article.html">
+          <div class="related-card-body">
+            <span class="related-card-cat" id="relCat3">ヨット</span>
+            <div class="related-card-title">春のクルージングシーズン到来 おすすめ航路ガイド</div>
+            <div class="related-card-excerpt">気候が安定する春は絶好のクルージングシーズン。編集部おすすめの航路をご紹介します。</div>
+            <div class="related-card-date">2026.01.28</div>
+          </div>
+          <div class="related-card-img" style="background-image:url('photos/boat_main.jpg')"></div>
+        </a>
+        <a class="related-card" href="wireframe_article.html">
+          <div class="related-card-body">
+            <span class="related-card-cat" id="relCat4">フィッシング</span>
+            <div class="related-card-title">最新魚群探知機レビュー 2026年モデル徹底比較</div>
+            <div class="related-card-excerpt">主要メーカーの最新魚探を実際のフィールドでテスト。性能と使い勝手を比較します。</div>
+            <div class="related-card-date">2026.01.20</div>
+          </div>
+          <div class="related-card-img" style="background-image:url('photos/hero_02.jpg')"></div>
+        </a>
+        <a class="related-card related-card-ad" href="#" onclick="toast('広告');return false;">
+          <div class="related-card-body">
+            <span class="related-card-cat">Sponsored</span>
+            <div class="related-card-title">トーハツ ― 信頼の船外機で、安全で快適なマリンレジャーを。</div>
+            <div class="related-card-excerpt">高性能・低燃費の船外機で、海の冒険をもっと自由に。</div>
+            <div class="related-card-date"><span class="ad-icon">AD</span></div>
+          </div>
+          <div class="related-card-img" style="background-image:url('photos/boat_01.jpg')"></div>
         </a>
       </div>
     </div>
@@ -1436,8 +1487,8 @@
 <aside class="content-sidebar">
   <div class="sidebar-sticky">
     <a class="sidebar-sdclub" href="wireframe_sdclub.html">
-      <div class="sidebar-label">KAZI SeaDream Club</div>
-      <div class="sidebar-title">SeaDream<br>Club</div>
+      <div class="sidebar-label">MEMBERSHIP</div>
+      <div class="sidebar-title">KAZI SeaDream<br>Club</div>
       <div class="sidebar-desc">海を愛する人のための特別なメンバーシップ。選び抜かれたイベント、特別な体験、上質なライフスタイル。</div>
       <span class="sidebar-btn">入会する（無料）</span>
     </a>
@@ -1533,7 +1584,7 @@
       <div class="footer-col">
         <div class="footer-col-title">サービス</div>
         <ul>
-          <li><a href="wireframe_sdclub.html">Sea Dream Club</a></li>
+          <li><a href="wireframe_sdclub.html">KAZI SeaDream Club</a></li>
           <li><a href="wireframe_entry.html">エントリーガイド</a></li>
           <li><a href="wireframe_maker.html">メーカー&amp;ビルダー</a></li>
           <li><a href="wireframe_company.html">会社概要</a></li>
@@ -1560,7 +1611,7 @@
   document.getElementById('breadTitle').textContent  = title.length > 30 ? title.slice(0,30)+'…' : title;
   document.getElementById('bodySubject').textContent  = cat;
   document.getElementById('bodySubject2').textContent = cat;
-  ['relCat1','relCat2'].forEach(id => { var el = document.getElementById(id); if (el) el.textContent = cat; });
+  ['relCat1','relCat2','relCat3','relCat4'].forEach(id => { var el = document.getElementById(id); if (el) el.textContent = cat; });
   document.title = title + ' - KAZI ONLINE';
 
   // タグをカテゴリーに合わせて更新
