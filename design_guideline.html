@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><script src="auth.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザインガイドライン - KAZI ONLINE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #fff; color: #1a1a1a;
+    font-size: 15px; line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wf-label {
+    text-align: center; padding: 6px;
+    background: #eee; border-bottom: 1px solid #ccc;
+    font-size: 11px; color: #666;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .btn-sitemap {
+    display: inline-block; padding: 3px 10px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    color: #999; text-decoration: none;
+    border: 1px solid #ccc; border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    transition: background .2s, color .2s;
+  }
+  .btn-sitemap:hover { background: #333; color: #fff; border-color: #333; }
+
+  /* ===== HERO ===== */
+  .gl-hero {
+    background: linear-gradient(165deg, #0a0f1a 0%, #0d1525 40%, #1e3a5f 100%);
+    color: #fff; text-align: center;
+    padding: 90px 24px 80px;
+    border-top: 3px solid; border-image: linear-gradient(to right, #1e3a5f, #2c5f8a, #3a7ab5) 1;
+    position: relative;
+  }
+  .gl-hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, #3a7ab5, transparent);
+  }
+  .gl-hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: rgba(255,255,255,.45); margin-bottom: 20px;
+  }
+  .gl-hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 34px; font-weight: 400; letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .gl-hero p {
+    font-size: 13px; color: rgba(255,255,255,.55); font-weight: 300;
+    max-width: 640px; margin: 0 auto;
+  }
+  .gl-hero-meta {
+    margin-top: 28px; font-family: 'Inter', sans-serif;
+    font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,.35);
+  }
+
+  /* ===== LAYOUT ===== */
+  .gl-wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* TOC */
+  .gl-toc {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0; border: 1px solid #e8e8e8; border-bottom: none;
+    margin: 56px 0 0;
+  }
+  .gl-toc a {
+    display: flex; align-items: baseline; gap: 12px;
+    padding: 16px 20px; text-decoration: none; color: #1a1a1a;
+    border-bottom: 1px solid #e8e8e8; font-size: 13px; font-weight: 600;
+    transition: background .2s;
+  }
+  .gl-toc a:hover { background: #f7f7f5; }
+  .gl-toc .no {
+    font-family: 'Inter', sans-serif; font-size: 11px; color: #2c5f8a;
+    letter-spacing: 1px;
+  }
+
+  /* Section */
+  section { margin-top: 88px; }
+  .sec-head { margin-bottom: 36px; border-bottom: 1px solid #e8e8e8; padding-bottom: 20px; }
+  .sec-no {
+    font-family: 'Inter', sans-serif; font-size: 11px; color: #2c5f8a;
+    letter-spacing: 3px; display: block; margin-bottom: 8px;
+  }
+  .sec-head h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 26px; font-weight: 400; letter-spacing: 1px;
+  }
+  .sec-head .sec-en {
+    font-family: 'Inter', sans-serif; font-size: 11px; color: #999;
+    letter-spacing: 2px; text-transform: uppercase; margin-left: 14px;
+  }
+  h3 {
+    font-size: 16px; font-weight: 700; margin: 40px 0 16px;
+    padding-left: 12px; border-left: 3px solid #2c5f8a;
+  }
+  p.lead { font-size: 14px; color: #444; margin-bottom: 20px; }
+  ul.rules { list-style: none; margin: 8px 0 20px; }
+  ul.rules li {
+    position: relative; padding: 8px 0 8px 22px;
+    border-bottom: 1px solid #f0f0f0; font-size: 13.5px; color: #333;
+  }
+  ul.rules li::before { content: '\203A'; position: absolute; left: 4px; color: #2c5f8a; }
+  ul.rules li strong { color: #1a1a1a; }
+  ul.rules li code, td code, p code {
+    font-family: 'SF Mono', Menlo, monospace; font-size: 12px;
+    background: #f7f7f5; padding: 1px 6px; color: #1e3a5f;
+  }
+  .note {
+    background: #f7f7f5; border-left: 3px solid #2c5f8a;
+    padding: 14px 18px; font-size: 13px; color: #444; margin: 16px 0 24px;
+  }
+  .warn { border-left-color: #c00; }
+  .warn strong { color: #c00; }
+
+  /* Color swatches */
+  .swatch-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px; margin: 20px 0 8px;
+  }
+  .swatch { border: 1px solid #e8e8e8; }
+  .swatch-chip { height: 72px; position: relative; }
+  .swatch-chip.bordered { border-bottom: 1px solid #f0f0f0; }
+  .swatch-info { padding: 10px 12px; }
+  .swatch-name { font-size: 12px; font-weight: 700; }
+  .swatch-hex {
+    font-family: 'Inter', sans-serif; font-size: 11px; color: #999; letter-spacing: 1px;
+  }
+  .swatch-use { font-size: 11px; color: #666; margin-top: 4px; line-height: 1.6; }
+
+  /* Type samples */
+  .type-sample {
+    border: 1px solid #e8e8e8; padding: 28px 32px; margin-bottom: 16px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .type-sample .label {
+    font-family: 'Inter', sans-serif; font-size: 10px; color: #999;
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .ts-serif { font-family: 'Noto Serif JP', serif; font-size: 28px; font-weight: 400; letter-spacing: 1px; }
+  .ts-sans-b { font-size: 17px; font-weight: 700; }
+  .ts-sans { font-size: 15px; }
+  .ts-inter { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #2c5f8a; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0 24px; }
+  th {
+    text-align: left; font-size: 11px; font-weight: 700; color: #666;
+    letter-spacing: 1px; padding: 10px 14px; background: #f7f7f5;
+    border-bottom: 1px solid #e0e0e0; white-space: nowrap;
+  }
+  td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .table-scroll { overflow-x: auto; }
+
+  /* ===== Component demos ===== */
+  .demo {
+    border: 1px solid #e8e8e8; padding: 36px 32px; margin: 16px 0 8px;
+    background: #fff;
+  }
+  .demo.dark { background: linear-gradient(165deg, #0a0f1a 0%, #0d1525 40%, #1e3a5f 100%); }
+  .demo-caption { font-size: 11px; color: #999; margin-bottom: 24px; font-family: 'Inter', sans-serif; letter-spacing: 1px; }
+  .demo.dark .demo-caption { color: rgba(255,255,255,.4); }
+
+  .kz-btn-primary {
+    display: inline-block; background: #1a1a1a; color: #fff;
+    padding: 14px 48px; font-size: 13px; font-weight: 600;
+    text-decoration: none; letter-spacing: 2px; border: 1px solid #1a1a1a;
+    transition: all .3s;
+  }
+  .kz-btn-primary:hover { background: #fff; color: #1a1a1a; }
+  .kz-btn-outline {
+    display: inline-block; background: transparent; color: #1a1a1a;
+    padding: 14px 48px; font-size: 13px; font-weight: 600;
+    text-decoration: none; letter-spacing: 2px; border: 1px solid #1a1a1a;
+    transition: all .3s;
+  }
+  .kz-btn-outline:hover { background: #1a1a1a; color: #fff; }
+  .kz-btn-outline-w {
+    display: inline-block; background: transparent; color: #fff;
+    padding: 14px 48px; font-size: 13px; font-weight: 600;
+    text-decoration: none; letter-spacing: 2px; border: 1px solid rgba(255,255,255,.4);
+    transition: all .3s;
+  }
+  .kz-btn-outline-w:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.8); }
+
+  .kz-cat-tag {
+    font-size: 9px; color: #1a1a1a; display: inline-block;
+    letter-spacing: 0.04em; font-weight: 600;
+    background: #b8ecff; padding: 2px 8px;
+  }
+  .kz-member-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #2c5f8a; font-size: 10px; font-weight: 600;
+    font-family: 'Inter', sans-serif; letter-spacing: 2px; text-transform: uppercase;
+    width: 260px;
+  }
+  .kz-member-badge::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, #2c5f8a, transparent); min-width: 40px;
+  }
+
+  .kz-related-card {
+    display: flex; flex-direction: row; padding: 20px 16px; gap: 20px;
+    border: 1px solid #f0f0f0; text-decoration: none; color: inherit;
+    max-width: 520px; transition: background .2s;
+  }
+  .kz-related-card:hover { background: #fafafa; }
+  .kz-related-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .kz-related-title { font-size: 14px; font-weight: 700; line-height: 1.6; }
+  .kz-related-desc { font-size: 12px; color: #666; line-height: 1.7; }
+  .kz-related-img {
+    width: 120px; height: 80px; flex-shrink: 0; align-self: center;
+    background: linear-gradient(135deg, #2c5f8a, #3a7ab5); border-radius: 2px;
+  }
+
+  .kz-cta-demo h2 {
+    font-family: 'Noto Serif JP', serif; color: #fff;
+    font-size: 26px; font-weight: 400; margin-bottom: 12px; letter-spacing: 1px; text-align: center;
+  }
+  .kz-cta-demo p { font-size: 13px; color: rgba(255,255,255,.55); text-align: center; margin-bottom: 28px; font-weight: 300; }
+  .kz-cta-demo { text-align: center; }
+
+  .kz-eyebrow-demo {
+    font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 4px;
+    text-transform: uppercase; color: rgba(255,255,255,.4); text-align: center; margin-bottom: 14px;
+  }
+
+  /* header demo */
+  .kz-header-demo {
+    border-top: 2px solid; border-image: linear-gradient(to right, #1e3a5f, #2c5f8a, #3a7ab5) 1;
+    box-shadow: 0 1px 0 #e8e8e8; padding: 16px 24px;
+    display: flex; align-items: center; gap: 28px;
+  }
+  .kz-header-demo img { height: 20px; }
+  .kz-header-demo .navs { display: flex; gap: 4px; flex: 1; justify-content: center; }
+  .kz-header-demo .navs span {
+    font-size: 13px; font-weight: 600; padding: 6px 14px; cursor: pointer; position: relative;
+  }
+
+  /* layout diagram */
+  .layout-diagram {
+    border: 1px solid #e8e8e8; padding: 24px; margin: 16px 0 8px;
+    font-family: 'Inter', sans-serif; font-size: 11px; color: #666; letter-spacing: 1px;
+  }
+  .ld-row { display: grid; grid-template-columns: 1fr 300px; gap: 24px; }
+  .ld-box {
+    border: 1px dashed #bbb; padding: 18px; text-align: center; background: #fafafa;
+    display: flex; flex-direction: column; gap: 10px; justify-content: flex-start;
+  }
+  .ld-box .inner { border: 1px solid #e0e0e0; background: #fff; padding: 10px; }
+  .ld-side .inner.sdc { background: #0a0f1a; color: rgba(255,255,255,.6); }
+  .ld-side .inner.ad { aspect-ratio: 2/3; display: flex; align-items: center; justify-content: center; color: #999; }
+
+  /* timeline */
+  .timeline { border-left: 1px solid #e0e0e0; margin: 24px 0 0 8px; padding-left: 28px; }
+  .tl-item { position: relative; padding-bottom: 28px; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -33px; top: 7px;
+    width: 9px; height: 9px; background: #fff; border: 2px solid #2c5f8a; border-radius: 50%;
+  }
+  .tl-phase {
+    font-family: 'Inter', sans-serif; font-size: 10px; color: #2c5f8a;
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .tl-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .tl-desc { font-size: 12.5px; color: #555; line-height: 1.8; }
+
+  footer {
+    background: #0a0f1a; color: rgba(255,255,255,.4);
+    text-align: center; padding: 32px 24px; font-size: 11px;
+    font-family: 'Inter', sans-serif; letter-spacing: 1px;
+  }
+  footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+
+  .top-link {
+    position: fixed; bottom: 24px; right: 24px;
+    width: 44px; height: 44px; border: 1px solid #ccc; background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; color: #666; font-size: 18px; z-index: 100;
+    transition: all .2s;
+  }
+  .top-link:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+  @media (max-width: 768px) {
+    .gl-hero h1 { font-size: 24px; }
+    .sec-head h2 { font-size: 21px; }
+    .ld-row { grid-template-columns: 1fr; }
+    .demo { padding: 24px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wf-label">DESIGN GUIDELINE — KAZI ONLINE デザインガイドライン <a href="index.html" class="btn-sitemap">MAP</a></div>
+
+<div class="gl-hero" id="top">
+  <div class="gl-hero-eyebrow">Design Guideline / UI &amp; UX</div>
+  <h1>KAZI ONLINE デザインガイドライン</h1>
+  <p>舵オンライン（kazi-online.com）のUI/UXデザイン規範。リニューアル設計〜公開後のブラッシュアップで確立したルールを集約した最新版。</p>
+  <div class="gl-hero-meta">VER 1.0 — 2026.09.16 / 株式会社レイン</div>
+</div>
+
+<div class="gl-wrap">
+
+  <!-- TOC -->
+  <nav class="gl-toc">
+    <a href="#principles"><span class="no">01</span>デザイン原則</a>
+    <a href="#colors"><span class="no">02</span>カラー</a>
+    <a href="#typography"><span class="no">03</span>タイポグラフィ</a>
+    <a href="#layout"><span class="no">04</span>レイアウト・グリッド</a>
+    <a href="#components"><span class="no">05</span>コンポーネント</a>
+    <a href="#sdc"><span class="no">06</span>Sea Dream Club ブランドルール</a>
+    <a href="#ads"><span class="no">07</span>広告配置モデル</a>
+    <a href="#ux"><span class="no">08</span>UXルール（ブラッシュアップの教訓）</a>
+    <a href="#implementation"><span class="no">09</span>実装ルール（本番運用）</a>
+    <a href="#history"><span class="no">10</span>ブラッシュアップ履歴</a>
+  </nav>
+
+  <!-- ===== 01 PRINCIPLES ===== -->
+  <section id="principles">
+    <div class="sec-head">
+      <span class="sec-no">01</span>
+      <h2>デザイン原則<span class="sec-en">Principles</span></h2>
+    </div>
+    <p class="lead">KAZI ONLINEは1932年創刊の月刊『Kazi』を母体とするマリンメディア。デザインは「海の上質さ」を静かに伝えることを目的とし、装飾ではなく余白・細線・文字組で品位を作る。</p>
+    <ul class="rules">
+      <li><strong>クワイエット・プレミアム</strong> — 角丸なし（border-radius: 0）、太い装飾より1pxの細線、色数を絞りletter-spacingで高級感を出す。</li>
+      <li><strong>白がベース、ネイビーは特別な場所にだけ</strong> — 通常ページは白背景＋KAZIブルーのアクセント。ダークネイビーの世界観はSea Dream Club（会員）文脈に限定する。</li>
+      <li><strong>Serifは情緒、Sansは情報</strong> — キャッチコピー・CTA見出し・ペイウォールなど感情に訴える場面のみNoto Serif JP。記事・UI・ナビはNoto Sans JP。英字ラベルはInter。</li>
+      <li><strong>CTAは一本化</strong> — 同一ページに同じ訴求のCTAを重複させない。SDC入会訴求はフッター上のBig CTAをマスターとする。</li>
+      <li><strong>カードUIはサイト全体で統一</strong> — 記事カードは「本文左・サムネイル右（120×80px）」の横型2カラムを共通フォーマットとする。</li>
+      <li><strong>広告は世界観の内側に</strong> — ネイティブ広告は記事カードと同じトーンで設計し、「AD」表記で区別する。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 02 COLORS ===== -->
+  <section id="colors">
+    <div class="sec-head">
+      <span class="sec-no">02</span>
+      <h2>カラー<span class="sec-en">Colors</span></h2>
+    </div>
+
+    <h3>プライマリ</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#1a1a1a"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ink Black</div>
+          <div class="swatch-hex">#1A1A1A</div>
+          <div class="swatch-use">本文テキスト・見出し・ボタン</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#2c5f8a"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">KAZI Blue</div>
+          <div class="swatch-hex">#2C5F8A</div>
+          <div class="swatch-use">アクセント・リンクhover・矢印・バッジ</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#1e3a5f"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Navy</div>
+          <div class="swatch-hex">#1E3A5F</div>
+          <div class="swatch-use">グラデーション深部・コード文字色</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#3a7ab5"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Marine Blue</div>
+          <div class="swatch-hex">#3A7AB5</div>
+          <div class="swatch-use">グラデーション明部・SDC内アクセント</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>SDC（会員）ダークトーン</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#0a0f1a"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">SDC Midnight</div>
+          <div class="swatch-hex">#0A0F1A</div>
+          <div class="swatch-use">Big CTA・ペイウォール・フッターの基調色</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:linear-gradient(165deg,#0a0f1a 0%,#0d1525 40%,#1e3a5f 100%)"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">SDC Gradient</div>
+          <div class="swatch-hex">165deg #0A0F1A → #1E3A5F</div>
+          <div class="swatch-use">SDC世界観の標準グラデーション</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#b8ecff"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Category Cyan</div>
+          <div class="swatch-hex">#B8ECFF</div>
+          <div class="swatch-use">カテゴリタグの背景色（文字は#1A1A1A）</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>ニュートラル</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-chip bordered" style="background:#ffffff"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-use">ページ基調色</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#f7f7f5"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Warm Gray 50</div>
+          <div class="swatch-hex">#F7F7F5</div>
+          <div class="swatch-use">hover背景・注記ボックス</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#e0ddd8"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Warm Gray 200</div>
+          <div class="swatch-hex">#E0DDD8</div>
+          <div class="swatch-use">画像プレースホルダ・ヒーロー下地</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#e8e8e8"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Border Gray</div>
+          <div class="swatch-hex">#E8E8E8 / #F0F0F0</div>
+          <div class="swatch-use">罫線・カード境界（#F0F0F0はより淡い区切り）</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#666"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Text Sub</div>
+          <div class="swatch-hex">#666666</div>
+          <div class="swatch-use">補足テキスト</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#999"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Text Muted</div>
+          <div class="swatch-hex">#999999</div>
+          <div class="swatch-use">日付・キャプション・ラベル</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>使用禁止事項</strong>：原色の赤・緑・黄はUIに使わない（エラー表示 <code>#C00</code> のみ例外）。ダークネイビー系（#0A0F1A）を通常記事・カテゴリページの背景に使わない — SDC文脈限定。
+    </div>
+  </section>
+
+  <!-- ===== 03 TYPOGRAPHY ===== -->
+  <section id="typography">
+    <div class="sec-head">
+      <span class="sec-no">03</span>
+      <h2>タイポグラフィ<span class="sec-en">Typography</span></h2>
+    </div>
+
+    <div class="type-sample">
+      <div class="label">Noto Serif JP — 情緒・キャッチ・プレミアム見出し</div>
+      <div class="ts-serif">海と、もっと自由に生きる。</div>
+    </div>
+    <div class="type-sample">
+      <div class="label">Noto Sans JP 700 — 記事タイトル・UI見出し</div>
+      <div class="ts-sans-b">最新モデルを徹底検証、東京ボートショー2026現地レポート</div>
+    </div>
+    <div class="type-sample">
+      <div class="label">Noto Sans JP 400 — 本文 15px / line-height 1.8</div>
+      <div class="ts-sans">セーリングの魅力は、風だけを頼りに海面を滑るその静けさにある。エンジン音のない世界で、艇と海と対話する時間そのものが価値になる。</div>
+    </div>
+    <div class="type-sample">
+      <div class="label">Inter — 英字ラベル・Eyebrow（uppercase + letter-spacing）</div>
+      <div class="ts-inter">Sea Dream Club Premium</div>
+    </div>
+
+    <div class="table-scroll">
+    <table>
+      <tr><th>用途</th><th>フォント</th><th>サイズ / 行間</th><th>備考</th></tr>
+      <tr><td>本文</td><td>Noto Sans JP 400</td><td>15px / 1.8</td><td>ページ基準。SP でも15px を維持</td></tr>
+      <tr><td>記事タイトル（カード）</td><td>Noto Sans JP 700</td><td>14–17px / 1.6</td><td>2行で省略（line-clamp: 2）</td></tr>
+      <tr><td>セクション見出し（情緒）</td><td>Noto Serif JP 400</td><td>26–34px / 1.4</td><td>letter-spacing 1–2px。太字にしない</td></tr>
+      <tr><td>英字ラベル / Eyebrow</td><td>Inter 300–400</td><td>10–11px</td><td>letter-spacing 2–4px、text-transform: uppercase</td></tr>
+      <tr><td>カテゴリタグ</td><td>Noto Sans JP 600</td><td>9px</td><td>背景 #B8ECFF、padding 2px 8px</td></tr>
+      <tr><td>ボタン文字</td><td>Noto Sans JP 400–600</td><td>13–15px</td><td>letter-spacing 2px が標準</td></tr>
+      <tr><td>キャプション・日付</td><td>Noto Sans JP 400 / Inter</td><td>11–12px</td><td>色 #999</td></tr>
+    </table>
+    </div>
+
+    <div class="note">
+      Google Fonts 読み込みは <code>Inter:300,400 / Noto Sans JP:300,400,700 / Noto Serif JP:400,700</code> に限定し、ウェイトを増やさない（表示速度優先）。
+    </div>
+  </section>
+
+  <!-- ===== 04 LAYOUT ===== -->
+  <section id="layout">
+    <div class="sec-head">
+      <span class="sec-no">04</span>
+      <h2>レイアウト・グリッド<span class="sec-en">Layout &amp; Grid</span></h2>
+    </div>
+
+    <ul class="rules">
+      <li><strong>コンテンツ最大幅 1100px</strong>（記事系）。ヘッダー内側は最大1600px。</li>
+      <li><strong>記事・一覧ページは「メイン + 右サイドバー300px」の2カラムgrid</strong>。メイン側には必ず <code>min-width: 0</code> を指定する（gridの縮小不能事故防止）。</li>
+      <li><strong>サイドバーは768px以下で非表示</strong>。1024px閾値で消すとBig CTAとの訴求バランスが崩れるため768pxとする。</li>
+      <li><strong>ヘッダーは sticky</strong>。上端にKAZIブルーのグラデーションライン（#1E3A5F → #2C5F8A → #3A7AB5、2px）を敷く。</li>
+      <li><strong>main側に max-width を掛けない</strong> — サイドバーgridが崩れる原因になった過去事故あり（全43ページ一括修正済み）。</li>
+    </ul>
+
+    <div class="layout-diagram">
+      <div style="border:1px dashed #bbb;background:#fafafa;text-align:center;padding:12px;margin-bottom:16px;">STICKY HEADER（上端2px グラデーションライン / max-width 1600px）</div>
+      <div class="ld-row">
+        <div class="ld-box">
+          MAIN（min-width: 0）
+          <div class="inner">記事本文 / 一覧カード</div>
+          <div class="inner">関連記事（横型2カラムカード）</div>
+        </div>
+        <div class="ld-box ld-side">
+          SIDEBAR 300px（&le;768pxで非表示）
+          <div class="inner sdc">SDC バナー（コンパクト）</div>
+          <div class="inner ad">ネイティブAD（縦長 2 : 3）</div>
+        </div>
+      </div>
+      <div style="border:1px dashed #bbb;background:#0a0f1a;color:rgba(255,255,255,.5);text-align:center;padding:20px;margin-top:16px;">BIG CTA（SDC入会訴求・全ページ共通・フッター直上）</div>
+      <div style="border:1px dashed #bbb;background:#fafafa;text-align:center;padding:12px;margin-top:8px;">FOOTER（TOP版を全ページ共通で使用）</div>
+    </div>
+
+    <h3>ヘッダー実例</h3>
+    <div class="demo" style="padding:0;">
+      <div class="kz-header-demo">
+        <img src="kazilogo.svg" alt="KAZI ONLINE">
+        <div class="navs">
+          <span>ニュース</span><span>フィッシング</span><span>ギア</span><span>ヨット</span><span>ボート</span><span>マリーナ</span><span>ライフスタイル</span>
+        </div>
+        <span style="font-size:12px;color:#666;white-space:nowrap;">SeaDream Club ログイン</span>
+      </div>
+    </div>
+    <ul class="rules">
+      <li>ナビhoverは<strong>下線が中央から伸びる</strong>アニメーション（width 0→100%、height 1px、#1A1A1A）。</li>
+      <li>サブカテゴリは<strong>メガメニュー</strong>（画面上部から clip-path で展開）。SPは右からスライドするフルスクリーンハンバーガー。</li>
+      <li>ログインボタンの文言は「<strong>SeaDream Club ログイン</strong>」で統一。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 05 COMPONENTS ===== -->
+  <section id="components">
+    <div class="sec-head">
+      <span class="sec-no">05</span>
+      <h2>コンポーネント<span class="sec-en">Components</span></h2>
+    </div>
+
+    <h3>ボタン</h3>
+    <div class="demo">
+      <div class="demo-caption">LIGHT BACKGROUND</div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;">
+        <a class="kz-btn-primary" href="javascript:void(0)">記事を読む</a>
+        <a class="kz-btn-outline" href="javascript:void(0)">一覧を見る</a>
+      </div>
+    </div>
+    <div class="demo dark">
+      <div class="demo-caption">DARK (SDC) BACKGROUND</div>
+      <a class="kz-btn-outline-w" href="javascript:void(0)">SEA DREAM CLUB に登録</a>
+    </div>
+    <ul class="rules">
+      <li>border-radius は<strong>常に0</strong>。角丸ボタンは使わない。</li>
+      <li>letter-spacing 2px、hoverで<strong>塗り⇄抜きが反転</strong>（transition 0.3–0.4s）。</li>
+      <li>ダーク背景上は白の細枠（rgba(255,255,255,.3–.4)）＋hoverでborderを明るく。</li>
+      <li>登録CTAは<strong>フォームを直接置かず、登録ページへの遷移ボタン</strong>にする（ブラッシュアップで確定した方針）。</li>
+    </ul>
+
+    <h3>カテゴリタグ・会員バッジ</h3>
+    <div class="demo">
+      <div class="demo-caption">TAGS &amp; BADGES</div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;">
+        <span class="kz-cat-tag">ヨット</span>
+        <span class="kz-cat-tag">フィッシング</span>
+        <span class="kz-member-badge">&#9670; Members Only</span>
+      </div>
+    </div>
+    <ul class="rules">
+      <li>カテゴリタグ：背景 #B8ECFF / 文字9px #1A1A1A / 角丸なし。カテゴリごとの色分けはしない（1色運用）。</li>
+      <li>会員限定バッジ：KAZIブルー + Inter uppercase + 右へフェードする1pxグラデーションライン。</li>
+    </ul>
+
+    <h3>記事カード（横型2カラム・共通フォーマット）</h3>
+    <div class="demo">
+      <div class="demo-caption">RELATED / BOOKMARK / HISTORY / FAVORITE — 共通レイアウト</div>
+      <a class="kz-related-card" href="javascript:void(0)">
+        <div class="kz-related-body">
+          <span class="kz-cat-tag">ボート</span>
+          <div class="kz-related-title">トレーラブルボート入門、免許・保管・費用のすべて</div>
+          <div class="kz-related-desc">牽引免許は必要？ 維持費はいくら？ はじめての1艇に…</div>
+        </div>
+        <div class="kz-related-img"></div>
+      </a>
+    </div>
+    <ul class="rules">
+      <li>構成：<strong>カテゴリタグ → タイトル（700）→ 概要（12px #666）</strong>を左、<strong>サムネイル 120×80px を右</strong>に配置。</li>
+      <li>関連記事・ブックマーク・閲覧履歴・お気に入りマリーナは<strong>すべてこの横型で統一</strong>（縦型カードとの混在をブラッシュアップで解消済み）。</li>
+      <li>一覧はgrid 2カラム、区切りは #F0F0F0 の1px線。hoverは背景 #FAFAFA。</li>
+    </ul>
+
+    <h3>Big CTA（SDC入会・全ページ共通）</h3>
+    <div class="demo dark kz-cta-demo">
+      <div class="kz-eyebrow-demo">KAZI SeaDream Club</div>
+      <h2>海を、もっと近くに。</h2>
+      <p>会員限定記事・プレミアム・アーカイブ配信・優先案内。<br>あなたのマリンライフを深めるメンバーシップ。</p>
+      <a class="kz-btn-outline-w" href="javascript:void(0)">無料で登録する</a>
+    </div>
+    <ul class="rules">
+      <li>背景 #0A0F1A、見出しはSerif 30px/400、余白は上下100px。フッター直上に全ページ設置。</li>
+      <li><strong>同一ページ内のSDC訴求はBig CTAに一本化</strong>。サイドバーSDCバナーはコンパクト版のみ併用可（大型バナーの重複は禁止）。</li>
+    </ul>
+
+    <h3>ペイウォール（会員限定記事）</h3>
+    <ul class="rules">
+      <li>位置は<strong>目次直下</strong>（本文を読み始める前に会員価値を提示する）。</li>
+      <li>デザインはSDCグラデーション（165deg #0A0F1A → #1E3A5F）＋上下に1pxの青グラデーションライン。</li>
+      <li>構成：Eyebrow（Inter 10px/4px字間）→ Serif見出し26px → 説明文 → 特典アイコン3つ → 登録ボタン → ログインリンク。</li>
+      <li>本番実装では未ログイン時に<strong>本文2段落または200字でカット</strong>（短文記事はフォールバック処理）。ログインは <code>redirect_to</code> 付きで記事に復帰させる。</li>
+    </ul>
+
+    <h3>スライダー・埋め込み・画像</h3>
+    <ul class="rules">
+      <li>ヒーロー/フォトスライダーは <strong>Swiper 11（self-host）</strong>。paginationカスタムは specificity 罠があるため <code>!important</code> 指定が必須。</li>
+      <li>記事内スライダーはGutenbergカスタムブロック <code>kazi/photo-slider</code>（ライトボックス付き）。</li>
+      <li>埋め込み16:9枠は <code>is-type-video</code> に限定。Yahoo!ニュース等の外部リンクは<strong>OGPリンクカード（kazi-linkcard）</strong>で表示。</li>
+      <li>出版物表紙は<strong>アスペクト比 704:1000・object-fit: contain・bottom center・白背景</strong>で統一。</li>
+      <li>記事画像はWebP必須。figure/img の margin はテーマ汎用ルールに潰されるため、カスタムブロック内では <code>!important</code> で上書きする。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 06 SDC ===== -->
+  <section id="sdc">
+    <div class="sec-head">
+      <span class="sec-no">06</span>
+      <h2>Sea Dream Club ブランドルール<span class="sec-en">SDC Brand Rules</span></h2>
+    </div>
+    <p class="lead">会員組織の名称・世界観の適用範囲は、ブラッシュアップの過程で以下に確定した。</p>
+    <ul class="rules">
+      <li><strong>正式名称は「KAZI SeaDream Club」</strong>（略称SDC）。表記ゆれ（Sea Dream Club等）はブラッシュアップで統一済み。新規制作物もこの表記に従う。</li>
+      <li><strong>会員特典は3本柱</strong> — ①継続性（プレミアム・アーカイブ配信）②プレミアム感（会員限定記事）③体験価値（イベント優先案内）。訴求文はこの柱に沿って書く。</li>
+      <li><strong>会員デジタル機能</strong> — ブックマーク・閲覧履歴・お気に入りマリーナ・優先通知・メルマガ。マイページに集約。</li>
+      <li><strong>ダーク世界観の適用範囲</strong> — Big CTA・ペイウォール・SDCランディング・フッターのみ。<strong>マイページは白ベースでヘッダー帯のみSDC世界観</strong>（全面ダークは可読性・実用性の面で不採用となった経緯あり）。</li>
+      <li><strong>ポップアップは画面中央に大きく</strong>表示（記事スクロール時のSDC訴求）。小さなコーナー表示は不採用。</li>
+      <li><strong>デジタル雑誌という表現は使わない</strong> — 「プレミアム・アーカイブ配信」と呼ぶ。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 07 ADS ===== -->
+  <section id="ads">
+    <div class="sec-head">
+      <span class="sec-no">07</span>
+      <h2>広告配置モデル<span class="sec-en">Ad Placement</span></h2>
+    </div>
+    <ul class="rules">
+      <li>配置枠は <strong>PC 5枠 / SP 3枠</strong>。SPはフッター上バナーを含む。詳細は<a href="wireframe_ad_banner.html" style="color:#2c5f8a;">広告バナー配置モデル</a>を参照。</li>
+      <li>サイドバーのネイティブ広告は<strong>縦長2:3</strong>。記事カードと同じトーンで「AD」ラベルを付ける。</li>
+      <li>マイページ内にも広告枠3枠を確保（会員向け配信面）。</li>
+      <li>広告が世界観を壊さないよう、枠のサイズ・位置は本モデルで固定し、ページごとの独自配置はしない。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 08 UX RULES ===== -->
+  <section id="ux">
+    <div class="sec-head">
+      <span class="sec-no">08</span>
+      <h2>UXルール（ブラッシュアップの教訓）<span class="sec-en">UX Rules</span></h2>
+    </div>
+    <p class="lead">2026年3月〜9月のワイヤーフレーム改修51回と本番公開後の運用改善から確立したUX上の決定事項。</p>
+    <ul class="rules">
+      <li><strong>CTA重複は離脱を生む</strong> — サイドバーSDCバナーとBig CTAの二重訴求を整理し、Big CTAをマスターに一本化した。新規セクション追加時も訴求の重複を必ず確認する。</li>
+      <li><strong>会員登録フォームはその場に置かない</strong> — ページ内フォームより「登録ページへの遷移ボタン」の方が導線として明快。</li>
+      <li><strong>ペイウォールは目次直下</strong> — 記事末尾では気づかれない。読む前に価値を提示する。</li>
+      <li><strong>ログイン後は元の記事に戻す</strong> — 会員限定記事からのログインは <code>redirect_to</code> 付きで記事へ復帰。マイページに飛ばさない。</li>
+      <li><strong>CAPTCHAは大きく読みやすく</strong> — SiteGuard画像を160×54pxに大型化・低ノイズ化（離脱要因の除去）。</li>
+      <li><strong>閉鎖・移転URLはsoft-404にしない</strong> — 旧URLはパターン一括＋個別JSONマップ（677件）でリダイレクト。死記事はトップではなく <code>/new</code> へ。</li>
+      <li><strong>SPではサイドバーを捨てる</strong> — 768px以下はメイン1カラム＋Big CTA＋フッターバナーに絞る。</li>
+      <li><strong>一覧ページは16件表示</strong>を標準とする。</li>
+      <li><strong>動画索引（movie_index）は「頭カナ」で五十音分類</strong> — タイトルへのプレフィックス付与や「その他」分類は廃止。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 09 IMPLEMENTATION ===== -->
+  <section id="implementation">
+    <div class="sec-head">
+      <span class="sec-no">09</span>
+      <h2>実装ルール（本番運用）<span class="sec-en">Implementation</span></h2>
+    </div>
+    <div class="note warn">
+      <strong>最重要</strong>：本番テーマ（kazi-online-v2）は<strong>Xserver直接編集がマスター</strong>。ローカルコピーはstaleであり、scpでの上書きは厳禁。
+    </div>
+    <ul class="rules">
+      <li><strong>CSSは .css と .min.css の両方を必ず同期</strong>し、テーマバージョンを更新する。本番が読むのは .min.css。</li>
+      <li><strong>CSSキャッシュは1年immutable</strong>（.htaccess）。<code>?ver=KAZI_THEME_VERSION</code> の強制付与で更新を反映させる。</li>
+      <li>編集したPHPは <code>php -l</code> を通す。本番直接編集の前に <code>.bak_YYYYMMDD</code> を同階層に残す。</li>
+      <li>OG画像：サイト既定はKAZIロゴ、連載詳細はカバー画像。画像変換時はJPEG形式を明示する（中身PNGの偽装jpgはSNSでロゴにフォールバックする）。</li>
+      <li>連載は<strong>3階層（親 → 子連載 → 記事）</strong>で一元管理。記事下の連載カード・公開予定はテーマが自動描画するため、投稿画面での個別設定は不要。</li>
+      <li><code>body &gt; .mypage-sidebar { display: none }</code> は削除禁止（マイページナビが全ページのフッター下に展開する事故防止）。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 10 HISTORY ===== -->
+  <section id="history">
+    <div class="sec-head">
+      <span class="sec-no">10</span>
+      <h2>ブラッシュアップ履歴<span class="sec-en">Design History</span></h2>
+    </div>
+    <p class="lead">ワイヤーフレーム51コミット＋本番運用改善の主要マイルストーン。本ガイドラインはこの最終到達点を規範化したもの。</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-phase">Phase 1 — 基盤</div>
+        <div class="tl-title">初期ワイヤーフレーム制作・デザイン大幅リニューアル</div>
+        <div class="tl-desc">全59ページのWF構築。TOP・記事詳細・全サブページのデザイン統一。サイトマップ（index）とパスワード保護を整備。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">Phase 2 — 会員基盤</div>
+        <div class="tl-title">ログイン・認証・マイページの新デザイン統一</div>
+        <div class="tl-desc">ログイン／パスワードリセット3ページを刷新。検索ポップアップを全ページ統一、著者記事一覧を追加。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">Phase 3 — SDC世界観</div>
+        <div class="tl-title">Sea Dream Club 世界観の確立とSP対応</div>
+        <div class="tl-desc">ダークネイビー×Serifのプレミアムトーンを導入し、SDC入会Big CTAを全ページに設置。チラシに基づくメッセージング全面更新と「KAZI SeaDream Club」名称統一。SPレスポンシブ対応。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">Phase 4 — 収益面</div>
+        <div class="tl-title">広告バナー配置モデルの確立</div>
+        <div class="tl-desc">PC5枠/SP3枠の配置・料金・imp保証を視覚化。サイドバーはSDCバナー縮小＋縦長2:3ネイティブADの構成に確定。CTA重複を整理しBig CTAへ一本化。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">Phase 5 — 会員体験</div>
+        <div class="tl-title">会員限定記事・ペイウォール・マイページの磨き込み</div>
+        <div class="tl-desc">ペイウォールを目次直下へ移動しSDC高級デザインに刷新。マイページは白ベース＋ヘッダーのみSDC世界観に決着。SDC特典を3本柱で具体化し、会員デジタル機能（ブックマーク・履歴・お気に入りマリーナ等）を追加。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">Phase 6 — 統一・最新</div>
+        <div class="tl-title">カードUI横型統一・名称統一・一覧16件化（現行版）</div>
+        <div class="tl-desc">関連記事・ブックマーク・閲覧履歴・お気に入りマリーナを横型2カラムカードに統一。SDCポップアップは中央大型表示、登録CTAは遷移ボタン化。「デジタル雑誌」を「プレミアム・アーカイブ配信」へ改称。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">本番運用（2026.07.20 公開〜）</div>
+        <div class="tl-title">公開後の継続改善</div>
+        <div class="tl-desc">会員限定ゲートの2段落/200字カット、CAPTCHA可読性向上、連載3階層化、OG画像統一と2,430件一括再生成、フォトスライダーブロック、OGPリンクカード、旧URL3,217件リダイレクトなどを実装。</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  KAZI ONLINE DESIGN GUIDELINE — VER 1.0 (2026.09.16) / <a href="index.html">サイトマップへ戻る</a>
+</footer>
+
+<a href="#top" class="top-link">&uarr;</a>
+
+</body>
+</html>
